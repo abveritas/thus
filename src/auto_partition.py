@@ -303,8 +303,8 @@ class AutoPartition():
         home_part_size = 0
         if self.home:
             # Decide how much we leave to root and how much we leave to /home
-            home_part_size = 0
-            root_part_size = root_part_size - home_part_size
+            root_part_size = disc_size / 1.2
+            home_part_size = disc_size - root_part_size
 
         lvm_pv_part_size = swap_part_size + root_part_size + home_part_size
 
