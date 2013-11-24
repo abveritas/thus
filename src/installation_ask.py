@@ -33,7 +33,6 @@ import bootinfo
 
 import config
 
-#_prev_page = "features"
 _prev_page = "check"
 
 class InstallationAsk(Gtk.Box):
@@ -79,7 +78,9 @@ class InstallationAsk(Gtk.Box):
         self.next_page = "installation_automatic"
 
     def enable_automatic_options(self, status):
-        objects = [ "encrypt_checkbutton", "encrypt_label", "lvm_checkbutton", "lvm_label" ]
+        objects = [ "encrypt_checkbutton", "encrypt_label", \
+                    "lvm_checkbutton", "lvm_label", \
+                    "home_checkbutton", "home_label" ]
         for o in objects:
             ob = self.ui.get_object(o)
             ob.set_sensitive(status)
@@ -105,6 +106,10 @@ class InstallationAsk(Gtk.Box):
             radio.hide()
             label = self.ui.get_object("lvm_label")
             label.hide()
+            radio = self.ui.get_object("home_checkbutton")
+            radio.hide()
+            label = self.ui.get_object("home_label")
+            label.hide()
             radio = self.ui.get_object("alongside_radiobutton")
             radio.hide()
             label = self.ui.get_object("alongside_description")
@@ -128,6 +133,15 @@ class InstallationAsk(Gtk.Box):
         txt = '<span weight="light" size="small">%s</span>' % txt
         label.set_markup(txt)
         label.set_line_wrap(True)
+
+        button = self.ui.get_object("home_checkbutton")
+        txt = _("Set your Home in a different partition/volume")
+        button.set_label(txt)
+
+        label = self.ui.get_object("home_label")
+        txt = _("This will setup you /home directory in a different partition or volume.")
+        txt = '<span weight="light" size="small">%s</span>' % txt
+        label.set_markup(txt)
 
         # alongside is still experimental. Needs a lot of testing.
         radio = self.ui.get_object("alongside_radiobutton")
@@ -155,18 +169,27 @@ class InstallationAsk(Gtk.Box):
         check = self.ui.get_object("lvm_checkbutton")
         use_lvm = check.get_active()
 
+        check = self.ui.get_object("home_checkbutton")
+        use_home = check.get_active()
+
         if self.next_page == "installation_automatic":
             self.settings.set('use_lvm', use_lvm)
             self.settings.set('use_luks', use_luks)
+            self.settings.set('use_home', use_home)
         else:
             self.settings.set('use_lvm', False)
             self.settings.set('use_luks', False)
+            self.settings.set('use_home', False)
 
         if self.settings.get('use_luks'):
             logging.info(_("Manjaro installation will be encrypted"))
 
         if self.settings.get('use_lvm'):
             logging.info(_("Manjaro will be installed using a LVM setup"))
+            if self.settings.get('use_home'):
+                logging.info(_("Manjaro will be installed using a separate /home volume."))
+        elif self.settings.get('use_home'):
+            logging.info(_("Manjaro will be installed using a separate /home partition."))
 
         if self.next_page == "installation_alongside":
             self.settings.set('partition_mode', 'alongside')

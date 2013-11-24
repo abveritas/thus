@@ -35,6 +35,7 @@ import shutil
 import xml.etree.ElementTree as etree
 import urllib.request
 import urllib.error
+import crypt
 import config
 import logging
 import info
@@ -261,11 +262,14 @@ class InstallationProcess(multiprocessing.Process):
                                                     self.auto_device,
                                                     self.settings.get("use_luks"),
                                                     self.settings.get("use_lvm"),
-                                                    self.settings.get("luks_key_pass"))
+                                                    self.settings.get("luks_key_pass"),
+                                                    self.settings.get("use_home"),
+                                                    self.callback_queue)
                 ap.run()
 
-                # Get mount_devices
+                # Get mount_devices and fs_devices
                 # (mount_devices will be used when configuring GRUB in modify_grub_default)
+                # (fs_devices  will be used when configuring the fstab file)
                 self.mount_devices = ap.get_mount_devices()
                 self.fs_devices = ap.get_fs_devices()
             except subprocess.CalledProcessError as e:
@@ -464,7 +468,7 @@ class InstallationProcess(multiprocessing.Process):
             traceback.print_tb(exc_traceback, limit=1, file=sys.stdout)
 
     def chroot_mount_special_dirs(self):
-        # do not remount
+        # Do not remount
         if self.special_dirs_mounted:
             self.queue_event('debug', _("Special dirs already mounted."))
             return
@@ -1375,15 +1379,6 @@ class InstallationProcess(multiprocessing.Process):
                     if 'default_user' in line:
                         line = 'default_user %s\n' % username
                     slim_conf.write(line)
-
-        '''# Setup ufw if it's an user wanted feature
-        if self.settings.get("feature_firewall"):
-            pass
-            # ufw default deny
-            # ufw allow Transmission
-            # ufw enable
-            # systemctl enable ufw.service'''
-
 
         # encrypt home directory if requested
         if self.settings.get('encrypt_home'):

@@ -49,6 +49,7 @@ class Settings():
             'feature_third_party' : False, \
             'force_grub_type' : False, \
             'fullname' : '', \
+            'use_home' : False, \
             'hostname' : 'manjaro', \
             'install_bootloader' : True, \
             'installer_thread_call' : {}, \
@@ -75,7 +76,6 @@ class Settings():
             'tmp' : '/tmp', \
             'thus' : '/usr/share/thus/', \
             'ui' : '/usr/share/thus/ui/', \
-            'use_aria2' : False, \
             'use_luks' : False, \
             'use_lvm' : False, \
             'use_ntp' : True, \
