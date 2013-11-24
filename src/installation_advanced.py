@@ -1541,10 +1541,6 @@ class InstallationAdvanced(Gtk.Box):
                                     logging.info(msg)
                                 else:
                                     logging.error(msg)
-                            if error == 0:
-                                logging.info(msg)
-                            else:
-                                logging.error(msg)
                         elif partition_path in self.orig_label_dic:
                             if self.orig_label_dic[partition_path] != lbl:
                                 if not self.testing:
