@@ -381,9 +381,9 @@ class AutoPartition():
         # Wait until /dev initialized correct devices
         subprocess.check_call(["udevadm", "settle"])
 
-        (boot_device, swap_device, root_device, luks_device, lvm_device) = self.get_devices()
+        (boot_device, swap_device, root_device, luks_device, lvm_device, home_device) = self.get_devices()
 
-        logging.debug("Boot %s, Swap %s, Root %s" % (boot_device, swap_device, root_device))
+        logging.debug("Boot %s, Swap %s, Root %s, Home %s" % (boot_device, swap_device, root_device, home_device))
 
         if self.luks:
             logging.debug("Will setup LUKS on device %s" % luks_device)
