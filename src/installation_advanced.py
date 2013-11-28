@@ -150,9 +150,8 @@ class InstallationAdvanced(Gtk.Box):
         # TODO: get LUKS ready
         partition_encryption_settings = self.ui.get_object('partition_encryption_settings')
         partition_encryption_settings2 = self.ui.get_object('partition_encryption_settings2')
-        if not self.settings.get("use_staging"):
-            partition_encryption_settings.set_visible(False)
-            partition_encryption_settings2.set_visible(False)
+        partition_encryption_settings.set_visible(False)
+        partition_encryption_settings2.set_visible(False)
 
         # Connect changing selection in the partition list treeview
         select = self.partition_list.get_selection()
@@ -1541,10 +1540,6 @@ class InstallationAdvanced(Gtk.Box):
                                     logging.info(msg)
                                 else:
                                     logging.error(msg)
-                            if error == 0:
-                                logging.info(msg)
-                            else:
-                                logging.error(msg)
                         elif partition_path in self.orig_label_dic:
                             if self.orig_label_dic[partition_path] != lbl:
                                 if not self.testing:
