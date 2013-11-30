@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-25 00:15+0100\n"
-"PO-Revision-Date: 2013-11-24 23:24+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2013-11-29 13:06+0000\n"
+"Last-Translator: Ayceman <alexandru.ianu@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/manjaro-thus/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -307,7 +307,7 @@ msgstr "%s este montată în '%s'.\nPentru a continua trebuie sa fie demontată.
 #: src/installation_advanced.py:1367
 #, python-format
 msgid "%s shows as mounted (busy) but it has no mount point"
-msgstr ""
+msgstr "%s apare ca montat (ocupat), dar nu are punct de montare"
 
 #: src/installation_advanced.py:1423
 #, python-format
@@ -351,7 +351,7 @@ msgstr "Manjaro va instala încărcătorul de sistem de tipul %s în %s"
 
 #: src/installation_advanced.py:1606 src/installation_automatic.py:225
 msgid "Testing mode. Thus won't apply any changes to your system!"
-msgstr ""
+msgstr "Mod de testare. Thus nu va aplica nicio schimbare sistemului!"
 
 #: src/installation_alongside.py:111
 #, python-format
@@ -687,7 +687,7 @@ msgstr "Nu se poate schimba localizarea în '%s'"
 #: src/misc.py:930
 #, python-format
 msgid "Can't set locale %s"
-msgstr ""
+msgstr "Nu se poate seta localizarea %s"
 
 #: src/rank_mirrors.py:60
 msgid "In rankmirrors, can't get network status"
@@ -733,7 +733,7 @@ msgstr "Vă rugăm așteptați..."
 
 #: src/slides.py:226
 msgid "Do you want to retry?"
-msgstr ""
+msgstr "Doriți să reîncercați?"
 
 #: src/timezone.py:111
 msgid "Where are you?"
