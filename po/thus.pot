@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-30 12:43+0100\n"
+"POT-Creation-Date: 2013-11-30 13:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -532,222 +532,222 @@ msgstr ""
 msgid "Thus will install the bootloader of type %s in %s"
 msgstr ""
 
-#: src/installation_process.py:90
+#: src/installation_process.py:89
 #, python-format
 msgid "Copying '/%s'"
 msgstr ""
 
-#: src/installation_process.py:165
+#: src/installation_process.py:164
 #, python-format
 msgid "Installing using the '%s' method"
 msgstr ""
 
-#: src/installation_process.py:244
+#: src/installation_process.py:243
 #, python-format
 msgid "Creating partitions and their filesystems in %s"
 msgstr ""
 
-#: src/installation_process.py:266
+#: src/installation_process.py:265
 msgid "Error creating partitions and their filesystems"
 msgstr ""
 
-#: src/installation_process.py:305 src/installation_process.py:328
+#: src/installation_process.py:304 src/installation_process.py:327
 #, python-format
 msgid "Mounting partition %s into %s directory"
 msgstr ""
 
-#: src/installation_process.py:311
+#: src/installation_process.py:310
 #, python-format
 msgid "Mounting partition %s into %s/boot directory"
 msgstr ""
 
-#: src/installation_process.py:316
+#: src/installation_process.py:315
 msgid "Couldn't mount root and boot partitions"
 msgstr ""
 
-#: src/installation_process.py:334
+#: src/installation_process.py:333
 #, python-format
 msgid "Can't mount %s in %s"
 msgstr ""
 
-#: src/installation_process.py:346
+#: src/installation_process.py:345
 #, python-format
 msgid "%s deleted"
 msgstr ""
 
-#: src/installation_process.py:356
+#: src/installation_process.py:355
 msgid "Can't create necessary directories on destination system"
 msgstr ""
 
-#: src/installation_process.py:374
+#: src/installation_process.py:373
 msgid "Installing bootloader..."
 msgstr ""
 
-#: src/installation_process.py:394
+#: src/installation_process.py:393
 msgid "Installation finished successfully."
 msgstr ""
 
-#: src/installation_process.py:460
+#: src/installation_process.py:459
 #, python-format
 msgid "Restoring meta-information on %s"
 msgstr ""
 
-#: src/installation_process.py:475
+#: src/installation_process.py:474
 msgid "Special dirs already mounted."
 msgstr ""
 
-#: src/installation_process.py:502
+#: src/installation_process.py:501
 msgid "Special dirs already not mounted."
 msgstr ""
 
-#: src/installation_process.py:512
+#: src/installation_process.py:511
 #, python-format
 msgid "Unable to umount %s"
 msgstr ""
 
-#: src/installation_process.py:531
+#: src/installation_process.py:530
 #, python-format
 msgid "Error running command: %s"
 msgstr ""
 
-#: src/installation_process.py:593
+#: src/installation_process.py:592
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
 msgstr ""
 
-#: src/installation_process.py:679
+#: src/installation_process.py:678
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
 msgstr ""
 
-#: src/installation_process.py:702 src/installation_process.py:719
+#: src/installation_process.py:701 src/installation_process.py:718
 msgid "ERROR installing GRUB(2) BIOS."
 msgstr ""
 
-#: src/installation_process.py:717
+#: src/installation_process.py:716
 msgid "GRUB(2) BIOS has been successfully installed."
 msgstr ""
 
-#: src/installation_process.py:731
+#: src/installation_process.py:730
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader in %s"
 msgstr ""
 
-#: src/installation_process.py:759
+#: src/installation_process.py:758
 msgid "ERROR installing GRUB(2) configuration file."
 msgstr ""
 
-#: src/installation_process.py:788
+#: src/installation_process.py:787
 msgid "ERROR installing GRUB(2) locale."
 msgstr ""
 
-#: src/installation_process.py:804
+#: src/installation_process.py:803
 #, python-format
 msgid "Error creating password hash for user %s"
 msgstr ""
 
-#: src/installation_process.py:810
+#: src/installation_process.py:809
 #, python-format
 msgid "Error changing password for user %s"
 msgstr ""
 
-#: src/installation_process.py:822
+#: src/installation_process.py:821
 msgid "Setting hooks and modules in mkinitcpio.conf"
 msgstr ""
 
-#: src/installation_process.py:933 src/installation_process.py:944
+#: src/installation_process.py:932 src/installation_process.py:943
 msgid "Configuring your new system"
 msgstr ""
 
-#: src/installation_process.py:936
+#: src/installation_process.py:935
 msgid "fstab file generated."
 msgstr ""
 
-#: src/installation_process.py:942
+#: src/installation_process.py:941
 msgid "Network configuration copied."
 msgstr ""
 
-#: src/installation_process.py:972
+#: src/installation_process.py:971
 msgid "Timezone set."
 msgstr ""
 
-#: src/installation_process.py:992
+#: src/installation_process.py:991
 #, python-format
 msgid "Sudo configuration for user %s done."
 msgstr ""
 
-#: src/installation_process.py:998
+#: src/installation_process.py:997
 #, python-format
 msgid "User %s added."
 msgstr ""
 
-#: src/installation_process.py:1010
+#: src/installation_process.py:1009
 #, python-format
 msgid "Hostname  %s set."
 msgstr ""
 
-#: src/installation_process.py:1014
+#: src/installation_process.py:1013
 msgid "Set the same password to root."
 msgstr ""
 
-#: src/installation_process.py:1020
+#: src/installation_process.py:1019
 msgid "Generating locales..."
 msgstr ""
 
-#: src/installation_process.py:1040
+#: src/installation_process.py:1039
 msgid "Adjusting hardware clock..."
 msgstr ""
 
-#: src/installation_process.py:1046
+#: src/installation_process.py:1045
 msgid "Configuring hardware..."
 msgstr ""
 
-#: src/installation_process.py:1109
+#: src/installation_process.py:1108
 msgid "Set up graphics card..."
 msgstr ""
 
-#: src/installation_process.py:1116
+#: src/installation_process.py:1115
 msgid "Can't execute the MHWD script"
 msgstr ""
 
-#: src/installation_process.py:1122
+#: src/installation_process.py:1121
 msgid "Configure display manager..."
 msgstr ""
 
-#: src/installation_process.py:1221
+#: src/installation_process.py:1220
 msgid "Configure System..."
 msgstr ""
 
-#: src/installation_process.py:1249
+#: src/installation_process.py:1248
 msgid "Removing live configuration (packages)"
 msgstr ""
 
-#: src/installation_process.py:1265
+#: src/installation_process.py:1264
 msgid "Configuring package manager"
 msgstr ""
 
-#: src/installation_process.py:1280
+#: src/installation_process.py:1279
 msgid "Finished configuring package manager."
 msgstr ""
 
-#: src/installation_process.py:1304
+#: src/installation_process.py:1303
 #, python-format
 msgid "%s: Enable automatic login for user %s."
 msgstr ""
 
-#: src/installation_process.py:1383
+#: src/installation_process.py:1382
 msgid "Running mkinitcpio..."
 msgstr ""
 
-#: src/installation_process.py:1386
+#: src/installation_process.py:1385
 msgid "Running mkinitcpio... done"
 msgstr ""
 
-#: src/installation_process.py:1413
+#: src/installation_process.py:1412
 msgid "Encrypting user home dir..."
 msgstr ""
 
-#: src/installation_process.py:1415
+#: src/installation_process.py:1414
 msgid "User home dir encrypted"
 msgstr ""
 
@@ -779,8 +779,8 @@ msgstr ""
 #: src/language.py:85
 msgid ""
 "Thus is pre-release beta software that is under active development. \n"
-"It does not yet properly handle RAID, btrfs subvolumes, or other advanced "
-"setups. Please proceed with caution as data loss is possible! \n"
+"It does not yet properly handle RAID, btrfs subvolumes, or other  \n"
+"advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bugs, please report them at <a href='http://bugs.manjaro."
 "org'>http://bugs.manjaro.org</a>"
