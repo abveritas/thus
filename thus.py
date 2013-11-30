@@ -442,8 +442,6 @@ def init_thus():
         print(str(e))
         sys.exit(2)
 
-    print(options)
-
     for option, arg in options:
         if option in ('-d', '--debug'):
             _log_level = logging.DEBUG

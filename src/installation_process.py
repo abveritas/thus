@@ -858,7 +858,7 @@ class InstallationProcess(multiprocessing.Process):
 
         # run mkinitcpio on the target system
         self.chroot_mount_special_dirs()
-        self.chroot(["/usr/bin/mkinitcpio", "-p", self.kernel_pkg])
+        self.chroot(["/usr/bin/mkinitcpio", "-p", self.kernel])
         self.chroot_umount_special_dirs()
 
     def uncomment_locale_gen(self, locale):

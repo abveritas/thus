@@ -120,11 +120,11 @@ class InstallationAsk(Gtk.Box):
 
         # In case we're coming from an installer screen, we change
         # to go-next stock button and we activate it
-        image1 = Gtk.Image()
-        image1.set_from_icon_name("go-next", Gtk.IconSize.BUTTON)
-        self.forward_button.set_label("")
-        self.forward_button.set_image(image1)
-        self.forward_button.set_sensitive(True)
+        #image1 = Gtk.Image()
+        #image1.set_from_icon_name("go-next", Gtk.IconSize.BUTTON)
+        #self.forward_button.set_label("")
+        #self.forward_button.set_image(image1)
+        #self.forward_button.set_sensitive(True)
 
         # Automatic Install
         radio = self.ui.get_object("automatic_radiobutton")
