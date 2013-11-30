@@ -27,7 +27,6 @@
 """ Installation thread module. Where the real installation happens """
 
 import crypt
-import download
 import info
 import logging
 import multiprocessing
