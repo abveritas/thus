@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-30 14:34+0100\n"
+"POT-Creation-Date: 2013-11-30 15:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,7 +58,7 @@ msgstr ""
 
 #: src/auto_partition.py:290
 #, python-format
-msgid "Cnchi will setup LUKS on device %s"
+msgid "Thus will setup LUKS on device %s"
 msgstr ""
 
 #: src/auto_partition.py:476
@@ -435,13 +435,13 @@ msgid "Encrypt this installation for increased security."
 msgstr ""
 
 #: src/installation_ask.py:144
-msgid "You will be asked to create an encryption password in the next step."
+msgid "You will be asked for the encryption key in the next step."
 msgstr ""
 
 #: src/installation_ask.py:153
 msgid ""
-"This will setup LVM and allow you to easily manage partitions and create "
-"snapshots."
+"This will set up LVM allowing you to make snapshots and change partition "
+"sizes in a straightforward way."
 msgstr ""
 
 #: src/installation_ask.py:158 ui/installation_ask.ui:133
@@ -452,14 +452,9 @@ msgstr ""
 msgid "This will setup you /home directory in a different partition or volume."
 msgstr ""
 
-#: src/installation_ask.py:170
+#: src/installation_ask.py:170 src/installation_ask.py:172
 #, python-format
 msgid "Install Manjaro alongside %s"
-msgstr ""
-
-#: src/installation_ask.py:172
-#, python-format
-msgid "Install Manajro alongside %s"
 msgstr ""
 
 #: src/installation_ask.py:179
@@ -467,11 +462,13 @@ msgid "Manage your partitions and where to install Manjaro (advanced)"
 msgstr ""
 
 #: src/installation_ask.py:182
-msgid "Create, delete partitions and choose additional mount points."
+msgid ""
+"You will be able to create/delete partitions, choose where to install "
+"Manjaro and also choose additional mount points."
 msgstr ""
 
 #: src/installation_ask.py:208
-msgid "Antergos installation will be encrypted using LUKS"
+msgid "Manjaro installation will be encrypted using LUKS"
 msgstr ""
 
 #: src/installation_ask.py:211
@@ -580,11 +577,31 @@ msgid "Can't create necessary directories on destination system"
 msgstr ""
 
 #: src/installation_process.py:373
-msgid "Installing bootloader..."
+msgid "Installing bootloader ..."
 msgstr ""
 
 #: src/installation_process.py:393
 msgid "Installation finished successfully."
+msgstr ""
+
+#: src/installation_process.py:411
+msgid "Base filesystem does not exist! Critical error (exiting)."
+msgstr ""
+
+#: src/installation_process.py:414
+msgid "Desktop filesystem does not exist! Critical error (exiting)."
+msgstr ""
+
+#: src/installation_process.py:430
+msgid "Indexing files to be copied ..."
+msgstr ""
+
+#: src/installation_process.py:435
+msgid "Extracting root-image ..."
+msgstr ""
+
+#: src/installation_process.py:445
+msgid "Extracting desktop-image ..."
 msgstr ""
 
 #: src/installation_process.py:460
@@ -691,19 +708,19 @@ msgid "Set the same password to root."
 msgstr ""
 
 #: src/installation_process.py:1020
-msgid "Generating locales..."
+msgid "Generating locales ..."
 msgstr ""
 
 #: src/installation_process.py:1040
-msgid "Adjusting hardware clock..."
+msgid "Adjusting hardware clock ..."
 msgstr ""
 
 #: src/installation_process.py:1046
-msgid "Configuring hardware..."
+msgid "Configuring hardware ..."
 msgstr ""
 
 #: src/installation_process.py:1109
-msgid "Set up graphics card..."
+msgid "Set up graphics card ..."
 msgstr ""
 
 #: src/installation_process.py:1116
@@ -711,11 +728,11 @@ msgid "Can't execute the MHWD script"
 msgstr ""
 
 #: src/installation_process.py:1122
-msgid "Configure display manager..."
+msgid "Configure display manager ..."
 msgstr ""
 
 #: src/installation_process.py:1221
-msgid "Configure System..."
+msgid "Configure System ..."
 msgstr ""
 
 #: src/installation_process.py:1249
@@ -736,15 +753,15 @@ msgid "%s: Enable automatic login for user %s."
 msgstr ""
 
 #: src/installation_process.py:1383
-msgid "Running mkinitcpio..."
+msgid "Running mkinitcpio ..."
 msgstr ""
 
 #: src/installation_process.py:1386
-msgid "Running mkinitcpio... done"
+msgid "Running mkinitcpio - done"
 msgstr ""
 
 #: src/installation_process.py:1413
-msgid "Encrypting user home dir..."
+msgid "Encrypting user home dir ..."
 msgstr ""
 
 #: src/installation_process.py:1415

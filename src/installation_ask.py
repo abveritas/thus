@@ -141,7 +141,7 @@ class InstallationAsk(Gtk.Box):
         button.set_label(txt)
 
         label = self.ui.get_object("encrypt_label")
-        txt = _("You will be asked to create an encryption password in the next step.")
+        txt = _("You will be asked for the encryption key in the next step.")
         txt = '<span weight="light" size="small">%s</span>' % txt
         label.set_markup(txt)
 
@@ -150,7 +150,7 @@ class InstallationAsk(Gtk.Box):
         button.set_label(txt)
 
         label = self.ui.get_object("lvm_label")
-        txt = _("This will setup LVM and allow you to easily manage partitions and create snapshots.")
+        txt = _("This will set up LVM allowing you to make snapshots and change partition sizes in a straightforward way.")
         txt = '<span weight="light" size="small">%s</span>' % txt
         label.set_markup(txt)
 
@@ -169,7 +169,7 @@ class InstallationAsk(Gtk.Box):
             label = self.ui.get_object("alongside_description")
             radio.set_label(_("Install Manjaro alongside %s") % self.other_os)
 
-            txt = _("Install Manajro alongside %s") % self.other_os
+            txt = _("Install Manjaro alongside %s") % self.other_os
             txt = '<span weight="light" size="small">%s</span>' % txt
             label.set_markup(txt)
             label.set_line_wrap(True)
@@ -179,7 +179,7 @@ class InstallationAsk(Gtk.Box):
         radio.set_label(_("Manage your partitions and where to install Manjaro (advanced)"))
 
         label = self.ui.get_object("advanced_description")
-        txt = _("Create, delete partitions and choose additional mount points.")
+        txt = _("You will be able to create/delete partitions, choose where to install Manjaro and also choose additional mount points.")
         txt = '<span weight="light" size="small">%s</span>' % txt
         label.set_markup(txt)
         label.set_line_wrap(True)
@@ -205,7 +205,7 @@ class InstallationAsk(Gtk.Box):
             self.settings.set('use_home', False)
 
         if self.settings.get('use_luks'):
-            logging.info(_("Antergos installation will be encrypted using LUKS"))
+            logging.info(_("Manjaro installation will be encrypted using LUKS"))
 
         if self.settings.get('use_lvm'):
             logging.info(_("Manjaro will be installed using LVM volumes"))
