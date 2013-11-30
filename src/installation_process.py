@@ -390,7 +390,8 @@ class InstallationProcess(multiprocessing.Process):
             return False
         else:
             # Installation finished successfully
-            self.queue_event(_("Installation finished successfully."))
+            self.queue_event('info', _("Installation finished successfully."))
+            self.queue_event("finished")
             self.running = False
             self.error = False
             return True
