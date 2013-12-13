@@ -135,25 +135,6 @@ class Main(Gtk.Window):
         os.system("mkdir -p /root/.cache/dconf")
         os.system("chmod -R 777 /root/.cache")
 
-        # unmount folders if installer crashed
-        self.dest_dir = "/install"
-        source_dirs = { "source", "source_desktop" }
-        for p in source_dirs:
-            p = os.path.join("/", p)
-            (fsname, fstype, writable) = misc.mount_info(p)
-            if fsname:
-                subprocess.check_call(['umount', p])
-        install_dirs = { "boot", "dev", "proc", "sys", "var" }
-        for p in install_dirs:
-            p = os.path.join(self.dest_dir, p)
-            (fsname, fstype, writable) = misc.mount_info(p)
-            if fsname:
-                subprocess.check_call(['umount', p])
-        # now we can unmount /install
-        (fsname, fstype, writable) = misc.mount_info(self.dest_dir)
-        if fsname:
-            subprocess.check_call(['umount', self.dest_dir])
-
         logging.info(_("Thus installer version %s"), info.THUS_VERSION)
 
         current_process = multiprocessing.current_process()
@@ -293,7 +274,7 @@ class Main(Gtk.Window):
         self.get_window().set_accept_focus(True)
         #self.get_window().set_decorations(Gdk.WMDecoration.BORDER)
 
-        # hide progress bar as it's value is zero
+        # Hide progress bar as it's value is zero
         self.progressbar.set_fraction(0)
         self.progressbar.hide()
         self.progressbar_step = 1.0 / (len(self.pages) - 2)
@@ -346,6 +327,7 @@ class Main(Gtk.Window):
                         self.backwards_button.hide()
 
     def on_backwards_button_clicked(self, widget, data=None):
+        """ Show previous screen """
         prev_page = self.current_page.get_prev_page()
 
         if prev_page != None:
@@ -360,12 +342,17 @@ class Main(Gtk.Window):
             if self.current_page != None:
                 self.current_page.prepare('backwards')
                 self.main_box.add(self.current_page)
+                # Restore "Next" button's text
+                self.forward_button.set_label("gtk-go-forward")
+                self.forward_button.set_sensitive(True)
+                self.forward_button.set_use_stock(True)
 
                 if self.current_page.get_prev_page() == None:
                     # We're at the first page
                     self.backwards_button.hide()
 
 def setup_logging():
+    """ Configure our logger """
     logger = logging.getLogger()
     logger.setLevel(_log_level)
     # Log format
@@ -385,12 +372,13 @@ def setup_logging():
 
 
 def show_help():
+    """ Show Thus command line options """
     print("Thus Manjaro Installer")
     print("Advanced options:")
     print("-d, --debug : Show debug messages")
     print("-g type, --force-grub-type type : force grub type to install, type can be bios, efi, ask or none")
     print("-h, --help : Show this help message")
-    print("-s, --staging : Enable stating options")
+    print("-s, --staging : Enable staging options")
     print("-t, --testing : Do not perform any changes (useful for developers)")
     print("-v, --verbose : Show logging messages to stdout")
 
@@ -406,8 +394,8 @@ def check_gtk_version():
     minor = Gtk.get_minor_version()
     micro = Gtk.get_micro_version()
 
-    # Cnchi will be called from our liveCD that already has the latest GTK version
-    # This is here just to help testing Cnchi in our environment.
+    # Thus will be called from our liveCD that already has the latest GTK version
+    # This is here just to help testing Thus in our environment.
     if major_needed > major or (major_needed == major and minor_needed > minor) or \
       (major_needed == major and minor_needed == minor and micro_needed > micro):
         print("Detected GTK %d.%d.%d but %s is needed. Can't run this installer." \
@@ -426,15 +414,18 @@ def init_thus():
     global _force_update
     global _log_level
     global _update
+    global _use_staging
     global _verbose
-    global _staging
     global _testing
 
-    # Check program args
-    argv = sys.argv[1:]
+    if not check_gtk_version():
+        sys.exit(1)
+
+    # Check program arguments
+    arguments_vector = sys.argv[1:]
 
     try:
-        options, args = getopt.getopt(argv, "dstuvg:h",
+        options, arguments = getopt.getopt(arguments_vector, "dstuvg:h",
          ["debug", "staging", "testing", "update", "verbose", \
           "force-grub=", "help"])
     except getopt.GetoptError as e:
@@ -442,25 +433,25 @@ def init_thus():
         print(str(e))
         sys.exit(2)
 
-    for option, arg in options:
+    for option, argument in options:
         if option in ('-d', '--debug'):
             _log_level = logging.DEBUG
-        elif option in ('-v', '--verbose'):
-            _verbose = True
+        elif option in ('-g', '--force-grub-type'):
+            if argument in ('bios', 'efi', 'ask', 'none'):
+                _force_grub_type = argument
+        elif option in ('-h', '--help'):
+            show_help()
+            sys.exit(0)
         elif option in ('-s', '--staging'):
             _use_staging = True
         elif option in ('-t', '--testing'):
             _testing = True
         elif option in ('-u', '--update'):
             _update = True
-        elif option in ('-g', '--force-grub-type'):
-            if arg in ('bios', 'efi', 'ask', 'none'):
-                _force_grub_type = arg
-        elif option in ('-h', '--help'):
-            show_help()
-            sys.exit(0)
+        elif option in ('-v', '--verbose'):
+            _verbose = True
         else:
-            assert False, "unhandled option"
+            assert False, "Unhandled option"
 
     if _update:
         setup_logging()
@@ -472,10 +463,10 @@ def init_thus():
             remove_temp_files()
             if not _force_update:
                 print("Program updated! Restarting...")
-                # Run another instance of Cnchi (which will be the new version)
+                # Run another instance of Thus (which will be the new version)
                 os.execl(sys.executable, *([sys.executable] + sys.argv))
             else:
-                print("Program updated! Please restart Cnchi.")
+                print("Program updated! Please restart Thus.")
 
             # Exit and let the new instance do all the hard work
             sys.exit(0)

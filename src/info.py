@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 #  info.py
@@ -25,7 +26,7 @@
 
 """ Set some Thus global constants """
 
-THUS_VERSION = "0.8.8.0.901"
+THUS_VERSION = "0.8.8.0.905"
 THUS_LAST_STABLE = "0.8.8"
 THUS_WEBSITE = "http://www.manjaro.org"
 THUS_AUTHORS = "philm,  toudi, faidoc, karasu, skinner, arcnexus, omelchek"

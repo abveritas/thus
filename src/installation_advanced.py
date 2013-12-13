@@ -1234,13 +1234,13 @@ class InstallationAdvanced(Gtk.Box):
         if tree_iter == None:
             return
 
-        path = model[tree_iter][0]
+        disk_path = model[tree_iter][0]
 
         # Be sure to just call get_devices once
         if self.disks == None:
             self.disks = pm.get_devices()
 
-        disk_sel = self.disks[path]
+        disk_sel = self.disks[disk_path]
 
         dialog = self.ui.get_object("create_table_dialog")
         response = dialog.run()
@@ -1255,15 +1255,87 @@ class InstallationAdvanced(Gtk.Box):
                 if "GPT" in line:
                     ptype = 'gpt'
 
-                logging.info(_("Creating a new partition table of type %s for disk %s") % (ptype, path))
+                logging.info(_("Creating a new partition table of type %s for disk %s") % (ptype, disk_path))
                 # remove debug, this doesn't actually do anything...
-                new_disk = pm.make_new_disk(path, ptype)
-                self.disks[path] = new_disk
+                new_disk = pm.make_new_disk(disk_path, ptype)
+                self.disks[disk_path] = new_disk
 
                 self.fill_grub_device_entry()
                 self.fill_partition_list()
 
+                if ptype == 'gpt' and not os.path.exists("/sys/firmware/efi/systab"):
+                    # Show warning (see https://github.com/Antergos/Cnchi/issues/63)
+                    show.warning(_('GRUB requires a BIOS Boot Partition (2 MiB, no filesystem, "EF02" type code in gdisk '
+                        'or "bios_grub" flag in GNU Parted) in BIOS systems to embed its core.img file due to lack of '
+                        'post-MBR embed gap in GPT disks.\n\n'
+                        'Thus will create this special partition for you now.'))
+                    self.create_bios_gpt_boot_partition(disk_path)
+
         dialog.hide()
+
+    def create_bios_gpt_boot_partition(self, disk_path):
+        """ Create an unformatted partition with no filesystem and with a bios_grub flag on. """
+        # It won't be formated
+        formatme = False
+
+        part_type = pm.PARTITION_FREESPACE
+
+        self.disks_changed.append(disk_path)
+
+        # Be sure to just call get_devices once
+        if self.disks == None:
+            self.disks = pm.get_devices()
+
+        disk = self.disks[disk_path]
+        dev = disk.device
+
+        #partitions = pm.get_partitions(disk)
+        #p = partitions[partition_path]
+
+        # Get how many primary partitions are already created on disk
+        if disk.primaryPartitionCount > 0:
+            # BIOS GPT Boot partition must be the first one on the disk
+            installation_process.queue_fatal_event(_("Can't create BIOS GPT Boot partition!"))
+            return
+
+        #max_size_mb = int((p.geometry.length * dev.sectorSize) / 1000000) + 1
+
+        mylabel = "BIOS_GPT_BOOT"
+
+        mymount = ""
+        myfmt = ""
+
+        # Size must be 2MiB
+        size = 2
+
+        beg_var = True
+
+        start_sector = p.geometry.start
+        end_sector = p.geometry.end
+        geometry = pm.geom_builder(disk, start_sector,
+                                   end_sector, size, beg_var)
+
+        part = pm.create_partition(disk, pm.PARTITION_PRIMARY, geometry)
+
+        (res, err) = pm.set_flag(pm.PED_PARTITION_BIOS_GRUB, part)
+
+        if res:
+            installation_process.queue_fatal_event(err)
+
+        # Store stage partition info in self.stage_opts
+        old_parts = []
+        for y in self.all_partitions:
+            for z in y:
+                old_parts.append(z)
+
+        partitions = pm.get_partitions(disk)
+        for e in partitions:
+            if e not in old_parts:
+                uid = self.gen_partition_uid(p=partitions[e])
+                self.stage_opts[uid] = (True, mylabel, mymount, myfmt, formatme)
+
+        # Update partition list treeview
+        self.fill_partition_list()
 
     def on_partition_list_lvm_activate(self, button):
         pass
@@ -1501,7 +1573,7 @@ class InstallationAdvanced(Gtk.Box):
     def get_prev_page(self):
         """ Tell which one is our previous page (in our case installation_ask) """
         return _prev_page
-    
+
     def get_next_page(self):
         """ Tell which one is our next page """
         return _next_page
@@ -1532,10 +1604,10 @@ class InstallationAdvanced(Gtk.Box):
                         (is_new, lbl, mnt, fisy, fmt) = self.stage_opts[uid]
                         logging.info(_("Creating %s filesystem in %s labeled %s") % (fisy, partition_path, lbl))
                         if ((mnt == '/' and noboot) or mnt == '/boot') and ('/dev/mapper' not in partition_path):
-                            if not pm.get_flag(partitions[partition_path], 1):
-                                x = pm.set_flag(1, partitions[partition_path])
-                                if not self.testing:
-                                    pm.finalize_changes(partitions[partition_path].disk)
+                            if not pm.get_flag(partitions[partition_path], pm.PED_PARTITION_BOOT):
+                                (res, err) = pm.set_flag(pm.PED_PARTITION_BOOT, partitions[partition_path])
+                            if not self.testing:
+                                pm.finalize_changes(partitions[partition_path].disk)
                         if "/dev/mapper" in partition_path:
                             pvs = lvm.get_lvm_partitions()
                             vgname = partition_path.split("/")[-1]
@@ -1544,10 +1616,15 @@ class InstallationAdvanced(Gtk.Box):
                                 self.blvm = True
                                 for ee in pvs[vgname]:
                                     print(partitions)
-                                    if not pm.get_flag(partitions[ee], 1):
-                                        x = pm.set_flag(1, partitions[ee])
+                                    if not pm.get_flag(partitions[ee], pm.PED_PARTITION_BOOT):
+                                        x = pm.set_flag(pm.PED_PARTITION_BOOT, partitions[ee])
                                 if not self.testing:
                                     pm.finalize_changes(partitions[ee].disk)
+
+                        #if "swap" in fisy:
+                        #    (res, err) = pm.set_flag(pm.PED_PARTITION_SWAP, partitions[partition_path])
+                        #    pm.finalize_changes(partitions[partition_path].disk)
+
                         # Only format if they want formatting
                         if fmt:
                             # All of fs module takes paths, not partition objs
@@ -1556,7 +1633,7 @@ class InstallationAdvanced(Gtk.Box):
                                 if error == 0:
                                     logging.info(msg)
                                 else:
-                                    logging.error(msg)
+                                    installation_process.queue_fatal_event(msg)
                         elif partition_path in self.orig_label_dic:
                             if self.orig_label_dic[partition_path] != lbl:
                                 if not self.testing:

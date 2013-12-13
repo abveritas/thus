@@ -40,7 +40,7 @@ NM = 'org.freedesktop.NetworkManager'
 NM_STATE_CONNECTED_GLOBAL = 70
 UPOWER = 'org.freedesktop.UPower'
 UPOWER_PATH = '/org/freedesktop/UPower'
-MIN_ROOT_SIZE = 5000000000
+MIN_ROOT_SIZE = 6000000000
 
 _next_page = "installation_ask"
 _prev_page = "location"
@@ -63,7 +63,7 @@ class Check(Gtk.Box):
         self.ui.connect_signals(self)
 
         self.remove_timer = False
-        
+
         self.thread = None
 
         self.third_party_info = None
@@ -82,7 +82,7 @@ class Check(Gtk.Box):
         self.title.set_markup(txt)
 
         self.prepare_enough_space = self.ui.get_object("prepare_enough_space")
-        txt = _("has at least %dGB available storage space" % int(MIN_ROOT_SIZE / 1000000000))
+        txt = _("has at least %dGB available storage space") % int(MIN_ROOT_SIZE / 1000000000)
         self.prepare_enough_space.props.label = txt
 
         self.prepare_power_source = self.ui.get_object("prepare_power_source")
@@ -129,7 +129,7 @@ class Check(Gtk.Box):
         if self.has_battery():
             bus = dbus.SystemBus()
             upower = bus.get_object(UPOWER, UPOWER_PATH)
-            return self.get_prop(upower, UPOWER_PATH, 'OnBattery')
+            return misc.get_prop(upower, UPOWER_PATH, 'OnBattery')
 
         return False
 
