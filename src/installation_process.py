@@ -274,12 +274,11 @@ class InstallationProcess(multiprocessing.Process):
             root_partition = self.mount_devices["/"]
 
             # NOTE: Advanced method formats root by default in installation_advanced
-            '''
-            if root_partition in self.fs_devices:
-                root_fs = self.fs_devices[root_partition]
-            else:
-                root_fs = "ext4"
-            '''
+
+            #if root_partition in self.fs_devices:
+            #    root_fs = self.fs_devices[root_partition]
+            #else:
+            #    root_fs = "ext4"
 
             if "/boot" in self.mount_devices:
                 boot_partition = self.mount_devices["/boot"]
@@ -729,17 +728,6 @@ class InstallationProcess(multiprocessing.Process):
 
         self.modify_grub_default()
 
-        self.chroot_mount_special_dirs()
-
-        self.chroot(['grub-install', \
-                  '--directory=/usr/lib/grub/i386-pc', \
-                  '--target=i386-pc', \
-                  '--boot-directory=/boot', \
-                  '--recheck', \
-                  grub_device])
-
-        self.chroot_umount_special_dirs()
-
         grub_d_dir = os.path.join(self.dest_dir, "etc/grub.d")
 
         if not os.path.exists(grub_d_dir):
@@ -758,7 +746,16 @@ class InstallationProcess(multiprocessing.Process):
 
         locale = self.settings.get("locale")
         self.chroot_mount_special_dirs()
-        self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o /boot/grub/grub.cfg' % locale])
+        #self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o /boot/grub/grub.cfg' % locale])
+        self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig > /boot/grub/grub.cfg' % locale])
+
+        self.chroot(['grub-install', \
+                  '--directory=/usr/lib/grub/i386-pc', \
+                  '--target=i386-pc', \
+                  '--boot-directory=/boot', \
+                  '--recheck', \
+                  grub_device])
+
         self.chroot_umount_special_dirs()
 
         core_path = os.path.join(self.dest_dir, "boot/grub/i386-pc/core.img")
@@ -781,12 +778,11 @@ class InstallationProcess(multiprocessing.Process):
 
         self.modify_grub_default()
 
-        self.chroot_mount_special_dirs()
-
+        # grub2-efi installation isn't done in a chroot because when efibootmgr
+        # runs it doesn't detect a uefi environment and fails to add a new uefi
+        # boot entry.
         subprocess.check_call(['grub-install --target=%s-efi --efi-directory=/install/boot/efi --bootloader-id=manjaro_grub '
-      '--boot-directory=/install/boot --recheck' % uefi_arch], shell=True)
-
-        self.chroot_umount_special_dirs()
+            '--boot-directory=/install/boot --recheck' % uefi_arch], shell=True)
 
         self.install_bootloader_grub2_locales()
 
@@ -794,6 +790,28 @@ class InstallationProcess(multiprocessing.Process):
         self.chroot_mount_special_dirs()
         self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o /boot/grub/grub.cfg' % locale])
         self.chroot_umount_special_dirs()
+
+        # TODO: Create a boot entry for Manjaro in the UEFI boot manager (is this necessary?)
+
+        #grub_cfg = "%s/boot/grub/grub.cfg" % self.dest_dir
+        #grub_standalone = "%s/boot/efi/EFI/manjaro_grub/grub%s_standalone.cfg" % (self.dest_dir, spec_uefi_arch)
+        #try:
+        #    shutil.copy2(grub_cfg, grub_standalone)
+        #except FileNotFoundError:
+        #    self.queue_event('warning', _("ERROR installing GRUB(2) configuration file."))
+        #    return
+        #except FileExistsError:
+        #    # ignore if already exists
+        #    pass
+        #
+        #self.chroot_mount_special_dirs()
+        #self.chroot(['grub-mkstandalone', \
+        #          '--directory=/usr/lib/grub/%s-efi' % uefi_arch, \
+        #          '--format=%s-efi' % uefi_arch, \
+        #          '--compression="xz"', \
+        #          '--output="/boot/efi/EFI/manjaro_grub/grub%s_standalone.efi' % spec_uefi_arch, \
+        #          'boot/grub/grub.cfg'])
+        #self.chroot_umount_special_dirs()
 
     def install_bootloader_grub2_locales(self):
         """ Install Grub2 locales """
@@ -809,11 +827,11 @@ class InstallationProcess(multiprocessing.Process):
         except FileNotFoundError:
             self.queue_event('warning', _("ERROR installing GRUB(2) locale."))
         except FileExistsError:
-            # ignore if already exists
+            # Ignore if already exists
             pass
 
     def enable_services(self, services):
-        """ Enables all services that are in the list services """
+        """ Enables all services that are in the list 'services' """
         for name in services:
             self.chroot(['systemctl', 'enable', name + ".service"])
             self.queue_event('debug', _('Enabled %s service.') % name)

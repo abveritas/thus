@@ -27,7 +27,9 @@
 import os
 import subprocess
 import logging
-import time
+#import time
+
+""" AutoPartition class """
 
 # Partition sizes are in MB
 MAX_ROOT_SIZE = 30000
@@ -93,9 +95,9 @@ def unmount_all(dest_dir):
             subprocess.check_call(["vgremove", "-f", "ManjaroVG"])
         pvolumes = check_output("pvs -o pv_name --noheading").split("\n")
         if len(pvolumes[0]) > 0:
-            for pv in pvolumes:
-                pv = pv.strip(" ")
-                subprocess.check_call(["pvremove", "-f", pv])
+            for pvolume in pvolumes:
+                pvolume = pvolume.strip(" ")
+                subprocess.check_call(["pvremove", "-f", pvolume])
     except subprocess.CalledProcessError as err:
         logging.warning(_("Can't delete existent LVM volumes (see below)"))
         logging.warning(err)
@@ -169,7 +171,10 @@ class AutoPartition(object):
                 logging.error(e.output)
                 return
 
-            time.sleep(4)
+            #time.sleep(4)
+
+            # Flush file system buffers
+            subprocess.check_call(["sync"])
 
             # Create our mount directory
             path = self.dest_dir + mount_point
@@ -242,7 +247,7 @@ class AutoPartition(object):
             swap = "/dev/ManjaroVG/ManjaroSwap"
             root = "/dev/ManjaroVG/ManjaroRoot"
             if self.home:
-                home = "/dev/antergosVG/ManjaroHome"
+                home = "/dev/ManjaroVG/ManjaroHome"
 
         return (efi, boot, swap, root, luks, lvm, home)
 
@@ -315,19 +320,21 @@ class AutoPartition(object):
             subprocess.check_call(["dd", "if=/dev/urandom", "of=%s" % key_file, "bs=1024", "count=4", "status=noxfer"])
 
             # Set up luks with a keyfile
-            subprocess.check_call(["cryptsetup", "luksFormat", "-q", "-c", "aes-xts-plain", "-s", "512", luks_device, key_file])
-            subprocess.check_call(["cryptsetup", "luksOpen", luks_device, luks_name, "-q", "--key-file", key_file])
+            subprocess.check_call(["cryptsetup", "luksFormat", "-q", "-c", "aes-xts-plain", "-s", "512",
+                luks_device, key_file])
+            subprocess.check_call(["cryptsetup", "luksOpen", luks_device, luks_name, "-q", "--key-file",
+                key_file])
         else:
             # Set up luks with a password key
             luks_key_pass_bytes = bytes(self.luks_key_pass, 'UTF-8')
 
-            p = subprocess.Popen(["cryptsetup", "luksFormat", "-q", "-c", "aes-xts-plain", "-s", "512",
+            proc = subprocess.Popen(["cryptsetup", "luksFormat", "-q", "-c", "aes-xts-plain", "-s", "512",
                 "--key-file=-", luks_device], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
-            p.communicate(input=luks_key_pass_bytes)[0]
+            (stdout_data, stderr_data) = proc.communicate(input=luks_key_pass_bytes)[0]
 
-            p = subprocess.Popen(["cryptsetup", "luksOpen", luks_device, luks_name, "-q", "--key-file=-"],
+            proc = subprocess.Popen(["cryptsetup", "luksOpen", luks_device, luks_name, "-q", "--key-file=-"],
                 stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
-            p.communicate(input=luks_key_pass_bytes)[0]
+            (stdout_data, stderr_data) = proc.communicate(input=luks_key_pass_bytes)[0]
 
     def run(self):
         key_files = ["/tmp/.keyfile-root", "/tmp/.keyfile-home"]
@@ -413,26 +420,43 @@ class AutoPartition(object):
             subprocess.check_call(["dd", "if=/dev/zero", "of=%s" % device, "bs=512", "count=2048", "status=noxfer"])
             subprocess.check_call(["wipefs", "-a", device])
             # Create fresh GPT
+            #subprocess.check_call(["sgdisk", "--clear", device])
             subprocess.check_call(['sgdisk --clear %s' % device], shell=True)
             # Create actual partitions
+            #subprocess.check_call(['sgdisk', '--set-alignment="2048"', '--new=1:1M:+%dM' % gpt_bios_grub_part_size,
+            #    '--typecode=1:EF02', '--change-name=1:BIOS_GRUB', device])
+            #subprocess.check_call(['sgdisk', '--set-alignment="2048"', '--new=2:0:+%dM' % uefisys_part_size,
+            #    '--typecode=2:EF00', '--change-name=2:UEFI_SYSTEM', device])
+            #subprocess.check_call(['sgdisk', '--set-alignment="2048"', '--new=3:0:+%dM' % boot_part_size,
+            #    '--typecode=3:8300', '--attributes=3:set:2', '--change-name=3:MANJARO_BOOT', device])
+
             subprocess.check_call(['sgdisk --set-alignment="2048" --new=1:1M:+%dM --typecode=1:EF02 --change-name=1:BIOS_GRUB %s'
-          % (gpt_bios_grub_part_size, device)], shell=True)
+                % (gpt_bios_grub_part_size, device)], shell=True)
             subprocess.check_call(['sgdisk --set-alignment="2048" --new=2:0:+%dM --typecode=2:EF00 --change-name=2:UEFI_SYSTEM %s'
-          % (uefisys_part_size, device)], shell=True)
+                % (uefisys_part_size, device)], shell=True)
             subprocess.check_call(['sgdisk --set-alignment="2048" --new=3:0:+%dM --typecode=3:8300 --attributes=3:set:2 --change-name=3:MANJARO_BOOT %s'
-          % (boot_part_size, device)], shell=True)
+                % (boot_part_size, device)], shell=True)
 
             if self.lvm:
+                #subprocess.check_call(['sgdisk', '--set-alignment="2048"', '--new=4:0:+%dM' % lvm_pv_part_size,
+                #    '--typecode=4:8200', '--change-name=4:MANJARO_LVM', device])
                 subprocess.check_call(['sgdisk --set-alignment="2048" --new=4:0:+%dM --typecode=4:8E00 --change-name=4:MANJARO_LVM %s'
-          % (lvm_pv_part_size, device)], shell=True)
+                    % (lvm_pv_part_size, device)], shell=True)
             else:
+                #subprocess.check_call(['sgdisk', '--set-alignment="2048"', '--new=4:0:+%dM' % swap_part_size,
+                #    '--typecode=4:8200', '--change-name=4:MANJARO_SWAP', device])
+                #subprocess.check_call(['sgdisk', '--set-alignment="2048"', '--new=5:0:+%dM' % root_part_size,
+                #    ' --typecode=5:8300', '--change-name=5:MANJARO_ROOT', device])
                 subprocess.check_call(['sgdisk --set-alignment="2048" --new=4:0:+%dM --typecode=4:8200 --change-name=4:MANJARO_SWAP %s'
-          % (swap_part_size, device)], shell=True)
+                    % (swap_part_size, device)], shell=True)
                 subprocess.check_call(['sgdisk --set-alignment="2048" --new=5:0:+%dM --typecode=5:8300 --change-name=5:MANJARO_ROOT %s'
-          % (root_part_size, device)], shell=True)
+                    % (root_part_size, device)], shell=True)
+
                 if self.home:
+                    #subprocess.check_call(['sgdisk', '--set-alignment="2048"', '--new=6:0:+%dM' % home_part_size,
+                    #    ' --typecode=6:8300', '--change-name=5:MANJARO_HOME', device])
                     subprocess.check_call(['sgdisk --set-alignment="2048" --new=6:0:+%dM --typecode=6:8300 --change-name=5:MANJARO_HOME %s'
-              % (home_part_size, device)], shell=True)
+                        % (home_part_size, device)], shell=True)
 
             logging.debug(check_output("sgdisk --print %s" % device))
         else:
@@ -454,26 +478,33 @@ class AutoPartition(object):
                 end = start + lvm_pv_part_size
                 # Create partition for lvm (will store root, swap and home (if desired) logical volumes)
                 subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary", str(start), "100%"])
+                # Set lvm flag
+                subprocess.check_call(["parted", "-a", "optimal", "-s", device, "set", "2", "lvm", "on"])
             else:
                 # Create swap partition
                 start = boot_part_size
                 end = start + swap_part_size
-                subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary", str(start), str(end)])
+                subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary", "linux-swap",
+                    str(start), str(end)])
+                subprocess.check_call(["parted", "-a", "optimal", "-s", device, "set", "2", "swap", "on"])
 
                 # Create root partition
                 start = end
                 end = start + root_part_size
-                subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary", str(start), str(end)])
+                subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary",
+                    str(start), str(end)])
+                subprocess.check_call(["parted", "-a", "optimal", "-s", device, "set", "3", "root", "on"])
 
                 if self.home:
                     # Create home partition
                     start = end
-                    subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary", str(start), "100%"])
+                    subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary",
+                        str(start), "100%"])
 
         printk(True)
 
         # Wait until /dev initialized correct devices
-        subprocess.check_call(["udevadm", "settle"])
+        subprocess.check_call(["udevadm", "settle", "--quiet"])
 
         (efi_device, boot_device, swap_device, root_device, luks_devices, lvm_device, home_device) = self.get_devices()
 
@@ -492,31 +523,30 @@ class AutoPartition(object):
                 self.setup_luks(luks_devices[1], "cryptManjaroHome", key_files[1])
 
         if self.lvm:
-            # /dev/sdX1 is /boot
-            # /dev/sdX2 is the PV
-
             logging.debug(_("Will setup LVM on device %s"), lvm_device)
 
-            subprocess.check_call(["pvcreate", "-ff", "-y", lvm_device])
-            subprocess.check_call(["vgcreate", "-ff", "-y", "ManjaroVG", lvm_device])
+            subprocess.check_call(["pvcreate", "-f", "-y", lvm_device])
+            subprocess.check_call(["vgcreate", "-f", "-y", "ManjaroVG", lvm_device])
 
-            subprocess.check_call(["lvcreate", "-n", "ManjaroRoot", "-L", str(int(root_part_size)), "ManjaroVG"])
+            subprocess.check_call(["lvcreate", "--name", "ManjaroRoot", "--size", str(int(root_part_size)), "ManjaroVG"])
 
             if not self.home:
                 # Use the remainig space for our swap volume
-                subprocess.check_call(["lvcreate", "-n", "ManjaroSwap", "-l", "100%FREE", "ManjaroVG"])
+                subprocess.check_call(["lvcreate", "--name", "ManjaroSwap", "--extents", "100%FREE", "ManjaroVG"])
             else:
-                subprocess.check_call(["lvcreate", "-n", "ManjaroSwap", "-L", str(int(swap_part_size)), "ManjaroVG"])
+                subprocess.check_call(["lvcreate", "--name", "ManjaroSwap", "--size", str(int(swap_part_size)), "ManjaroVG"])
                 # Use the remainig space for our home volume
-                subprocess.check_call(["lvcreate", "-n", "ManjaroHome", "-l", "100%FREE", "ManjaroVG"])
+                subprocess.check_call(["lvcreate", "--name", "ManjaroHome", "--extents", "100%FREE", "ManjaroVG"])
 
         # Make sure the "root" partition is defined first!
         self.mkfs(root_device, "ext4", "/", "ManjaroRoot")
         self.mkfs(swap_device, "swap", "", "ManjaroSwap")
         self.mkfs(boot_device, "ext2", "/boot", "ManjaroBoot")
+
         # Format the EFI partition
         if self.uefi:
             self.mkfs(efi_device, "vfat", "/boot/efi", "ManjaroEFI")
+
         if self.home:
             self.mkfs(home_device, "ext4", "/home", "ManjaroHome")
 
@@ -529,25 +559,25 @@ class AutoPartition(object):
                 if self.luks_key_pass != "":
                     home_keyfile = "none"
                 else:
-                    home_keyfile = key_file[1]
+                    home_keyfile = key_files[1]
                 fname = os.path.join(self.dest_dir, "etc")
                 subprocess.check_call(["mkdir", "-p", fname])
                 fname = os.path.join(self.dest_dir, "etc/crypttab")
                 with open(fname, "a") as crypttab:
                     line = "cryptManjaroHome %s %s luks" % (luks_devices[1], home_keyfile)
                     crypttab.write(line)
-                    logging.debug("Added %s to /etc/crypttab" % line)
+                    logging.debug("Added %s to /etc/crypttab", line)
 
             if self.luks_key_pass == "":
                 # Copy keyfile to boot partition, user will choose what to do with it
                 # THIS IS NONSENSE (BIG SECURITY HOLE), BUT WE TRUST THE USER TO FIX THIS
                 # User shouldn't store the keyfiles unencrypted unless the medium itself is reasonably safe
                 # (boot partition is not)
-                subprocess.check_call(['chmod', '0400', key_file[0]])
-                subprocess.check_call(['mv', key_file[0], '%s/boot' % self.dest_dir])
+                subprocess.check_call(['chmod', '0400', key_files[0]])
+                subprocess.check_call(['mv', key_files[0], '%s/boot' % self.dest_dir])
                 if self.home and not self.lvm:
-                    subprocess.check_call(['chmod', '0400', key_file[1]])
-                    subprocess.check_call(['mv', key_file[1], '%s/boot' % self.dest_dir])
+                    subprocess.check_call(['chmod', '0400', key_files[1]])
+                    subprocess.check_call(['mv', key_files[1], '%s/boot' % self.dest_dir])
 
 if __name__ == '__main__':
     logger = logging.getLogger()
