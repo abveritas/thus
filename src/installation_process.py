@@ -523,7 +523,7 @@ class InstallationProcess(multiprocessing.Process):
             self.queue_event('debug', _("Special dirs already mounted."))
             return
 
-        special_dirs = [ "sys", "proc", "dev" ]
+        special_dirs = [ "sys", "proc", "dev/pts", "dev" ]
         for s_dir in special_dirs:
             mydir = os.path.join(self.dest_dir, s_dir)
             if not os.path.exists(mydir):
@@ -531,15 +531,19 @@ class InstallationProcess(multiprocessing.Process):
 
         mydir = os.path.join(self.dest_dir, "sys")
 
-        subprocess.check_call(["mount", "-t", "sysfs", "sysfs", mydir])
+        subprocess.check_call(["mount", "-t", "sysfs", "/sys", mydir])
         subprocess.check_call(["chmod", "555", mydir])
 
         mydir = os.path.join(self.dest_dir, "proc")
-        subprocess.check_call(["mount", "-t", "proc", "proc", mydir])
+        subprocess.check_call(["mount", "-t", "proc", "/proc", mydir])
         subprocess.check_call(["chmod", "555", mydir])
 
         mydir = os.path.join(self.dest_dir, "dev")
         subprocess.check_call(["mount", "-o", "bind", "/dev", mydir])
+
+        mydir = os.path.join(self.dest_dir, "dev/pts")
+        subprocess.check_call(["mount", "-t", "devpts", "/dev/pts", mydir])
+        subprocess.check_call(["chmod", "555", mydir])
 
         self.special_dirs_mounted = True
 
@@ -547,10 +551,10 @@ class InstallationProcess(multiprocessing.Process):
         """ Umount special directories for our chroot """
         # Do not umount if they're not mounted
         if not self.special_dirs_mounted:
-            self.queue_event('debug', _("Special dirs already not mounted."))
+            self.queue_event('debug', _("Special dirs are not mounted. Skipping."))
             return
 
-        special_dirs = [ "proc", "sys", "dev" ]
+        special_dirs = [ "proc", "sys", "dev/pts", "dev" ]
 
         for s_dir in special_dirs:
             mydir = os.path.join(self.dest_dir, s_dir)
