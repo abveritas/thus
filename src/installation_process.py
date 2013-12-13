@@ -645,6 +645,10 @@ class InstallationProcess(multiprocessing.Process):
                 logging.debug(_("Added to fstab : UUID=%s %s %s %s 0 %s"), uuid, path, myfmt, opts, chk)
                 continue
 
+            # fstab uses vfat to mount fat16 and fat32 partitions
+            if "fat" in myfmt:
+                myfmt = 'vfat'
+
             # Avoid adding a partition to fstab when
             # it has no mount point (swap has been checked before)
             if path == "":
