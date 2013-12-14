@@ -29,7 +29,7 @@
 THUS_VERSION = "0.8.8.0.906"
 THUS_LAST_STABLE = "0.8.8"
 THUS_WEBSITE = "http://www.manjaro.org"
-THUS_AUTHORS = "philm,  toudi, rbuldo, faidoc, karasu, skinner, arcnexus, omelchek"
+THUS_AUTHORS = "philm, toudi, rbuldo, faidoc, karasu, skinner, arcnexus, omelchek"
 THUS_LICENSE = '''
     Thus is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

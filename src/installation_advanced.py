@@ -115,9 +115,7 @@ class InstallationAdvanced(Gtk.Box):
         combo = self.ui.get_object('partition_types_combo')
         combo.remove_all()
         combo.append_text("msdos (aka MBR)")
-        # TODO: get GPT ready (see also: https://github.com/Antergos/Cnchi/issues/63
-        if self.settings.get("use_staging"):
-            combo.append_text("GUID Partition Table (GPT)")
+        combo.append_text("GUID Partition Table (GPT)")
 
         # Automatically select first entry
         self.select_first_combobox_item(combo)
@@ -1295,8 +1293,10 @@ class InstallationAdvanced(Gtk.Box):
         disk = self.disks[disk_path]
         dev = disk.device
 
-        #partitions = pm.get_partitions(disk)
-        #p = partitions[partition_path]
+        partitions = pm.get_partitions(disk)
+        partition_list = pm.order_partitions(partitions)
+        for partition_path in partition_list:
+            p = partitions[partition_path]
 
         # Get how many primary partitions are already created on disk
         if disk.primaryPartitionCount > 0:
