@@ -546,7 +546,7 @@ class AutoPartition(object):
 
         # Format the EFI partition
         if self.uefi:
-            self.mkfs(efi_device, "vfat", "/boot/efi", "ManjaroEFI")
+            self.mkfs(efi_device, "vfat", "/boot/efi", "UEFI_SYSTEM")
 
         if self.home:
             self.mkfs(home_device, "ext4", "/home", "ManjaroHome")
