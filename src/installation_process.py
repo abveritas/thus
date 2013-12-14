@@ -754,14 +754,15 @@ class InstallationProcess(multiprocessing.Process):
         except FileExistsError:
             pass
 
-        self.install_bootloader_grub2_locales()
-
-        locale = self.settings.get("locale")
         self.chroot_mount_special_dirs()
-        self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o /boot/grub/grub.cfg' % locale])
+
         self.chroot(['grub-install', '--directory=/usr/lib/grub/i386-pc',
                   '--target=i386-pc', '--boot-directory=/boot',  '--recheck',
                   grub_device])
+
+        self.install_bootloader_grub2_locales()
+        locale = self.settings.get("locale")
+        self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o /boot/grub/grub.cfg' % locale])
 
         self.chroot_umount_special_dirs()
 
@@ -793,13 +794,10 @@ class InstallationProcess(multiprocessing.Process):
         subprocess.check_call(['grub-install --target=%s-efi --efi-directory=/install/boot/efi --bootloader-id=manjaro_grub '
             '--boot-directory=/install/boot --recheck' % uefi_arch], shell=True)
 
-        self.chroot_umount_special_dirs()
-
         self.install_bootloader_grub2_locales()
-
         locale = self.settings.get("locale")
-        self.chroot_mount_special_dirs()
         self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o /boot/grub/grub.cfg' % locale])
+
         self.chroot_umount_special_dirs()
 
         # TODO: Create a boot entry for Manjaro in the UEFI boot manager (is this necessary?)
