@@ -420,8 +420,9 @@ class AutoPartition(object):
             subprocess.check_call(["dd", "if=/dev/zero", "of=%s" % device, "bs=512", "count=2048", "status=noxfer"])
             subprocess.check_call(["wipefs", "-a", device])
             # Create fresh GPT
-            #subprocess.check_call(["sgdisk", "--clear", device])
-            subprocess.check_call(['sgdisk --clear %s' % device], shell=True)
+            subprocess.check_call(["sgdisk", "--clear", device])
+            # Inform the kernel of the partition change. Needed if the hard disk had a MBR partition table.
+            subprocess.check_call(["partprobe", device])
             # Create actual partitions
             #subprocess.check_call(['sgdisk', '--set-alignment="2048"', '--new=1:1M:+%dM' % gpt_bios_grub_part_size,
             #    '--typecode=1:EF02', '--change-name=1:BIOS_GRUB', device])
@@ -545,7 +546,7 @@ class AutoPartition(object):
 
         # Format the EFI partition
         if self.uefi:
-            self.mkfs(efi_device, "vfat", "/boot/efi", "ManjaroEFI")
+            self.mkfs(efi_device, "vfat", "/boot/efi", "UEFI_SYSTEM")
 
         if self.home:
             self.mkfs(home_device, "ext4", "/home", "ManjaroHome")
