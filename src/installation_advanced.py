@@ -1306,10 +1306,11 @@ class InstallationAdvanced(Gtk.Box):
 
         #max_size_mb = int((p.geometry.length * dev.sectorSize) / 1000000) + 1
 
-        mylabel = "BIOS_GPT_BOOT"
+        mylabel = ""
 
         mymount = ""
-        myfmt = ""
+        myfmt = "bios-gpt-boot"
+        formatme = False
 
         # Size must be 2MiB
         size = 2
@@ -1401,8 +1402,8 @@ class InstallationAdvanced(Gtk.Box):
                     if is_new:
                         if lbl != "":
                             relabel = 'Yes'
-                        # Avoid extended partitions getting fmt flag true on new creation
-                        if fs != _("extended"):
+                        # Avoid extended and bios-gpt-boot partitions getting fmt flag true on new creation
+                        if fs != _("extended") and fs != "bios-gpt-boot":
                             fmt = 'Yes'
                         createme = 'Yes'
                     else:
@@ -1480,8 +1481,8 @@ class InstallationAdvanced(Gtk.Box):
                         if is_new:
                             if lbl != "":
                                 relabel = 'Yes'
-                            # Avoid extended partitions getting fmt flag true on new creation
-                            if fs != _("extended"):
+                            # Avoid extended and bios-gpt-boot partitions getting fmt flag true on new creation
+                            if fs != _("extended") and fs != "bios-gpt-boot":
                                 fmt = 'Yes'
                             createme = 'Yes'
                         else:
@@ -1689,8 +1690,8 @@ class InstallationAdvanced(Gtk.Box):
                 uid = self.gen_partition_uid(p=p)
                 if uid in self.stage_opts:
                     (is_new, label, mount_point, fs_type, fmt_active) = self.stage_opts[uid]
-                    # FIX: Do not mount extended partitions
-                    if fs_type == _("extended"):
+                    # FIX: Do not mount extended or bios-gpt-boot partitions
+                    if fs_type == _("extended") or fs_type == "bios-gpt-boot":
                         continue
                     mount_devices[mount_point] = partition_path
                     fs_devices[partition_path] = fs_type
