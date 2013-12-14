@@ -1090,6 +1090,7 @@ class InstallationProcess(multiprocessing.Process):
         default_groups = 'lp,video,network,storage,wheel,audio'
 
         if self.settings.get('require_password') is False:
+            self.chroot(['groupadd', 'autologin'])
             default_groups += ',autologin'
 
         self.chroot(['useradd', '-m', '-s', '/bin/bash', '-g', 'users', '-G', default_groups, username])

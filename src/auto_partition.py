@@ -487,14 +487,12 @@ class AutoPartition(object):
                 end = start + swap_part_size
                 subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary", "linux-swap",
                     str(start), str(end)])
-                subprocess.check_call(["parted", "-a", "optimal", "-s", device, "set", "2", "swap", "on"])
 
                 # Create root partition
                 start = end
                 end = start + root_part_size
                 subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary",
                     str(start), str(end)])
-                subprocess.check_call(["parted", "-a", "optimal", "-s", device, "set", "3", "root", "on"])
 
                 if self.home:
                     # Create home partition
