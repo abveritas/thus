@@ -196,7 +196,7 @@ class InstallationProcess(multiprocessing.Process):
         self.queue_event('error', txt)
         self.callback_queue.join()
         # Is this really necessary?
-        sys.exit(1)
+        os._exit(0)
 
     def queue_event(self, event_type, event_text=""):
         try:
