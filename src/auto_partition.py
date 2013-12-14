@@ -330,11 +330,11 @@ class AutoPartition(object):
 
             proc = subprocess.Popen(["cryptsetup", "luksFormat", "-q", "-c", "aes-xts-plain", "-s", "512",
                 "--key-file=-", luks_device], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
-            (stdout_data, stderr_data) = proc.communicate(input=luks_key_pass_bytes)[0]
+            (stdout_data, stderr_data) = proc.communicate(input=luks_key_pass_bytes)
 
             proc = subprocess.Popen(["cryptsetup", "luksOpen", luks_device, luks_name, "-q", "--key-file=-"],
                 stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
-            (stdout_data, stderr_data) = proc.communicate(input=luks_key_pass_bytes)[0]
+            (stdout_data, stderr_data) = proc.communicate(input=luks_key_pass_bytes)
 
     def run(self):
         key_files = ["/tmp/.keyfile-root", "/tmp/.keyfile-home"]
