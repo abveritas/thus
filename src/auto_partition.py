@@ -292,7 +292,12 @@ class AutoPartition(object):
         if self.luks:
             fs_devices[luks_devices[0]] = "ext4"
             if self.home:
-                fs_devices[luks_devices[1]] = "ext4"
+                # luks, lvm, home
+                if self.lvm:
+                    fs_devices[home_device] = "ext4"
+                # luks, home
+                else:
+                    fs_devices[luks_devices[1]] = "ext4"
         else:
             fs_devices[root_device] = "ext4"
             if self.home:
