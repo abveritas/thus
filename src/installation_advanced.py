@@ -1623,6 +1623,9 @@ class InstallationAdvanced(Gtk.Box):
                     uid = self.gen_partition_uid(path=partition_path)
                     if uid in self.stage_opts:
                         (is_new, lbl, mnt, fisy, fmt) = self.stage_opts[uid]
+                        # FIX: Do not label or format extended or bios-gpt-boot partitions
+                        if fisy == _("extended") or fisy == "bios-gpt-boot":
+                            continue
                         logging.info(_("Creating %s filesystem in %s labeled %s") % (fisy, partition_path, lbl))
                         if (mnt == '/boot/efi'):
                             if not pm.get_flag(partitions[partition_path], pm.PED_PARTITION_BOOT):
