@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 12:18+0100\n"
-"PO-Revision-Date: 2013-12-16 11:40+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2013-12-16 13:32+0000\n"
+"Last-Translator: 柏諺 黃 <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/manjaro-thus/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +75,7 @@ msgstr "無法關閉 LUKS 裝置 （見下）"
 #: src/auto_partition.py:164
 #, python-format
 msgid "Unkown filesystem type %s"
-msgstr ""
+msgstr "未知的檔案系統類型 %s"
 
 #: src/auto_partition.py:320
 #, python-format
@@ -86,7 +86,7 @@ msgstr "Thus 將會在裝置 %s 上設定 LUKS"
 msgid ""
 "Setup cannot detect size of your device, please use advanced installation "
 "routine for partitioning and mounting devices."
-msgstr ""
+msgstr "安裝程式無法偵測您的裝置大小，請使用進階安裝模式以手動分割及掛載裝置。"
 
 #: src/auto_partition.py:538
 #, python-format
@@ -351,7 +351,7 @@ msgstr "GRUB 在 BIOS 系統中需要使用一個 BIOS 開機分割區（2 MiB�
 
 #: src/installation_advanced.py:1305
 msgid "Can't create BIOS GPT Boot partition!"
-msgstr ""
+msgstr "無法創建 BIOS 的 GPT 開機分割區！"
 
 #: src/installation_advanced.py:1445
 #, python-format
@@ -445,7 +445,7 @@ msgstr "檔案系統"
 
 #: src/installation_alongside.py:195
 msgid "pyparted3 not found!"
-msgstr ""
+msgstr "pyparted3 找不到！"
 
 #: src/installation_alongside.py:223
 msgid "Unable to create list of partitions for alongside installation."
@@ -457,12 +457,12 @@ msgstr "無法縮小分割區（也許它快滿了？）"
 
 #: src/installation_alongside.py:353
 msgid "There are too many primary partitions, can't create a new one"
-msgstr ""
+msgstr "太多主要分割區了，無法創建新的"
 
 #: src/installation_alongside.py:386
 #, python-format
 msgid "Can't shrink %s(%s) filesystem"
-msgstr ""
+msgstr "無法縮小 %s(%s) 檔案系統"
 
 #: src/installation_ask.py:106
 msgid "Installation type"
@@ -486,7 +486,7 @@ msgstr "您將會在下一步被要求輸入加密的密碼。"
 
 #: src/installation_ask.py:138
 msgid "Use LVM with this installation."
-msgstr ""
+msgstr "在本次安裝中使用 LVM。"
 
 #: src/installation_ask.py:142
 msgid ""
@@ -555,7 +555,7 @@ msgstr "請選擇您要安裝 Manjaro 的裝置\n並按下面的按鈕以啟動�
 
 #: src/installation_automatic.py:97 ui/installation_automatic.ui:176
 msgid "Encryption Password:"
-msgstr ""
+msgstr "加密的密碼："
 
 #: src/installation_automatic.py:101 src/user_info.py:116
 #: ui/installation_automatic.ui:161 ui/user_info.ui:79
@@ -565,7 +565,7 @@ msgstr "確認您的密碼："
 #: src/installation_automatic.py:105 src/user_info.py:149
 #: ui/installation_automatic.ui:258 ui/user_info.ui:487
 msgid "show password"
-msgstr ""
+msgstr "顯示密碼"
 
 #: src/installation_automatic.py:163
 msgid "A LUKS password has been set"
@@ -635,19 +635,19 @@ msgstr "無法在目標系統上創建必要的目錄"
 
 #: src/installation_process.py:358
 msgid "Install System ..."
-msgstr ""
+msgstr "安裝系統 ..."
 
 #: src/installation_process.py:363
 msgid "System installed."
-msgstr ""
+msgstr "系統已安裝。"
 
 #: src/installation_process.py:365
 msgid "Configuring system ..."
-msgstr ""
+msgstr "正在設定系統 ..."
 
 #: src/installation_process.py:367
 msgid "System configured."
-msgstr ""
+msgstr "系統設定完成。"
 
 #: src/installation_process.py:371
 msgid "Installing bootloader ..."
@@ -656,7 +656,7 @@ msgstr "正在安裝開機載入器 ..."
 #: src/installation_process.py:398
 #, python-format
 msgid "Can't copy Thus log to %s"
-msgstr ""
+msgstr "無法複製 Thus 的記錄檔到 %s"
 
 #: src/installation_process.py:414 src/installation_process.py:428
 #: src/installation_process.py:438
@@ -741,7 +741,7 @@ msgstr "安裝 GRUB(2) 的語系時遇到錯誤。"
 #: src/installation_process.py:845
 #, python-format
 msgid "Enabled %s service."
-msgstr ""
+msgstr "已開啟 %s 服務。"
 
 #: src/installation_process.py:852
 #, python-format
