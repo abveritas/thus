@@ -130,6 +130,7 @@ class InstallationAdvanced(Gtk.Box):
             for mp in sorted(fs.COMMON_MOUNT_POINTS):
                 combo.append_text(mp)
             if self.uefi:
+                # Add "/boot/efi" mountpoint in the mountpoint combobox when in uefi mode
                 combo.append_text('/boot/efi')
 
         # We will store our devices here
@@ -1327,6 +1328,7 @@ class InstallationAdvanced(Gtk.Box):
         (res, err) = pm.set_flag(pm.PED_PARTITION_BIOS_GRUB, part)
 
         if res:
+            logging.error(err)
             installation_process.queue_fatal_event(err)
 
         # Store stage partition info in self.stage_opts
@@ -1365,6 +1367,7 @@ class InstallationAdvanced(Gtk.Box):
                 # Don't allow vfat as / filesystem, it will not work!
                 # Don't allow ntfs as / filesystem, this is stupid!
                 if "fat" not in fs and "ntfs" not in fs:
+                    #check_ok = True
                     exist_root = True
             if mnt == "/boot/efi":
                 # Only fat partitions
@@ -1372,7 +1375,7 @@ class InstallationAdvanced(Gtk.Box):
                     exist_efi = True
 
         if self.uefi:
-            check_ok = exist_root * exist_efi
+            check_ok = exist_root and exist_efi
         else:
             check_ok = exist_root
 

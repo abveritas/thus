@@ -28,6 +28,7 @@ import os
 import subprocess
 import logging
 #import time
+import installation_process
 
 """ AutoPartition class """
 
@@ -160,7 +161,9 @@ class AutoPartition(object):
 
             # Make sure the fs type is one we can handle
             if fs_type not in mkfs.keys():
-                logging.error("Unkown filesystem type %s", fs_type)
+                txt = _("Unkown filesystem type %s"), fs_type)
+                logging.error(txt)
+                installation_process.queue_fatal_event(txt)
                 return
 
             command = mkfs[fs_type]
@@ -169,6 +172,7 @@ class AutoPartition(object):
                 subprocess.check_call(command.split())
             except subprocess.CalledProcessError as e:
                 logging.error(e.output)
+                installation_process.queue_fatal_event(e.output)
                 return
 
             #time.sleep(4)
@@ -292,11 +296,11 @@ class AutoPartition(object):
         if self.luks:
             fs_devices[luks_devices[0]] = "ext4"
             if self.home:
-                # luks, lvm, home
                 if self.lvm:
+                    # luks, lvm, home
                     fs_devices[home_device] = "ext4"
-                # luks, home
                 else:
+                    # luks, home
                     fs_devices[luks_devices[1]] = "ext4"
         else:
             fs_devices[root_device] = "ext4"
@@ -366,8 +370,10 @@ class AutoPartition(object):
 
             disc_size = ((logical_block_size * size) / 1024) / 1024
         else:
-            logging.error("Setup cannot detect size of your device, please use advanced "
+            txt = _("Setup cannot detect size of your device, please use advanced "
                 "installation routine for partitioning and mounting devices.")
+            logging.error(txt)
+            installation_process.queue_event('warning', txt)
             return
 
         # Partition sizes are expressed in MB
@@ -492,12 +498,14 @@ class AutoPartition(object):
                 end = start + swap_part_size
                 subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary", "linux-swap",
                     str(start), str(end)])
+                #subprocess.check_call(["parted", "-a", "optimal", "-s", device, "set", "2", "swap", "on"])
 
                 # Create root partition
                 start = end
                 end = start + root_part_size
                 subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary",
                     str(start), str(end)])
+                #subprocess.check_call(["parted", "-a", "optimal", "-s", device, "set", "3", "root", "on"])
 
                 if self.home:
                     # Create home partition

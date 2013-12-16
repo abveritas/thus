@@ -379,10 +379,9 @@ class InstallationProcess(multiprocessing.Process):
             logging.error(err)
             self.queue_fatal_event(err.value)
             all_ok = False
-        except:
-            # unknown error
-            logging.error(_("Unknown error"))
-            self.queue_fatal_event(_("Unknown error"))
+        except err:
+            logging.error(err)
+            self.queue_fatal_event(err)
             self.running = False
             self.error = True
             all_ok = False
@@ -438,8 +437,7 @@ class InstallationProcess(multiprocessing.Process):
                     logging.warning(err)
                     self.queue_event('debug', _("Can't unmount %s") % p)
             # Installation finished successfully
-            self.queue_event('info', _("Installation finished successfully."))
-            self.queue_event("finished")
+            self.queue_event("finished", _("Installation finished successfully."))
             self.running = False
             self.error = False
             return True
@@ -512,6 +510,7 @@ class InstallationProcess(multiprocessing.Process):
 
         except Exception as err:
             logging.error(err)
+            self.queue_fatal_event(err)
             import traceback
             exc_type, exc_value, exc_traceback = sys.exc_info()
             traceback.print_tb(exc_traceback, limit=1, file=sys.stdout)
@@ -701,7 +700,7 @@ class InstallationProcess(multiprocessing.Process):
         default_grub = os.path.join(default_dir, "grub")
         if not os.path.exists(default_dir):
             os.mkdir(default_dir)
- 
+
         if self.method == 'automatic' and self.settings.get('use_luks'):
             root_device = self.mount_devices["/"]
             boot_device = self.mount_devices["/boot"]
@@ -710,8 +709,10 @@ class InstallationProcess(multiprocessing.Process):
 
             # Let GRUB automatically add the kernel parameters for root encryption
             if self.settings.get("luks_key_pass") == "":
+                #default_line = 'GRUB_CMDLINE_LINUX="cryptdevice=%s:cryptManjaro cryptkey=%s:ext2:/.keyfile-root"' % (root_device, boot_device)
                 default_line = 'GRUB_CMDLINE_LINUX="cryptdevice=/dev/disk/by-uuid/%s:cryptManjaro cryptkey=/dev/disk/by-uuid/%s:ext2:/.keyfile-root"' % (root_uuid, boot_uuid)
             else:
+                #default_line = 'GRUB_CMDLINE_LINUX="cryptdevice=%s:cryptManjaro"' % root_device
                 default_line = 'GRUB_CMDLINE_LINUX="cryptdevice=/dev/disk/by-uuid/%s:cryptManjaro"' % root_uuid
 
             with open(default_grub, 'r') as grub_file:
@@ -755,10 +756,10 @@ class InstallationProcess(multiprocessing.Process):
         self.chroot_mount_special_dirs()
 
         self.chroot(['grub-install', '--directory=/usr/lib/grub/i386-pc',
-                  '--target=i386-pc', '--boot-directory=/boot',  '--recheck',
-                  grub_device])
+                  '--target=i386-pc', '--boot-directory=/boot',  '--recheck', grub_device])
 
         self.install_bootloader_grub2_locales()
+
         locale = self.settings.get("locale")
         self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o /boot/grub/grub.cfg' % locale])
 
@@ -932,7 +933,7 @@ class InstallationProcess(multiprocessing.Process):
         """ Enables automatic login for the installed desktop manager """
         username = self.settings.get('username')
         self.queue_event('info', _("%s: Enable automatic login for user %s.") % (self.desktop_manager, username))
-                
+
         if self.desktop_manager == 'mdm':
             # Systems with MDM as Desktop Manager
             mdm_conf_path = os.path.join(self.dest_dir, "etc/mdm/custom.conf")
@@ -1223,10 +1224,14 @@ class InstallationProcess(multiprocessing.Process):
                 subprocess.check_call(["/usr/bin/bash", mhwd_script_path])
                 self.queue_event('debug', "Setup graphic card done.")
             except subprocess.FileNotFoundError as e:
-                self.queue_fatal_event(_("Can't execute the MHWD script"))
+                txt = _("Can't execute the MHWD script")
+                logging.error(txt)
+                self.queue_fatal_event(txt)
                 return False
             except subprocess.CalledProcessError as e:
-                self.queue_fatal_event("CalledProcessError.output = %s" % e.output)
+                txt = "CalledProcessError.output = %s" % e.output
+                logging.error(txt)
+                self.queue_fatal_event(txt)
                 return False
 
         # Re-enter chroot system

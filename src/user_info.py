@@ -203,8 +203,15 @@ class UserInfo(Gtk.Box):
     def get_next_page(self):
         return _next_page
 
+    def on_checkbutton_show_password_toggled(self, widget):
+        """ Show/hide user password """
+        btn = self.ui.get_object('checkbutton_show_password')
+        show = btn.get_active()
+        self.entry['password'].set_visibility(show)
+        self.entry['verified_password'].set_visibility(show)
+
     def on_authentication_toggled(self, widget):
-        # user has changed autologin or home encrypting
+        """ User has changed autologin or home encrypting """
 
         if widget == self.login['auto']:
             if self.login['auto'].get_active():
