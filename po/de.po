@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-16 12:18+0100\n"
-"PO-Revision-Date: 2013-12-16 11:47+0000\n"
+"POT-Creation-Date: 2013-12-16 21:24+0100\n"
+"PO-Revision-Date: 2013-12-16 20:34+0000\n"
 "Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/manjaro-thus/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -495,7 +495,7 @@ msgid ""
 "sizes in a straightforward way."
 msgstr "Hierdurch wird LVM eingestellt, was es Ihnen ermöglicht, sehr einfach Snapshots zu machen oder die Größe von Partitionen zu ändern."
 
-#: src/installation_ask.py:147 ui/installation_ask.ui:136
+#: src/installation_ask.py:147 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
 msgstr "Erstelle eine separate Partition/Volume für Ihr Home-Verzeichnis"
 
@@ -673,184 +673,198 @@ msgstr "Installation war erfolgreich."
 msgid "Base filesystem does not exist! Critical error (exiting)."
 msgstr "Basis-Dateisystem existiert nicht! Kritischer Fehler (Abbruch)."
 
-#: src/installation_process.py:460
+#: src/installation_process.py:461
 msgid "Desktop filesystem does not exist! Critical error (exiting)."
 msgstr "Desktop-Dateisystem existiert nicht! Kritischer Fehler (Abbruch)."
 
-#: src/installation_process.py:476
+#: src/installation_process.py:478
 msgid "Indexing files to be copied ..."
 msgstr "Überprüfe zu kopierende Dateien ..."
 
-#: src/installation_process.py:481
+#: src/installation_process.py:483
 msgid "Extracting root-image ..."
 msgstr "Extrahiere root-image ..."
 
-#: src/installation_process.py:491
+#: src/installation_process.py:493
 msgid "Extracting desktop-image ..."
 msgstr "Extrahiere desktop-image ..."
 
-#: src/installation_process.py:506
+#: src/installation_process.py:508
 #, python-format
 msgid "Restoring meta-information on %s"
 msgstr "Stelle die Meta-Informationen auf %s wieder her."
 
-#: src/installation_process.py:522
+#: src/installation_process.py:524
 msgid "Special dirs already mounted."
 msgstr "Spezialordner sind schon eingebunden."
 
-#: src/installation_process.py:553
+#: src/installation_process.py:555
 msgid "Special dirs are not mounted. Skipping."
 msgstr "Spezial-Verzeichnisse sind nicht eingebunden. Überspringe."
 
-#: src/installation_process.py:563
+#: src/installation_process.py:565
 #, python-format
 msgid "Unable to umount %s"
 msgstr "Konnte %s nicht einbinden"
 
-#: src/installation_process.py:582
+#: src/installation_process.py:584
 #, python-format
 msgid "Error running command: %s"
 msgstr "Fehler beim Ausführen von: %s"
 
-#: src/installation_process.py:644
+#: src/installation_process.py:646 src/installation_process.py:696
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
 msgstr "Fstab hinzugefügt : UUID=%s %s %s %s 0 %s"
 
-#: src/installation_process.py:739
+#: src/installation_process.py:660
+#, python-format
+msgid "Added to crypttab : %s"
+msgstr "Hinzugefügt zu crypttab : %s"
+
+#: src/installation_process.py:664
+#, python-format
+msgid "Added to fstab : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
+msgstr "Hinzugefügt zu fstab : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
+
+#: src/installation_process.py:700
+msgid "Added to fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
+msgstr "Hinzugefügt zu fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
+
+#: src/installation_process.py:761
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
 msgstr "Installiere GRUB(2) BIOS Boot Loader in %s"
 
-#: src/installation_process.py:751 src/installation_process.py:772
+#: src/installation_process.py:773 src/installation_process.py:794
 msgid "ERROR installing GRUB(2) BIOS."
 msgstr "Ein FEHLER trat bei der Installation von GRUB(2) BIOS auf."
 
-#: src/installation_process.py:770
+#: src/installation_process.py:792
 msgid "GRUB(2) BIOS has been successfully installed."
 msgstr "GRUB(2) BIOS wurde erfolgreich installiert."
 
-#: src/installation_process.py:784
+#: src/installation_process.py:806
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader in %s"
 msgstr "Installiere GRUB(2) UEFI %s Boot Loader in %s"
 
-#: src/installation_process.py:836
+#: src/installation_process.py:858
 msgid "ERROR installing GRUB(2) locale."
 msgstr "FEHLER beim Installieren der GRUB(2) Lokalisationen."
 
-#: src/installation_process.py:845
+#: src/installation_process.py:867
 #, python-format
 msgid "Enabled %s service."
 msgstr "Service %s aktiviert."
 
-#: src/installation_process.py:852
+#: src/installation_process.py:874
 #, python-format
 msgid "Error creating password hash for user %s"
 msgstr "Eine Fehler trat bei der Erstellung des Passwortes für den Nutzer %s auf"
 
-#: src/installation_process.py:858
+#: src/installation_process.py:880
 #, python-format
 msgid "Error changing password for user %s"
 msgstr "Es trat ein Fehler bei der Änderung des Passwortes von Nutzer %s auf"
 
-#: src/installation_process.py:870
+#: src/installation_process.py:892
 msgid "Setting hooks and modules in mkinitcpio.conf"
 msgstr "Erstelle Hooks und Module in mkinitcpio.conf"
 
-#: src/installation_process.py:935
+#: src/installation_process.py:957
 #, python-format
 msgid "%s: Enable automatic login for user %s."
 msgstr "%s: Aktiviere automatisches Login für Benutzer %s."
 
-#: src/installation_process.py:1030 src/installation_process.py:1041
+#: src/installation_process.py:1052 src/installation_process.py:1063
 msgid "Configuring your new system"
 msgstr "Ihr neues System wird eingerichtet"
 
-#: src/installation_process.py:1033
+#: src/installation_process.py:1055
 msgid "fstab file generated."
 msgstr "Fstab-Datei erstellt."
 
-#: src/installation_process.py:1039
+#: src/installation_process.py:1061
 msgid "Network configuration copied."
 msgstr "Netzwerkkonfiguration kopiert."
 
-#: src/installation_process.py:1065
+#: src/installation_process.py:1087
 msgid "Timezone set."
 msgstr "Zeitzone gesetzt."
 
-#: src/installation_process.py:1085
+#: src/installation_process.py:1107
 #, python-format
 msgid "Sudo configuration for user %s done."
 msgstr "Sudo-Konfiguration für Benutzer %s erzeugt."
 
-#: src/installation_process.py:1095
+#: src/installation_process.py:1117
 #, python-format
 msgid "User %s added."
 msgstr "Benutzer %s hinzugefügt."
 
-#: src/installation_process.py:1107
+#: src/installation_process.py:1129
 #, python-format
 msgid "Hostname  %s set."
 msgstr "Hostname %s gesetzt."
 
-#: src/installation_process.py:1111
+#: src/installation_process.py:1133
 msgid "Set the same password to root."
 msgstr "Gleiche Passwort für Root gesetzt."
 
-#: src/installation_process.py:1117
+#: src/installation_process.py:1139
 msgid "Generating locales ..."
 msgstr "Erzeuge Lokale ..."
 
-#: src/installation_process.py:1138
+#: src/installation_process.py:1160
 msgid "Adjusting hardware clock ..."
 msgstr "Stelle Hardware-Uhr ein ..."
 
-#: src/installation_process.py:1147
+#: src/installation_process.py:1169
 msgid "Configuring hardware ..."
 msgstr "Konfiguriere Hardware ..."
 
-#: src/installation_process.py:1220
+#: src/installation_process.py:1242
 msgid "Set up graphics card ..."
 msgstr "Konfiguriere Grafikkarte ..."
 
-#: src/installation_process.py:1227
+#: src/installation_process.py:1249
 msgid "Can't execute the MHWD script"
 msgstr "Kann das MHWD-Skript nicht ausführen."
 
-#: src/installation_process.py:1240
+#: src/installation_process.py:1262
 msgid "Configure display manager ..."
 msgstr "Konfiguriere Display-Manager ..."
 
-#: src/installation_process.py:1346
+#: src/installation_process.py:1368
 msgid "Configure System ..."
 msgstr "Konfiguriere System ..."
 
-#: src/installation_process.py:1371
+#: src/installation_process.py:1393
 msgid "Removing live configuration (packages)"
 msgstr "Entferne die Pakete der Live-Konfigurationen."
 
-#: src/installation_process.py:1387
+#: src/installation_process.py:1409
 msgid "Configuring package manager"
 msgstr "Konfiguriere Paketverwaltung"
 
-#: src/installation_process.py:1399
+#: src/installation_process.py:1421
 msgid "Finished configuring package manager."
 msgstr "Die Konfiguration der Paketverwaltung ist beendet."
 
-#: src/installation_process.py:1423
+#: src/installation_process.py:1445
 msgid "Running mkinitcpio ..."
 msgstr "Führe mkinitcpio aus ..."
 
-#: src/installation_process.py:1426
+#: src/installation_process.py:1448
 msgid "Running mkinitcpio - done"
 msgstr "Ausführung von mkinitcpio durchgeführt."
 
-#: src/installation_process.py:1442
+#: src/installation_process.py:1464
 msgid "Encrypting user home dir ..."
 msgstr "Verschlüssele Home-Verzeichnis ..."
 
-#: src/installation_process.py:1444
+#: src/installation_process.py:1466
 msgid "User home dir encrypted"
 msgstr "Benutzer verwendet verschlüsseltes Home-Verzeichnis."
 
@@ -1238,44 +1252,44 @@ msgstr "<span weight=\"light\" size=\"small\">Achtung: Hiermit werden alle Progr
 msgid "Encrypts the new Manjaro installation for better security"
 msgstr "Verschlüsselt die neue Manjaro-Installation zur Sicherheit"
 
-#: ui/installation_ask.ui:92
+#: ui/installation_ask.ui:91
 msgid ""
 "<span weight=\"light\" size=\"small\">You will be asked for the encryption "
 "key in the next step</span>"
 msgstr "<span weight=\"light\" size=\"small\">Sie werden sogleich nach Ihrem Schlüssel für die Verschlüsselung gefragt</span>"
 
-#: ui/installation_ask.ui:103
+#: ui/installation_ask.ui:102
 msgid "Use LVM with the new Manjaro installation"
 msgstr "LVM mit der neuen Manjaro-Installation benutzen"
 
-#: ui/installation_ask.ui:125
+#: ui/installation_ask.ui:123
 msgid ""
 "<span weight=\"light\" size=\"small\">This will set up LVM allowing you to "
 "make snapshots and change partition sizes in a straightforward way</span>"
 msgstr "<span weight=\\\"light\\\" size=\\\"small\\\">Hierdurch wird LVM eingestellt, was es Ihnen ermöglicht, sehr einfach Snapshots zu machen oder die Größe von Partitionen zu ändern.</span>"
 
-#: ui/installation_ask.ui:158
+#: ui/installation_ask.ui:155
 msgid ""
 "<span weight=\"light\" size=\"small\">This will setup you /home directory in"
 " a different partition or volume.</span>"
 msgstr "<span weight=\"light\" size=\"small\">Ihr /home Verzeichnis wird in einer separaten Partition oder Volumen erstellt.</span>"
 
-#: ui/installation_ask.ui:169
+#: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"
 msgstr "Neben anderen Betriebssystemen installieren"
 
-#: ui/installation_ask.ui:195
+#: ui/installation_ask.ui:192
 msgid ""
 "<span weight=\"light\" size=\"small\">With this option you will be "
 "installing Manjaro alongside one of the other OSes you already have "
 "installed.</span>"
 msgstr "<span weight=\\\"light\\\" size=\\\"small\\\">Hierdurch wird Manjaro neben anderen, von Ihnen bereits installierten Betriebssystemen installiert</span>"
 
-#: ui/installation_ask.ui:207
+#: ui/installation_ask.ui:204
 msgid "Manage your partitions and choose where to install Manjaro (advanced)"
 msgstr "Partitionen ändern und auswählen, wo Manjaro installiert werden soll (für Fortgeschrittene)"
 
-#: ui/installation_ask.ui:233
+#: ui/installation_ask.ui:230
 msgid ""
 "<span weight=\"light\" size=\"small\">You will be able to create/delete "
 "partitions, choose where to install Manjaro and also choose additional mount"

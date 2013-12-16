@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-16 12:18+0100\n"
-"PO-Revision-Date: 2013-12-16 13:35+0000\n"
-"Last-Translator: 柏諺 黃 <s8321414@gmail.com>\n"
+"POT-Creation-Date: 2013-12-16 21:24+0100\n"
+"PO-Revision-Date: 2013-12-16 20:28+0000\n"
+"Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/manjaro-thus/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -494,7 +494,7 @@ msgid ""
 "sizes in a straightforward way."
 msgstr "將會設定 LVM 讓您以更簡單的方法產生快照及變更分割區大小。"
 
-#: src/installation_ask.py:147 ui/installation_ask.ui:136
+#: src/installation_ask.py:147 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
 msgstr "將您的家目錄設置為不同的分割區/容量"
 
@@ -672,184 +672,198 @@ msgstr "安裝已成功完成。"
 msgid "Base filesystem does not exist! Critical error (exiting)."
 msgstr "基礎檔案系統不存在！嚴重錯誤 （正在離開）。"
 
-#: src/installation_process.py:460
+#: src/installation_process.py:461
 msgid "Desktop filesystem does not exist! Critical error (exiting)."
 msgstr "桌面檔案系統不存在！嚴重錯誤（正在離開）。"
 
-#: src/installation_process.py:476
+#: src/installation_process.py:478
 msgid "Indexing files to be copied ..."
 msgstr "正在複製索引檔案 ..."
 
-#: src/installation_process.py:481
+#: src/installation_process.py:483
 msgid "Extracting root-image ..."
 msgstr "正在解壓縮 root-image ..."
 
-#: src/installation_process.py:491
+#: src/installation_process.py:493
 msgid "Extracting desktop-image ..."
 msgstr "正在解壓縮 desktop-image ..."
 
-#: src/installation_process.py:506
+#: src/installation_process.py:508
 #, python-format
 msgid "Restoring meta-information on %s"
 msgstr "正在恢復 %s 上的元資訊"
 
-#: src/installation_process.py:522
+#: src/installation_process.py:524
 msgid "Special dirs already mounted."
 msgstr "特殊目錄已經掛載。"
 
-#: src/installation_process.py:553
+#: src/installation_process.py:555
 msgid "Special dirs are not mounted. Skipping."
 msgstr "特殊目錄沒有掛載。正在略過。"
 
-#: src/installation_process.py:563
+#: src/installation_process.py:565
 #, python-format
 msgid "Unable to umount %s"
 msgstr "無法卸載 %s"
 
-#: src/installation_process.py:582
+#: src/installation_process.py:584
 #, python-format
 msgid "Error running command: %s"
 msgstr "執行命令時遇到錯誤： %s"
 
-#: src/installation_process.py:644
+#: src/installation_process.py:646 src/installation_process.py:696
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
 msgstr "加入 fstab ： UUID=%s %s %s %s 0 %s"
 
-#: src/installation_process.py:739
+#: src/installation_process.py:660
+#, python-format
+msgid "Added to crypttab : %s"
+msgstr ""
+
+#: src/installation_process.py:664
+#, python-format
+msgid "Added to fstab : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
+msgstr ""
+
+#: src/installation_process.py:700
+msgid "Added to fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
+msgstr ""
+
+#: src/installation_process.py:761
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
 msgstr "正在安裝 GRUB(2) BIOS 開機載入器到 %s"
 
-#: src/installation_process.py:751 src/installation_process.py:772
+#: src/installation_process.py:773 src/installation_process.py:794
 msgid "ERROR installing GRUB(2) BIOS."
 msgstr "安裝 GRUB(2)時發生錯誤。"
 
-#: src/installation_process.py:770
+#: src/installation_process.py:792
 msgid "GRUB(2) BIOS has been successfully installed."
 msgstr "GRUB(2) BIOS 已成功安裝。"
 
-#: src/installation_process.py:784
+#: src/installation_process.py:806
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader in %s"
 msgstr "正在安裝 GRUB(2) UEFI 開機載入器到 %s"
 
-#: src/installation_process.py:836
+#: src/installation_process.py:858
 msgid "ERROR installing GRUB(2) locale."
 msgstr "安裝 GRUB(2) 的語系時遇到錯誤。"
 
-#: src/installation_process.py:845
+#: src/installation_process.py:867
 #, python-format
 msgid "Enabled %s service."
 msgstr "已開啟 %s 服務。"
 
-#: src/installation_process.py:852
+#: src/installation_process.py:874
 #, python-format
 msgid "Error creating password hash for user %s"
 msgstr "創建使用者 %s 的密碼雜湊值時發生錯誤"
 
-#: src/installation_process.py:858
+#: src/installation_process.py:880
 #, python-format
 msgid "Error changing password for user %s"
 msgstr "更改使用者 %s 的密碼時發生錯誤"
 
-#: src/installation_process.py:870
+#: src/installation_process.py:892
 msgid "Setting hooks and modules in mkinitcpio.conf"
 msgstr "正在設定 mkinitcpio.conf 中的關聯性及模組"
 
-#: src/installation_process.py:935
+#: src/installation_process.py:957
 #, python-format
 msgid "%s: Enable automatic login for user %s."
 msgstr "%s ： 啟用使用者 %s 的自動登入。"
 
-#: src/installation_process.py:1030 src/installation_process.py:1041
+#: src/installation_process.py:1052 src/installation_process.py:1063
 msgid "Configuring your new system"
 msgstr "正在設定新系統"
 
-#: src/installation_process.py:1033
+#: src/installation_process.py:1055
 msgid "fstab file generated."
 msgstr "fstab 已產生。"
 
-#: src/installation_process.py:1039
+#: src/installation_process.py:1061
 msgid "Network configuration copied."
 msgstr "網路組態已複製。"
 
-#: src/installation_process.py:1065
+#: src/installation_process.py:1087
 msgid "Timezone set."
 msgstr "時區設置。"
 
-#: src/installation_process.py:1085
+#: src/installation_process.py:1107
 #, python-format
 msgid "Sudo configuration for user %s done."
 msgstr "使用者 %s 的 Sudo 設定已完成。"
 
-#: src/installation_process.py:1095
+#: src/installation_process.py:1117
 #, python-format
 msgid "User %s added."
 msgstr "使用者 %s 已加入。"
 
-#: src/installation_process.py:1107
+#: src/installation_process.py:1129
 #, python-format
 msgid "Hostname  %s set."
 msgstr "主機名稱  %s 設置。"
 
-#: src/installation_process.py:1111
+#: src/installation_process.py:1133
 msgid "Set the same password to root."
 msgstr "將 root 設定為相同的密碼。"
 
-#: src/installation_process.py:1117
+#: src/installation_process.py:1139
 msgid "Generating locales ..."
 msgstr "正在生成語系碼 ..."
 
-#: src/installation_process.py:1138
+#: src/installation_process.py:1160
 msgid "Adjusting hardware clock ..."
 msgstr "正在調整硬體時鐘 ..."
 
-#: src/installation_process.py:1147
+#: src/installation_process.py:1169
 msgid "Configuring hardware ..."
 msgstr "正在配置硬體 ..."
 
-#: src/installation_process.py:1220
+#: src/installation_process.py:1242
 msgid "Set up graphics card ..."
 msgstr "正在設定顯示卡 ..."
 
-#: src/installation_process.py:1227
+#: src/installation_process.py:1249
 msgid "Can't execute the MHWD script"
 msgstr "無法執行 MHWD 腳本"
 
-#: src/installation_process.py:1240
+#: src/installation_process.py:1262
 msgid "Configure display manager ..."
 msgstr "正在設定顯示管理員 ..."
 
-#: src/installation_process.py:1346
+#: src/installation_process.py:1368
 msgid "Configure System ..."
 msgstr "正在設定系統 ..."
 
-#: src/installation_process.py:1371
+#: src/installation_process.py:1393
 msgid "Removing live configuration (packages)"
 msgstr "正在移除 live 設定值(套件)"
 
-#: src/installation_process.py:1387
+#: src/installation_process.py:1409
 msgid "Configuring package manager"
 msgstr "正在設定套件管理員"
 
-#: src/installation_process.py:1399
+#: src/installation_process.py:1421
 msgid "Finished configuring package manager."
 msgstr "設定套件管理員完成。"
 
-#: src/installation_process.py:1423
+#: src/installation_process.py:1445
 msgid "Running mkinitcpio ..."
 msgstr "正在執行 mkinitcpio ..."
 
-#: src/installation_process.py:1426
+#: src/installation_process.py:1448
 msgid "Running mkinitcpio - done"
 msgstr "正在執行 mkinitcpio - 完成"
 
-#: src/installation_process.py:1442
+#: src/installation_process.py:1464
 msgid "Encrypting user home dir ..."
 msgstr "正在加密使用者的家目錄 ..."
 
-#: src/installation_process.py:1444
+#: src/installation_process.py:1466
 msgid "User home dir encrypted"
 msgstr "使用者的家目錄已加密。"
 
@@ -1237,44 +1251,44 @@ msgstr "<span weight=\"light\" size=\"small\">警告：將會刪除所有您磁�
 msgid "Encrypts the new Manjaro installation for better security"
 msgstr "加密全新的 Manjaro 安裝以獲得更佳的安全性"
 
-#: ui/installation_ask.ui:92
+#: ui/installation_ask.ui:91
 msgid ""
 "<span weight=\"light\" size=\"small\">You will be asked for the encryption "
 "key in the next step</span>"
 msgstr "<span weight=\"light\" size=\"small\">您將會在下一步被要求輸入加密的密碼</span>"
 
-#: ui/installation_ask.ui:103
+#: ui/installation_ask.ui:102
 msgid "Use LVM with the new Manjaro installation"
 msgstr "在 Manjaro 的全新安裝中使用 LVM"
 
-#: ui/installation_ask.ui:125
+#: ui/installation_ask.ui:123
 msgid ""
 "<span weight=\"light\" size=\"small\">This will set up LVM allowing you to "
 "make snapshots and change partition sizes in a straightforward way</span>"
 msgstr "<span weight=\"light\" size=\"small\">將會設定 LVM 讓您以更簡單的方法產生快照及變更分割區大小</span>"
 
-#: ui/installation_ask.ui:158
+#: ui/installation_ask.ui:155
 msgid ""
 "<span weight=\"light\" size=\"small\">This will setup you /home directory in"
 " a different partition or volume.</span>"
 msgstr "<span weight=\"light\" size=\"small\">將會把您的 /home 目錄設定為不同的分割區或容量。</span>"
 
-#: ui/installation_ask.ui:169
+#: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"
 msgstr "與其他作業系統共存"
 
-#: ui/installation_ask.ui:195
+#: ui/installation_ask.ui:192
 msgid ""
 "<span weight=\"light\" size=\"small\">With this option you will be "
 "installing Manjaro alongside one of the other OSes you already have "
 "installed.</span>"
 msgstr "<span weight=\"light\" size=\"small\">使用這個選項您就可以將 Manjaro 與其他已安裝的系統共存安裝。With this option you will be installing Manjaro alongside one of the other OSes you already have installed.</span>"
 
-#: ui/installation_ask.ui:207
+#: ui/installation_ask.ui:204
 msgid "Manage your partitions and choose where to install Manjaro (advanced)"
 msgstr "自訂您的分割區並選擇您要安裝 Manjaro 的位置 （進階）"
 
-#: ui/installation_ask.ui:233
+#: ui/installation_ask.ui:230
 msgid ""
 "<span weight=\"light\" size=\"small\">You will be able to create/delete "
 "partitions, choose where to install Manjaro and also choose additional mount"
