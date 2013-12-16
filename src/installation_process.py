@@ -454,11 +454,13 @@ class InstallationProcess(multiprocessing.Process):
                 os.mkdir("/source_desktop")
             # find the squashfs..
             if(not os.path.exists(self.media)):
-                self.queue_event('debug', _("Base filesystem does not exist! Critical error (exiting)."))
-                sys.exit(1) # change to report
+                txt = _("Base filesystem does not exist! Critical error (exiting).")
+		logging.error(txt)
+                self.queue_fatal_event(txt)
             if(not os.path.exists(self.media_desktop)):
-                self.queue_event('debug', _("Desktop filesystem does not exist! Critical error (exiting)."))
-                sys.exit(1) # change to report
+                txt = _("Desktop filesystem does not exist! Critical error (exiting).")
+		logging.error(txt)
+                self.queue_fatal_event(txt)
 
             # Mount the installation media
             subprocess.check_call(["mount", self.media, "/source/", "-t", self.media_type, "-o", "loop"])
