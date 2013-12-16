@@ -455,11 +455,11 @@ class InstallationProcess(multiprocessing.Process):
             # find the squashfs..
             if(not os.path.exists(self.media)):
                 txt = _("Base filesystem does not exist! Critical error (exiting).")
-		logging.error(txt)
+                logging.error(txt)
                 self.queue_fatal_event(txt)
             if(not os.path.exists(self.media_desktop)):
                 txt = _("Desktop filesystem does not exist! Critical error (exiting).")
-		logging.error(txt)
+                logging.error(txt)
                 self.queue_fatal_event(txt)
 
             # Mount the installation media
