@@ -161,7 +161,7 @@ class AutoPartition(object):
 
             # Make sure the fs type is one we can handle
             if fs_type not in mkfs.keys():
-                txt = _("Unkown filesystem type %s"), fs_type)
+                txt = _("Unkown filesystem type %s"), fs_type
                 logging.error(txt)
                 installation_process.queue_fatal_event(txt)
                 return
