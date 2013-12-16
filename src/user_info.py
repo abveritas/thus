@@ -88,6 +88,10 @@ class UserInfo(Gtk.Box):
         txt = _("Your name")
         label.set_placeholder_text(txt)
 
+        label = self.ui.get_object('hostname')
+        txt = _("Hostname")
+        label.set_markup(txt)
+
         label = self.ui.get_object('hostname_label')
         txt = _("Your computer's name:")
         label.set_markup(txt)
@@ -140,6 +144,9 @@ class UserInfo(Gtk.Box):
         txt = _("Who are you?")
         txt = "<span weight='bold' size='large'>%s</span>" % txt
         self.title.set_markup(txt)
+
+        btn = self.ui.get_object('checkbutton_show_password')
+        btn.set_label(_("show password"))
 
     def hide_widgets(self):
         """ Hide unused and message widgets """

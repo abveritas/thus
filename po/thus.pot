@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-16 11:41+0100\n"
+"POT-Creation-Date: 2013-12-16 12:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -552,13 +552,13 @@ msgstr ""
 msgid "Encryption Password:"
 msgstr ""
 
-#: src/installation_automatic.py:101 src/user_info.py:112
+#: src/installation_automatic.py:101 src/user_info.py:116
 #: ui/installation_automatic.ui:161 ui/user_info.ui:79
 msgid "Confirm your password:"
 msgstr ""
 
-#: src/installation_automatic.py:105 ui/installation_automatic.ui:258
-#: ui/user_info.ui:486
+#: src/installation_automatic.py:105 src/user_info.py:149
+#: ui/installation_automatic.ui:258 ui/user_info.ui:487
 msgid "show password"
 msgstr ""
 
@@ -1014,81 +1014,85 @@ msgstr ""
 msgid "Your name:"
 msgstr ""
 
-#: src/user_info.py:88
+#: src/user_info.py:88 ui/user_info.ui:275
 msgid "Your name"
 msgstr ""
 
-#: src/user_info.py:92 ui/user_info.ui:473
+#: src/user_info.py:92 ui/user_info.ui:397
+msgid "Hostname"
+msgstr ""
+
+#: src/user_info.py:96 ui/user_info.ui:474
 msgid "Your computer's name:"
 msgstr ""
 
-#: src/user_info.py:96 ui/user_info.ui:49
+#: src/user_info.py:100 ui/user_info.ui:49
 msgid "Pick a username:"
 msgstr ""
 
-#: src/user_info.py:100
+#: src/user_info.py:104 ui/user_info.ui:319
 msgid "Username"
 msgstr ""
 
-#: src/user_info.py:104 ui/user_info.ui:64
+#: src/user_info.py:108 ui/user_info.ui:64
 msgid "Choose a password:"
 msgstr ""
 
-#: src/user_info.py:108
+#: src/user_info.py:112 ui/user_info.ui:172
 msgid "Password"
 msgstr ""
 
-#: src/user_info.py:116
+#: src/user_info.py:120 ui/user_info.ui:218
 msgid "Confirm password"
 msgstr ""
 
-#: src/user_info.py:120
+#: src/user_info.py:124
 msgid "Its name as it appears to other computers."
 msgstr ""
 
-#: src/user_info.py:124
+#: src/user_info.py:128
 msgid "You must enter a name"
 msgstr ""
 
-#: src/user_info.py:128
+#: src/user_info.py:132
 msgid "You must enter a username"
 msgstr ""
 
-#: src/user_info.py:132
+#: src/user_info.py:136
 msgid "You must enter a password"
 msgstr ""
 
-#: src/user_info.py:136 ui/user_info.ui:97
+#: src/user_info.py:140 ui/user_info.ui:97
 msgid "Log in automatically"
 msgstr ""
 
-#: src/user_info.py:137 ui/user_info.ui:114
+#: src/user_info.py:141 ui/user_info.ui:114
 msgid "Require my password to log in"
 msgstr ""
 
-#: src/user_info.py:138 ui/user_info.ui:135
+#: src/user_info.py:142 ui/user_info.ui:135
 msgid "Encrypt my home folder"
 msgstr ""
 
-#: src/user_info.py:140
+#: src/user_info.py:144
 msgid "Who are you?"
 msgstr ""
 
-#: src/user_info.py:173
+#: src/user_info.py:180
 msgid ""
 "Manjaro will use eCryptfs to encrypt your home directory. Unfortunately, "
 "eCryptfs does not handle sparse files well.\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:174
+#: src/user_info.py:181
 msgid ""
 "Don't worry, for most intents and purposes this deficiency does not pose a "
 "problem.\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:175
+#: src/user_info.py:182
 msgid ""
 "Anyway, one popular and inadvisable application of eCryptfs is to encrypt a "
 "BitTorrent download location as this often requires eCryptfs to handle "
@@ -1096,33 +1100,33 @@ msgid ""
 "\n"
 msgstr ""
 
-#: src/user_info.py:176
+#: src/user_info.py:183
 msgid ""
 "A simple workaround is to place sparse files in an unencrypted .Public "
 "directory\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:177
+#: src/user_info.py:184
 msgid ""
 "Look at https://wiki.archlinux.org/index.php/ECryptfs for detailed "
 "information\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:178
+#: src/user_info.py:185
 msgid "Are you sure you want to encrypt your home directory?\n"
 msgstr ""
 
-#: src/user_info.py:245
+#: src/user_info.py:252
 msgid "Invalid characters entered"
 msgstr ""
 
-#: src/user_info.py:249
+#: src/user_info.py:256
 msgid "Username can't contain dots"
 msgstr ""
 
-#: src/user_info.py:253
+#: src/user_info.py:260
 msgid "Too many characters"
 msgstr ""
 
@@ -1317,10 +1321,10 @@ msgstr ""
 msgid "<small><span color=\"darkred\">You must enter a username</span></small>"
 msgstr ""
 
-#: ui/user_info.ui:424
+#: ui/user_info.ui:425
 msgid "<small><span color=\"darkred\">You must enter a name</span></small>"
 msgstr ""
 
-#: ui/user_info.ui:446
+#: ui/user_info.ui:447
 msgid "<span size=\"small\">Its name as it appears to other computers.</span>"
 msgstr ""
