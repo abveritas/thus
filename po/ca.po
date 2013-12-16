@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 12:18+0100\n"
-"PO-Revision-Date: 2013-12-16 11:40+0000\n"
+"PO-Revision-Date: 2013-12-16 12:31+0000\n"
 "Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/manjaro-thus/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -82,7 +82,7 @@ msgstr "No es poden tancar els dispositius LUKS (mireu més avall)"
 #: src/auto_partition.py:164
 #, python-format
 msgid "Unkown filesystem type %s"
-msgstr ""
+msgstr "El tipus de sistema de fitxers %s és desconegut"
 
 #: src/auto_partition.py:320
 #, python-format
@@ -93,7 +93,7 @@ msgstr "El Thus configurarà LUKS al dispositiu %s"
 msgid ""
 "Setup cannot detect size of your device, please use advanced installation "
 "routine for partitioning and mounting devices."
-msgstr ""
+msgstr "L'instal·lador no pot detectar la mida del dispositiu. Utilitzeu la rutina avançada d'instal·lació per particionar i muntar dispositius."
 
 #: src/auto_partition.py:538
 #, python-format
@@ -167,7 +167,7 @@ msgstr "té com a mínim %dGB d'espai d'emmagatzematge disponible"
 msgid ""
 "This highly depends on which desktop environment you choose, so you might "
 "need more space."
-msgstr ""
+msgstr "Això depén fortament de quin entorn escriptori trieu, de manera que podríeu necessitar més espai."
 
 #: src/check.py:93
 msgid "is plugged in to a power source"
@@ -706,7 +706,7 @@ msgstr "Directoris especials ja estan muntats."
 
 #: src/installation_process.py:553
 msgid "Special dirs are not mounted. Skipping."
-msgstr ""
+msgstr "Els directoris especials no estan muntats. S'està ometent."
 
 #: src/installation_process.py:563
 #, python-format
@@ -892,7 +892,7 @@ msgid ""
 "advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bugs, please report them at <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr "El Thus és programari beta de pre-producció que encara està en desenvolupament.\nEncara no gestiona correctament la RAID, els subvolums btrfs ni altres configuracions avançades.\nSi us plau, procediu amb precaució ja que podríeu perdre dades!\n\nSi trobeu qualsevol error, si us plau envieu-lo a: <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
+msgstr "El Thus és programari beta de pre-producció que encara està en \ndesenvolupament. Encara no gestiona correctament la RAID, els subvolums \nbtrfs ni altres configuracions avançades. Si us plau, procediu amb precaució\nja que podríeu perdre dades!\n\nSi trobeu qualsevol error, si us plau envieu-lo a: <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 
 #: src/language.py:93
 msgid "Welcome to Manjaro!"
@@ -944,7 +944,7 @@ msgstr "El sistema de fitxers %s no es pot encongir"
 
 #: src/parted3/partition_module.py:217
 msgid "Partition is too large!"
-msgstr ""
+msgstr "La partició és massa gran."
 
 #: src/rank_mirrors.py:53
 msgid "Can't find rank mirrors script"
@@ -1031,7 +1031,7 @@ msgstr "El vostre nom"
 
 #: src/user_info.py:92 ui/user_info.ui:397
 msgid "Hostname"
-msgstr ""
+msgstr "Nom de l'amfitrió"
 
 #: src/user_info.py:96 ui/user_info.ui:474
 msgid "Your computer's name:"
@@ -1165,7 +1165,7 @@ msgstr "<span weight=\"bold\" size=\"large\">Per a uns resultats òptims, assegu
 msgid ""
 "(*) This highly depends on which desktop environment you choose, so you "
 "might need more space."
-msgstr ""
+msgstr "(*) Això depén fortament de quin entorn d'escriptori trieu, de manera que podríeu necessitar més espai."
 
 #: ui/installation_advanced.ui:74
 msgid "Create partition"

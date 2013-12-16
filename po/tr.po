@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 12:18+0100\n"
-"PO-Revision-Date: 2013-12-16 11:40+0000\n"
+"PO-Revision-Date: 2013-12-16 12:20+0000\n"
 "Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/manjaro-thus/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -77,7 +77,7 @@ msgstr "LUKS aygıtları kapatamazsınız (aşağıya bakınız)"
 #: src/auto_partition.py:164
 #, python-format
 msgid "Unkown filesystem type %s"
-msgstr ""
+msgstr "%s Bilinmeyen dosya sistemi tipi"
 
 #: src/auto_partition.py:320
 #, python-format
@@ -88,7 +88,7 @@ msgstr "Thus, %s aygıtına LUKS ile kuracak"
 msgid ""
 "Setup cannot detect size of your device, please use advanced installation "
 "routine for partitioning and mounting devices."
-msgstr ""
+msgstr "Kurulum disk boyutunu algılayamadı, bölümleme ve bağlama işleri için gelişmiş kurulum seçeneğini kullanın."
 
 #: src/auto_partition.py:538
 #, python-format
@@ -162,7 +162,7 @@ msgstr "En az %dGB kullanılabilir depolama alanı"
 msgid ""
 "This highly depends on which desktop environment you choose, so you might "
 "need more space."
-msgstr ""
+msgstr "Kurulum yapacağınız masaüstü yöneticisi ve onun bağımlılıklarına yetecek disk alanı belirlemelisiniz."
 
 #: src/check.py:93
 msgid "is plugged in to a power source"
@@ -701,7 +701,7 @@ msgstr "Özel disk zaten bağlı."
 
 #: src/installation_process.py:553
 msgid "Special dirs are not mounted. Skipping."
-msgstr ""
+msgstr "Özel dizin bağlanmadı. Atlanıyor."
 
 #: src/installation_process.py:563
 #, python-format
@@ -887,7 +887,7 @@ msgid ""
 "advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bugs, please report them at <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr "Thus sistem yükleyicisi halen geliştirilmektedir ve beta önizleme sürümdedir. \nRAID, btrfs, subvolumes veya diğer gelişmiş kurulumlarla ilgili hatalarla \nkarşılaşma olasılığınız vardır. Veri kaybı yaşamamak için lütfen dikkatli olunuz! \n\nHerhangi bir hata ile karşılaşırsanız lütfen geri bildirimde bulunun http://bugs.manjaro.org"
+msgstr "Thus sistem yükleyicisi halen geliştirilmektedir ve beta önizleme sürümdedir. \nRAID, btrfs, subvolumes veya diğer gelişmiş kurulumlarla ilgili hatalarla \nkarşılaşma olasılığınız vardır. Veri kaybı yaşamamak için lütfen dikkatli olunuz! \n\nKurulum hataları için geri bildirim adresi: <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 
 #: src/language.py:93
 msgid "Welcome to Manjaro!"
@@ -939,7 +939,7 @@ msgstr "Üzgünüm dosya sistemi %s üzerine oluşturulamaz"
 
 #: src/parted3/partition_module.py:217
 msgid "Partition is too large!"
-msgstr ""
+msgstr "Disk bölümü çok büyük!"
 
 #: src/rank_mirrors.py:53
 msgid "Can't find rank mirrors script"
@@ -1026,7 +1026,7 @@ msgstr "Gerçek Adınız:"
 
 #: src/user_info.py:92 ui/user_info.ui:397
 msgid "Hostname"
-msgstr ""
+msgstr "Hostname"
 
 #: src/user_info.py:96 ui/user_info.ui:474
 msgid "Your computer's name:"
@@ -1160,7 +1160,7 @@ msgstr "<span weight=\"bold\" size=\"large\">En iyi sonuç için bilgisayarını
 msgid ""
 "(*) This highly depends on which desktop environment you choose, so you "
 "might need more space."
-msgstr ""
+msgstr "(*) Kurulum yapacağınız masaüstü yöneticisi ve onun bağımlılıklarına yetecek disk alanı belirlemelisiniz."
 
 #: ui/installation_advanced.ui:74
 msgid "Create partition"

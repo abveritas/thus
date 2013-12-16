@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Puretech <terjemah.puretech@gmail.com>, 2013
+# manjarolinux <philm@manjaro.org>, 2013
 # Puretech <terjemah.puretech@gmail.com>, 2013
 # terabit <akimlinux@gmail.com>, 2013
 # Puretech <terjemah.puretech@gmail.com>, 2013
@@ -12,7 +13,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 12:18+0100\n"
-"PO-Revision-Date: 2013-12-16 11:40+0000\n"
+"PO-Revision-Date: 2013-12-16 12:19+0000\n"
 "Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Malay (http://www.transifex.com/projects/p/manjaro-thus/language/ms/)\n"
 "MIME-Version: 1.0\n"
@@ -883,7 +884,7 @@ msgid ""
 "advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bugs, please report them at <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr ""
+msgstr "Thus adalah perisian pra-keluaran beta sedang dalam pembinaan.\nIa masih belum boleh mengendalikan RADI, btrfs subvolumes, atau \nlain-lain tetapan lanjut dengan betul. Sila teruskan dengan berhati-hati \nkerana kehilangan data mungkin boleh berlaku!.\nJika anda menjumpai sebarang pepijat, kunjungi <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 
 #: src/language.py:93
 msgid "Welcome to Manjaro!"
@@ -1296,7 +1297,7 @@ msgid ""
 "Thus is pre-release beta software that is under active development. It does not yet properly handle RAID, btrfs subvolumes, or other advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bug, please, visit <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr "<span weight='bold'>Nota: Pemasang Thus adalah paerisian beta</span> /n\n/n\nThus adalah perisian pra-keluaran beta sedang dalam pembinaan. /n\nIa masih belum boleh mengendalikan RADI, btrfs subvolumes, atau lain-lain tetapan lanjut dengan betul. Sila teruskan dengan berhati-hati kerana kehilangan data mungkin boleh berlaku!. /n\n/n\nJika anda menjumpai sebarang pepijat, kunjungi <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
+msgstr "<span weight='bold'>Nota: Pemasang Thus adalah paerisian beta</span>\n\nThus adalah perisian pra-keluaran beta sedang dalam pembinaan.\nIa masih belum boleh mengendalikan RADI, btrfs subvolumes, atau lain-lain tetapan lanjut dengan betul. Sila teruskan dengan berhati-hati kerana kehilangan data mungkin boleh berlaku!.\n\nJika anda menjumpai sebarang pepijat, kunjungi <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 
 #: ui/thus.ui:37
 msgid "<span weight=\"bold\" size=\"large\">Welcome to Manjaro</span>"

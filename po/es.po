@@ -17,6 +17,7 @@
 # leonelhermetica <leonelmalon@gmail.com>, 2013
 # neiko <neikokz+tsfx@gmail.com>, 2011
 # Pablo Lezaeta <prflr88@gmail.com>, 2013
+# manjarolinux <philm@manjaro.org>, 2013
 # kirek <rbuldo@gmail.com>, 2013
 # Rodrigo Cares <rcares@gmail.com>, 2012
 msgid ""
@@ -24,7 +25,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 12:18+0100\n"
-"PO-Revision-Date: 2013-12-16 11:40+0000\n"
+"PO-Revision-Date: 2013-12-16 12:12+0000\n"
 "Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/manjaro-thus/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -895,7 +896,7 @@ msgid ""
 "advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bugs, please report them at <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr "Thus es un versión anterior a la beta, y esta desarrollándose activamente.\nAún no trabaja adecuadamente con RAID, subvolúmenes btrfs y otras configuraciones avanzadas. Por favor proceda con cautela, ¡ya que la pérdida de datos es posible!\n\nSi encuentra algún error, por favor informe a <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
+msgstr "Thus es un versión anterior a la beta, y esta desarrollándose activamente.\nAún no trabaja adecuadamente con RAID, subvolúmenes btrfs y otras \nconfiguraciones avanzadas. Por favor proceda con cautela, ¡ya que la \npérdida de datos es posible!\nSi encuentra algún error, por favor informe a <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 
 #: src/language.py:93
 msgid "Welcome to Manjaro!"
