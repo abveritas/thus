@@ -6,6 +6,7 @@
 # GNU/ひよこ大佐 <thel.vadam2485@gmail.com>, 2013
 #  <info@astaricsoft.net>, 2013
 # ほたゔぃあ(lindwurm), 2013
+# manjarolinux <philm@manjaro.org>, 2013
 # rago1975, 2013
 # rago1975, 2013
 # GNU/ひよこ大佐 <thel.vadam2485@gmail.com>, 2013
@@ -14,7 +15,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 12:18+0100\n"
-"PO-Revision-Date: 2013-12-16 11:40+0000\n"
+"PO-Revision-Date: 2013-12-16 13:04+0000\n"
 "Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/manjaro-thus/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -876,7 +877,7 @@ msgstr "言語を選択してください:"
 
 #: src/language.py:85
 msgid "Notice: The Thus Installer is beta software."
-msgstr "注意: Thusiインストーラーは ベータ版です。"
+msgstr "注意: Thusインストーラーは ベータ版です。"
 
 #: src/language.py:86
 msgid ""
@@ -885,7 +886,7 @@ msgid ""
 "advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bugs, please report them at <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr "Thus は未だ開発中のベータ版のソフトウェアです。\n未だRAID、 btrfs、subvolumesといった高度なセットアップではうまく作動しないことが知られています。\nデータを失う可能性などを考慮して続行してください。\n\nバグを見つけたら、<a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>を訪問してください。"
+msgstr "Thus は未だ開発中のベータ版のソフトウェアです。\n未だRAID、 btrfs、subvolumesといった高度なセットアップではうま\nく作動しないことが知られています。\nデータを失う可能性などを考慮して続行してください。\n\nバグを見つけたら、<a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>を訪問してください。"
 
 #: src/language.py:93
 msgid "Welcome to Manjaro!"
