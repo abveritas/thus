@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 12:18+0100\n"
-"PO-Revision-Date: 2013-12-16 13:32+0000\n"
+"PO-Revision-Date: 2013-12-16 13:35+0000\n"
 "Last-Translator: 柏諺 黃 <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/manjaro-thus/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -160,7 +160,7 @@ msgstr "有至少 %dGB 的可用磁碟空間"
 msgid ""
 "This highly depends on which desktop environment you choose, so you might "
 "need more space."
-msgstr ""
+msgstr "這高度取決於您所選擇的桌面環境，所以您可能會需要更多的空間。"
 
 #: src/check.py:93
 msgid "is plugged in to a power source"
@@ -699,7 +699,7 @@ msgstr "特殊目錄已經掛載。"
 
 #: src/installation_process.py:553
 msgid "Special dirs are not mounted. Skipping."
-msgstr ""
+msgstr "特殊目錄沒有掛載。正在略過。"
 
 #: src/installation_process.py:563
 #, python-format
@@ -937,7 +937,7 @@ msgstr "抱歉，檔案系統 %s 無法縮小"
 
 #: src/parted3/partition_module.py:217
 msgid "Partition is too large!"
-msgstr ""
+msgstr "分割區太大了！"
 
 #: src/rank_mirrors.py:53
 msgid "Can't find rank mirrors script"
@@ -1024,7 +1024,7 @@ msgstr "您的名字"
 
 #: src/user_info.py:92 ui/user_info.ui:397
 msgid "Hostname"
-msgstr ""
+msgstr "主機名稱"
 
 #: src/user_info.py:96 ui/user_info.ui:474
 msgid "Your computer's name:"
@@ -1158,7 +1158,7 @@ msgstr "<span weight=\"bold\" size=\"large\">要獲得最好的結果，請確�
 msgid ""
 "(*) This highly depends on which desktop environment you choose, so you "
 "might need more space."
-msgstr ""
+msgstr "(*) 這高度取決於您所選擇的桌面環境，所以您可能會需要更多的空間。"
 
 #: ui/installation_advanced.ui:74
 msgid "Create partition"

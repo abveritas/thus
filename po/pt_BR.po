@@ -25,8 +25,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 12:18+0100\n"
-"PO-Revision-Date: 2013-12-16 12:52+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2013-12-16 19:48+0000\n"
+"Last-Translator: arnt <qtgzmanager@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/manjaro-thus/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,7 +86,7 @@ msgstr "Não foi possível finalizar os dispositivos LUKS (veja abaixo)"
 #: src/auto_partition.py:164
 #, python-format
 msgid "Unkown filesystem type %s"
-msgstr ""
+msgstr "Tipo de sistema de arquivos desconhecido %s"
 
 #: src/auto_partition.py:320
 #, python-format
@@ -97,7 +97,7 @@ msgstr "Manjaro utilizará LUKS no dispositivo %s"
 msgid ""
 "Setup cannot detect size of your device, please use advanced installation "
 "routine for partitioning and mounting devices."
-msgstr ""
+msgstr "A configuração não pode detectar o tamanho do seu dispositivo, por favor utilize a rotina de instalação avançada para particionar e montar os dispositivos."
 
 #: src/auto_partition.py:538
 #, python-format
@@ -171,7 +171,7 @@ msgstr "tem pelo menos %dGB espaço de armazenamento disponível"
 msgid ""
 "This highly depends on which desktop environment you choose, so you might "
 "need more space."
-msgstr ""
+msgstr "Isto depende principalmente de qual ambiente desktop você escolher, o qual poderá exigir mais espaço."
 
 #: src/check.py:93
 msgid "is plugged in to a power source"
@@ -710,7 +710,7 @@ msgstr "Diretórios especiais já estão montados."
 
 #: src/installation_process.py:553
 msgid "Special dirs are not mounted. Skipping."
-msgstr ""
+msgstr "Diretórios especiais não estão montados. Pulando."
 
 #: src/installation_process.py:563
 #, python-format
@@ -948,7 +948,7 @@ msgstr "Desculpe mas o sistema de arquivos %s não pode ser encolhido"
 
 #: src/parted3/partition_module.py:217
 msgid "Partition is too large!"
-msgstr ""
+msgstr "Partição é muito grande!"
 
 #: src/rank_mirrors.py:53
 msgid "Can't find rank mirrors script"
@@ -1035,7 +1035,7 @@ msgstr "Seu nome"
 
 #: src/user_info.py:92 ui/user_info.ui:397
 msgid "Hostname"
-msgstr ""
+msgstr "Nome do computador"
 
 #: src/user_info.py:96 ui/user_info.ui:474
 msgid "Your computer's name:"
@@ -1169,7 +1169,7 @@ msgstr "<span weight=\"bold\" size=\"large\">Para melhores resultados, por favor
 msgid ""
 "(*) This highly depends on which desktop environment you choose, so you "
 "might need more space."
-msgstr ""
+msgstr "(*) Isto depende principalmente de qual ambiente desktop você escolher, o qual poderá exigir mais espaço."
 
 #: ui/installation_advanced.ui:74
 msgid "Create partition"
