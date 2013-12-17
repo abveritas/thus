@@ -28,7 +28,7 @@ import config
 import show_message as show
 
 _next_page = "slides"
-_prev_page = "keymap"
+_prev_page = "timezone"
 
 class UserInfo(Gtk.Box):
     """ Asks for user information """
