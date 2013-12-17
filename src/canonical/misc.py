@@ -3,6 +3,7 @@
 #
 # Copyright (c) 2012 Canonical Ltd.
 # Copyright (c) 2013 Antergos
+# Copyright (c) 2013 Manjaro
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -30,6 +31,7 @@ import syslog
 import socket
 import canonical.osextras as osextras
 import logging
+import config
 
 def copytree(src, dst, symlinks=False, ignore=None):
     for item in os.listdir(src):
@@ -916,11 +918,14 @@ def sort_list(mylist, mylocale=""):
     import locale
     import functools
 
-    if mylocale != "":
+    locale_failed = config.settings.get('locale_failed')
+
+    if mylocale != "" and not locale_failed:
         try:
             locale.setlocale(locale.LC_ALL, mylocale)
         except:
             logging.warning(_("Can't set locale %s") % mylocale)
+            config.settings.set('locale_failed', True)
 
     sorted_list = sorted(mylist,  key=functools.cmp_to_key(locale.strcoll))
 
