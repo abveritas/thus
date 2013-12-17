@@ -29,7 +29,7 @@ import logging
 import show_message as show
 import xml.etree.ElementTree as etree
 
-_next_page = "keymap"
+_next_page = "timezone"
 _prev_page = "language"
 
 class Location(Gtk.Box):

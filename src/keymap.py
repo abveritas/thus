@@ -32,7 +32,7 @@ import canonical.misc as misc
 import subprocess
 
 _next_page = "check"
-_prev_page = "location"
+_prev_page = "timezone"
 
 class Keymap(Gtk.Box):
 
