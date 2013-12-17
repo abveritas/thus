@@ -44,7 +44,7 @@ import parted3.used_space as used_space
 import installation_process
 import show_message as show
 
-_next_page = "timezone"
+_next_page = "user_info"
 _prev_page = "installation_ask"
 
 class InstallationAdvanced(Gtk.Box):

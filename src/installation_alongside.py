@@ -53,7 +53,7 @@ import parted3.fs_module as fs
 
 import installation_process
 
-_next_page = "timezone"
+_next_page = "user_info"
 _prev_page = "installation_ask"
 
 # leave at least 5GB for Manjaro when shrinking
