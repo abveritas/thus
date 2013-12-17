@@ -61,7 +61,6 @@ class Settings(object):
             'language_name' : '', \
             'language_code' : '', \
             'locale' : '', \
-            'locale_failed' : False, \
             'log_file' : '/tmp/thus.log', \
             'luks_key_pass' : "", \
             'partition_mode' : 'easy', \
