@@ -918,14 +918,14 @@ def sort_list(mylist, mylocale=""):
     import locale
     import functools
 
-    locale_failed = config.settings.get('locale_failed')
+    locale_failed = config.get('locale_failed')
 
     if mylocale != "" and not locale_failed:
         try:
             locale.setlocale(locale.LC_ALL, mylocale)
         except:
             logging.warning(_("Can't set locale %s") % mylocale)
-            config.settings.set('locale_failed', True)
+            config.set('locale_failed', True)
 
     sorted_list = sorted(mylist,  key=functools.cmp_to_key(locale.strcoll))
 
