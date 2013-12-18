@@ -1,8 +1,6 @@
 #!/bin/bash
 
-if [ $(which pkexec) ]; then
-	pkexec --disable-internal-agent /usr/bin/env python /usr/share/thus/thus.py ${@}
-elif [ $(which sudo) ]; then
+if [ $(which sudo) ]; then
 	sudo -E /usr/bin/env python /usr/share/thus/thus.py ${@}
 else
     # do UID checking here so someone can at least get usage instructions
