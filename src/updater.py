@@ -26,6 +26,7 @@
 
 import urllib.request
 import urllib.error
+import httplib.error
 from urllib.request import urlopen
 
 import json
@@ -75,14 +76,14 @@ class Updater():
 
     def is_web_version_newer(self):
         if self.force:
-             return True
+            return True
 
         #version is always: x.y.z
         cur_ver = info.thus_VERSION.split(".")
         web_ver = self.web_version.split(".")
 
-        cur = [int(cur_ver[0]),int(cur_ver[1]),int(cur_ver[2])]
-        web = [int(web_ver[0]),int(web_ver[1]),int(web_ver[2])]
+        cur = [int(cur_ver[0]), int(cur_ver[1]), int(cur_ver[2])]
+        web = [int(web_ver[0]), int(web_ver[1]), int(web_ver[2])]
 
         if web[0] > cur[0]:
             return True
@@ -125,7 +126,7 @@ class Updater():
 
     def download(self, name, md5):
         url = _url_prefix + name
-        response = ""
+        #response = ""
         try:
             request = urlopen(url)
             txt = request.read()
