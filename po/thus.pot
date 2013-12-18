@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 13:30+0100\n"
+"POT-Creation-Date: 2013-12-18 13:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Label"
 msgstr ""
 
-#: src/installation_advanced.py:293 src/installation_advanced.py:1537
+#: src/installation_advanced.py:293 src/installation_advanced.py:1539
 msgid "Format"
 msgstr ""
 
@@ -226,8 +226,8 @@ msgid "none"
 msgstr ""
 
 #: src/installation_advanced.py:535 src/installation_advanced.py:938
-#: src/installation_advanced.py:1411 src/installation_advanced.py:1490
-#: src/installation_advanced.py:1632 src/installation_advanced.py:1703
+#: src/installation_advanced.py:1413 src/installation_advanced.py:1492
+#: src/installation_advanced.py:1634 src/installation_advanced.py:1707
 msgid "extended"
 msgstr ""
 
@@ -349,7 +349,11 @@ msgstr ""
 msgid "Can't create BIOS GPT Boot partition!"
 msgstr ""
 
-#: src/installation_advanced.py:1447
+#: src/installation_advanced.py:1333
+msgid "Couldn't create BIOS GPT Boot partition"
+msgstr ""
+
+#: src/installation_advanced.py:1449
 #, python-format
 msgid ""
 "%s is mounted as swap.\n"
@@ -357,7 +361,7 @@ msgid ""
 "Click Yes to unmount, or No to return\n"
 msgstr ""
 
-#: src/installation_advanced.py:1450
+#: src/installation_advanced.py:1452
 #, python-format
 msgid ""
 "%s is mounted in '%s'.\n"
@@ -365,56 +369,61 @@ msgid ""
 "Click Yes to unmount, or No to return\n"
 msgstr ""
 
-#: src/installation_advanced.py:1471
+#: src/installation_advanced.py:1473
 #, python-format
 msgid "%s shows as mounted (busy) but it has no mount point"
 msgstr ""
 
-#: src/installation_advanced.py:1530
+#: src/installation_advanced.py:1532
 #, python-format
 msgid "Partition %s will be deleted"
 msgstr ""
 
-#: src/installation_advanced.py:1537
+#: src/installation_advanced.py:1539
 msgid "Partition"
 msgstr ""
 
-#: src/installation_advanced.py:1537
+#: src/installation_advanced.py:1539
 msgid "New"
 msgstr ""
 
-#: src/installation_advanced.py:1537
+#: src/installation_advanced.py:1539
 msgid "Relabel"
 msgstr ""
 
-#: src/installation_advanced.py:1537
+#: src/installation_advanced.py:1539
 msgid "Mount"
 msgstr ""
 
-#: src/installation_advanced.py:1558
+#: src/installation_advanced.py:1560
 msgid "These disks will have partition actions:"
 msgstr ""
 
-#: src/installation_advanced.py:1611
+#: src/installation_advanced.py:1613
 #, python-format
 msgid "Saving changes done in %s"
 msgstr ""
 
-#: src/installation_advanced.py:1634
+#: src/installation_advanced.py:1636
 #, python-format
 msgid "Creating %s filesystem in %s labeled %s"
 msgstr ""
 
-#: src/installation_advanced.py:1722
+#: src/installation_advanced.py:1677
+#, python-format
+msgid "Couldn't format partition %s with label %s as %s"
+msgstr ""
+
+#: src/installation_advanced.py:1726
 #, python-format
 msgid "Manjaro will install the bootloader of type %s in %s"
 msgstr ""
 
-#: src/installation_advanced.py:1725 src/installation_automatic.py:211
+#: src/installation_advanced.py:1729 src/installation_automatic.py:211
 msgid "Thus will not install any boot loader"
 msgstr ""
 
-#: src/installation_advanced.py:1739 src/installation_automatic.py:232
+#: src/installation_advanced.py:1743 src/installation_automatic.py:232
 msgid "Testing mode. Thus won't apply any changes to your system!"
 msgstr ""
 

@@ -1330,8 +1330,10 @@ class InstallationAdvanced(Gtk.Box):
         (res, err) = pm.set_flag(pm.PED_PARTITION_BIOS_GRUB, part)
 
         if res:
+            txt = _("Couldn't create BIOS GPT Boot partition")
+            logging.error(txt)
             logging.error(err)
-            show.error(err)
+            show.error(txt)
 
         # Store stage partition info in self.stage_opts
         old_parts = []
@@ -1672,8 +1674,10 @@ class InstallationAdvanced(Gtk.Box):
                                 if error == 0:
                                     logging.info(msg)
                                 else:
+                                    txt = _("Couldn't format partition %s with label %s as %s") % (partition_path, lbl, fisy)
+                                    logging.error(txt)
                                     logging.error(msg)
-                                    show.fatal_error(msg)
+                                    show.fatal_error(txt)
                         elif partition_path in self.orig_label_dic:
                             if self.orig_label_dic[partition_path] != lbl:
                                 if not self.testing:
