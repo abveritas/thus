@@ -473,16 +473,18 @@ class InstallationProcess(multiprocessing.Process):
                 self.queue_fatal_event(txt)
 
             # Mount the installation media
-            device = self.check_source_folder("/source")
+            mount_point = "/source"
+            device = self.check_source_folder(mount_point)
             if device is None:
-                subprocess.check_call(["mount", self.media, "/source", "-t", self.media_type, "-o", "loop"])
+                subprocess.check_call(["mount", self.media, mount_point, "-t", self.media_type, "-o", "loop"])
             else:
-                logging.error(_("%s is already mounted at %s as %s") % (self.media, "/source", device)
-            device = self.check_source_folder("/source_desktop")
+                logging.error(_("%s is already mounted at %s as %s") % (self.media, mount_point, device))
+            mount_point = "/source_desktop"
+            device = self.check_source_folder(mount_point)
             if device is None:
-                subprocess.check_call(["mount", self.media_desktop, "/source_desktop", "-t", self.media_type, "-o", "loop"])
+                subprocess.check_call(["mount", self.media_desktop, mount_point, "-t", self.media_type, "-o", "loop"])
             else:
-                logging.error(_("%s is already mounted at %s as %s") % (self.media_desktop, "/source_desktop", device)
+                logging.error(_("%s is already mounted at %s as %s") % (self.media_desktop, mount_point, device))
 
             # walk root filesystem
             SOURCE = "/source/"
