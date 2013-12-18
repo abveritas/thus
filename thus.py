@@ -161,10 +161,6 @@ class Main(Gtk.Window):
         else:
             data_dir = self.settings.get('data')
 
-        print (thus_dir)
-        print (ui_dir)
-        print (data_dir)
-
         # Set enabled desktops
         self.settings.set("desktops", DESKTOPS)
 
