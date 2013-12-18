@@ -70,7 +70,7 @@ def get_devices():
     device_list = parted.getAllDevices()
     disk_dic = {}
 
-    myhomepath = '/run/archiso/bootmnt'
+    myhomepath = '/bootmnt'
     if os.path.exists(myhomepath):
         myhome = subprocess.check_output(["df", "-P", myhomepath]).decode()
     else:
@@ -101,7 +101,7 @@ def get_devices():
                 disk_dic[dev.path] = diskob
             except Exception as e:
                 logging.error(e)
-                show.fatal_error(e)
+                show.fatal_error(_("Exception: For more information take a look at /tmp/thus.log"))
 
                 disk_dic[dev.path] = None
 
@@ -166,8 +166,10 @@ def delete_partition(diskob, part):
     try:
         diskob.deletePartition(part)
     except Exception as e:
+        txt = _("Can't delete partition %s") % part
+        logging.error(txt)
         logging.error(e)
-        show.fatal_error(e)
+        show.fatal_error(txt)
 
 def get_partition_size(diskob, part):
     dev = diskob.device
@@ -274,7 +276,7 @@ def get_used_space_from_path(path):
     except subprocess.CalledProcessError as err:
         used_space = 0
         logging.error(err)
-        show.fatal_error(err)
+        show.fatal_error(err.output)
 
     return used_space
 
