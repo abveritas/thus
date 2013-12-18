@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 21:24+0100\n"
-"PO-Revision-Date: 2013-12-17 13:07+0000\n"
+"PO-Revision-Date: 2013-12-17 13:15+0000\n"
 "Last-Translator: Tornes Llume <l.lumex03.tornes@gmail.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/manjaro-thus/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,7 @@ msgstr "Nun puen zarrase los preseos LUKS (ver embaxo)"
 #: src/auto_partition.py:164
 #, python-format
 msgid "Unkown filesystem type %s"
-msgstr ""
+msgstr "Sistema d'archivos %s desconocíu"
 
 #: src/auto_partition.py:320
 #, python-format
@@ -345,7 +345,7 @@ msgid ""
 "GRUB requires a BIOS Boot Partition (2 MiB, no filesystem, \"EF02\" type code in gdisk or \"bios_grub\" flag in GNU Parted) in BIOS systems to embed its core.img file due to lack of post-MBR embed gap in GPT disks.\n"
 "\n"
 "Thus will create this special partition for you now."
-msgstr ""
+msgstr "GRUB requier una partición d'arranque de la BIOS (2 ​​MiB, dengún sistema d'archivos, códigu \"EF02\" en gdisk o la bandera \"bios_grub\" en GNU Parted) nos sistemes de BIOS pa enxertar l'archivu core.img so pola mor d'una falta d'espariu post-MBR nos discos GPT.\n\nThus criará esta partición especial por ti agora."
 
 #: src/installation_advanced.py:1305
 msgid "Can't create BIOS GPT Boot partition!"
@@ -494,7 +494,7 @@ msgstr "Esto configurará LVM en permitiendo faer captures y camudar el grandor 
 
 #: src/installation_ask.py:147 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
-msgstr ""
+msgstr "Afitar el direutoriu Home to nuna/nun partición/volume xebraos"
 
 #: src/installation_ask.py:151
 msgid ""
@@ -672,7 +672,7 @@ msgstr "¡El sistema d'archivos bas nun esiste! Erru críticu (en colando)."
 
 #: src/installation_process.py:461
 msgid "Desktop filesystem does not exist! Critical error (exiting)."
-msgstr ""
+msgstr "¡El sistema d'archivos d'escritoriu nun esiste! Erru críticu (en colando)."
 
 #: src/installation_process.py:478
 msgid "Indexing files to be copied ..."
@@ -767,7 +767,7 @@ msgstr "Erru en camudando la conseña pal usuariu %s"
 
 #: src/installation_process.py:892
 msgid "Setting hooks and modules in mkinitcpio.conf"
-msgstr ""
+msgstr "En configurando hooks ya módulos en mkinitcpio.conf"
 
 #: src/installation_process.py:957
 #, python-format
@@ -803,7 +803,7 @@ msgstr "Amestáu l'usuariu %s."
 #: src/installation_process.py:1129
 #, python-format
 msgid "Hostname  %s set."
-msgstr ""
+msgstr "Afitáu'l viesu l'equipu %s."
 
 #: src/installation_process.py:1133
 msgid "Set the same password to root."
@@ -1036,7 +1036,7 @@ msgstr "El nome to"
 
 #: src/user_info.py:92 ui/user_info.ui:397
 msgid "Hostname"
-msgstr ""
+msgstr "Viesu l'equipu"
 
 #: src/user_info.py:96 ui/user_info.ui:474
 msgid "Your computer's name:"
