@@ -3,16 +3,17 @@
 import subprocess
 import sys
 
-from PyQt4.QtCore import Qt, QRectF
-from PyQt4.QtGui import QWidget, QFont, QPainter, QPen, QPainterPath, QColor, QPixmap
+from PyQt5.QtCore import Qt, QRectF
+from PyQt5.QtGui import QFont, QPainter, QPen, QPainterPath, QColor
+from PyQt5.QtWidgets import QWidget
 
 
 #U+ , or +U+ ... to string
 def fromUnicodeString(raw):
     if raw[0:2] == "U+":
-        return unichr(int(raw[2:], 16))
+        return chr(int(raw[2:], 16))
     elif raw[0:2] == "+U":
-        return unichr(int(raw[3:], 16))
+        return chr(int(raw[3:], 16))
 
     return ""
 
@@ -238,16 +239,16 @@ class Keyboard(QWidget):
         #print cmd
 
         pipe = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=None)
-        cfile = pipe.communicate()[0]
+        cfile = pipe.communicate()[0].decode("utf-8").split('\n')
 
         #clear the current codes
         del self.codes[:]
 
-        for l in cfile.split('\n'):
-            if l[:7] != "keycode":
+        for line in cfile:
+            if line[:7] != "keycode":
                 continue
 
-            codes = l.split('=')[1].strip().split(' ')
+            codes = line.split('=')[1].strip().split(' ')
 
             plain = fromUnicodeString(codes[0])
             shift = fromUnicodeString(codes[1])
@@ -264,7 +265,7 @@ class Keyboard(QWidget):
 
 ## testing
 if __name__ == "__main__":
-    from PyQt4.QtGui import QApplication
+    from PyQt5.QtWidgets import QApplication, QWidget
 
     app = QApplication(sys.argv)
 
@@ -276,6 +277,6 @@ if __name__ == "__main__":
     kb1.setLayout(layout)
     kb1.setVariant(variant)
 
-    snapshot = QPixmap.grabWidget(kb1)
+    snapshot = QWidget.grab(kb1)
     #snapshot = snapshot.scaled(600, 200, Qt.IgnoreAspectRatio, Qt.FastTransformation)
     snapshot.save(filename, "PNG")
