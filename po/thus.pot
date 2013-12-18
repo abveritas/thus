@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 12:09+0100\n"
+"POT-Creation-Date: 2013-12-18 13:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -945,8 +945,72 @@ msgstr ""
 msgid "Sorry but filesystem %s can't be shrinked"
 msgstr ""
 
-#: src/parted3/partition_module.py:217
+#: src/parted3/lvm.py:75
+#, python-format
+msgid "Can't remove logical volume %s"
+msgstr ""
+
+#: src/parted3/lvm.py:92
+#, python-format
+msgid "Can't remove volume group %s"
+msgstr ""
+
+#: src/parted3/lvm.py:103
+#, python-format
+msgid "Can't remove physical volume %s"
+msgstr ""
+
+#: src/parted3/partition_module.py:104
+msgid "Exception: For more information take a look at /tmp/thus.log"
+msgstr ""
+
+#: src/parted3/partition_module.py:169
+#, python-format
+msgid "Can't delete partition %s"
+msgstr ""
+
+#: src/parted3/partition_module.py:219
 msgid "Partition is too large!"
+msgstr ""
+
+#: src/parted3/partition_module.py:278
+#, python-format
+msgid "Can't detect used space from %s"
+msgstr ""
+
+#: src/parted3/used_space.py:39
+#, python-format
+msgid "Can't detect used space of NTFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:66
+#, python-format
+msgid "Can't detect used space of EXTFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:93
+#, python-format
+msgid "Can't detect used space of FATFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:124
+#, python-format
+msgid "Can't detect used space of JFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:149
+#, python-format
+msgid "Can't detect used space of REISERFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:174
+#, python-format
+msgid "Can't detect used space of BTRFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:217
+#, python-format
+msgid "Can't detect used space of XFS partition %s"
 msgstr ""
 
 #: src/rank_mirrors.py:53

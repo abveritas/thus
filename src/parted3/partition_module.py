@@ -275,8 +275,10 @@ def get_used_space_from_path(path):
         used_space = lines[1].split()[2]
     except subprocess.CalledProcessError as err:
         used_space = 0
+        txt = _("Can't detect used space from %s") % path
+        logging.error(txt)
         logging.error(err)
-        show.fatal_error(err.output)
+        show.fatal_error(txt)
 
     return used_space
 
