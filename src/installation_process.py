@@ -478,13 +478,13 @@ class InstallationProcess(multiprocessing.Process):
             if device is None:
                 subprocess.check_call(["mount", self.media, mount_point, "-t", self.media_type, "-o", "loop"])
             else:
-                logging.error(_("%s is already mounted at %s as %s") % (self.media, mount_point, device))
+                logging.warning(_("%s is already mounted at %s as %s") % (self.media, mount_point, device))
             mount_point = "/source_desktop"
             device = self.check_source_folder(mount_point)
             if device is None:
                 subprocess.check_call(["mount", self.media_desktop, mount_point, "-t", self.media_type, "-o", "loop"])
             else:
-                logging.error(_("%s is already mounted at %s as %s") % (self.media_desktop, mount_point, device))
+                logging.warning(_("%s is already mounted at %s as %s") % (self.media_desktop, mount_point, device))
 
             # walk root filesystem
             SOURCE = "/source/"
