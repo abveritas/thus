@@ -1,0 +1,6 @@
+/* Allow all users to run Thus as admin without authentication */
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.manjaro.thus" {
+        return polkit.Result.YES;
+    }
+});
