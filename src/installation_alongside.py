@@ -222,7 +222,7 @@ class InstallationAlongside(Gtk.Box):
                 except Exception as e:
                     txt = _("Unable to create list of partitions for alongside installation.")
                     logging.warning(txt)
-                    installation_process.queue_event('warning', txt)
+                    show.warning(txt)
 
         # assign our new model to our treeview
         self.treeview.set_model(self.treeview_store)
