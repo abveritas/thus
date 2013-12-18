@@ -26,7 +26,6 @@
 
 import urllib.request
 import urllib.error
-import httplib.error
 from urllib.request import urlopen
 
 import json
@@ -42,6 +41,7 @@ _url_prefix = "http://git.manjaro.org/core/thus/raw/master/"
 
 _src_dir = os.path.dirname(__file__) or '.'
 _base_dir = os.path.join(_src_dir, "..")
+
 
 class Updater():
     def __init__(self, force_update):
