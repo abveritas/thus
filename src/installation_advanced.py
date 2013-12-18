@@ -1478,7 +1478,8 @@ class InstallationAdvanced(Gtk.Box):
                                     else:
                                         # unmount it!
                                         if swap_partition == partition_path:
-                                            subp = subprocess.Popen(['swapoff', partition_path], stdout=subprocess.PIPE)
+                                            subp = subprocess.Popen(['sh', '-c', 'swapoff %s'
+                                                                    % partition_path], stdout=subprocess.PIPE)
                                             logging.debug("Swap partition %s unmounted", partition_path)
                                         else:
                                             subp = subprocess.Popen(['umount', partition_path], stdout=subprocess.PIPE)
