@@ -26,7 +26,7 @@ import subprocess
 import shlex
 import canonical.misc as misc
 import logging
-import installation_process
+import show_message as show
 
 @misc.raise_privileges
 def get_used_ntfs(part):
@@ -37,7 +37,7 @@ def get_used_ntfs(part):
     except subprocess.CalledProcessError as err:
         result = None
         logging.error(err)
-        installation_process.queue_fatal_event(err)
+        show.fatal_error(err)
 
     if result:
         csize, vsize, fsize = (0, 0, 0)
@@ -62,7 +62,7 @@ def get_used_ext(part):
     except subprocess.CalledProcessError as err:
         result = None
         logging.error(err)
-        installation_process.queue_fatal_event(err)
+        show.fatal_error(err)
 
     if result:
         csize, vsize, fsize = (0, 0, 0)
@@ -87,7 +87,7 @@ def get_used_fat(part):
     except subprocess.CalledProcessError as err:
         result = None
         logging.error(err)
-        installation_process.queue_fatal_event(err)
+        show.fatal_error(err)
 
     if result:
         bperc = 0
@@ -116,7 +116,7 @@ def get_used_jfs(part):
     except subprocess.CalledProcessError as err:
         result = None
         logging.error(err)
-        installation_process.queue_fatal_event(err)
+        show.fatal_error(err)
 
     if result:
         vsize, fsize = (0, 0)
@@ -139,7 +139,7 @@ def get_used_reiser(part):
     except subprocess.CalledProcessError as err:
         result = None
         logging.error(err)
-        installation_process.queue_fatal_event(err)
+        show.fatal_error(err)
 
     if result:
         vsize, fsize = (0, 0)
@@ -162,7 +162,7 @@ def get_used_btrfs(part):
     except subprocess.CalledProcessError as err:
         result = None
         logging.error(err)
-        installation_process.queue_fatal_event(err)
+        show.fatal_error(err)
 
     if result:
         vsize, usize = (1, 0)
@@ -203,7 +203,7 @@ def get_used_xfs(part):
     except subprocess.CalledProcessError as err:
         result = None
         logging.error(err)
-        installation_process.queue_fatal_event(err)
+        show.fatal_error(err)
 
     if result:
         vsize, fsize = (1, 0)

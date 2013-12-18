@@ -27,7 +27,7 @@ import shlex
 import os
 import canonical.misc as misc
 import logging
-import installation_process
+import show_message as show
 
 # To be able to test this installer in other systems
 # that do not have pyparted3 installed
@@ -101,7 +101,7 @@ def get_devices():
                 disk_dic[dev.path] = diskob
             except Exception as e:
                 logging.error(e)
-                installation_process.queue_fatal_event(e)
+                show.fatal_error(e)
 
                 disk_dic[dev.path] = None
 
@@ -167,7 +167,7 @@ def delete_partition(diskob, part):
         diskob.deletePartition(part)
     except Exception as e:
         logging.error(e)
-        installation_process.queue_fatal_event(e)
+        show.fatal_error(e)
 
 def get_partition_size(diskob, part):
     dev = diskob.device
@@ -216,7 +216,7 @@ def create_partition(diskob, part_type, geom):
     if diskob.maxPartitionLength < maxgeom.length:
         txt = _('Partition is too large!')
         logging.error(txt)
-        installation_process.queue_fatal_event(txt)
+        show.fatal_error(txt)
         return None
     else:
         npartition = parted.Partition(disk=diskob, type=part_type, geometry=maxgeom)
@@ -274,7 +274,7 @@ def get_used_space_from_path(path):
     except subprocess.CalledProcessError as err:
         used_space = 0
         logging.error(err)
-        installation_process.queue_fatal_event(err)
+        show.fatal_error(err)
 
     return used_space
 

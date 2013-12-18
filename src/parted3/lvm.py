@@ -25,7 +25,7 @@
 import subprocess
 import logging
 import canonical.misc as misc
-import installation_process
+import show_message as show
 
 @misc.raise_privileges
 def get_lvm_partitions():
@@ -72,7 +72,7 @@ def remove_logical_volume(logical_volume):
         subprocess.check_call(["lvremove", "-f", logical_volume])
     except subprocess.CalledProcessError as err:
         logging.error(err)
-        installation_process.queue_fatal_event(err)
+        show.fatal_error(err)
 
 @misc.raise_privileges
 def remove_volume_group(volume_group):
@@ -87,7 +87,7 @@ def remove_volume_group(volume_group):
         subprocess.check_call(["vgremove", "-f", volume_group])
     except subprocess.CalledProcessError as err:
         logging.error(err)
-        installation_process.queue_fatal_event(err)
+        show.fatal_error(err)
 
 @misc.raise_privileges
 def remove_physical_volume(physical_volume):
@@ -96,4 +96,4 @@ def remove_physical_volume(physical_volume):
         subprocess.check_call(["pvremove", "-f", physical_volume])
     except subprocess.CalledProcessError as err:
         logging.error(err)
-        installation_process.queue_fatal_event(err)
+        show.fatal_error(err)
