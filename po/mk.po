@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 21:24+0100\n"
-"PO-Revision-Date: 2013-12-17 15:06+0000\n"
+"PO-Revision-Date: 2013-12-18 17:40+0000\n"
 "Last-Translator: Kokan <kokan_malenko@hotmail.com>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/manjaro-thus/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr ""
 #: thus.py:138
 #, python-format
 msgid "Thus installer version %s"
-msgstr ""
+msgstr "Thus инсталер верзија %s"
 
 #: thus.py:218
 #, python-format
@@ -57,7 +57,7 @@ msgstr "Напуштање на инсталерот..."
 #: src/installation_process.py:433
 #, python-format
 msgid "Unmounting %s"
-msgstr ""
+msgstr "Одмонтирање на %s"
 
 #: src/auto_partition.py:103
 msgid "Can't delete existent LVM volumes (see below)"
@@ -95,7 +95,7 @@ msgstr "непознат"
 
 #: src/bootloader.py:53 ui/bootloader.ui:69
 msgid "What is your boot system type?"
-msgstr ""
+msgstr "Каков е вашиот тип на boot систем?"
 
 #: src/bootloader.py:58
 msgid "BIOS (Most Common)"
@@ -167,7 +167,7 @@ msgstr "е конектиран на интернет"
 
 #: src/check.py:101
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "За најдобри резултати, ве молам уверете се дека овој компјутер:"
 
 #: src/check.py:172
 msgid "We have Internet connection."
@@ -196,7 +196,7 @@ msgstr "Тип"
 
 #: src/installation_advanced.py:284
 msgid "Mount point"
-msgstr ""
+msgstr "Точка на монтирање"
 
 #: src/installation_advanced.py:287
 msgid "Label"
@@ -212,7 +212,7 @@ msgstr "Големина"
 
 #: src/installation_advanced.py:299
 msgid "Used"
-msgstr ""
+msgstr "Изкористен"
 
 #: src/installation_advanced.py:302
 msgid "Flags"
@@ -220,41 +220,41 @@ msgstr "Знамиња"
 
 #: src/installation_advanced.py:308
 msgid "SSD"
-msgstr ""
+msgstr "SSD"
 
 #: src/installation_advanced.py:485
 msgid "none"
-msgstr ""
+msgstr "ништо"
 
 #: src/installation_advanced.py:535 src/installation_advanced.py:938
 #: src/installation_advanced.py:1409 src/installation_advanced.py:1488
 #: src/installation_advanced.py:1630 src/installation_advanced.py:1700
 msgid "extended"
-msgstr ""
+msgstr "проширен"
 
 #: src/installation_advanced.py:666 src/installation_advanced.py:908
 msgid "Can't use same mount point twice..."
-msgstr ""
+msgstr "Не може да се изкористи истата точка на монтирање два пати..."
 
 #: src/installation_advanced.py:668
 msgid "Root partition must be formatted..."
-msgstr ""
+msgstr "Root партицијата мора да биде форматирана..."
 
 #: src/installation_advanced.py:929
 msgid "Creating primary partition"
-msgstr ""
+msgstr "Креирање на примарна партиција"
 
 #: src/installation_advanced.py:940
 msgid "Creating extended partition"
-msgstr ""
+msgstr "Креирање на проширена партиција"
 
 #: src/installation_advanced.py:946
 msgid "Creating logical partition"
-msgstr ""
+msgstr "Креирање на логичка партиција"
 
 #: src/installation_advanced.py:1078
 msgid "Advanced installation mode"
-msgstr ""
+msgstr "Напредна инсталација мод"
 
 #: src/installation_advanced.py:1082 ui/installation_advanced.ui:1000
 msgid "Use this device for boot loader installation:"
@@ -286,15 +286,15 @@ msgstr "Логичка"
 
 #: src/installation_advanced.py:1121 ui/installation_advanced.ui:357
 msgid "Extended"
-msgstr ""
+msgstr "Проширен"
 
 #: src/installation_advanced.py:1125 ui/installation_advanced.ui:202
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Почеток на овој простор"
 
 #: src/installation_advanced.py:1129 ui/installation_advanced.ui:222
 msgid "End of this space"
-msgstr ""
+msgstr "Крај на овој простор"
 
 #: src/installation_advanced.py:1133 src/installation_advanced.py:1150
 #: ui/installation_advanced.ui:129 ui/installation_advanced.ui:601
@@ -304,12 +304,12 @@ msgstr "Користи како:"
 #: src/installation_advanced.py:1137 src/installation_advanced.py:1154
 #: ui/installation_advanced.ui:162 ui/installation_advanced.ui:634
 msgid "Mount point:"
-msgstr ""
+msgstr "Точка на монтирање:"
 
 #: src/installation_advanced.py:1141 src/installation_advanced.py:1158
 #: ui/installation_advanced.ui:388 ui/installation_advanced.ui:671
 msgid "Label (optional):"
-msgstr ""
+msgstr "Ознака (опционално):"
 
 #: src/installation_advanced.py:1145
 msgid "Encryption Options..."
@@ -317,7 +317,7 @@ msgstr "Опции за криптирање..."
 
 #: src/installation_advanced.py:1162 ui/installation_advanced.ui:698
 msgid "Format:"
-msgstr ""
+msgstr "Формат:"
 
 #: src/installation_advanced.py:1167
 msgid "Partition Table Type:"
@@ -335,7 +335,7 @@ msgstr "Инсталирај сега!"
 #: src/installation_advanced.py:1263
 #, python-format
 msgid "Creating a new partition table of type %s for disk %s"
-msgstr ""
+msgstr "Креирање на нова партициска табела од типот %s за диск %s"
 
 #: src/installation_advanced.py:1273
 msgid ""
@@ -354,7 +354,7 @@ msgid ""
 "%s is mounted as swap.\n"
 "To continue it has to be unmounted.\n"
 "Click Yes to unmount, or No to return\n"
-msgstr ""
+msgstr "%s е монтиран како swap.\nДа продолжите мора да биде одмонтиран.\nКликнете Yes за одмнотирање, или No за враќање\n"
 
 #: src/installation_advanced.py:1448
 #, python-format
@@ -362,7 +362,7 @@ msgid ""
 "%s is mounted in '%s'.\n"
 "To continue it has to be unmounted.\n"
 "Click Yes to unmount, or No to return\n"
-msgstr ""
+msgstr "%s е монтиран во '%s'.\nЗа да продолжите мора да бе одмонтиран.\nКликнете Yes за одмнотирање, или No за враќање\n"
 
 #: src/installation_advanced.py:1469
 #, python-format
@@ -372,7 +372,7 @@ msgstr ""
 #: src/installation_advanced.py:1528
 #, python-format
 msgid "Partition %s will be deleted"
-msgstr ""
+msgstr "Партицијата %s ќе биде избришана"
 
 #: src/installation_advanced.py:1535
 msgid "Partition"
@@ -388,7 +388,7 @@ msgstr "Преозначи"
 
 #: src/installation_advanced.py:1535
 msgid "Mount"
-msgstr ""
+msgstr "Монтирање"
 
 #: src/installation_advanced.py:1556
 msgid "These disks will have partition actions:"
@@ -440,7 +440,7 @@ msgstr ""
 
 #: src/installation_alongside.py:195
 msgid "pyparted3 not found!"
-msgstr ""
+msgstr "pyparted3 не е пронајден!"
 
 #: src/installation_alongside.py:223
 msgid "Unable to create list of partitions for alongside installation."
@@ -481,7 +481,7 @@ msgstr ""
 
 #: src/installation_ask.py:138
 msgid "Use LVM with this installation."
-msgstr ""
+msgstr "Користи LVM со оваа инсталација."
 
 #: src/installation_ask.py:142
 msgid ""
@@ -714,16 +714,16 @@ msgstr ""
 #: src/installation_process.py:660
 #, python-format
 msgid "Added to crypttab : %s"
-msgstr ""
+msgstr "Додаден во crypttab : %s"
 
 #: src/installation_process.py:664
 #, python-format
 msgid "Added to fstab : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
-msgstr ""
+msgstr "Додаден во fstab : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
 
 #: src/installation_process.py:700
 msgid "Added to fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
-msgstr ""
+msgstr "Додаден во fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
 
 #: src/installation_process.py:761
 #, python-format
@@ -777,11 +777,11 @@ msgstr ""
 
 #: src/installation_process.py:1055
 msgid "fstab file generated."
-msgstr ""
+msgstr "fstab фајлот е генериран."
 
 #: src/installation_process.py:1061
 msgid "Network configuration copied."
-msgstr ""
+msgstr "Мрежната конфигурација е копирана."
 
 #: src/installation_process.py:1087
 msgid "Timezone set."
@@ -795,7 +795,7 @@ msgstr ""
 #: src/installation_process.py:1117
 #, python-format
 msgid "User %s added."
-msgstr ""
+msgstr "Корисникот %s е додаден."
 
 #: src/installation_process.py:1129
 #, python-format
@@ -996,7 +996,7 @@ msgstr "Каде си?"
 
 #: src/timezone.py:116 ui/timezone.ui:35
 msgid "Zone:"
-msgstr ""
+msgstr "Зона:"
 
 #: src/timezone.py:120 ui/timezone.ui:78
 msgid "Region:"
@@ -1013,7 +1013,7 @@ msgstr "локацијата е изменета во : %s"
 
 #: src/timezone.py:223
 msgid "Can't autodetect timezone coordinates"
-msgstr ""
+msgstr "Координатите на временската зона не можат да бидат автоматски детектирани"
 
 #: src/timezone.py:283
 msgid "Stopping timezone threads..."
@@ -1085,7 +1085,7 @@ msgstr ""
 
 #: src/user_info.py:142 ui/user_info.ui:135
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "Енкриптирај го мојот home фолдер"
 
 #: src/user_info.py:144
 msgid "Who are you?"
@@ -1119,11 +1119,11 @@ msgstr ""
 msgid ""
 "Look at https://wiki.archlinux.org/index.php/ECryptfs for detailed information\n"
 "\n"
-msgstr ""
+msgstr "Погледнете на https://wiki.archlinux.org/index.php/ECryptfs за детални информации\n\n"
 
 #: src/user_info.py:185
 msgid "Are you sure you want to encrypt your home directory?\n"
-msgstr ""
+msgstr "Дали сте сигурни дека сакате да го енкриптирате вашиот home директориум?\n"
 
 #: src/user_info.py:252
 msgid "Invalid characters entered"
@@ -1161,7 +1161,7 @@ msgstr "Избери 'Cancel' ако не сакате да инсталират
 msgid ""
 "<span weight=\"bold\" size=\"large\">For best results, please ensure that "
 "this computer:</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"large\">За најдобри резултати, ве молам уверете се дека овој компјутер:</span>"
 
 #: ui/check.ui:108
 msgid ""
@@ -1171,7 +1171,7 @@ msgstr ""
 
 #: ui/installation_advanced.ui:74
 msgid "Create partition"
-msgstr ""
+msgstr "Креирај партиција"
 
 #: ui/installation_advanced.ui:114
 msgid "Location:"
@@ -1179,23 +1179,23 @@ msgstr "Локација:"
 
 #: ui/installation_advanced.ui:277
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: ui/installation_advanced.ui:424 ui/installation_advanced.ui:740
 msgid "Encryption options..."
-msgstr ""
+msgstr "Опции за енкрипција..."
 
 #: ui/installation_advanced.ui:504
 msgid "Partition table type:"
-msgstr ""
+msgstr "Тип на партициска табела:"
 
 #: ui/installation_advanced.ui:577
 msgid "Edit partition"
-msgstr ""
+msgstr "Уреди ја партицијата"
 
 #: ui/installation_advanced.ui:931
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #: ui/installation_advanced.ui:1100
 msgid "LUKS volume name:"
@@ -1234,7 +1234,7 @@ msgstr "Manjaro"
 #: ui/installation_alongside.ui:193 ui/installation_alongside.ui:205
 #: ui/slides.ui:74
 msgid "label"
-msgstr ""
+msgstr "ознака"
 
 #: ui/installation_ask.ui:58
 msgid ""
@@ -1315,19 +1315,19 @@ msgstr ""
 
 #: ui/user_info.ui:188
 msgid "<small><span color=\"darkgreen\">Strong password</span></small>"
-msgstr ""
+msgstr "<small><span color=\"darkgreen\">Тешка лозинка</span></small>"
 
 #: ui/user_info.ui:246
 msgid "<small><span color=\"darkred\">You must enter a password</span></small>"
-msgstr ""
+msgstr "<small><span color=\"darkred\">Морате да внесете лозинка</span></small>"
 
 #: ui/user_info.ui:347
 msgid "<small><span color=\"darkred\">You must enter a username</span></small>"
-msgstr ""
+msgstr "<small><span color=\"darkred\">Морате да внесете корисничко име</span></small>"
 
 #: ui/user_info.ui:425
 msgid "<small><span color=\"darkred\">You must enter a name</span></small>"
-msgstr ""
+msgstr "<small><span color=\"darkred\">Морате да внесете име</span></small>"
 
 #: ui/user_info.ui:447
 msgid "<span size=\"small\">Its name as it appears to other computers.</span>"
