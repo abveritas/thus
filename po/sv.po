@@ -8,6 +8,7 @@
 # Anders Larsson <drusset@gmail.com>, 2013
 # Anders Larsson <drusset@gmail.com>, 2013
 # faidoc <faidoc@gmail.com>, 2013
+# fredrikfritte <fredrikfritte@gmail.com>, 2013
 # mats_bjork007 <mats_bjork007@yahoo.se>, 2013
 #   <pojk3n@gmail.com>, 2011
 msgid ""
@@ -15,8 +16,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 21:24+0100\n"
-"PO-Revision-Date: 2013-12-17 11:37+0000\n"
-"Last-Translator: Anders Larsson <drusset@gmail.com>\n"
+"PO-Revision-Date: 2013-12-18 09:59+0000\n"
+"Last-Translator: fredrikfritte <fredrikfritte@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/manjaro-thus/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,11 +110,11 @@ msgstr ""
 
 #: src/bootloader.py:62
 msgid "64-bit UEFI"
-msgstr ""
+msgstr "64-bit UEFI"
 
 #: src/bootloader.py:66
 msgid "32-bit UEFI"
-msgstr ""
+msgstr "32-bit UEFI"
 
 #: src/bootloader.py:70
 msgid "Select 'Cancel' if you don't want to install a boot loader."
@@ -417,7 +418,7 @@ msgstr "Manjaro kommer att installera bootloadern, av typen %s, på %s"
 
 #: src/installation_advanced.py:1722 src/installation_automatic.py:211
 msgid "Thus will not install any boot loader"
-msgstr ""
+msgstr "Thus kommer inte installera någon bootloader"
 
 #: src/installation_advanced.py:1736 src/installation_automatic.py:232
 msgid "Testing mode. Thus won't apply any changes to your system!"
@@ -483,7 +484,7 @@ msgstr "Krypterar installationen för ökad säkerhet."
 
 #: src/installation_ask.py:133
 msgid "You will be asked for the encryption key in the next step."
-msgstr ""
+msgstr "Du kommer att bli tillfrågad om krypteringsnyckeln i nästa steg"
 
 #: src/installation_ask.py:138
 msgid "Use LVM with this installation."
@@ -493,11 +494,11 @@ msgstr "Använd LVM med denna installation."
 msgid ""
 "This will set up LVM allowing you to make snapshots and change partition "
 "sizes in a straightforward way."
-msgstr ""
+msgstr "Detta ställer in LVM och möjliggör snapshots och ändring av paritionsstorlekar på enkelt sätt"
 
 #: src/installation_ask.py:147 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
-msgstr ""
+msgstr "Detta kommer skapa din /home katalog på en annan partition eller enhet."
 
 #: src/installation_ask.py:151
 msgid ""
@@ -517,7 +518,7 @@ msgstr "Hantera dina partitioner och välj var Manjaro ska installeras (avancera
 msgid ""
 "You will be able to create/delete partitions, choose where to install "
 "Manjaro and also choose additional mount points."
-msgstr ""
+msgstr "Du får möjlighet att skapa och ta bort partitioner, välja var Manjaro ska installeras, samt välja ytterligare mount-punkter."
 
 #: src/installation_ask.py:197
 msgid "Manjaro installation will be encrypted using LUKS"
@@ -525,7 +526,7 @@ msgstr ""
 
 #: src/installation_ask.py:200
 msgid "Manjaro will be installed using LVM volumes"
-msgstr ""
+msgstr "Manjaro installeras med LVM-uppsättning"
 
 #: src/installation_ask.py:202
 msgid "Manjaro will be installed using a separate /home volume."
@@ -652,7 +653,7 @@ msgstr "Systemet konfigurerat."
 
 #: src/installation_process.py:371
 msgid "Installing bootloader ..."
-msgstr ""
+msgstr "Installerar bootloader..."
 
 #: src/installation_process.py:398
 #, python-format
@@ -663,7 +664,7 @@ msgstr ""
 #: src/installation_process.py:438
 #, python-format
 msgid "Can't unmount %s"
-msgstr ""
+msgstr "Kan inte avmontera  %s"
 
 #: src/installation_process.py:440
 msgid "Installation finished successfully."
@@ -814,7 +815,7 @@ msgstr ""
 
 #: src/installation_process.py:1139
 msgid "Generating locales ..."
-msgstr ""
+msgstr "Genererar språk..."
 
 #: src/installation_process.py:1160
 msgid "Adjusting hardware clock ..."
@@ -822,11 +823,11 @@ msgstr ""
 
 #: src/installation_process.py:1169
 msgid "Configuring hardware ..."
-msgstr ""
+msgstr "Konfigurerar hårdvara..."
 
 #: src/installation_process.py:1242
 msgid "Set up graphics card ..."
-msgstr ""
+msgstr "Installerar grafikkort..."
 
 #: src/installation_process.py:1249
 msgid "Can't execute the MHWD script"
@@ -834,11 +835,11 @@ msgstr "Kan inte exekvera MHWD-skriptet"
 
 #: src/installation_process.py:1262
 msgid "Configure display manager ..."
-msgstr ""
+msgstr "Konfigurerar grafikhanterare..."
 
 #: src/installation_process.py:1368
 msgid "Configure System ..."
-msgstr ""
+msgstr "Konfigurerar System..."
 
 #: src/installation_process.py:1393
 msgid "Removing live configuration (packages)"
@@ -891,7 +892,7 @@ msgstr "Välj ditt språk:"
 
 #: src/language.py:85
 msgid "Notice: The Thus Installer is beta software."
-msgstr ""
+msgstr "Kom Ihåg: Installationshanteraren är i beta stadiet."
 
 #: src/language.py:86
 msgid ""
@@ -1235,7 +1236,7 @@ msgstr "Annat operativsystem"
 
 #: ui/installation_alongside.ui:169
 msgid "Manjaro"
-msgstr ""
+msgstr "Manjaro"
 
 #: ui/installation_alongside.ui:193 ui/installation_alongside.ui:205
 #: ui/slides.ui:74
@@ -1272,7 +1273,7 @@ msgstr ""
 msgid ""
 "<span weight=\"light\" size=\"small\">This will setup you /home directory in"
 " a different partition or volume.</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">Detta ställer in LVM och möjliggör snapshots och ändring av paritionsstorlekar på enkelt sätt</span>"
 
 #: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"
@@ -1300,7 +1301,7 @@ msgstr "<span weight=\"light\" size=\"small\">Du får möjlighet att skapa och t
 msgid ""
 "<b>WARNING! This installation mode will overwrite everything on your "
 "drive!</b>"
-msgstr "VARNING! Den här installationsmetoden kommer att skriva över allt på din disk!"
+msgstr "VARNING! Den här installationsmetoden kommer att skriva över allt på din disk!\n<b>WARNING! This installation mode will overwrite everything on your drive!</b>"
 
 #: ui/language.ui:26
 msgid "<span weight=\"bold\">Please choose your language:</span>"
@@ -1337,4 +1338,4 @@ msgstr "<small><span color=\"darkred\">Du måste skriva in ett namn</span></smal
 
 #: ui/user_info.ui:447
 msgid "<span size=\"small\">Its name as it appears to other computers.</span>"
-msgstr ""
+msgstr "<span size=\"small\">Namnet den använder för att prata med andra datorer.</span>"

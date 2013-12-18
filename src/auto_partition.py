@@ -27,7 +27,8 @@
 import os
 import subprocess
 import logging
-import installation_process
+#import time
+import show_message as show
 
 """ AutoPartition class """
 
@@ -147,22 +148,22 @@ class AutoPartition(object):
             except subprocess.CalledProcessError as err:
                 logging.warning(err.output)
         else:
-            mkfs = {"xfs": "mkfs.xfs %s -L %s -f %s" % (fs_options, label_name, device),
-                    "jfs": "yes | mkfs.jfs %s -L %s %s" % (fs_options, label_name, device),
-                    "reiserfs": "yes | mkreiserfs %s -l %s %s" % (fs_options, label_name, device),
-                    "ext2": "mkfs.ext2 -q -L %s %s %s" % (fs_options, label_name, device),
-                    "ext3": "mke2fs -q %s -L %s -t ext3 %s" % (fs_options, label_name, device),
-                    "ext4": "mke2fs -q %s -L %s -t ext4 %s" % (fs_options, label_name, device),
-                    "btrfs": "mkfs.btrfs %s -L %s %s" % (fs_options, label_name, btrfs_devices),
-                    "nilfs2": "mkfs.nilfs2 %s -L %s %s" % (fs_options, label_name, device),
-                    "ntfs-3g": "mkfs.ntfs %s -L %s %s" % (fs_options, label_name, device),
-                    "vfat": "mkfs.vfat %s -n %s %s" % (fs_options, label_name, device)}
+            mkfs = { "xfs" : "mkfs.xfs %s -L %s -f %s" % (fs_options, label_name, device),
+                     "jfs" : "yes | mkfs.jfs %s -L %s %s" % (fs_options, label_name, device),
+                     "reiserfs" : "yes | mkreiserfs %s -l %s %s" % (fs_options, label_name, device),
+                     "ext2" : "mkfs.ext2 -q -L %s %s %s" % (fs_options, label_name, device),
+                     "ext3" : "mke2fs -q %s -L %s -t ext3 %s" % (fs_options, label_name, device),
+                     "ext4" : "mke2fs -q %s -L %s -t ext4 %s" % (fs_options, label_name, device),
+                     "btrfs" : "mkfs.btrfs %s -L %s %s" % (fs_options, label_name, btrfs_devices),
+                     "nilfs2" : "mkfs.nilfs2 %s -L %s %s" % (fs_options, label_name, device),
+                     "ntfs-3g" : "mkfs.ntfs %s -L %s %s" % (fs_options, label_name, device),
+                     "vfat" : "mkfs.vfat %s -n %s %s" % (fs_options, label_name, device) }
 
             # Make sure the fs type is one we can handle
             if fs_type not in mkfs.keys():
                 txt = _("Unkown filesystem type %s"), fs_type
                 logging.error(txt)
-                installation_process.queue_fatal_event(txt)
+                show.fatal_error(txt)
                 return
 
             command = mkfs[fs_type]
@@ -171,7 +172,7 @@ class AutoPartition(object):
                 subprocess.check_call(command.split())
             except subprocess.CalledProcessError as e:
                 logging.error(e.output)
-                installation_process.queue_fatal_event(e.output)
+                show.fatal_error(e.output)
                 return
 
             #time.sleep(4)
