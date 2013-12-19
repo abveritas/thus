@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 21:40+0100\n"
-"PO-Revision-Date: 2013-12-18 20:50+0000\n"
+"POT-Creation-Date: 2013-12-19 12:40+0100\n"
+"PO-Revision-Date: 2013-12-19 11:47+0000\n"
 "Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/manjaro-thus/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -31,13 +31,13 @@ msgstr ""
 "Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: thus.py:118
+#: thus.py:119
 msgid ""
 "This installer must be run with administrative privileges and cannot "
 "continue without them."
 msgstr "Este instalador deve ser executado com privilégios administrativos e não pode continuar sem eles."
 
-#: thus.py:126
+#: thus.py:127
 #, python-format
 msgid ""
 "You cannot run two instances of this installer.\n"
@@ -47,82 +47,87 @@ msgid ""
 "and run this installer again."
 msgstr "Não pode executar duas instâncias do instalador.\n\nSe tem certeza que outro instalador não está já em execução\npode apagar manualmente o ficheiro %s\ne executar este instalador novamente."
 
-#: thus.py:138
+#: thus.py:139
 #, python-format
 msgid "Thus installer version %s"
 msgstr ""
 
-#: thus.py:218
+#: thus.py:222
 #, python-format
 msgid "Using '%s' file as package list"
 msgstr "Usar o ficheiro '%s' como lista de pacotes"
 
-#: thus.py:235
+#: thus.py:239
 msgid "Manjaro Installer"
 msgstr "Instalador do Manjaro"
 
-#: thus.py:290
+#: thus.py:294
 msgid "Quiting installer..."
 msgstr "A encerrar o instalador..."
 
-#: src/auto_partition.py:77 src/auto_partition.py:83
+#: src/auto_partition.py:75 src/auto_partition.py:81
 #: src/installation_process.py:409 src/installation_process.py:422
 #: src/installation_process.py:433
 #, python-format
 msgid "Unmounting %s"
 msgstr ""
 
-#: src/auto_partition.py:103
+#: src/auto_partition.py:101
 msgid "Can't delete existent LVM volumes (see below)"
 msgstr ""
 
-#: src/auto_partition.py:113
+#: src/auto_partition.py:111
 msgid "Can't close LUKS devices (see below)"
 msgstr ""
 
-#: src/auto_partition.py:164
+#: src/auto_partition.py:163
 #, python-format
 msgid "Unkown filesystem type %s"
 msgstr ""
 
-#: src/auto_partition.py:320
+#: src/auto_partition.py:173
+#, python-format
+msgid "Can't create file system %s"
+msgstr ""
+
+#: src/auto_partition.py:319
 #, python-format
 msgid "Thus will setup LUKS on device %s"
 msgstr ""
 
-#: src/auto_partition.py:373
+#: src/auto_partition.py:372
 msgid ""
 "Setup cannot detect size of your device, please use advanced installation "
 "routine for partitioning and mounting devices."
 msgstr ""
 
-#: src/auto_partition.py:538
+#: src/auto_partition.py:537
 #, python-format
 msgid "Will setup LVM on device %s"
 msgstr ""
 
-#: src/bootinfo.py:53 src/bootinfo.py:65 src/bootinfo.py:71 src/bootinfo.py:85
-#: src/installation_alongside.py:219
+#: src/bootinfo.py:54 src/bootinfo.py:66 src/bootinfo.py:72 src/bootinfo.py:86
+#: src/installation_alongside.py:218
 msgid "unknown"
 msgstr "desconhecido"
 
-#: src/bootloader.py:53 ui/bootloader.ui:69
+#: src/bootloader.py:54 ui/bootloader.ui:69
 msgid "What is your boot system type?"
 msgstr "Qual é o tipo de arranque do seu sistema?"
 
-#: src/bootloader.py:58
+#: src/bootloader.py:59
 msgid "BIOS (Most Common)"
 msgstr ""
 
-#: src/bootloader.py:62
+#: src/bootloader.py:63
 msgid "64-bit UEFI"
 msgstr ""
 
-#: src/bootloader.py:66
+#: src/bootloader.py:67
 msgid "32-bit UEFI"
 msgstr ""
 
-#: src/bootloader.py:70
+#: src/bootloader.py:71
 msgid "Select 'Cancel' if you don't want to install a boot loader."
 msgstr ""
 
@@ -199,7 +204,7 @@ msgstr "Espaço suficiente em disco."
 msgid "free space"
 msgstr "espaço livre"
 
-#: src/installation_advanced.py:278 src/installation_alongside.py:171
+#: src/installation_advanced.py:278 src/installation_alongside.py:170
 msgid "Device"
 msgstr "Dispositivo"
 
@@ -340,7 +345,7 @@ msgstr ""
 msgid "Create Partition Table"
 msgstr "Criar Tabela de Partições"
 
-#: src/installation_advanced.py:1185 src/installation_alongside.py:149
+#: src/installation_advanced.py:1185 src/installation_alongside.py:148
 #: src/installation_automatic.py:107
 msgid "Install now!"
 msgstr "Instalar agora!"
@@ -439,44 +444,44 @@ msgstr ""
 msgid "Testing mode. Thus won't apply any changes to your system!"
 msgstr ""
 
-#: src/installation_alongside.py:114
+#: src/installation_alongside.py:115
 #, python-format
 msgid "Can't load %s css"
 msgstr "Não foi possivel carregar %s css"
 
-#: src/installation_alongside.py:141
+#: src/installation_alongside.py:140
 msgid "Choose which OS you want to install Manjaro next to"
 msgstr "Escolha o sistema operativo ao lado do qual o Manjaro será instalado"
 
-#: src/installation_alongside.py:145
+#: src/installation_alongside.py:144
 msgid "Manjaro alongside another OS"
 msgstr "Manjaro em conjunto com outro SO"
 
-#: src/installation_alongside.py:174
+#: src/installation_alongside.py:173
 msgid "Detected OS"
 msgstr "Sistema Operativo detetado"
 
-#: src/installation_alongside.py:177
+#: src/installation_alongside.py:176
 msgid "Filesystem"
 msgstr "Sistema de ficheiros"
 
-#: src/installation_alongside.py:195
+#: src/installation_alongside.py:194
 msgid "pyparted3 not found!"
 msgstr ""
 
-#: src/installation_alongside.py:223
+#: src/installation_alongside.py:222
 msgid "Unable to create list of partitions for alongside installation."
 msgstr ""
 
-#: src/installation_alongside.py:267
+#: src/installation_alongside.py:266
 msgid "Can't shrink the partition (maybe it's nearly full?)"
 msgstr "Não posso encolher a partição (talvez ela esteja quase cheia?)"
 
-#: src/installation_alongside.py:355
+#: src/installation_alongside.py:353
 msgid "There are too many primary partitions, can't create a new one"
 msgstr ""
 
-#: src/installation_alongside.py:388
+#: src/installation_alongside.py:386
 #, python-format
 msgid "Can't shrink %s(%s) filesystem"
 msgstr ""
@@ -574,12 +579,12 @@ msgstr "Por favor, escolha o disco em que deseja instalar o Manjaro\ne pressione
 msgid "Encryption Password:"
 msgstr ""
 
-#: src/installation_automatic.py:101 src/user_info.py:116
+#: src/installation_automatic.py:101 src/user_info.py:115
 #: ui/installation_automatic.ui:161 ui/user_info.ui:79
 msgid "Confirm your password:"
 msgstr "Confirme sua senha:"
 
-#: src/installation_automatic.py:105 src/user_info.py:149
+#: src/installation_automatic.py:105 src/user_info.py:148
 #: ui/installation_automatic.ui:258 ui/user_info.ui:487
 msgid "show password"
 msgstr ""
@@ -608,40 +613,40 @@ msgstr "Thus instalará o bootloader do tipo %s em %s"
 msgid "Copying '/%s'"
 msgstr "Copiando '/%s'"
 
-#: src/installation_process.py:165
+#: src/installation_process.py:168
 #, python-format
 msgid "Installing using the '%s' method"
 msgstr "Usando o método de instalação '%s'"
 
-#: src/installation_process.py:241
+#: src/installation_process.py:244
 #, python-format
 msgid "Creating partitions and their filesystems in %s"
 msgstr ""
 
-#: src/installation_process.py:263
+#: src/installation_process.py:266
 msgid "Error creating partitions and their filesystems"
 msgstr "Erro ao criar as partições e seus sistemas de ficheiros"
 
-#: src/installation_process.py:301 src/installation_process.py:324
+#: src/installation_process.py:304 src/installation_process.py:327
 #, python-format
 msgid "Mounting partition %s into %s directory"
 msgstr "A montar a partição %s na diretoria %s"
 
-#: src/installation_process.py:307
+#: src/installation_process.py:310
 #, python-format
 msgid "Mounting partition %s into %s/boot directory"
 msgstr "A montar a partição %s na diretoria %s/boot"
 
-#: src/installation_process.py:312
+#: src/installation_process.py:315
 msgid "Couldn't mount root and boot partitions"
 msgstr "Não foi possível montar as partições de boot e raiz (/)"
 
-#: src/installation_process.py:330
+#: src/installation_process.py:333
 #, python-format
 msgid "Can't mount %s in %s"
 msgstr "Não pode montar %s em %s"
 
-#: src/installation_process.py:342
+#: src/installation_process.py:343
 #, python-format
 msgid "%s deleted"
 msgstr ""
@@ -889,32 +894,32 @@ msgstr ""
 msgid "User home dir encrypted"
 msgstr ""
 
-#: src/keymap.py:64
+#: src/keymap.py:61
 msgid "Select your keyboard layout"
 msgstr "Selecione o layout de seu teclado"
 
-#: src/keymap.py:72
+#: src/keymap.py:69
 msgid "Layouts"
 msgstr "Layouts"
 
-#: src/keymap.py:78
+#: src/keymap.py:75
 msgid "Variants"
 msgstr "Variações"
 
-#: src/keymap.py:100
+#: src/keymap.py:97
 #, python-format
 msgid "keyboard_layout is %s"
 msgstr "Layout do teclado é %s"
 
-#: src/language.py:80
+#: src/language.py:78
 msgid "Please choose your language:"
 msgstr "Por favor escolha seu idioma:"
 
-#: src/language.py:85
+#: src/language.py:83
 msgid "Notice: The Thus Installer is beta software."
 msgstr "Aviso: O Instalador Thus é um software Beta."
 
-#: src/language.py:86
+#: src/language.py:84
 msgid ""
 "Thus is pre-release beta software that is under active development. \n"
 "It does not yet properly handle RAID, btrfs subvolumes, or other  \n"
@@ -923,15 +928,15 @@ msgid ""
 "If you find any bugs, please report them at <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 msgstr ""
 
-#: src/language.py:93
+#: src/language.py:91
 msgid "Welcome to Manjaro!"
 msgstr "Bem vindo ao Manjaro!"
 
-#: src/language.py:110
+#: src/language.py:108
 msgid "Languages"
 msgstr "Idiomas"
 
-#: src/language.py:130
+#: src/language.py:128
 #, python-format
 msgid "Can't find translation file for the %s language"
 msgstr "Não foi possível encontrar o arquivo de tradução para o idioma% s"
@@ -951,12 +956,12 @@ msgstr "A localização selecionada será usada para ajudar a selecionar o siste
 msgid "Country, territory or area:"
 msgstr "País, território ou área:"
 
-#: src/location.py:197
+#: src/location.py:196
 #, python-format
 msgid "locale changed to : %s"
 msgstr "Localização modificada para: %s"
 
-#: src/location.py:199
+#: src/location.py:198
 #, python-format
 msgid "Can't change to locale '%s'"
 msgstr "Não foi possível mudar a localização para '%s\""
@@ -1039,27 +1044,27 @@ msgstr ""
 msgid "Can't detect used space of XFS partition %s"
 msgstr ""
 
-#: src/rank_mirrors.py:53
+#: src/rank_mirrors.py:54
 msgid "Can't find rank mirrors script"
 msgstr "Não foi possível encontrar o script que classifica os mirrors"
 
-#: src/rank_mirrors.py:60
+#: src/rank_mirrors.py:61
 msgid "Couldn't execute auto mirroring selection"
 msgstr "Não foi possível executar a selecção automática de endereços de servidor"
 
-#: src/show_message.py:52
+#: src/show_message.py:53
 msgid "Manjaro Installer - Error"
 msgstr "Instalador do Manjaro - Erro"
 
-#: src/show_message.py:63
+#: src/show_message.py:65
 msgid "Manjaro Installer - Warning"
 msgstr "Instalador do Manjaro - Aviso"
 
-#: src/show_message.py:74
+#: src/show_message.py:77
 msgid "Manjaro Installer - Information"
 msgstr "Instalador do Manjaro - Informação"
 
-#: src/show_message.py:84
+#: src/show_message.py:88
 msgid "Manjaro Installer - Question"
 msgstr "Instalador do Manjaro - Pergunta"
 
@@ -1110,121 +1115,121 @@ msgstr "Não foi possível detectar automaticamente as coordenadas de fuso horá
 msgid "Stopping timezone threads..."
 msgstr "Parando as threads de fuso horário..."
 
-#: src/timezone.py:395
+#: src/timezone.py:397
 msgid "Can't get the country code used to create a pacman mirrorlist"
 msgstr "Não foi possivel obter o código do pais necessário para criar a lista de mirrors do pacman"
 
-#: src/user_info.py:84 ui/user_info.ui:35
+#: src/user_info.py:83 ui/user_info.ui:35
 msgid "Your name:"
 msgstr "Seu nome:"
 
-#: src/user_info.py:88 ui/user_info.ui:275
+#: src/user_info.py:87 ui/user_info.ui:275
 msgid "Your name"
 msgstr "O seu nome"
 
-#: src/user_info.py:92 ui/user_info.ui:397
+#: src/user_info.py:91 ui/user_info.ui:397
 msgid "Hostname"
 msgstr ""
 
-#: src/user_info.py:96 ui/user_info.ui:474
+#: src/user_info.py:95 ui/user_info.ui:474
 msgid "Your computer's name:"
 msgstr "O nome de seu computador:"
 
-#: src/user_info.py:100 ui/user_info.ui:49
+#: src/user_info.py:99 ui/user_info.ui:49
 msgid "Pick a username:"
 msgstr "Escolha um nome de usuário:"
 
-#: src/user_info.py:104 ui/user_info.ui:319
+#: src/user_info.py:103 ui/user_info.ui:319
 msgid "Username"
 msgstr "Nome de utilizador"
 
-#: src/user_info.py:108 ui/user_info.ui:64
+#: src/user_info.py:107 ui/user_info.ui:64
 msgid "Choose a password:"
 msgstr "Escolha uma senha:"
 
-#: src/user_info.py:112 ui/user_info.ui:172
+#: src/user_info.py:111 ui/user_info.ui:172
 msgid "Password"
 msgstr "Palavra Passe"
 
-#: src/user_info.py:120 ui/user_info.ui:218
+#: src/user_info.py:119 ui/user_info.ui:218
 msgid "Confirm password"
 msgstr "Confirme a palavra passe"
 
-#: src/user_info.py:124
+#: src/user_info.py:123
 msgid "Its name as it appears to other computers."
 msgstr "O nome com que ele se identifica a outros computadores."
 
-#: src/user_info.py:128
+#: src/user_info.py:127
 msgid "You must enter a name"
 msgstr "Você deve escolher um nome"
 
-#: src/user_info.py:132
+#: src/user_info.py:131
 msgid "You must enter a username"
 msgstr "Você deve escolher um nome de usuário"
 
-#: src/user_info.py:136
+#: src/user_info.py:135
 msgid "You must enter a password"
 msgstr "Você deve escolher uma senha"
 
-#: src/user_info.py:140 ui/user_info.ui:97
+#: src/user_info.py:139 ui/user_info.ui:97
 msgid "Log in automatically"
 msgstr "Fazer login automaticamente"
 
-#: src/user_info.py:141 ui/user_info.ui:114
+#: src/user_info.py:140 ui/user_info.ui:114
 msgid "Require my password to log in"
 msgstr "Solicitar minha senha para login"
 
-#: src/user_info.py:142 ui/user_info.ui:135
+#: src/user_info.py:141 ui/user_info.ui:135
 msgid "Encrypt my home folder"
 msgstr "Criptografar minha pasta home"
 
-#: src/user_info.py:144
+#: src/user_info.py:143
 msgid "Who are you?"
 msgstr "Quem é você?"
 
-#: src/user_info.py:180
+#: src/user_info.py:179
 msgid ""
 "Manjaro will use eCryptfs to encrypt your home directory. Unfortunately, eCryptfs does not handle sparse files well.\n"
 "\n"
 msgstr "Manjaro utilizará eCryptfs para encriptar a sua pasta pessoal. Infelizmente, eCryptfs não funciona muito bem com ficheiros dispersos.\n\n"
 
-#: src/user_info.py:181
+#: src/user_info.py:180
 msgid ""
 "Don't worry, for most intents and purposes this deficiency does not pose a problem.\n"
 "\n"
 msgstr "Não se preocupe, pois para a maioria dos propósitos esta deficiência não coloca um problema.\n\n"
 
-#: src/user_info.py:182
+#: src/user_info.py:181
 msgid ""
 "Anyway, one popular and inadvisable application of eCryptfs is to encrypt a BitTorrent download location as this often requires eCryptfs to handle sparse files of 10 GB or more and may lead to intense disk starvation.\n"
 "\n"
 msgstr "Contudo, uma aplicação popular e não recomendada do eCryptfs é encriptar a pasta de downloads do BitTorrent pois isto requer frequentemente que o eCryptfs lide com ficheiros dispersos de 10 GB ou mais e pode levar ao esgotamento intenso do disco.\n\n\n\n"
 
-#: src/user_info.py:183
+#: src/user_info.py:182
 msgid ""
 "A simple workaround is to place sparse files in an unencrypted .Public directory\n"
 "\n"
 msgstr "Uma solução simples é colocar estes ficheiros dispersos num diretório Público e não encriptado\n\n\n\n"
 
-#: src/user_info.py:184
+#: src/user_info.py:183
 msgid ""
 "Look at https://wiki.archlinux.org/index.php/ECryptfs for detailed information\n"
 "\n"
 msgstr "Visite https://wiki.archlinux.org/index.php/ECryptfs para informação detalhada\n\n"
 
-#: src/user_info.py:185
+#: src/user_info.py:184
 msgid "Are you sure you want to encrypt your home directory?\n"
 msgstr "Tem certeza que deseja encriptar a sua pasta pessoal?\n"
 
-#: src/user_info.py:255
+#: src/user_info.py:254
 msgid "Invalid characters entered"
 msgstr "Caracteres inseridos são inválidos"
 
-#: src/user_info.py:259
+#: src/user_info.py:258
 msgid "Username can't contain dots"
 msgstr "O nome de utilizador não pode conter pontos"
 
-#: src/user_info.py:263
+#: src/user_info.py:262
 msgid "Too many characters"
 msgstr "Demasiados caracteres"
 
