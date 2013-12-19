@@ -27,7 +27,6 @@
 import os
 import subprocess
 import logging
-import installation_process
 import show_message as show
 import parted3.partition_module as pm
 import parted3.fs_module as fs
@@ -171,11 +170,11 @@ class AutoPartition(object):
             try:
                 subprocess.check_call(command.split())
             except subprocess.CalledProcessError as e:
+                txt = _("Can't create file system %s"), fs_type
+                logging.error(txt)
                 logging.error(e.output)
                 show.fatal_error(txt)
                 return
-
-            #time.sleep(4)
 
             # Flush file system buffers
             subprocess.check_call(["sync"])
@@ -373,7 +372,7 @@ class AutoPartition(object):
             txt = _("Setup cannot detect size of your device, please use advanced "
                 "installation routine for partitioning and mounting devices.")
             logging.error(txt)
-            installation_process.queue_event('warning', txt)
+            show.warning(txt)
             return
 
         # Partition sizes are expressed in MB

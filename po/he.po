@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-16 21:24+0100\n"
-"PO-Revision-Date: 2013-12-16 20:28+0000\n"
+"POT-Creation-Date: 2013-12-18 21:40+0100\n"
+"PO-Revision-Date: 2013-12-18 20:50+0000\n"
 "Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/manjaro-thus/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -203,7 +203,7 @@ msgstr "נקודת עגינה"
 msgid "Label"
 msgstr "סיווג"
 
-#: src/installation_advanced.py:293 src/installation_advanced.py:1535
+#: src/installation_advanced.py:293 src/installation_advanced.py:1554
 msgid "Format"
 msgstr "פורמט"
 
@@ -227,13 +227,13 @@ msgstr ""
 msgid "none"
 msgstr ""
 
-#: src/installation_advanced.py:535 src/installation_advanced.py:938
-#: src/installation_advanced.py:1409 src/installation_advanced.py:1488
-#: src/installation_advanced.py:1630 src/installation_advanced.py:1700
+#: src/installation_advanced.py:535 src/installation_advanced.py:948
+#: src/installation_advanced.py:1423 src/installation_advanced.py:1507
+#: src/installation_advanced.py:1649 src/installation_advanced.py:1722
 msgid "extended"
 msgstr ""
 
-#: src/installation_advanced.py:666 src/installation_advanced.py:908
+#: src/installation_advanced.py:666 src/installation_advanced.py:918
 msgid "Can't use same mount point twice..."
 msgstr "אין אפשרות לנצל את אותה נקודת עגינה פעמיים..."
 
@@ -241,115 +241,119 @@ msgstr "אין אפשרות לנצל את אותה נקודת עגינה פעמ�
 msgid "Root partition must be formatted..."
 msgstr "על מחיצת שורש להיות מפורמטת..."
 
-#: src/installation_advanced.py:929
+#: src/installation_advanced.py:939
 msgid "Creating primary partition"
 msgstr "יצירת מחיצה יסודית"
 
-#: src/installation_advanced.py:940
+#: src/installation_advanced.py:950
 msgid "Creating extended partition"
 msgstr "יצירת מחיצה מורחבת"
 
-#: src/installation_advanced.py:946
+#: src/installation_advanced.py:956
 msgid "Creating logical partition"
 msgstr "יצירת מחיצה לוגית"
 
-#: src/installation_advanced.py:1078
+#: src/installation_advanced.py:1088
 msgid "Advanced installation mode"
 msgstr "מצב התקנה מתקדם"
 
-#: src/installation_advanced.py:1082 ui/installation_advanced.ui:1000
+#: src/installation_advanced.py:1092 ui/installation_advanced.ui:1000
 msgid "Use this device for boot loader installation:"
 msgstr ""
 
-#: src/installation_advanced.py:1092 ui/installation_advanced.ui:915
+#: src/installation_advanced.py:1102 ui/installation_advanced.ui:915
 msgid "New partition table"
 msgstr "טבלת מחיצה חדשה"
 
-#: src/installation_advanced.py:1100
+#: src/installation_advanced.py:1110
 msgid "Change..."
 msgstr "שינוי..."
 
-#: src/installation_advanced.py:1105 ui/installation_advanced.ui:98
+#: src/installation_advanced.py:1115 ui/installation_advanced.ui:98
 msgid "Size:"
 msgstr "גודל:"
 
-#: src/installation_advanced.py:1109 ui/installation_advanced.ui:300
+#: src/installation_advanced.py:1119 ui/installation_advanced.ui:300
 msgid "Type:"
 msgstr "טיפוס:"
 
-#: src/installation_advanced.py:1113 ui/installation_advanced.ui:317
+#: src/installation_advanced.py:1123 ui/installation_advanced.ui:317
 msgid "Primary"
 msgstr "יסודית"
 
-#: src/installation_advanced.py:1117 ui/installation_advanced.ui:337
+#: src/installation_advanced.py:1127 ui/installation_advanced.ui:337
 msgid "Logical"
 msgstr "לוגית"
 
-#: src/installation_advanced.py:1121 ui/installation_advanced.ui:357
+#: src/installation_advanced.py:1131 ui/installation_advanced.ui:357
 msgid "Extended"
 msgstr "מורחבת"
 
-#: src/installation_advanced.py:1125 ui/installation_advanced.ui:202
+#: src/installation_advanced.py:1135 ui/installation_advanced.ui:202
 msgid "Beginning of this space"
 msgstr "תחילת נפח זה"
 
-#: src/installation_advanced.py:1129 ui/installation_advanced.ui:222
+#: src/installation_advanced.py:1139 ui/installation_advanced.ui:222
 msgid "End of this space"
 msgstr "סוף נפח זה"
 
-#: src/installation_advanced.py:1133 src/installation_advanced.py:1150
+#: src/installation_advanced.py:1143 src/installation_advanced.py:1160
 #: ui/installation_advanced.ui:129 ui/installation_advanced.ui:601
 msgid "Use as:"
 msgstr "השתמש בתור:"
 
-#: src/installation_advanced.py:1137 src/installation_advanced.py:1154
+#: src/installation_advanced.py:1147 src/installation_advanced.py:1164
 #: ui/installation_advanced.ui:162 ui/installation_advanced.ui:634
 msgid "Mount point:"
 msgstr "נקודת עגינה:"
 
-#: src/installation_advanced.py:1141 src/installation_advanced.py:1158
+#: src/installation_advanced.py:1151 src/installation_advanced.py:1168
 #: ui/installation_advanced.ui:388 ui/installation_advanced.ui:671
 msgid "Label (optional):"
 msgstr "סיווג (רשות):"
 
-#: src/installation_advanced.py:1145
+#: src/installation_advanced.py:1155
 msgid "Encryption Options..."
 msgstr "אפשרויות הצפנה..."
 
-#: src/installation_advanced.py:1162 ui/installation_advanced.ui:698
+#: src/installation_advanced.py:1172 ui/installation_advanced.ui:698
 msgid "Format:"
 msgstr "פורמט:"
 
-#: src/installation_advanced.py:1167
+#: src/installation_advanced.py:1177
 msgid "Partition Table Type:"
 msgstr "טיפוס לוח מחיצה:"
 
-#: src/installation_advanced.py:1172
+#: src/installation_advanced.py:1182
 msgid "Create Partition Table"
 msgstr "צור טבלת מחיצה"
 
-#: src/installation_advanced.py:1175 src/installation_alongside.py:149
+#: src/installation_advanced.py:1185 src/installation_alongside.py:149
 #: src/installation_automatic.py:107
 msgid "Install now!"
 msgstr "התקן עכשיו!"
 
-#: src/installation_advanced.py:1263
+#: src/installation_advanced.py:1273
 #, python-format
 msgid "Creating a new partition table of type %s for disk %s"
 msgstr "יצירת טבלת מחיצה חדשה מטיפוס %s עבור כונן %s"
 
-#: src/installation_advanced.py:1273
+#: src/installation_advanced.py:1283
 msgid ""
 "GRUB requires a BIOS Boot Partition (2 MiB, no filesystem, \"EF02\" type code in gdisk or \"bios_grub\" flag in GNU Parted) in BIOS systems to embed its core.img file due to lack of post-MBR embed gap in GPT disks.\n"
 "\n"
 "Thus will create this special partition for you now."
 msgstr ""
 
-#: src/installation_advanced.py:1305
+#: src/installation_advanced.py:1315
 msgid "Can't create BIOS GPT Boot partition!"
 msgstr ""
 
-#: src/installation_advanced.py:1445
+#: src/installation_advanced.py:1343
+msgid "Couldn't create BIOS GPT Boot partition"
+msgstr ""
+
+#: src/installation_advanced.py:1461
 #, python-format
 msgid ""
 "%s is mounted as swap.\n"
@@ -357,7 +361,7 @@ msgid ""
 "Click Yes to unmount, or No to return\n"
 msgstr "‏%s מעוגנת בתור swap.\nבכדי להמשיך עליה להיות מחולצת.\nהקליקו כן כדי לבטל עגינה, או לא כדי לחזור\n"
 
-#: src/installation_advanced.py:1448
+#: src/installation_advanced.py:1465
 #, python-format
 msgid ""
 "%s is mounted in '%s'.\n"
@@ -365,56 +369,61 @@ msgid ""
 "Click Yes to unmount, or No to return\n"
 msgstr "‏%s מעוגנת בתוך '%s'.\nבכדי להמשיך עליה להיות מחולצת.\nהקליקו כן כדי לבטל עגינה, או לא כדי לחזור\n"
 
-#: src/installation_advanced.py:1469
+#: src/installation_advanced.py:1488
 #, python-format
 msgid "%s shows as mounted (busy) but it has no mount point"
 msgstr ""
 
-#: src/installation_advanced.py:1528
+#: src/installation_advanced.py:1547
 #, python-format
 msgid "Partition %s will be deleted"
 msgstr "מחיצה %s תימחק"
 
-#: src/installation_advanced.py:1535
+#: src/installation_advanced.py:1554
 msgid "Partition"
 msgstr "מחיצה"
 
-#: src/installation_advanced.py:1535
+#: src/installation_advanced.py:1554
 msgid "New"
 msgstr "חדש"
 
-#: src/installation_advanced.py:1535
+#: src/installation_advanced.py:1554
 msgid "Relabel"
 msgstr "סווג מחדש"
 
-#: src/installation_advanced.py:1535
+#: src/installation_advanced.py:1554
 msgid "Mount"
 msgstr "עגן"
 
-#: src/installation_advanced.py:1556
+#: src/installation_advanced.py:1575
 msgid "These disks will have partition actions:"
 msgstr "לכוננים אלו יהיו פעולות מחיצה:"
 
-#: src/installation_advanced.py:1609
+#: src/installation_advanced.py:1628
 #, python-format
 msgid "Saving changes done in %s"
 msgstr "שמירת שינויים אשר נערכו בתוך %s"
 
-#: src/installation_advanced.py:1632
+#: src/installation_advanced.py:1651
 #, python-format
 msgid "Creating %s filesystem in %s labeled %s"
 msgstr "יצירת מערכת קבצים %s בתוך %s סיווג %s"
 
-#: src/installation_advanced.py:1719
+#: src/installation_advanced.py:1692
+#, python-format
+msgid "Couldn't format partition '%s' with label '%s' as '%s'"
+msgstr ""
+
+#: src/installation_advanced.py:1741
 #, python-format
 msgid "Manjaro will install the bootloader of type %s in %s"
 msgstr "‏Manjaro יתקין bootloader מטיפוס %s בתוך %s"
 
-#: src/installation_advanced.py:1722 src/installation_automatic.py:211
+#: src/installation_advanced.py:1744 src/installation_automatic.py:211
 msgid "Thus will not install any boot loader"
 msgstr "‏Thus לא יתקין שום boot loader"
 
-#: src/installation_advanced.py:1736 src/installation_automatic.py:232
+#: src/installation_advanced.py:1758 src/installation_automatic.py:232
 msgid "Testing mode. Thus won't apply any changes to your system!"
 msgstr "מצב מבחן. Thus לא יחיל שום שינויי למערכת שלכם!"
 
@@ -451,11 +460,11 @@ msgstr ""
 msgid "Can't shrink the partition (maybe it's nearly full?)"
 msgstr "אין אפשרות לכווץ את המחיצה (יכול להיות כי זו על סף תפוסה מלאה?)"
 
-#: src/installation_alongside.py:353
+#: src/installation_alongside.py:355
 msgid "There are too many primary partitions, can't create a new one"
 msgstr ""
 
-#: src/installation_alongside.py:386
+#: src/installation_alongside.py:388
 #, python-format
 msgid "Can't shrink %s(%s) filesystem"
 msgstr "אין אפשרות לכווץ מערכת קבצים %s(%s)"
@@ -664,202 +673,207 @@ msgstr ""
 msgid "Installation finished successfully."
 msgstr "התקנה הסתיימה בהצלחה."
 
-#: src/installation_process.py:457
+#: src/installation_process.py:467
 msgid "Base filesystem does not exist! Critical error (exiting)."
 msgstr ""
 
-#: src/installation_process.py:461
+#: src/installation_process.py:471
 msgid "Desktop filesystem does not exist! Critical error (exiting)."
 msgstr ""
 
-#: src/installation_process.py:478
+#: src/installation_process.py:481 src/installation_process.py:487
+#, python-format
+msgid "%s is already mounted at %s as %s"
+msgstr ""
+
+#: src/installation_process.py:498
 msgid "Indexing files to be copied ..."
 msgstr "כעת מאנדקס קבצים להעתקה ..."
 
-#: src/installation_process.py:483
+#: src/installation_process.py:503
 msgid "Extracting root-image ..."
 msgstr ""
 
-#: src/installation_process.py:493
+#: src/installation_process.py:513
 msgid "Extracting desktop-image ..."
 msgstr ""
 
-#: src/installation_process.py:508
+#: src/installation_process.py:528
 #, python-format
 msgid "Restoring meta-information on %s"
 msgstr "שחזור מידע-מוצמד על %s"
 
-#: src/installation_process.py:524
+#: src/installation_process.py:544
 msgid "Special dirs already mounted."
 msgstr "מדורים מיוחדים כבר מעוגנים."
 
-#: src/installation_process.py:555
+#: src/installation_process.py:575
 msgid "Special dirs are not mounted. Skipping."
 msgstr ""
 
-#: src/installation_process.py:565
+#: src/installation_process.py:585
 #, python-format
 msgid "Unable to umount %s"
 msgstr "אין אפשרות לחלץ %s"
 
-#: src/installation_process.py:584
+#: src/installation_process.py:604
 #, python-format
 msgid "Error running command: %s"
 msgstr "שגיאה בהרצת פקודה: %s"
 
-#: src/installation_process.py:646 src/installation_process.py:696
+#: src/installation_process.py:666 src/installation_process.py:716
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
 msgstr ""
 
-#: src/installation_process.py:660
+#: src/installation_process.py:680
 #, python-format
 msgid "Added to crypttab : %s"
 msgstr ""
 
-#: src/installation_process.py:664
+#: src/installation_process.py:684
 #, python-format
 msgid "Added to fstab : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
 msgstr ""
 
-#: src/installation_process.py:700
+#: src/installation_process.py:720
 msgid "Added to fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
 msgstr ""
 
-#: src/installation_process.py:761
+#: src/installation_process.py:781
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
 msgstr ""
 
-#: src/installation_process.py:773 src/installation_process.py:794
+#: src/installation_process.py:793 src/installation_process.py:814
 msgid "ERROR installing GRUB(2) BIOS."
 msgstr "שגיאה בהתקנת GRUB(2) BIOS."
 
-#: src/installation_process.py:792
+#: src/installation_process.py:812
 msgid "GRUB(2) BIOS has been successfully installed."
 msgstr "‏GRUB(2) BIOS הותקן בהצלחה."
 
-#: src/installation_process.py:806
+#: src/installation_process.py:826
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader in %s"
 msgstr ""
 
-#: src/installation_process.py:858
+#: src/installation_process.py:878
 msgid "ERROR installing GRUB(2) locale."
 msgstr "שגיאה בהתקנת מקומיות GRUB(2)‎."
 
-#: src/installation_process.py:867
+#: src/installation_process.py:887
 #, python-format
 msgid "Enabled %s service."
 msgstr "שירות %s מאופשר."
 
-#: src/installation_process.py:874
+#: src/installation_process.py:894
 #, python-format
 msgid "Error creating password hash for user %s"
 msgstr "שגיאה ביצירת מערבל סיסמה עבור משתמש %s"
 
-#: src/installation_process.py:880
+#: src/installation_process.py:900
 #, python-format
 msgid "Error changing password for user %s"
 msgstr "שגיאה בשינוי סיסמה עבור משתמש %s"
 
-#: src/installation_process.py:892
+#: src/installation_process.py:912
 msgid "Setting hooks and modules in mkinitcpio.conf"
 msgstr ""
 
-#: src/installation_process.py:957
+#: src/installation_process.py:977
 #, python-format
 msgid "%s: Enable automatic login for user %s."
 msgstr "‏%s: אפשר כניסה אוטומטית עבור משתמש %s."
 
-#: src/installation_process.py:1052 src/installation_process.py:1063
+#: src/installation_process.py:1072 src/installation_process.py:1083
 msgid "Configuring your new system"
 msgstr "מגדיר את המערכת החדשה שלכם"
 
-#: src/installation_process.py:1055
+#: src/installation_process.py:1075
 msgid "fstab file generated."
 msgstr "קובץ fstab הופק."
 
-#: src/installation_process.py:1061
+#: src/installation_process.py:1081
 msgid "Network configuration copied."
 msgstr "תצורת רשת הועתקה."
 
-#: src/installation_process.py:1087
+#: src/installation_process.py:1107
 msgid "Timezone set."
 msgstr "אזור זמן נקבע."
 
-#: src/installation_process.py:1107
+#: src/installation_process.py:1127
 #, python-format
 msgid "Sudo configuration for user %s done."
 msgstr "תצורת Sudo עבור משתמש %s הסתיימה."
 
-#: src/installation_process.py:1117
+#: src/installation_process.py:1137
 #, python-format
 msgid "User %s added."
 msgstr "משתמש %s התווסף."
 
-#: src/installation_process.py:1129
+#: src/installation_process.py:1149
 #, python-format
 msgid "Hostname  %s set."
 msgstr "שם מארח  %s נקבע."
 
-#: src/installation_process.py:1133
+#: src/installation_process.py:1153
 msgid "Set the same password to root."
 msgstr "קבע סיסמה זהה עבור שורש."
 
-#: src/installation_process.py:1139
+#: src/installation_process.py:1159
 msgid "Generating locales ..."
 msgstr "כעת מפיק מקומיות ..."
 
-#: src/installation_process.py:1160
+#: src/installation_process.py:1180
 msgid "Adjusting hardware clock ..."
 msgstr ""
 
-#: src/installation_process.py:1169
+#: src/installation_process.py:1189
 msgid "Configuring hardware ..."
 msgstr "כעת מגדיר חומרה ..."
 
-#: src/installation_process.py:1242
+#: src/installation_process.py:1262
 msgid "Set up graphics card ..."
 msgstr ""
 
-#: src/installation_process.py:1249
+#: src/installation_process.py:1269
 msgid "Can't execute the MHWD script"
 msgstr "אין אפשרות להוציא לפועל תסריט MHWD"
 
-#: src/installation_process.py:1262
+#: src/installation_process.py:1282
 msgid "Configure display manager ..."
 msgstr ""
 
-#: src/installation_process.py:1368
+#: src/installation_process.py:1388
 msgid "Configure System ..."
 msgstr ""
 
-#: src/installation_process.py:1393
+#: src/installation_process.py:1413
 msgid "Removing live configuration (packages)"
 msgstr ""
 
-#: src/installation_process.py:1409
+#: src/installation_process.py:1429
 msgid "Configuring package manager"
 msgstr "מגדיר מנהל חבילות"
 
-#: src/installation_process.py:1421
+#: src/installation_process.py:1441
 msgid "Finished configuring package manager."
 msgstr "גומר להגדיר מנהל חבילות."
 
-#: src/installation_process.py:1445
+#: src/installation_process.py:1465
 msgid "Running mkinitcpio ..."
 msgstr ""
 
-#: src/installation_process.py:1448
+#: src/installation_process.py:1468
 msgid "Running mkinitcpio - done"
 msgstr ""
 
-#: src/installation_process.py:1464
+#: src/installation_process.py:1484
 msgid "Encrypting user home dir ..."
 msgstr ""
 
-#: src/installation_process.py:1466
+#: src/installation_process.py:1486
 msgid "User home dir encrypted"
 msgstr ""
 
@@ -945,8 +959,72 @@ msgstr ""
 msgid "Sorry but filesystem %s can't be shrinked"
 msgstr "מצטערים אך מערכת קבצים %s לא ניתנת לכיווץ"
 
-#: src/parted3/partition_module.py:217
+#: src/parted3/lvm.py:75
+#, python-format
+msgid "Can't remove logical volume %s"
+msgstr ""
+
+#: src/parted3/lvm.py:92
+#, python-format
+msgid "Can't remove volume group %s"
+msgstr ""
+
+#: src/parted3/lvm.py:103
+#, python-format
+msgid "Can't remove physical volume %s"
+msgstr ""
+
+#: src/parted3/partition_module.py:104
+msgid "Exception: For more information take a look at /tmp/thus.log"
+msgstr ""
+
+#: src/parted3/partition_module.py:169
+#, python-format
+msgid "Can't delete partition %s"
+msgstr ""
+
+#: src/parted3/partition_module.py:219
 msgid "Partition is too large!"
+msgstr ""
+
+#: src/parted3/partition_module.py:278
+#, python-format
+msgid "Can't detect used space from %s"
+msgstr ""
+
+#: src/parted3/used_space.py:39
+#, python-format
+msgid "Can't detect used space of NTFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:66
+#, python-format
+msgid "Can't detect used space of EXTFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:93
+#, python-format
+msgid "Can't detect used space of FATFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:124
+#, python-format
+msgid "Can't detect used space of JFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:149
+#, python-format
+msgid "Can't detect used space of REISERFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:174
+#, python-format
+msgid "Can't detect used space of BTRFS partition %s"
+msgstr ""
+
+#: src/parted3/used_space.py:217
+#, python-format
+msgid "Can't detect used space of XFS partition %s"
 msgstr ""
 
 #: src/rank_mirrors.py:53
@@ -1126,15 +1204,15 @@ msgstr "ראה https://wiki.archlinux.org/index.php/ECryptfs למידע מפור
 msgid "Are you sure you want to encrypt your home directory?\n"
 msgstr "האם אתם בטוחים כי ברצונכם להצפין את תיקיית הבית שלכם?\n"
 
-#: src/user_info.py:252
+#: src/user_info.py:255
 msgid "Invalid characters entered"
 msgstr "הוזן תו לא תקין"
 
-#: src/user_info.py:256
+#: src/user_info.py:259
 msgid "Username can't contain dots"
 msgstr "שם משתמש לא יכול להכיל נקודות"
 
-#: src/user_info.py:260
+#: src/user_info.py:263
 msgid "Too many characters"
 msgstr "יותר מדי תווים"
 
