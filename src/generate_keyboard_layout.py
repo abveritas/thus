@@ -6,10 +6,15 @@
 import subprocess
 import sys
 
-from PyQt5.QtCore import Qt, QRectF
-from PyQt5.QtGui import QFont, QPainter, QPen, QPainterPath, QColor
-from PyQt5.QtWidgets import QWidget
-
+try:
+    from PyQt5.QtCore import Qt, QRectF
+    from PyQt5.QtGui import QFont, QPainter, QPen, QPainterPath, QColor
+    from PyQt5.QtWidgets import QWidget, QApplication
+    pyqt5_available = True
+except ImportError:
+    from PyQt4.QtCore import Qt, QRectF
+    from PyQt4.QtGui import QApplication, QWidget, QFont, QPainter, QPen, QPainterPath, QColor, QPixmap
+    pyqt5_available = False
 
 #U+ , or +U+ ... to string
 def fromUnicodeString(raw):
@@ -268,8 +273,6 @@ class Keyboard(QWidget):
 
 ## testing
 if __name__ == "__main__":
-    from PyQt5.QtWidgets import QApplication, QWidget
-
     app = QApplication(sys.argv)
 
     layout = sys.argv[1]
@@ -280,6 +283,9 @@ if __name__ == "__main__":
     kb1.setLayout(layout)
     kb1.setVariant(variant)
 
-    snapshot = QWidget.grab(kb1)
+    if pyqt5_available:
+        snapshot = QWidget.grab(kb1)
+    else:
+        snapshot = QPixmap.grabWidget(kb1)
     #snapshot = snapshot.scaled(600, 200, Qt.IgnoreAspectRatio, Qt.FastTransformation)
     snapshot.save(filename, "PNG")
