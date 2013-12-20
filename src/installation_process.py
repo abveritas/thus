@@ -1119,6 +1119,7 @@ class InstallationProcess(multiprocessing.Process):
         username = self.settings.get('username')
         fullname = self.settings.get('fullname')
         password = self.settings.get('password')
+        root_password = self.settings.get('root_password')
         hostname = self.settings.get('hostname')
 
         sudoers_path = os.path.join(self.dest_dir, "etc/sudoers.d/10-installer")
@@ -1152,9 +1153,13 @@ class InstallationProcess(multiprocessing.Process):
 
         self.queue_event('debug', _('Hostname  %s set.') % hostname)
 
-        # User password is the root password
-        self.change_user_password('root', password)
-        self.queue_event('debug', _('Set the same password to root.'))
+        # Set root password
+        if not root_password is '':
+            self.change_user_password('root', root_password)
+            self.queue_event('debug', _('Set root password.'))
+        else:
+            self.change_user_password('root', password)
+            self.queue_event('debug', _('Set the same password to root.'))
 
         # Generate locales
         keyboard_layout = self.settings.get("keyboard_layout")
