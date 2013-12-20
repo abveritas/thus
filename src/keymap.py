@@ -51,8 +51,17 @@ class Keymap(Gtk.Box):
 
         self.layout_treeview = self.ui.get_object("keyboardlayout")
         self.variant_treeview = self.ui.get_object("keyboardvariant")
-        self.keyboard_image = self.ui.get_object("keyboard_image")
         self.keyboard_test_entry = self.ui.get_object("keyboard_test_entry")
+
+        self.keyboard_image = self.ui.get_object("keyboard_image")
+        # Disable the keyboard_image if pyqt is not avaiable
+        if os.path.exists('/usr/lib/python3.3/site-packages/PyQt5') or os.path.exists('/usr/lib/python3.3/site-packages/PyQt4'):
+            # We use keymap with pyqt
+            self.pyqt_available = True
+        else:
+            # No pyqt can be found, so disable this feature
+            self.pyqt_available = False
+            self.keyboard_image.destroy()
 
         self.create_toolviews()
 
@@ -227,7 +236,8 @@ class Keymap(Gtk.Box):
 
     def on_keyboardvariant_cursor_changed(self, widget):
         self.store_values()
-        self.set_keyboard_image()
+        if self.pyqt_available:
+            self.set_keyboard_image()
 
     def store_values(self):
         # we've previously stored our layout, now store our variant
