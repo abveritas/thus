@@ -368,13 +368,16 @@ class UserInfo(Gtk.Box):
                                       self.error_label['password'],
                                       self.password_strength)
 
-        if widget == self.entry['root_password'] or \
-                widget == self.entry['verified_root_password']:
-            validation.check_password(self.entry['root_password'],
-                                      self.entry['verified_root_password'],
-                                      self.is_ok['root_password'],
-                                      self.error_label['root_password'],
-                                      self.root_password_strength)
+        btn = self.ui.get_object('checkbutton_show_password')
+        show = btn.get_active()
+        if show:
+            if widget == self.entry['root_password'] or \
+                    widget == self.entry['verified_root_password']:
+                validation.check_password(self.entry['root_password'],
+                                          self.entry['verified_root_password'],
+                                          self.is_ok['root_password'],
+                                          self.error_label['root_password'],
+                                          self.root_password_strength)
 
         # Check if all fields are filled and ok
         all_ok = True
