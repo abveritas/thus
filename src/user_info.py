@@ -198,7 +198,7 @@ class UserInfo(Gtk.Box):
         box.hide()
         box = self.ui.get_object('hbox5')
         box.hide()
-        label = self.ui.get_object('root_password')
+        label = self.ui.get_object('root_password_label')
         label.hide()
         label = self.ui.get_object('verified_root_password_label')
         label.hide()
@@ -299,7 +299,6 @@ class UserInfo(Gtk.Box):
 
     def on_authentication_toggled(self, widget):
         """ User has changed autologin or home encrypting """
-
         if widget == self.login['auto']:
             if self.login['auto'].get_active():
                 self.require_password = False
