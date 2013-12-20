@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.0 on Thu Dec 19 22:35:19 2013 -->
+<!-- Generated with glade 3.16.0 on Fri Dec 20 15:14:08 2013 -->
 <interface>
-  <!-- interface-requires gtk+ 3.0 -->
+  <!-- interface-requires gtk+ 3.10 -->
   <object class="GtkBox" id="keymap">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -11,6 +11,7 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="margin_top">20</property>
+        <property name="margin_bottom">10</property>
         <property name="homogeneous">True</property>
         <child>
           <object class="GtkScrolledWindow" id="scrolledwindow1">
@@ -75,12 +76,14 @@
       <object class="GtkBox" id="box1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="margin_bottom">10</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkImage" id="keyboard_image">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="ypad">10</property>
+            <property name="margin_left">20</property>
+            <property name="margin_right">20</property>
             <property name="stock">gtk-missing-image</property>
           </object>
           <packing>
