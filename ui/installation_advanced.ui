@@ -134,7 +134,7 @@
         <child>
           <object class="GtkComboBoxText" id="partition_types_combo">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
+            <property name="can_focus">False</property>
             <property name="halign">center</property>
           </object>
           <packing>
@@ -189,7 +189,7 @@
             <child>
               <object class="GtkComboBoxText" id="partition_use_combo2">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="hexpand">True</property>
                 <signal name="changed" handler="on_partition_use_combo2_changed" swapped="no"/>
@@ -222,7 +222,7 @@
             <child>
               <object class="GtkComboBoxText" id="partition_mount_combo2">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="has_entry">True</property>
                 <child internal-child="entry">
@@ -448,13 +448,18 @@
             <child>
               <object class="GtkComboBoxText" id="partition_use_combo">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="hexpand">True</property>
                 <signal name="changed" handler="on_partition_use_combo_changed" swapped="no"/>
                 <accessibility>
-                  <relation type="labelled-by" target="partition_use_label2"/>
+                  <relation type="labelled-by" target="partition_use_label"/>
                 </accessibility>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="partition_use_combo-atkobject">
+                    <property name="AtkObject::accessible-description">Here we can select the filesystem of your partition</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -481,7 +486,7 @@
             <child>
               <object class="GtkComboBoxText" id="partition_mount_combo">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="has_entry">True</property>
                 <child internal-child="entry">
@@ -517,6 +522,11 @@
                     <property name="xalign">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="partition_create_place_beginning-atkobject">
+                        <property name="AtkObject::accessible-name">This sets the location of your partition to the beginning of your harddrive</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -536,6 +546,11 @@
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                     <property name="group">partition_create_place_beginning</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="partition_create_place_end-atkobject">
+                        <property name="AtkObject::accessible-description">This sets the location of your partition to the end of your harddrive</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -569,6 +584,14 @@
                     <property name="secondary_icon_activatable">False</property>
                     <property name="climb_rate">100</property>
                     <property name="numeric">True</property>
+                    <accessibility>
+                      <relation type="labelled-by" target="partition_size_label"/>
+                    </accessibility>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="partition_size_spinbutton-atkobject">
+                        <property name="AtkObject::accessible-description">Defines the size of your partition</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -630,6 +653,11 @@
                     <property name="xalign">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">True</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="partition_create_type_primary-atkobject">
+                        <property name="AtkObject::accessible-description">This creates a primary partition</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -649,6 +677,11 @@
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                     <property name="group">partition_create_type_primary</property>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="partition_create_type_logical-atkobject">
+                        <property name="AtkObject::accessible-description">This creates a logical partition</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -669,6 +702,11 @@
                     <property name="draw_indicator">True</property>
                     <property name="group">partition_create_type_primary</property>
                     <signal name="toggled" handler="on_partition_create_type_extended_toggled" swapped="no"/>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="partition_create_type_extended-atkobject">
+                        <property name="AtkObject::accessible-description">This creates an extended partition</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -703,6 +741,14 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">●</property>
+                <accessibility>
+                  <relation type="labelled-by" target="partition_label_label"/>
+                </accessibility>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="partition_label_entry-atkobject">
+                    <property name="AtkObject::accessible-description">Define your optional label for the partition</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -988,7 +1034,7 @@
             <child>
               <object class="GtkComboBoxText" id="grub_device_entry">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <signal name="changed" handler="on_grub_device_entry_changed" swapped="no"/>
               </object>
               <packing>
