@@ -286,6 +286,7 @@ class Keymap(Gtk.Box):
 
     def set_keyboard_image(self):
         keyboard_image_file = "/tmp/keyboard_layout.png"
-        os.system('python ./src/generate_keyboard_layout.py "%s" "%s" "%s"' %
-                   (self.keyboard_layout, self.keyboard_variant, keyboard_image_file))
+        keyboard_layout_generator = os.path.join(self.settings.get('thus'), "/src/generate_keyboard_layout.py")
+        os.system('python "%s" "%s" "%s" "%s"' %
+                   (keyboard_layout_generator, self.keyboard_layout, self.keyboard_variant, keyboard_image_file))
         self.keyboard_image.set_from_file(keyboard_image_file)
