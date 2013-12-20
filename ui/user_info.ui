@@ -571,6 +571,7 @@
                 <property name="activates_default">True</property>
                 <property name="width_chars">20</property>
                 <property name="placeholder_text" translatable="yes">Password</property>
+                <signal name="changed" handler="info_loop" swapped="no"/>
                 <accessibility>
                   <relation type="labelled-by" target="password_label"/>
                 </accessibility>
@@ -631,6 +632,7 @@
                 <property name="activates_default">True</property>
                 <property name="width_chars">20</property>
                 <property name="placeholder_text" translatable="yes">Confirm password</property>
+                <signal name="changed" handler="info_loop" swapped="no"/>
                 <accessibility>
                   <relation type="labelled-by" target="verified_password_label"/>
                 </accessibility>
