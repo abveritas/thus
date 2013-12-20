@@ -672,7 +672,7 @@ class InstallationProcess(multiprocessing.Process):
                 if self.settings.get("luks_key_pass") != "":
                     home_keyfile = "none"
                 else:
-                    home_keyfile = "/etc/luks-keys/home"
+                    home_keyfile = "/etc/luks-keys/.keyfile-home"
                 subprocess.check_call(['chmod', '0777', '%s/etc/crypttab' % self.dest_dir])
                 with open('%s/etc/crypttab' % self.dest_dir, 'a') as crypttab_file:
                     line = "cryptManjaroHome /dev/disk/by-uuid/%s %s luks\n" % (uuid, home_keyfile)

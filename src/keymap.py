@@ -40,6 +40,7 @@ class Keymap(Gtk.Box):
         self.forward_button = params['forward_button']
         self.backwards_button = params['backwards_button']
         self.settings = params['settings']
+        self.filename = os.path.join(self.settings.get('data'), "kbdnames.gz")
 
         super().__init__()
         self.ui = Gtk.Builder()
@@ -50,10 +51,10 @@ class Keymap(Gtk.Box):
 
         self.layout_treeview = self.ui.get_object("keyboardlayout")
         self.variant_treeview = self.ui.get_object("keyboardvariant")
+        self.keyboard_image = self.ui.get_object("keyboard_image")
+        self.keyboard_test_entry = self.ui.get_object("keyboard_test_entry")
 
         self.create_toolviews()
-
-        self.filename = os.path.join(self.settings.get('data'), "kbdnames.gz")
 
         super().add(self.ui.get_object("keymap"))
 
@@ -61,6 +62,9 @@ class Keymap(Gtk.Box):
         txt = _("Select your keyboard layout")
         txt = "<span weight='bold' size='large'>%s</span>" % txt
         self.title.set_markup(txt)
+
+        txt = _("Type here to test your keyboard")
+        self.keyboard_test_entry.set_placeholder_text(txt)
 
         # TODO: Also change layouts and variants text column
 
@@ -80,7 +84,7 @@ class Keymap(Gtk.Box):
     def prepare(self, direction):
         self.translate_ui()
         self.fill_layout_treeview()
-        self.fill_variant_treeview()
+        # self.fill_variant_treeview()
         self.forward_button.set_sensitive(False)
         self.translate_ui()
 
@@ -198,6 +202,8 @@ class Keymap(Gtk.Box):
                 #sorted_variants.sort()
                 sorted_variants = misc.sort_list(sorted_variants, self.settings.get("locale"))
 
+                # Block signal
+                self.variant_treeview.handler_block_by_func(self.on_keyboardvariant_cursor_changed)
                 # Clear our model
                 liststore = self.variant_treeview.get_model()
                 liststore.clear()
@@ -206,6 +212,9 @@ class Keymap(Gtk.Box):
                 for variant in sorted_variants:
                     liststore.append([variant])
 
+                # Unblock signal
+                self.variant_treeview.handler_unblock_by_func(self.on_keyboardvariant_cursor_changed)
+
                 #selection = self.variant_treeview.get_selection()
                 self.variant_treeview.set_cursor(0)
         else:
@@ -213,8 +222,14 @@ class Keymap(Gtk.Box):
             liststore.clear()
 
     def on_keyboardlayout_cursor_changed(self, widget):
+        self.variant_treeview.handler_block_by_func(self.on_keyboardvariant_cursor_changed)
         self.fill_variant_treeview()
+
         self.forward_button.set_sensitive(True)
+
+    def on_keyboardvariant_cursor_changed(self, widget):
+        self.store_values()
+        self.set_keyboard_image()
 
     def store_values(self):
         # we've previously stored our layout, now store our variant
@@ -261,3 +276,9 @@ class Keymap(Gtk.Box):
 
         with misc.raised_privileges():
             subprocess.check_call(['localectl', 'set-keymap', '--no-convert', self.keyboard_layout])
+
+    def set_keyboard_image(self):
+        keyboard_image_file = "/tmp/keyboard_layout.png"
+        os.system('python ./src/generate_keyboard_layout.py "%s" "%s" "%s"' %
+                   (self.keyboard_layout, self.keyboard_variant, keyboard_image_file))
+        self.keyboard_image.set_from_file(keyboard_image_file)

@@ -1,4 +1,7 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#
+#  generate_keyboard_layout.py
 
 import subprocess
 import sys
