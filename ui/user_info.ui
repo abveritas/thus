@@ -515,7 +515,7 @@
                 <property name="left_padding">20</property>
                 <child>
                   <object class="GtkCheckButton" id="login_encrypt">
-                    <property name="label" translatable="yes">Encrypt my home folder</property>
+                    <property name="label" translatable="yes">Encrypt home folder</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>

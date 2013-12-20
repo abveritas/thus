@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 20:21+0100\n"
+"POT-Creation-Date: 2013-12-20 20:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1186,32 +1186,36 @@ msgid "A password is required to log in"
 msgstr ""
 
 #: src/user_info.py:170 ui/user_info.ui:518
-msgid "Encrypt my home folder"
+msgid "Encrypt home folder"
 msgstr ""
 
 #: src/user_info.py:172
 msgid "Who are you?"
 msgstr ""
 
-#: src/user_info.py:180 ui/user_info.ui:439
+#: src/user_info.py:180 ui/user_info.ui:544
+msgid "Show root password"
+msgstr ""
+
+#: src/user_info.py:183 ui/user_info.ui:439
 msgid "Use a root password"
 msgstr ""
 
-#: src/user_info.py:249
+#: src/user_info.py:252
 msgid ""
 "Manjaro will use eCryptfs to encrypt your home directory. Unfortunately, "
 "eCryptfs does not handle sparse files well.\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:250
+#: src/user_info.py:253
 msgid ""
 "Don't worry, for most intents and purposes this deficiency does not pose a "
 "problem.\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:251
+#: src/user_info.py:254
 msgid ""
 "Anyway, one popular and inadvisable application of eCryptfs is to encrypt a "
 "BitTorrent download location as this often requires eCryptfs to handle "
@@ -1219,33 +1223,33 @@ msgid ""
 "\n"
 msgstr ""
 
-#: src/user_info.py:252
+#: src/user_info.py:255
 msgid ""
 "A simple workaround is to place sparse files in an unencrypted .Public "
 "directory\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:253
+#: src/user_info.py:256
 msgid ""
 "Look at https://wiki.archlinux.org/index.php/ECryptfs for detailed "
 "information\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:254
+#: src/user_info.py:257
 msgid "Are you sure you want to encrypt your home directory?\n"
 msgstr ""
 
-#: src/user_info.py:342
+#: src/user_info.py:345
 msgid "Invalid characters entered"
 msgstr ""
 
-#: src/user_info.py:346
+#: src/user_info.py:349
 msgid "Username can't contain dots"
 msgstr ""
 
-#: src/user_info.py:350
+#: src/user_info.py:353
 msgid "Too many characters"
 msgstr ""
 
@@ -1446,8 +1450,4 @@ msgstr ""
 
 #: ui/user_info.ui:378
 msgid "<span size=\"small\">Its name as it appears to other computers.</span>"
-msgstr ""
-
-#: ui/user_info.ui:544
-msgid "Show root password"
 msgstr ""
