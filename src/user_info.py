@@ -191,6 +191,9 @@ class UserInfo(Gtk.Box):
         label.show()
         btn = self.ui.get_object('checkbutton_show_root_password')
         btn.show()
+        self.ui.get_object('root_password').set_text(' ')
+        self.ui.get_object('root_password').set_text('')
+        self.ui.get_object('verified_root_password').set_text('')
 
     def hide_root_password(self):
         """ Hide root password """
@@ -204,6 +207,9 @@ class UserInfo(Gtk.Box):
         label.hide()
         btn = self.ui.get_object('checkbutton_show_root_password')
         btn.hide()
+        self.ui.get_object('root_password').set_text(' ')
+        self.ui.get_object('root_password').set_text('')
+        self.ui.get_object('verified_root_password').set_text('')
 
     def hide_widgets(self):
         """ Hide unused and message widgets """
@@ -225,7 +231,9 @@ class UserInfo(Gtk.Box):
             self.login['encrypt'].hide()
 
         # TODO: Fix home encryption and stop hidding its widget
-        self.login['encrypt'].hide()
+        # Disable staging features
+        if not self.settings.get("use_staging"):
+            self.login['encrypt'].hide()
 
     def store_values(self):
         """ Store all user values in self.settings """
@@ -256,6 +264,7 @@ class UserInfo(Gtk.Box):
         self.translate_ui()
         self.show_all()
         self.hide_widgets()
+        self.is_ok['root_password'].show()
 
         desktop = self.settings.get('desktop')
         if desktop != "nox" and self.login['auto']:
@@ -282,6 +291,8 @@ class UserInfo(Gtk.Box):
             self.show_root_password()
         else:
             self.hide_root_password()
+            self.is_ok['root_password'].show()
+        self.info_loop
 
     def on_checkbutton_show_password_toggled(self, widget):
         """ Show/hide user password """
@@ -378,6 +389,8 @@ class UserInfo(Gtk.Box):
                                           self.is_ok['root_password'],
                                           self.error_label['root_password'],
                                           self.root_password_strength)
+        else:
+            self.is_ok['root_password'].show()
 
         # Check if all fields are filled and ok
         all_ok = True

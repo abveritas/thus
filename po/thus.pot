@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 10:52+0100\n"
+"POT-Creation-Date: 2013-12-20 19:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -566,13 +566,13 @@ msgstr ""
 msgid "Encryption Password:"
 msgstr ""
 
-#: src/installation_automatic.py:101 src/user_info.py:115
+#: src/installation_automatic.py:101 src/user_info.py:124
 #: ui/installation_automatic.ui:161 ui/user_info.ui:79
 msgid "Confirm your password:"
 msgstr ""
 
-#: src/installation_automatic.py:105 src/user_info.py:148
-#: ui/installation_automatic.ui:258 ui/user_info.ui:487
+#: src/installation_automatic.py:105 src/user_info.py:177
+#: ui/installation_automatic.ui:258 ui/user_info.ui:421
 msgid "show password"
 msgstr ""
 
@@ -806,98 +806,102 @@ msgstr ""
 msgid "Timezone set."
 msgstr ""
 
-#: src/installation_process.py:1131
+#: src/installation_process.py:1132
 #, python-format
 msgid "Sudo configuration for user %s done."
 msgstr ""
 
-#: src/installation_process.py:1141
+#: src/installation_process.py:1142
 #, python-format
 msgid "User %s added."
 msgstr ""
 
-#: src/installation_process.py:1153
+#: src/installation_process.py:1154
 #, python-format
 msgid "Hostname  %s set."
 msgstr ""
 
-#: src/installation_process.py:1157
+#: src/installation_process.py:1159
+msgid "Set root password."
+msgstr ""
+
+#: src/installation_process.py:1162
 msgid "Set the same password to root."
 msgstr ""
 
-#: src/installation_process.py:1163
+#: src/installation_process.py:1168
 msgid "Generating locales ..."
 msgstr ""
 
-#: src/installation_process.py:1184
+#: src/installation_process.py:1189
 msgid "Adjusting hardware clock ..."
 msgstr ""
 
-#: src/installation_process.py:1193
+#: src/installation_process.py:1198
 msgid "Configuring hardware ..."
 msgstr ""
 
-#: src/installation_process.py:1266
+#: src/installation_process.py:1271
 msgid "Set up graphics card ..."
 msgstr ""
 
-#: src/installation_process.py:1273
+#: src/installation_process.py:1278
 msgid "Can't execute the MHWD script"
 msgstr ""
 
-#: src/installation_process.py:1286
+#: src/installation_process.py:1291
 msgid "Configure display manager ..."
 msgstr ""
 
-#: src/installation_process.py:1392
+#: src/installation_process.py:1397
 msgid "Configure System ..."
 msgstr ""
 
-#: src/installation_process.py:1417
+#: src/installation_process.py:1422
 msgid "Removing live configuration (packages)"
 msgstr ""
 
-#: src/installation_process.py:1433
+#: src/installation_process.py:1438
 msgid "Configuring package manager"
 msgstr ""
 
-#: src/installation_process.py:1445
+#: src/installation_process.py:1450
 msgid "Finished configuring package manager."
 msgstr ""
 
-#: src/installation_process.py:1469
+#: src/installation_process.py:1474
 msgid "Running mkinitcpio ..."
 msgstr ""
 
-#: src/installation_process.py:1472
+#: src/installation_process.py:1477
 msgid "Running mkinitcpio - done"
 msgstr ""
 
-#: src/installation_process.py:1488
+#: src/installation_process.py:1493
 msgid "Encrypting user home dir ..."
 msgstr ""
 
-#: src/installation_process.py:1490
+#: src/installation_process.py:1495
 msgid "User home dir encrypted"
 msgstr ""
 
-#: src/keymap.py:62
+#: src/keymap.py:71
 msgid "Select your keyboard layout"
 msgstr ""
 
-#: src/keymap.py:66
+#: src/keymap.py:75
 msgid "Type here to test your keyboard"
 msgstr ""
 
-#: src/keymap.py:73
+#: src/keymap.py:82
 msgid "Layouts"
 msgstr ""
 
-#: src/keymap.py:79
+#: src/keymap.py:88
 msgid "Variants"
 msgstr ""
 
-#: src/keymap.py:101
+#: src/keymap.py:110
 #, python-format
 msgid "keyboard_layout is %s"
 msgstr ""
@@ -1111,89 +1115,103 @@ msgstr ""
 msgid "Can't get the country code used to create a pacman mirrorlist"
 msgstr ""
 
-#: src/user_info.py:83 ui/user_info.ui:35
+#: src/user_info.py:92 ui/user_info.ui:35
 msgid "Your name:"
 msgstr ""
 
-#: src/user_info.py:87 ui/user_info.ui:275
+#: src/user_info.py:96 ui/user_info.ui:205
 msgid "Your name"
 msgstr ""
 
-#: src/user_info.py:91 ui/user_info.ui:397
+#: src/user_info.py:100 ui/user_info.ui:327
 msgid "Hostname"
 msgstr ""
 
-#: src/user_info.py:95 ui/user_info.ui:474
+#: src/user_info.py:104 ui/user_info.ui:404
 msgid "Your computer's name:"
 msgstr ""
 
-#: src/user_info.py:99 ui/user_info.ui:49
+#: src/user_info.py:108 ui/user_info.ui:49
 msgid "Pick a username:"
 msgstr ""
 
-#: src/user_info.py:103 ui/user_info.ui:319
+#: src/user_info.py:112 ui/user_info.ui:249
 msgid "Username"
 msgstr ""
 
-#: src/user_info.py:107 ui/user_info.ui:64
+#: src/user_info.py:116 ui/user_info.ui:64
 msgid "Choose a password:"
 msgstr ""
 
-#: src/user_info.py:111 ui/user_info.ui:172
+#: src/user_info.py:120 src/user_info.py:136 ui/user_info.ui:102
+#: ui/user_info.ui:572
 msgid "Password"
 msgstr ""
 
-#: src/user_info.py:119 ui/user_info.ui:218
+#: src/user_info.py:128 src/user_info.py:144 ui/user_info.ui:148
+#: ui/user_info.ui:632
 msgid "Confirm password"
 msgstr ""
 
-#: src/user_info.py:123
+#: src/user_info.py:132
+msgid "Choose a root password:"
+msgstr ""
+
+#: src/user_info.py:140 ui/user_info.ui:681
+msgid "Confirm root password:"
+msgstr ""
+
+#: src/user_info.py:148
 msgid "Its name as it appears to other computers."
 msgstr ""
 
-#: src/user_info.py:127
+#: src/user_info.py:152
 msgid "You must enter a name"
 msgstr ""
 
-#: src/user_info.py:131
+#: src/user_info.py:156
 msgid "You must enter a username"
 msgstr ""
 
-#: src/user_info.py:135
+#: src/user_info.py:160 src/user_info.py:164
 msgid "You must enter a password"
 msgstr ""
 
-#: src/user_info.py:139 ui/user_info.ui:97
+#: src/user_info.py:168 ui/user_info.ui:472
 msgid "Log in automatically"
 msgstr ""
 
-#: src/user_info.py:140 ui/user_info.ui:114
+#: src/user_info.py:169 ui/user_info.ui:489
 msgid "Require my password to log in"
 msgstr ""
 
-#: src/user_info.py:141 ui/user_info.ui:135
+#: src/user_info.py:170 ui/user_info.ui:517
 msgid "Encrypt my home folder"
 msgstr ""
 
-#: src/user_info.py:143
+#: src/user_info.py:172
 msgid "Who are you?"
 msgstr ""
 
-#: src/user_info.py:179
+#: src/user_info.py:180 ui/user_info.ui:438
+msgid "use a root password"
+msgstr ""
+
+#: src/user_info.py:249
 msgid ""
 "Manjaro will use eCryptfs to encrypt your home directory. Unfortunately, "
 "eCryptfs does not handle sparse files well.\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:180
+#: src/user_info.py:250
 msgid ""
 "Don't worry, for most intents and purposes this deficiency does not pose a "
 "problem.\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:181
+#: src/user_info.py:251
 msgid ""
 "Anyway, one popular and inadvisable application of eCryptfs is to encrypt a "
 "BitTorrent download location as this often requires eCryptfs to handle "
@@ -1201,33 +1219,33 @@ msgid ""
 "\n"
 msgstr ""
 
-#: src/user_info.py:182
+#: src/user_info.py:252
 msgid ""
 "A simple workaround is to place sparse files in an unencrypted .Public "
 "directory\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:183
+#: src/user_info.py:253
 msgid ""
 "Look at https://wiki.archlinux.org/index.php/ECryptfs for detailed "
 "information\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:184
+#: src/user_info.py:254
 msgid "Are you sure you want to encrypt your home directory?\n"
 msgstr ""
 
-#: src/user_info.py:254
+#: src/user_info.py:342
 msgid "Invalid characters entered"
 msgstr ""
 
-#: src/user_info.py:258
+#: src/user_info.py:346
 msgid "Username can't contain dots"
 msgstr ""
 
-#: src/user_info.py:262
+#: src/user_info.py:350
 msgid "Too many characters"
 msgstr ""
 
@@ -1410,22 +1428,30 @@ msgstr ""
 msgid "<span weight=\"bold\" size=\"large\">Welcome to Manjaro</span>"
 msgstr ""
 
-#: ui/user_info.ui:188
+#: ui/user_info.ui:118 ui/user_info.ui:587
 msgid "<small><span color=\"darkgreen\">Strong password</span></small>"
 msgstr ""
 
-#: ui/user_info.ui:246
+#: ui/user_info.ui:176 ui/user_info.ui:659
 msgid "<small><span color=\"darkred\">You must enter a password</span></small>"
 msgstr ""
 
-#: ui/user_info.ui:347
+#: ui/user_info.ui:277
 msgid "<small><span color=\"darkred\">You must enter a username</span></small>"
 msgstr ""
 
-#: ui/user_info.ui:425
+#: ui/user_info.ui:355
 msgid "<small><span color=\"darkred\">You must enter a name</span></small>"
 msgstr ""
 
-#: ui/user_info.ui:447
+#: ui/user_info.ui:377
 msgid "<span size=\"small\">Its name as it appears to other computers.</span>"
+msgstr ""
+
+#: ui/user_info.ui:543
+msgid "show root password"
+msgstr ""
+
+#: ui/user_info.ui:609
+msgid "Choose root password:"
 msgstr ""

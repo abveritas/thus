@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-19 12:40+0100\n"
-"PO-Revision-Date: 2013-12-19 11:47+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2013-12-20 10:03+0000\n"
+"Last-Translator: Karim Oulad Chalha <herr.linux88@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/manjaro-thus/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -341,7 +341,7 @@ msgstr "تثبيت الأن!"
 #: src/installation_advanced.py:1273
 #, python-format
 msgid "Creating a new partition table of type %s for disk %s"
-msgstr ""
+msgstr "إنشاء جدول أقسام جديد من نوع %s لقرص %s"
 
 #: src/installation_advanced.py:1283
 msgid ""
@@ -352,7 +352,7 @@ msgstr ""
 
 #: src/installation_advanced.py:1315
 msgid "Can't create BIOS GPT Boot partition!"
-msgstr ""
+msgstr "لا يمكن إنشاء قسم الإقلاع BIOS GPT!"
 
 #: src/installation_advanced.py:1343
 msgid "Couldn't create BIOS GPT Boot partition"
@@ -364,7 +364,7 @@ msgid ""
 "%s is mounted as swap.\n"
 "To continue it has to be unmounted.\n"
 "Click Yes to unmount, or No to return\n"
-msgstr ""
+msgstr "%s موصول كمساحة إبدال.\nيجب إلغاء وصله للإستمرار.\nإضغط نعم لإلغاء الوصل, أو لا للرجوع\n"
 
 #: src/installation_advanced.py:1465
 #, python-format
@@ -372,7 +372,7 @@ msgid ""
 "%s is mounted in '%s'.\n"
 "To continue it has to be unmounted.\n"
 "Click Yes to unmount, or No to return\n"
-msgstr ""
+msgstr "%s موصول في '%s'.\nيجب إلغاء وصله للإستمرار.\nإضغط نعم لإلغاء الوصل, أو لا للرجوع\n"
 
 #: src/installation_advanced.py:1488
 #, python-format
@@ -382,37 +382,37 @@ msgstr ""
 #: src/installation_advanced.py:1547
 #, python-format
 msgid "Partition %s will be deleted"
-msgstr ""
+msgstr "سيتم حذف القسم %s"
 
 #: src/installation_advanced.py:1554
 msgid "Partition"
-msgstr ""
+msgstr "قسم"
 
 #: src/installation_advanced.py:1554
 msgid "New"
-msgstr ""
+msgstr "جديد"
 
 #: src/installation_advanced.py:1554
 msgid "Relabel"
-msgstr ""
+msgstr "إعادة التسمية"
 
 #: src/installation_advanced.py:1554
 msgid "Mount"
-msgstr ""
+msgstr "وصل"
 
 #: src/installation_advanced.py:1575
 msgid "These disks will have partition actions:"
-msgstr ""
+msgstr "هؤلاء الأقراص سيتم إجراء تقسيم لهم:"
 
 #: src/installation_advanced.py:1628
 #, python-format
 msgid "Saving changes done in %s"
-msgstr ""
+msgstr "تم إنهاء بنجاح حفظ التغييرات في %s"
 
 #: src/installation_advanced.py:1651
 #, python-format
 msgid "Creating %s filesystem in %s labeled %s"
-msgstr ""
+msgstr "إنشاء نظام الملفات %s في %s المسمى %s"
 
 #: src/installation_advanced.py:1692
 #, python-format
@@ -422,174 +422,174 @@ msgstr ""
 #: src/installation_advanced.py:1741
 #, python-format
 msgid "Manjaro will install the bootloader of type %s in %s"
-msgstr ""
+msgstr "سيقوم منجارو بتثبيت محمل الإقلاع من نوع %s في %s"
 
 #: src/installation_advanced.py:1744 src/installation_automatic.py:211
 msgid "Thus will not install any boot loader"
-msgstr ""
+msgstr "لن يقوم Thus بتثبيت محمل الإقلاع"
 
 #: src/installation_advanced.py:1758 src/installation_automatic.py:232
 msgid "Testing mode. Thus won't apply any changes to your system!"
-msgstr ""
+msgstr "نمط التجريب. لن يقوم Thus بتطبيق أي تغييرات على نظامك!"
 
 #: src/installation_alongside.py:115
 #, python-format
 msgid "Can't load %s css"
-msgstr ""
+msgstr "لا يمكن تحميل %s css"
 
 #: src/installation_alongside.py:140
 msgid "Choose which OS you want to install Manjaro next to"
-msgstr ""
+msgstr "إختر أي نظام تشغيل تريد منجارو أن يثبت بعده"
 
 #: src/installation_alongside.py:144
 msgid "Manjaro alongside another OS"
-msgstr ""
+msgstr "منجارو جنبا إلى جنب نظام تشغيل أخر"
 
 #: src/installation_alongside.py:173
 msgid "Detected OS"
-msgstr ""
+msgstr "تم إكتشاف نظام للتشغيل"
 
 #: src/installation_alongside.py:176
 msgid "Filesystem"
-msgstr ""
+msgstr "نظام الملفات"
 
 #: src/installation_alongside.py:194
 msgid "pyparted3 not found!"
-msgstr ""
+msgstr "لم يتم العثور pyparted3!"
 
 #: src/installation_alongside.py:222
 msgid "Unable to create list of partitions for alongside installation."
-msgstr ""
+msgstr "غير قادر على إنشاء قائمة الأقسام لتثبيت جنبا إلى جنب"
 
 #: src/installation_alongside.py:266
 msgid "Can't shrink the partition (maybe it's nearly full?)"
-msgstr ""
+msgstr "لا يمكن تقليص التقسيم (يمكن أنه تقريبا مليء)"
 
 #: src/installation_alongside.py:353
 msgid "There are too many primary partitions, can't create a new one"
-msgstr ""
+msgstr "هنالك الكثير من الأقسام الأولية, لا يمكن إنشاء واحد جديد"
 
 #: src/installation_alongside.py:386
 #, python-format
 msgid "Can't shrink %s(%s) filesystem"
-msgstr ""
+msgstr "لا يمكن تقليص نظام ملفات %s(%s)"
 
 #: src/installation_ask.py:106
 msgid "Installation type"
-msgstr ""
+msgstr "نوع التثبيت"
 
 #: src/installation_ask.py:120 ui/installation_ask.ui:34
 msgid "Erase disk and install Manjaro (automatic)"
-msgstr ""
+msgstr "محو القرص و تثبيت منجارو (التلقائي)"
 
 #: src/installation_ask.py:123
 msgid "Warning: This will delete all data on your disk"
-msgstr ""
+msgstr "تحذير: هذا سيقوم بحذف كل البيانات في حاسوبك"
 
 #: src/installation_ask.py:129
 msgid "Encrypt this installation for increased security."
-msgstr ""
+msgstr "تشفير هذا التثبيت لزيادة الأمان."
 
 #: src/installation_ask.py:133
 msgid "You will be asked for the encryption key in the next step."
-msgstr ""
+msgstr "سيتم سألك عن مفتاح التشفير في الخطوة التالية."
 
 #: src/installation_ask.py:138
 msgid "Use LVM with this installation."
-msgstr ""
+msgstr "إستعمل LVM مع هذا التثبيت."
 
 #: src/installation_ask.py:142
 msgid ""
 "This will set up LVM allowing you to make snapshots and change partition "
 "sizes in a straightforward way."
-msgstr ""
+msgstr "هذا سيقوم بإعداد LVM ليسمح لك بالقيام بـ snapshots و تحجيم التقسيم بطريقة بسيطة."
 
 #: src/installation_ask.py:147 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
-msgstr ""
+msgstr "إعداد مجلد المنزل في تقسيم/قرص مغايير"
 
 #: src/installation_ask.py:151
 msgid ""
 "This will setup you /home directory in a different partition or volume."
-msgstr ""
+msgstr "هذا سيقوم بإعداد دليل /home في تقسيم أو قرص مغايير."
 
 #: src/installation_ask.py:159 src/installation_ask.py:161
 #, python-format
 msgid "Install Manjaro alongside %s"
-msgstr ""
+msgstr "تثبيت منجارو جنبا إلى جنب %s"
 
 #: src/installation_ask.py:168
 msgid "Manage your partitions and where to install Manjaro (advanced)"
-msgstr ""
+msgstr "إدارة أقسامك و أين سيتم تثبيت منجارو (متقدم)"
 
 #: src/installation_ask.py:171
 msgid ""
 "You will be able to create/delete partitions, choose where to install "
 "Manjaro and also choose additional mount points."
-msgstr ""
+msgstr "ستكون قادرا على إنشاء/حذف الأقسام, إختيار أين تريد تثبيت منجلرو و أيضا إختيار نقط وصل إضافية."
 
 #: src/installation_ask.py:197
 msgid "Manjaro installation will be encrypted using LUKS"
-msgstr ""
+msgstr "تثبيت منجارو سيكون مشفر بإستعمال LUKS"
 
 #: src/installation_ask.py:200
 msgid "Manjaro will be installed using LVM volumes"
-msgstr ""
+msgstr "سيتم تثبيت منجارو بإستعمال أقراص LVM"
 
 #: src/installation_ask.py:202
 msgid "Manjaro will be installed using a separate /home volume."
-msgstr ""
+msgstr "سيتم تثبيت منجارو بإستعمال /home في قرص منفصل."
 
 #: src/installation_ask.py:204
 msgid "Manjaro will be installed using a separate /home partition."
-msgstr ""
+msgstr "سيتم تثبيت منجارو بإستعمال /home في تقسيم منفصل."
 
 #: src/installation_automatic.py:79
 msgid "Automatic installation mode"
-msgstr ""
+msgstr "نمط التثبيت التلقائي"
 
 #: src/installation_automatic.py:83 ui/installation_automatic.ui:96
 msgid "Select drive:"
-msgstr ""
+msgstr "حدد القرص:"
 
 #: src/installation_automatic.py:87
 msgid ""
 "WARNING! This installation mode will overwrite everything on your drive!"
-msgstr ""
+msgstr "تحذير! نمط التثبيت هذا سيقوم بكتابة فوق كل شيء في قرصك!"
 
 #: src/installation_automatic.py:92 ui/installation_automatic.ui:59
 msgid ""
 "Please choose the drive where you want to install Manjaro\n"
 "and click the button below to start the process."
-msgstr ""
+msgstr "المرجوا إختيار القرص الذي تريد تثبيت منجارو فيه\nو إضغط الزر في أسفل لبدء العملية."
 
 #: src/installation_automatic.py:97 ui/installation_automatic.ui:176
 msgid "Encryption Password:"
-msgstr ""
+msgstr "كلمة سر التشفير:"
 
 #: src/installation_automatic.py:101 src/user_info.py:115
 #: ui/installation_automatic.ui:161 ui/user_info.ui:79
 msgid "Confirm your password:"
-msgstr ""
+msgstr "أكد كلمة السر:"
 
 #: src/installation_automatic.py:105 src/user_info.py:148
 #: ui/installation_automatic.ui:258 ui/user_info.ui:487
 msgid "show password"
-msgstr ""
+msgstr "عرض كلمة السر"
 
 #: src/installation_automatic.py:163
 msgid "A LUKS password has been set"
-msgstr ""
+msgstr "تم تحديد كلمة سر LUKS"
 
 #: src/installation_automatic.py:165
 #, python-format
 msgid "Automatic install on %s"
-msgstr ""
+msgstr "تثبيت تلقائي في %s"
 
 #: src/installation_automatic.py:199
 #, python-format
 msgid "Thus will use %s as installation device"
-msgstr ""
+msgstr "سيستعمل Thus %s كجهاز التثبيت"
 
 #: src/installation_automatic.py:208
 #, python-format
@@ -645,23 +645,23 @@ msgstr ""
 
 #: src/installation_process.py:358
 msgid "Install System ..."
-msgstr ""
+msgstr "ستم تثبيت النظام..."
 
 #: src/installation_process.py:363
 msgid "System installed."
-msgstr ""
+msgstr "تم تثبيت النظام."
 
 #: src/installation_process.py:365
 msgid "Configuring system ..."
-msgstr ""
+msgstr "يتم إعداد النظام..."
 
 #: src/installation_process.py:367
 msgid "System configured."
-msgstr ""
+msgstr "تم إعداد النظام."
 
 #: src/installation_process.py:371
 msgid "Installing bootloader ..."
-msgstr ""
+msgstr "يتم تثبيت محمل الإقلاع..."
 
 #: src/installation_process.py:398
 #, python-format
@@ -1042,49 +1042,49 @@ msgstr ""
 
 #: src/show_message.py:53
 msgid "Manjaro Installer - Error"
-msgstr ""
+msgstr "مثبت منجارو - خطأ"
 
 #: src/show_message.py:65
 msgid "Manjaro Installer - Warning"
-msgstr ""
+msgstr "مثبت منجارو - تحذير"
 
 #: src/show_message.py:77
 msgid "Manjaro Installer - Information"
-msgstr ""
+msgstr "مثبت منجارو - معلومات"
 
 #: src/show_message.py:88
 msgid "Manjaro Installer - Question"
-msgstr ""
+msgstr "مثبت منجارو - أسئلة"
 
 #: src/slides.py:94 src/slides.py:109
 msgid ""
 "Installation finished!\n"
 "Do you want to restart your system now?"
-msgstr ""
+msgstr "تم إنهاء التثبيت!\nهل ترغب بإعادة تشغيا نظامك الأن؟"
 
 #: src/slides.py:102
 msgid "Installing Manjaro..."
-msgstr ""
+msgstr "تثبيت منجارو..."
 
 #: src/slides.py:107
 msgid "Please wait..."
-msgstr ""
+msgstr "المرجوا الإنتظار..."
 
 #: src/slides.py:217
 msgid "Do you want to retry?"
-msgstr ""
+msgstr "هل تريد إعادة المحاولة؟"
 
 #: src/timezone.py:111
 msgid "Where are you?"
-msgstr ""
+msgstr "أين أنت؟"
 
 #: src/timezone.py:116 ui/timezone.ui:35
 msgid "Zone:"
-msgstr ""
+msgstr "منطقة:"
 
 #: src/timezone.py:120 ui/timezone.ui:78
 msgid "Region:"
-msgstr ""
+msgstr "إقليم:"
 
 #: src/timezone.py:124 ui/timezone.ui:104
 msgid "Use Network Time Protocol for clock synchronization:"
@@ -1109,11 +1109,11 @@ msgstr ""
 
 #: src/user_info.py:83 ui/user_info.ui:35
 msgid "Your name:"
-msgstr ""
+msgstr "إسمك:"
 
 #: src/user_info.py:87 ui/user_info.ui:275
 msgid "Your name"
-msgstr ""
+msgstr "إسمك"
 
 #: src/user_info.py:91 ui/user_info.ui:397
 msgid "Hostname"
@@ -1121,19 +1121,19 @@ msgstr ""
 
 #: src/user_info.py:95 ui/user_info.ui:474
 msgid "Your computer's name:"
-msgstr ""
+msgstr "إسم حاسوبك:"
 
 #: src/user_info.py:99 ui/user_info.ui:49
 msgid "Pick a username:"
-msgstr ""
+msgstr "إختر إسم المستخدم:"
 
 #: src/user_info.py:103 ui/user_info.ui:319
 msgid "Username"
-msgstr ""
+msgstr "إسم المستخدم"
 
 #: src/user_info.py:107 ui/user_info.ui:64
 msgid "Choose a password:"
-msgstr ""
+msgstr "إختر كلمة السر:"
 
 #: src/user_info.py:111 ui/user_info.ui:172
 msgid "Password"
@@ -1141,39 +1141,39 @@ msgstr "كلمة السر"
 
 #: src/user_info.py:119 ui/user_info.ui:218
 msgid "Confirm password"
-msgstr ""
+msgstr "أكد كلمة السر"
 
 #: src/user_info.py:123
 msgid "Its name as it appears to other computers."
-msgstr ""
+msgstr "هذا الإسم سيظهر للحواسيب الأخرة."
 
 #: src/user_info.py:127
 msgid "You must enter a name"
-msgstr ""
+msgstr "يجب إدخال إسم"
 
 #: src/user_info.py:131
 msgid "You must enter a username"
-msgstr ""
+msgstr "يجب إدخال إسم المستخدم"
 
 #: src/user_info.py:135
 msgid "You must enter a password"
-msgstr ""
+msgstr "يجب إدخال كلمة السر"
 
 #: src/user_info.py:139 ui/user_info.ui:97
 msgid "Log in automatically"
-msgstr ""
+msgstr "تسجيل الدخول التلقائي"
 
 #: src/user_info.py:140 ui/user_info.ui:114
 msgid "Require my password to log in"
-msgstr ""
+msgstr "طلب كلمة السر للولوج"
 
 #: src/user_info.py:141 ui/user_info.ui:135
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "تشفير مجلد المنزل"
 
 #: src/user_info.py:143
 msgid "Who are you?"
-msgstr ""
+msgstr "من أنت؟"
 
 #: src/user_info.py:179
 msgid ""
@@ -1219,7 +1219,7 @@ msgstr ""
 
 #: src/user_info.py:262
 msgid "Too many characters"
-msgstr ""
+msgstr "الكثير من الأحرف"
 
 #: ui/bootloader.ui:7
 msgid "Boot"
@@ -1227,7 +1227,7 @@ msgstr "إقلاع"
 
 #: ui/bootloader.ui:98
 msgid "BIOS (common)"
-msgstr ""
+msgstr "BIOS (شائع)"
 
 #: ui/bootloader.ui:120
 msgid "x86_64 UEFI"
