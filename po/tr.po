@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-19 12:40+0100\n"
-"PO-Revision-Date: 2013-12-19 20:54+0000\n"
-"Last-Translator: tulliana <mdemiray@msn.com>\n"
+"POT-Creation-Date: 2013-12-20 19:36+0100\n"
+"PO-Revision-Date: 2013-12-20 18:40+0000\n"
+"Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/manjaro-thus/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -268,11 +268,11 @@ msgstr "Mantıksal bölüm oluşturuluyor"
 msgid "Advanced installation mode"
 msgstr "Gelişmiş kurulum kipi"
 
-#: src/installation_advanced.py:1092 ui/installation_advanced.ui:1000
+#: src/installation_advanced.py:1092 ui/installation_advanced.ui:1024
 msgid "Use this device for boot loader installation:"
 msgstr "Önyükleyici kurulumu için bu aygıtı kullan:"
 
-#: src/installation_advanced.py:1102 ui/installation_advanced.ui:915
+#: src/installation_advanced.py:1102 ui/installation_advanced.ui:943
 msgid "New partition table"
 msgstr "Yeni bölüm tablosu"
 
@@ -280,46 +280,46 @@ msgstr "Yeni bölüm tablosu"
 msgid "Change..."
 msgstr "Değiştir..."
 
-#: src/installation_advanced.py:1115 ui/installation_advanced.ui:98
+#: src/installation_advanced.py:1115 ui/installation_advanced.ui:407
 msgid "Size:"
 msgstr "Boyut:"
 
-#: src/installation_advanced.py:1119 ui/installation_advanced.ui:300
+#: src/installation_advanced.py:1119 ui/installation_advanced.ui:630
 msgid "Type:"
 msgstr "Tür:"
 
-#: src/installation_advanced.py:1123 ui/installation_advanced.ui:317
+#: src/installation_advanced.py:1123 ui/installation_advanced.ui:647
 msgid "Primary"
 msgstr "Birincil"
 
-#: src/installation_advanced.py:1127 ui/installation_advanced.ui:337
+#: src/installation_advanced.py:1127 ui/installation_advanced.ui:671
 msgid "Logical"
 msgstr "Mantıksal"
 
-#: src/installation_advanced.py:1131 ui/installation_advanced.ui:357
+#: src/installation_advanced.py:1131 ui/installation_advanced.ui:695
 msgid "Extended"
 msgstr "Uzatılmış"
 
-#: src/installation_advanced.py:1135 ui/installation_advanced.ui:202
+#: src/installation_advanced.py:1135 ui/installation_advanced.ui:516
 msgid "Beginning of this space"
 msgstr "Bu boşluğun başlangıcı"
 
-#: src/installation_advanced.py:1139 ui/installation_advanced.ui:222
+#: src/installation_advanced.py:1139 ui/installation_advanced.ui:540
 msgid "End of this space"
 msgstr "Bu boşluğun sonu"
 
 #: src/installation_advanced.py:1143 src/installation_advanced.py:1160
-#: ui/installation_advanced.ui:129 ui/installation_advanced.ui:601
+#: ui/installation_advanced.ui:179 ui/installation_advanced.ui:438
 msgid "Use as:"
 msgstr "Dosya sistemi:"
 
 #: src/installation_advanced.py:1147 src/installation_advanced.py:1164
-#: ui/installation_advanced.ui:162 ui/installation_advanced.ui:634
+#: ui/installation_advanced.ui:212 ui/installation_advanced.ui:476
 msgid "Mount point:"
 msgstr "Bağlama noktası:"
 
 #: src/installation_advanced.py:1151 src/installation_advanced.py:1168
-#: ui/installation_advanced.ui:388 ui/installation_advanced.ui:671
+#: ui/installation_advanced.ui:249 ui/installation_advanced.ui:730
 msgid "Label (optional):"
 msgstr "Etiket (isteğe bağlı):"
 
@@ -327,7 +327,7 @@ msgstr "Etiket (isteğe bağlı):"
 msgid "Encryption Options..."
 msgstr "Şifreleme Seçenekleri..."
 
-#: src/installation_advanced.py:1172 ui/installation_advanced.ui:698
+#: src/installation_advanced.py:1172 ui/installation_advanced.ui:276
 msgid "Format:"
 msgstr "Biçimle/Formatla:"
 
@@ -573,13 +573,12 @@ msgstr "Manjaro yüklemek istediğiniz sürücüyü seçin\nve işlemini başlat
 msgid "Encryption Password:"
 msgstr "Şifreleme Kodu:"
 
-#: src/installation_automatic.py:101 src/user_info.py:115
-#: ui/installation_automatic.ui:161 ui/user_info.ui:79
+#: src/installation_automatic.py:101 src/user_info.py:124
+#: ui/installation_automatic.ui:161 ui/user_info.ui:80
 msgid "Confirm your password:"
 msgstr "Parolanızı doğrulayın:"
 
-#: src/installation_automatic.py:105 src/user_info.py:148
-#: ui/installation_automatic.ui:258 ui/user_info.ui:487
+#: src/installation_automatic.py:105 src/user_info.py:177
 msgid "show password"
 msgstr "Şifreyi göster"
 
@@ -732,7 +731,7 @@ msgstr "Ayırma işlemi yapılamadı %s"
 msgid "Error running command: %s"
 msgstr "Komut hatalı çalışıyor: %s"
 
-#: src/installation_process.py:666 src/installation_process.py:716
+#: src/installation_process.py:666 src/installation_process.py:720
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
 msgstr "fstab içine eklendi : UUID=%s %s %s %s 0 %s"
@@ -747,160 +746,168 @@ msgstr "Crypttab'a eklendi: %s"
 msgid "Added to fstab : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
 msgstr "fstab'a eklendi : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
 
-#: src/installation_process.py:720
+#: src/installation_process.py:724
 msgid "Added to fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
 msgstr "fstab'a eklendi : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
 
-#: src/installation_process.py:781
+#: src/installation_process.py:785
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
 msgstr "%s üzerine GRUB(2) yükleniyor ve BIOS önyükleyici oluşturuluyor"
 
-#: src/installation_process.py:793 src/installation_process.py:814
+#: src/installation_process.py:797 src/installation_process.py:818
 msgid "ERROR installing GRUB(2) BIOS."
 msgstr "GRUB(2) BIOS yükleme hatası."
 
-#: src/installation_process.py:812
+#: src/installation_process.py:816
 msgid "GRUB(2) BIOS has been successfully installed."
 msgstr "GRUB(2) BIOS başarıyla yüklenmiştir."
 
-#: src/installation_process.py:826
+#: src/installation_process.py:830
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader in %s"
 msgstr "GRUB(2) UEFI yükleniyor %s Önyükleyici oluşturuluyor %s"
 
-#: src/installation_process.py:878
+#: src/installation_process.py:882
 msgid "ERROR installing GRUB(2) locale."
 msgstr "Yükleme hatası GRUB(2) yerel."
 
-#: src/installation_process.py:887
+#: src/installation_process.py:891
 #, python-format
 msgid "Enabled %s service."
 msgstr "%s Servisi etkin."
 
-#: src/installation_process.py:894
+#: src/installation_process.py:898
 #, python-format
 msgid "Error creating password hash for user %s"
 msgstr "Kullanıcı karma parola değiştirme hatası %s"
 
-#: src/installation_process.py:900
+#: src/installation_process.py:904
 #, python-format
 msgid "Error changing password for user %s"
 msgstr "Kullanıcı parola değiştirme hatası %s"
 
-#: src/installation_process.py:912
+#: src/installation_process.py:916
 msgid "Setting hooks and modules in mkinitcpio.conf"
 msgstr "mkinitcpio.conf içine kanca ve modül ayarlanmaları"
 
-#: src/installation_process.py:977
+#: src/installation_process.py:981
 #, python-format
 msgid "%s: Enable automatic login for user %s."
 msgstr "%s: Kullanıcı için otomatik giriş etkin %s."
 
-#: src/installation_process.py:1072 src/installation_process.py:1083
+#: src/installation_process.py:1076 src/installation_process.py:1087
 msgid "Configuring your new system"
 msgstr "Kurulan sistem yapılandırılıyor..."
 
-#: src/installation_process.py:1075
+#: src/installation_process.py:1079
 msgid "fstab file generated."
 msgstr "fstab dosyası oluşturuldu."
 
-#: src/installation_process.py:1081
+#: src/installation_process.py:1085
 msgid "Network configuration copied."
 msgstr "Ağ yapılandırması kopyalandı."
 
-#: src/installation_process.py:1107
+#: src/installation_process.py:1111
 msgid "Timezone set."
 msgstr "Saat Zaman Ayarı."
 
-#: src/installation_process.py:1127
+#: src/installation_process.py:1132
 #, python-format
 msgid "Sudo configuration for user %s done."
 msgstr "Kullanıcı için sudo yapılandırması %s yapılır."
 
-#: src/installation_process.py:1137
+#: src/installation_process.py:1142
 #, python-format
 msgid "User %s added."
 msgstr "Kullanıcı %s eklendi."
 
-#: src/installation_process.py:1149
+#: src/installation_process.py:1154
 #, python-format
 msgid "Hostname  %s set."
 msgstr "Hostname %s ayarlaması."
 
-#: src/installation_process.py:1153
+#: src/installation_process.py:1159
+msgid "Set root password."
+msgstr ""
+
+#: src/installation_process.py:1162
 msgid "Set the same password to root."
 msgstr "Aynı parolayı kök için ayarlayın."
 
-#: src/installation_process.py:1159
+#: src/installation_process.py:1168
 msgid "Generating locales ..."
 msgstr "Yereliniz yapılandırılıyor ..."
 
-#: src/installation_process.py:1180
+#: src/installation_process.py:1189
 msgid "Adjusting hardware clock ..."
 msgstr "Donanım saati ayarlanıyor ..."
 
-#: src/installation_process.py:1189
+#: src/installation_process.py:1198
 msgid "Configuring hardware ..."
 msgstr "Donanım yapılandırılıyor ..."
 
-#: src/installation_process.py:1262
+#: src/installation_process.py:1271
 msgid "Set up graphics card ..."
 msgstr "Ekran kartı kuruluyor ve yapılandırılıyor ..."
 
-#: src/installation_process.py:1269
+#: src/installation_process.py:1278
 msgid "Can't execute the MHWD script"
 msgstr "MHWD komut dosyasını yürütemedi"
 
-#: src/installation_process.py:1282
+#: src/installation_process.py:1291
 msgid "Configure display manager ..."
 msgstr "Ekran yöneticisi yapılandırılıyor ..."
 
-#: src/installation_process.py:1388
+#: src/installation_process.py:1397
 msgid "Configure System ..."
 msgstr "Sistem Yapılandırılıyor ..."
 
-#: src/installation_process.py:1413
+#: src/installation_process.py:1422
 msgid "Removing live configuration (packages)"
 msgstr "Geçici konfigürasyonlar kaldırılıyor (paketler)"
 
-#: src/installation_process.py:1429
+#: src/installation_process.py:1438
 msgid "Configuring package manager"
 msgstr "Paket yöneticisi yapılandırılıyor"
 
-#: src/installation_process.py:1441
+#: src/installation_process.py:1450
 msgid "Finished configuring package manager."
 msgstr "Paket yönetici yapılandırması tamamlandı."
 
-#: src/installation_process.py:1465
+#: src/installation_process.py:1474
 msgid "Running mkinitcpio ..."
 msgstr "mkinitcpio çalıştırılıyor ..."
 
-#: src/installation_process.py:1468
+#: src/installation_process.py:1477
 msgid "Running mkinitcpio - done"
 msgstr "mkinitcpio çalışma sonucu- başarılı"
 
-#: src/installation_process.py:1484
+#: src/installation_process.py:1493
 msgid "Encrypting user home dir ..."
 msgstr "Kullanıcı Ev Dizini şifreleniyor ..."
 
-#: src/installation_process.py:1486
+#: src/installation_process.py:1495
 msgid "User home dir encrypted"
 msgstr "Kullanıcı Ev Dizini şifrelendi"
 
-#: src/keymap.py:61
+#: src/keymap.py:71
 msgid "Select your keyboard layout"
 msgstr "Klavye düzeninizi seçin"
 
-#: src/keymap.py:69
+#: src/keymap.py:75
+msgid "Type here to test your keyboard"
+msgstr ""
+
+#: src/keymap.py:82
 msgid "Layouts"
 msgstr "Düzenler"
 
-#: src/keymap.py:75
+#: src/keymap.py:88
 msgid "Variants"
 msgstr "Alt türevler"
 
-#: src/keymap.py:97
+#: src/keymap.py:110
 #, python-format
 msgid "keyboard_layout is %s"
 msgstr "Klavye Düzenleri %s"
@@ -1113,117 +1120,131 @@ msgstr "Zaman dilimi ayarlanıyor..."
 msgid "Can't get the country code used to create a pacman mirrorlist"
 msgstr "Pacman mirrorlist oluşturmak için tercih edilen ülke kodu alınamıyor"
 
-#: src/user_info.py:83 ui/user_info.ui:35
+#: src/user_info.py:92 ui/user_info.ui:35
 msgid "Your name:"
 msgstr "Gerçek Adınız:"
 
-#: src/user_info.py:87 ui/user_info.ui:275
+#: src/user_info.py:96 ui/user_info.ui:206
 msgid "Your name"
 msgstr "Gerçek Adınız:"
 
-#: src/user_info.py:91 ui/user_info.ui:397
+#: src/user_info.py:100 ui/user_info.ui:328
 msgid "Hostname"
 msgstr "Hostname"
 
-#: src/user_info.py:95 ui/user_info.ui:474
+#: src/user_info.py:104 ui/user_info.ui:405
 msgid "Your computer's name:"
 msgstr "Bilgisayarınızın adı:"
 
-#: src/user_info.py:99 ui/user_info.ui:49
+#: src/user_info.py:108 ui/user_info.ui:50
 msgid "Pick a username:"
 msgstr "Kullanıcı adı belirleyin:"
 
-#: src/user_info.py:103 ui/user_info.ui:319
+#: src/user_info.py:112 ui/user_info.ui:250
 msgid "Username"
 msgstr "Kullanıcı adı"
 
-#: src/user_info.py:107 ui/user_info.ui:64
+#: src/user_info.py:116 ui/user_info.ui:65
 msgid "Choose a password:"
 msgstr "Parola Oluşturun:"
 
-#: src/user_info.py:111 ui/user_info.ui:172
+#: src/user_info.py:120 src/user_info.py:136 ui/user_info.ui:103
+#: ui/user_info.ui:573
 msgid "Password"
 msgstr "Parola"
 
-#: src/user_info.py:119 ui/user_info.ui:218
+#: src/user_info.py:128 src/user_info.py:144 ui/user_info.ui:149
+#: ui/user_info.ui:633
 msgid "Confirm password"
 msgstr "Parolayı doğrulayın"
 
-#: src/user_info.py:123
+#: src/user_info.py:132 ui/user_info.ui:610
+msgid "Choose a root password:"
+msgstr ""
+
+#: src/user_info.py:140 ui/user_info.ui:682
+msgid "Confirm root password:"
+msgstr ""
+
+#: src/user_info.py:148
 msgid "Its name as it appears to other computers."
 msgstr "Bu isim, diğer bilgisayarlarla iletişim esnasında kullanılır."
 
-#: src/user_info.py:127
+#: src/user_info.py:152
 msgid "You must enter a name"
 msgstr "Bir isim belirleyin"
 
-#: src/user_info.py:131
+#: src/user_info.py:156
 msgid "You must enter a username"
 msgstr "Bir kullanıcı adı belirleyin"
 
-#: src/user_info.py:135
+#: src/user_info.py:160 src/user_info.py:164
 msgid "You must enter a password"
 msgstr "Bir parola belirleyin"
 
-#: src/user_info.py:139 ui/user_info.ui:97
+#: src/user_info.py:168 ui/user_info.ui:473
 msgid "Log in automatically"
 msgstr "Otomatik giriş yap"
 
-#: src/user_info.py:140 ui/user_info.ui:114
-msgid "Require my password to log in"
-msgstr "Giriş yapmak için parola iste"
+#: src/user_info.py:169 ui/user_info.ui:490
+msgid "A password is required to log in"
+msgstr ""
 
-#: src/user_info.py:141 ui/user_info.ui:135
+#: src/user_info.py:170 ui/user_info.ui:518
 msgid "Encrypt my home folder"
 msgstr "Ev dizinimi şifrele"
 
-#: src/user_info.py:143
+#: src/user_info.py:172
 msgid "Who are you?"
 msgstr "Kendinizi  tanımladınız mı?"
 
-#: src/user_info.py:179
+#: src/user_info.py:180
+msgid "use a root password"
+msgstr ""
+
+#: src/user_info.py:249
 msgid ""
 "Manjaro will use eCryptfs to encrypt your home directory. Unfortunately, eCryptfs does not handle sparse files well.\n"
 "\n"
 msgstr "Manjaro ev dizini şifrelemek için eCryptfs kullanacağız. Ne yazık ki, eCryptfs de seyrek dosyalar işlenmez.\n\n"
 
-#: src/user_info.py:180
+#: src/user_info.py:250
 msgid ""
 "Don't worry, for most intents and purposes this deficiency does not pose a problem.\n"
 "\n"
 msgstr "Merak etmeyin, iyi niyet ve amaçlar için bu eksiklik sorun teşkil etmez.\n\n"
 
-#: src/user_info.py:181
+#: src/user_info.py:251
 msgid ""
 "Anyway, one popular and inadvisable application of eCryptfs is to encrypt a BitTorrent download location as this often requires eCryptfs to handle sparse files of 10 GB or more and may lead to intense disk starvation.\n"
 "\n"
 msgstr "Zaten eCryptfs popüler ve tavsiye edilmeyen bir uygulama. Genellikle eCryptfs, 10 GB veya daha fazla dosyayı diskte yoğunluğa yol açmaması amacıyla BitTorrent indirme konumu şifrelemek içindir.\n\n"
 
-#: src/user_info.py:182
+#: src/user_info.py:252
 msgid ""
 "A simple workaround is to place sparse files in an unencrypted .Public directory\n"
 "\n"
 msgstr "Şifrelenmemiş dosyalar basit ve geçici çözümdür. Herkese açık dizin\n\n"
 
-#: src/user_info.py:183
+#: src/user_info.py:253
 msgid ""
 "Look at https://wiki.archlinux.org/index.php/ECryptfs for detailed information\n"
 "\n"
 msgstr "Ayrıntılı bilgi için https://wiki.archlinux.org/index.php/ECryptfs bakınız\n\n"
 
-#: src/user_info.py:184
+#: src/user_info.py:254
 msgid "Are you sure you want to encrypt your home directory?\n"
 msgstr "Ev dizinini şiifrelemk istediğinizden emin misiniz?\n"
 
-#: src/user_info.py:254
+#: src/user_info.py:342
 msgid "Invalid characters entered"
 msgstr "Geçersiz karakterler girdiniz"
 
-#: src/user_info.py:258
+#: src/user_info.py:346
 msgid "Username can't contain dots"
 msgstr "Kullanıcı adı nokta içeremez"
 
-#: src/user_info.py:262
+#: src/user_info.py:350
 msgid "Too many characters"
 msgstr "Çok fazla karakter var"
 
@@ -1259,47 +1280,47 @@ msgid ""
 "might need more space."
 msgstr "(*) Kurulum yapacağınız masaüstü yöneticisi ve onun bağımlılıklarına yetecek disk alanı belirlemelisiniz."
 
-#: ui/installation_advanced.ui:74
-msgid "Create partition"
-msgstr "Bölüm oluştur"
-
-#: ui/installation_advanced.ui:114
-msgid "Location:"
-msgstr "Yer:"
-
-#: ui/installation_advanced.ui:277
-msgid "MB"
-msgstr "MB"
-
-#: ui/installation_advanced.ui:424 ui/installation_advanced.ui:740
-msgid "Encryption options..."
-msgstr "Şifreleme seçenekleri..."
-
-#: ui/installation_advanced.ui:504
+#: ui/installation_advanced.ui:84
 msgid "Partition table type:"
 msgstr "Bölüm tablosu türü:"
 
-#: ui/installation_advanced.ui:577
+#: ui/installation_advanced.ui:155
 msgid "Edit partition"
 msgstr "Bölümü düzenle"
 
-#: ui/installation_advanced.ui:931
+#: ui/installation_advanced.ui:317 ui/installation_advanced.ui:774
+msgid "Encryption options..."
+msgstr "Şifreleme seçenekleri..."
+
+#: ui/installation_advanced.ui:383
+msgid "Create partition"
+msgstr "Bölüm oluştur"
+
+#: ui/installation_advanced.ui:423
+msgid "Location:"
+msgstr "Yer:"
+
+#: ui/installation_advanced.ui:607
+msgid "MB"
+msgstr "MB"
+
+#: ui/installation_advanced.ui:958
 msgid "LVM..."
 msgstr "LVM..."
 
-#: ui/installation_advanced.ui:1100
+#: ui/installation_advanced.ui:1122
 msgid "LUKS volume name:"
 msgstr "LUKS birim adı:"
 
-#: ui/installation_advanced.ui:1114
+#: ui/installation_advanced.ui:1136
 msgid "Password:"
 msgstr "Şifre:"
 
-#: ui/installation_advanced.ui:1128
+#: ui/installation_advanced.ui:1150
 msgid "Confirm password:"
 msgstr "Şifreyi doğrula:"
 
-#: ui/installation_advanced.ui:1158
+#: ui/installation_advanced.ui:1179
 msgid "Use LUKS encryption: "
 msgstr "LUKS şifreleme kullan: "
 
@@ -1386,6 +1407,10 @@ msgid ""
 "drive!</b>"
 msgstr "<b> UYARI ! Bu yükleme kipi seçtiğiniz diskteki her şeyin üzerine yazacak! </b>"
 
+#: ui/installation_automatic.ui:258 ui/user_info.ui:422
+msgid "Show password"
+msgstr ""
+
 #: ui/language.ui:26
 msgid "<span weight=\"bold\">Please choose your language:</span>"
 msgstr "<span weight=\"bold\">Lütfen kullanacağınız dili seçiniz:</span>"
@@ -1403,22 +1428,30 @@ msgstr "<span weight='bold'>Duyuru: Thus, sistem yükleyicisi beta bir yazılım
 msgid "<span weight=\"bold\" size=\"large\">Welcome to Manjaro</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Manjaro'ya Hoşgeldiniz</span>"
 
-#: ui/user_info.ui:188
+#: ui/user_info.ui:119 ui/user_info.ui:588
 msgid "<small><span color=\"darkgreen\">Strong password</span></small>"
 msgstr "<small><span color=\"darkgreen\">Güçlü şifre</span></small>"
 
-#: ui/user_info.ui:246
+#: ui/user_info.ui:177 ui/user_info.ui:660
 msgid "<small><span color=\"darkred\">You must enter a password</span></small>"
 msgstr "<small><span color=\"darkred\">Şifrenizi tanımlayınız</span></small>"
 
-#: ui/user_info.ui:347
+#: ui/user_info.ui:278
 msgid "<small><span color=\"darkred\">You must enter a username</span></small>"
 msgstr "<small><span color=\"darkred\">Kullanıcı adını tanımlayınız</span></small>"
 
-#: ui/user_info.ui:425
+#: ui/user_info.ui:356
 msgid "<small><span color=\"darkred\">You must enter a name</span></small>"
 msgstr "<small><span color=\"darkred\">Bir isim tanımlayınız</span></small>"
 
-#: ui/user_info.ui:447
+#: ui/user_info.ui:378
 msgid "<span size=\"small\">Its name as it appears to other computers.</span>"
 msgstr "<span size=\"small\">Bu isim, diğer bilgisayarlarla iletişiminde görünecek isimdir.</span>"
+
+#: ui/user_info.ui:439
+msgid "Use a root password"
+msgstr ""
+
+#: ui/user_info.ui:544
+msgid "Show root password"
+msgstr ""

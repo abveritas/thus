@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-19 12:40+0100\n"
-"PO-Revision-Date: 2013-12-19 11:47+0000\n"
+"POT-Creation-Date: 2013-12-20 19:36+0100\n"
+"PO-Revision-Date: 2013-12-20 18:40+0000\n"
 "Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/manjaro-thus/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -266,11 +266,11 @@ msgstr "লজিকাল পার্টিশন তৈরি হচ্ছে
 msgid "Advanced installation mode"
 msgstr "ইনস্টলেশন সংক্রান্ত উন্নত মোড"
 
-#: src/installation_advanced.py:1092 ui/installation_advanced.ui:1000
+#: src/installation_advanced.py:1092 ui/installation_advanced.ui:1024
 msgid "Use this device for boot loader installation:"
 msgstr "এই ডিভাইসটি boot loader এর জন্য ব্যবহার করুনঃ"
 
-#: src/installation_advanced.py:1102 ui/installation_advanced.ui:915
+#: src/installation_advanced.py:1102 ui/installation_advanced.ui:943
 msgid "New partition table"
 msgstr "নতুন পার্টিশন টেবিল"
 
@@ -278,46 +278,46 @@ msgstr "নতুন পার্টিশন টেবিল"
 msgid "Change..."
 msgstr "পরিবর্তন..."
 
-#: src/installation_advanced.py:1115 ui/installation_advanced.ui:98
+#: src/installation_advanced.py:1115 ui/installation_advanced.ui:407
 msgid "Size:"
 msgstr "আয়তনঃ"
 
-#: src/installation_advanced.py:1119 ui/installation_advanced.ui:300
+#: src/installation_advanced.py:1119 ui/installation_advanced.ui:630
 msgid "Type:"
 msgstr "প্রকারঃ"
 
-#: src/installation_advanced.py:1123 ui/installation_advanced.ui:317
+#: src/installation_advanced.py:1123 ui/installation_advanced.ui:647
 msgid "Primary"
 msgstr "প্রাথমিক"
 
-#: src/installation_advanced.py:1127 ui/installation_advanced.ui:337
+#: src/installation_advanced.py:1127 ui/installation_advanced.ui:671
 msgid "Logical"
 msgstr "লজিক্যাল"
 
-#: src/installation_advanced.py:1131 ui/installation_advanced.ui:357
+#: src/installation_advanced.py:1131 ui/installation_advanced.ui:695
 msgid "Extended"
 msgstr "বর্ধিত"
 
-#: src/installation_advanced.py:1135 ui/installation_advanced.ui:202
+#: src/installation_advanced.py:1135 ui/installation_advanced.ui:516
 msgid "Beginning of this space"
 msgstr "এই স্থানের শুরু থেকে"
 
-#: src/installation_advanced.py:1139 ui/installation_advanced.ui:222
+#: src/installation_advanced.py:1139 ui/installation_advanced.ui:540
 msgid "End of this space"
 msgstr "এই স্থানের শেষের থেকে"
 
 #: src/installation_advanced.py:1143 src/installation_advanced.py:1160
-#: ui/installation_advanced.ui:129 ui/installation_advanced.ui:601
+#: ui/installation_advanced.ui:179 ui/installation_advanced.ui:438
 msgid "Use as:"
 msgstr "যা হিসেবে ব্যাবহার করতে চানঃ"
 
 #: src/installation_advanced.py:1147 src/installation_advanced.py:1164
-#: ui/installation_advanced.ui:162 ui/installation_advanced.ui:634
+#: ui/installation_advanced.ui:212 ui/installation_advanced.ui:476
 msgid "Mount point:"
 msgstr "মাউন্ট পয়েন্ট"
 
 #: src/installation_advanced.py:1151 src/installation_advanced.py:1168
-#: ui/installation_advanced.ui:388 ui/installation_advanced.ui:671
+#: ui/installation_advanced.ui:249 ui/installation_advanced.ui:730
 msgid "Label (optional):"
 msgstr "লেবেল (ঐচ্ছিক):"
 
@@ -325,7 +325,7 @@ msgstr "লেবেল (ঐচ্ছিক):"
 msgid "Encryption Options..."
 msgstr ""
 
-#: src/installation_advanced.py:1172 ui/installation_advanced.ui:698
+#: src/installation_advanced.py:1172 ui/installation_advanced.ui:276
 msgid "Format:"
 msgstr "ফরম্যাট"
 
@@ -571,13 +571,12 @@ msgstr "আপনি যে ড্রাইভে Manjaro ইন্সটল ক
 msgid "Encryption Password:"
 msgstr ""
 
-#: src/installation_automatic.py:101 src/user_info.py:115
-#: ui/installation_automatic.ui:161 ui/user_info.ui:79
+#: src/installation_automatic.py:101 src/user_info.py:124
+#: ui/installation_automatic.ui:161 ui/user_info.ui:80
 msgid "Confirm your password:"
 msgstr "আপনার পাসওয়ার্ড নিশ্চিত করুনঃ"
 
-#: src/installation_automatic.py:105 src/user_info.py:148
-#: ui/installation_automatic.ui:258 ui/user_info.ui:487
+#: src/installation_automatic.py:105 src/user_info.py:177
 msgid "show password"
 msgstr ""
 
@@ -730,7 +729,7 @@ msgstr "%s আন-মাউন্ট করতে অক্ষম"
 msgid "Error running command: %s"
 msgstr ""
 
-#: src/installation_process.py:666 src/installation_process.py:716
+#: src/installation_process.py:666 src/installation_process.py:720
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
 msgstr ""
@@ -745,160 +744,168 @@ msgstr ""
 msgid "Added to fstab : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
 msgstr ""
 
-#: src/installation_process.py:720
+#: src/installation_process.py:724
 msgid "Added to fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
 msgstr ""
 
-#: src/installation_process.py:781
+#: src/installation_process.py:785
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
 msgstr "%s এর ভিতরে GRUB(2) BIOS boot loader ইন্সটল করা হচ্ছে"
 
-#: src/installation_process.py:793 src/installation_process.py:814
+#: src/installation_process.py:797 src/installation_process.py:818
 msgid "ERROR installing GRUB(2) BIOS."
 msgstr "GRUB(2) BIOS ইন্সটলের সময় ত্রুটি হচ্ছে।"
 
-#: src/installation_process.py:812
+#: src/installation_process.py:816
 msgid "GRUB(2) BIOS has been successfully installed."
 msgstr "GRUB(2) BIOS সফলভাবে ইন্সটল হয়েছে।"
 
-#: src/installation_process.py:826
+#: src/installation_process.py:830
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader in %s"
 msgstr "GRUB(2) UEFI %s boot loader ইন্সটল হচ্ছে %s ভিতরে"
 
-#: src/installation_process.py:878
+#: src/installation_process.py:882
 msgid "ERROR installing GRUB(2) locale."
 msgstr ""
 
-#: src/installation_process.py:887
+#: src/installation_process.py:891
 #, python-format
 msgid "Enabled %s service."
 msgstr ""
 
-#: src/installation_process.py:894
+#: src/installation_process.py:898
 #, python-format
 msgid "Error creating password hash for user %s"
 msgstr "ব্যবহারকারী % s এর জন্য পাসওয়ার্ড হ্যাশ তৈরি করার সময় ত্রুটি হচ্ছে"
 
-#: src/installation_process.py:900
+#: src/installation_process.py:904
 #, python-format
 msgid "Error changing password for user %s"
 msgstr "ব্যবহারকারী % s এর পাসওয়ার্ড পাসওয়ার্ড পরিবর্তনের সময় ত্রুটি পাওয়া হচ্ছে"
 
-#: src/installation_process.py:912
+#: src/installation_process.py:916
 msgid "Setting hooks and modules in mkinitcpio.conf"
 msgstr ""
 
-#: src/installation_process.py:977
+#: src/installation_process.py:981
 #, python-format
 msgid "%s: Enable automatic login for user %s."
 msgstr "%s: %s-এর জন্য স্বয়ংক্রিয় লগইন ব্যবস্থা সক্রিয় করুন।    "
 
-#: src/installation_process.py:1072 src/installation_process.py:1083
+#: src/installation_process.py:1076 src/installation_process.py:1087
 msgid "Configuring your new system"
 msgstr "নতুন সিস্টেম কনফিগার করা হচ্ছে"
 
-#: src/installation_process.py:1075
+#: src/installation_process.py:1079
 msgid "fstab file generated."
 msgstr ""
 
-#: src/installation_process.py:1081
+#: src/installation_process.py:1085
 msgid "Network configuration copied."
 msgstr ""
 
-#: src/installation_process.py:1107
+#: src/installation_process.py:1111
 msgid "Timezone set."
 msgstr ""
 
-#: src/installation_process.py:1127
+#: src/installation_process.py:1132
 #, python-format
 msgid "Sudo configuration for user %s done."
 msgstr ""
 
-#: src/installation_process.py:1137
+#: src/installation_process.py:1142
 #, python-format
 msgid "User %s added."
 msgstr ""
 
-#: src/installation_process.py:1149
+#: src/installation_process.py:1154
 #, python-format
 msgid "Hostname  %s set."
 msgstr ""
 
-#: src/installation_process.py:1153
+#: src/installation_process.py:1159
+msgid "Set root password."
+msgstr ""
+
+#: src/installation_process.py:1162
 msgid "Set the same password to root."
 msgstr ""
 
-#: src/installation_process.py:1159
+#: src/installation_process.py:1168
 msgid "Generating locales ..."
 msgstr ""
 
-#: src/installation_process.py:1180
+#: src/installation_process.py:1189
 msgid "Adjusting hardware clock ..."
 msgstr ""
 
-#: src/installation_process.py:1189
+#: src/installation_process.py:1198
 msgid "Configuring hardware ..."
 msgstr ""
 
-#: src/installation_process.py:1262
+#: src/installation_process.py:1271
 msgid "Set up graphics card ..."
 msgstr ""
 
-#: src/installation_process.py:1269
+#: src/installation_process.py:1278
 msgid "Can't execute the MHWD script"
 msgstr "MHWD স্ক্রিপ্টটি চালানো যাচ্ছে না"
 
-#: src/installation_process.py:1282
+#: src/installation_process.py:1291
 msgid "Configure display manager ..."
 msgstr ""
 
-#: src/installation_process.py:1388
+#: src/installation_process.py:1397
 msgid "Configure System ..."
 msgstr ""
 
-#: src/installation_process.py:1413
+#: src/installation_process.py:1422
 msgid "Removing live configuration (packages)"
 msgstr "লাইভ কনফিগারেশন (packages) মুছে ফেলা হচ্ছে"
 
-#: src/installation_process.py:1429
+#: src/installation_process.py:1438
 msgid "Configuring package manager"
 msgstr "প্যাকেজ ম্যানেজার কনফিগার করা হচ্ছে"
 
-#: src/installation_process.py:1441
+#: src/installation_process.py:1450
 msgid "Finished configuring package manager."
 msgstr "প্যাকেজ ম্যানেজার কনফিগার করা শেষ"
 
-#: src/installation_process.py:1465
+#: src/installation_process.py:1474
 msgid "Running mkinitcpio ..."
 msgstr ""
 
-#: src/installation_process.py:1468
+#: src/installation_process.py:1477
 msgid "Running mkinitcpio - done"
 msgstr ""
 
-#: src/installation_process.py:1484
+#: src/installation_process.py:1493
 msgid "Encrypting user home dir ..."
 msgstr ""
 
-#: src/installation_process.py:1486
+#: src/installation_process.py:1495
 msgid "User home dir encrypted"
 msgstr ""
 
-#: src/keymap.py:61
+#: src/keymap.py:71
 msgid "Select your keyboard layout"
 msgstr "আপনার কি বোর্ড লে-আউট পছন্দ করুন"
 
-#: src/keymap.py:69
+#: src/keymap.py:75
+msgid "Type here to test your keyboard"
+msgstr ""
+
+#: src/keymap.py:82
 msgid "Layouts"
 msgstr "লে-আউট সমূহ"
 
-#: src/keymap.py:75
+#: src/keymap.py:88
 msgid "Variants"
 msgstr "বিকল্পসমূহ"
 
-#: src/keymap.py:97
+#: src/keymap.py:110
 #, python-format
 msgid "keyboard_layout is %s"
 msgstr "কিবোর্ড লে-আউট %s"
@@ -1111,117 +1118,131 @@ msgstr ""
 msgid "Can't get the country code used to create a pacman mirrorlist"
 msgstr "pacman mirrorlist- তৈরীতে ব্যবহৃত country code পাওয়া যাচ্ছে না।"
 
-#: src/user_info.py:83 ui/user_info.ui:35
+#: src/user_info.py:92 ui/user_info.ui:35
 msgid "Your name:"
 msgstr "আপনার নামঃ"
 
-#: src/user_info.py:87 ui/user_info.ui:275
+#: src/user_info.py:96 ui/user_info.ui:206
 msgid "Your name"
 msgstr "আপনার নাম:"
 
-#: src/user_info.py:91 ui/user_info.ui:397
+#: src/user_info.py:100 ui/user_info.ui:328
 msgid "Hostname"
 msgstr ""
 
-#: src/user_info.py:95 ui/user_info.ui:474
+#: src/user_info.py:104 ui/user_info.ui:405
 msgid "Your computer's name:"
 msgstr "আপনার কম্পিউটারের নামঃ"
 
-#: src/user_info.py:99 ui/user_info.ui:49
+#: src/user_info.py:108 ui/user_info.ui:50
 msgid "Pick a username:"
 msgstr "একটি ব্যবহারকারীর নাম নির্বাচন করুনঃ"
 
-#: src/user_info.py:103 ui/user_info.ui:319
+#: src/user_info.py:112 ui/user_info.ui:250
 msgid "Username"
 msgstr "ব্যবহারকারীর নাম"
 
-#: src/user_info.py:107 ui/user_info.ui:64
+#: src/user_info.py:116 ui/user_info.ui:65
 msgid "Choose a password:"
 msgstr "পাসওয়ার্ড নির্বাচন করুন:"
 
-#: src/user_info.py:111 ui/user_info.ui:172
+#: src/user_info.py:120 src/user_info.py:136 ui/user_info.ui:103
+#: ui/user_info.ui:573
 msgid "Password"
 msgstr "পাসওয়ার্ড"
 
-#: src/user_info.py:119 ui/user_info.ui:218
+#: src/user_info.py:128 src/user_info.py:144 ui/user_info.ui:149
+#: ui/user_info.ui:633
 msgid "Confirm password"
 msgstr "পাসওয়ার্ড নিশ্চিত করুন"
 
-#: src/user_info.py:123
+#: src/user_info.py:132 ui/user_info.ui:610
+msgid "Choose a root password:"
+msgstr ""
+
+#: src/user_info.py:140 ui/user_info.ui:682
+msgid "Confirm root password:"
+msgstr ""
+
+#: src/user_info.py:148
 msgid "Its name as it appears to other computers."
 msgstr "এর নাম যা অন্য কম্পিউটারে প্রদর্শিত হবে।"
 
-#: src/user_info.py:127
+#: src/user_info.py:152
 msgid "You must enter a name"
 msgstr "আপনার অবশ্যই একটি নাম দিতে হবে"
 
-#: src/user_info.py:131
+#: src/user_info.py:156
 msgid "You must enter a username"
 msgstr "আপনার অবশ্যই একটি ব্যবহারকারীর নাম দিতে হবে"
 
-#: src/user_info.py:135
+#: src/user_info.py:160 src/user_info.py:164
 msgid "You must enter a password"
 msgstr "আপনার অবশ্যই একটি পাসওয়ার্ড দিতে হবে"
 
-#: src/user_info.py:139 ui/user_info.ui:97
+#: src/user_info.py:168 ui/user_info.ui:473
 msgid "Log in automatically"
 msgstr "স্বয়ংক্রিয়ভাবে লগ ইন"
 
-#: src/user_info.py:140 ui/user_info.ui:114
-msgid "Require my password to log in"
-msgstr "আমার পাসওয়ার্ড দরকার হবে লগ-ইন এর সময়"
+#: src/user_info.py:169 ui/user_info.ui:490
+msgid "A password is required to log in"
+msgstr ""
 
-#: src/user_info.py:141 ui/user_info.ui:135
+#: src/user_info.py:170 ui/user_info.ui:518
 msgid "Encrypt my home folder"
 msgstr "আমার হোম folder এনক্রিপ্ট কর"
 
-#: src/user_info.py:143
+#: src/user_info.py:172
 msgid "Who are you?"
 msgstr "আপনি কে?"
 
-#: src/user_info.py:179
+#: src/user_info.py:180
+msgid "use a root password"
+msgstr ""
+
+#: src/user_info.py:249
 msgid ""
 "Manjaro will use eCryptfs to encrypt your home directory. Unfortunately, eCryptfs does not handle sparse files well.\n"
 "\n"
 msgstr "Manjaro eCryptfs কে আপনার home ডিরেক্টরি এনক্রিপ্ট করতে ব্যবহার করবে। দুর্ভাগ্যবশত, eCryptfs ভালভাবে sparse ফাইল হ্যান্ডেল করতে পারেনা।\n\n"
 
-#: src/user_info.py:180
+#: src/user_info.py:250
 msgid ""
 "Don't worry, for most intents and purposes this deficiency does not pose a problem.\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:181
+#: src/user_info.py:251
 msgid ""
 "Anyway, one popular and inadvisable application of eCryptfs is to encrypt a BitTorrent download location as this often requires eCryptfs to handle sparse files of 10 GB or more and may lead to intense disk starvation.\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:182
+#: src/user_info.py:252
 msgid ""
 "A simple workaround is to place sparse files in an unencrypted .Public directory\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:183
+#: src/user_info.py:253
 msgid ""
 "Look at https://wiki.archlinux.org/index.php/ECryptfs for detailed information\n"
 "\n"
 msgstr ""
 
-#: src/user_info.py:184
+#: src/user_info.py:254
 msgid "Are you sure you want to encrypt your home directory?\n"
 msgstr "আপনি কি নিশ্চিতভাবে হোম ডিরেক্টরি এনক্রিপ্ট করতে চান?\n\n"
 
-#: src/user_info.py:254
+#: src/user_info.py:342
 msgid "Invalid characters entered"
 msgstr "ভুল অক্ষর প্রবেশ করা হয়েছে"
 
-#: src/user_info.py:258
+#: src/user_info.py:346
 msgid "Username can't contain dots"
 msgstr "ব্যবহারকারীর নামে ডট থাকতে পারবে না"
 
-#: src/user_info.py:262
+#: src/user_info.py:350
 msgid "Too many characters"
 msgstr "অনেক বেশি অক্ষর"
 
@@ -1257,47 +1278,47 @@ msgid ""
 "might need more space."
 msgstr ""
 
-#: ui/installation_advanced.ui:74
-msgid "Create partition"
-msgstr "পার্টিশন তৈরি করুন"
-
-#: ui/installation_advanced.ui:114
-msgid "Location:"
-msgstr "স্থানঃ"
-
-#: ui/installation_advanced.ui:277
-msgid "MB"
-msgstr "মেগাবাইট"
-
-#: ui/installation_advanced.ui:424 ui/installation_advanced.ui:740
-msgid "Encryption options..."
-msgstr "এনক্রিপশন অপশনসমূহ..."
-
-#: ui/installation_advanced.ui:504
+#: ui/installation_advanced.ui:84
 msgid "Partition table type:"
 msgstr "পার্টিশন টেবিলের প্রকারঃ"
 
-#: ui/installation_advanced.ui:577
+#: ui/installation_advanced.ui:155
 msgid "Edit partition"
 msgstr "পার্টিশনে পরিবর্তন আনুন"
 
-#: ui/installation_advanced.ui:931
+#: ui/installation_advanced.ui:317 ui/installation_advanced.ui:774
+msgid "Encryption options..."
+msgstr "এনক্রিপশন অপশনসমূহ..."
+
+#: ui/installation_advanced.ui:383
+msgid "Create partition"
+msgstr "পার্টিশন তৈরি করুন"
+
+#: ui/installation_advanced.ui:423
+msgid "Location:"
+msgstr "স্থানঃ"
+
+#: ui/installation_advanced.ui:607
+msgid "MB"
+msgstr "মেগাবাইট"
+
+#: ui/installation_advanced.ui:958
 msgid "LVM..."
 msgstr "LVM..."
 
-#: ui/installation_advanced.ui:1100
+#: ui/installation_advanced.ui:1122
 msgid "LUKS volume name:"
 msgstr "LUKS ভলিউমের নামঃ"
 
-#: ui/installation_advanced.ui:1114
+#: ui/installation_advanced.ui:1136
 msgid "Password:"
 msgstr "পাসওয়ার্ডঃ"
 
-#: ui/installation_advanced.ui:1128
+#: ui/installation_advanced.ui:1150
 msgid "Confirm password:"
 msgstr "পাসওয়ার্ড নিশ্চিত করুনঃ"
 
-#: ui/installation_advanced.ui:1158
+#: ui/installation_advanced.ui:1179
 msgid "Use LUKS encryption: "
 msgstr "LUKS এঙ্ক্রিপসন ব্যাবহার করুনঃ"
 
@@ -1384,6 +1405,10 @@ msgid ""
 "drive!</b>"
 msgstr "<b>সতর্কবাণী! এই ইনস্টালশন মোড আপনার ড্রাইভের সবকিছু ওভাররাইট করবে!</b>"
 
+#: ui/installation_automatic.ui:258 ui/user_info.ui:422
+msgid "Show password"
+msgstr ""
+
 #: ui/language.ui:26
 msgid "<span weight=\"bold\">Please choose your language:</span>"
 msgstr "<span weight=\"bold\">দয়া করে আপনার ভাষা বাছাই করুনঃ</span>"
@@ -1401,22 +1426,30 @@ msgstr "<span weight='bold'>নোটিশঃ Thus ইন্সটলার এ
 msgid "<span weight=\"bold\" size=\"large\">Welcome to Manjaro</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Manjaro তে স্বাগতম</span>"
 
-#: ui/user_info.ui:188
+#: ui/user_info.ui:119 ui/user_info.ui:588
 msgid "<small><span color=\"darkgreen\">Strong password</span></small>"
 msgstr "<small><span color=\"darkgreen\">শক্তিশালী পাসওয়ার্ড</span></small>"
 
-#: ui/user_info.ui:246
+#: ui/user_info.ui:177 ui/user_info.ui:660
 msgid "<small><span color=\"darkred\">You must enter a password</span></small>"
 msgstr "<small><span color=\"darkred\">আপনার অবশই একটি পাসওয়ার্ড দিতে হবে</span></small>"
 
-#: ui/user_info.ui:347
+#: ui/user_info.ui:278
 msgid "<small><span color=\"darkred\">You must enter a username</span></small>"
 msgstr "<small><span color=\"darkred\">আপনার অবশই একটি ব্যবহারকারী নাম দিতে হবে</span></small>"
 
-#: ui/user_info.ui:425
+#: ui/user_info.ui:356
 msgid "<small><span color=\"darkred\">You must enter a name</span></small>"
 msgstr "<small><span color=\"darkred\">আপনার অবশই একটি নাম দিতে হবে</span></small>"
 
-#: ui/user_info.ui:447
+#: ui/user_info.ui:378
 msgid "<span size=\"small\">Its name as it appears to other computers.</span>"
+msgstr ""
+
+#: ui/user_info.ui:439
+msgid "Use a root password"
+msgstr ""
+
+#: ui/user_info.ui:544
+msgid "Show root password"
 msgstr ""

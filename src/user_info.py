@@ -166,7 +166,7 @@ class UserInfo(Gtk.Box):
         self.error_label['root_password'].set_markup(txt)
 
         self.login['auto'].set_label(_("Log in automatically"))
-        self.login['pass'].set_label(_("Password required to log in"))
+        self.login['pass'].set_label(_("A password is required to log in"))
         self.login['encrypt'].set_label(_("Encrypt my home folder"))
 
         txt = _("Who are you?")

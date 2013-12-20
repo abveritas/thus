@@ -20,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-19 12:40+0100\n"
-"PO-Revision-Date: 2013-12-19 18:18+0000\n"
-"Last-Translator: tmallafre <tomas@mallafre.cat>\n"
+"POT-Creation-Date: 2013-12-20 19:36+0100\n"
+"PO-Revision-Date: 2013-12-20 18:40+0000\n"
+"Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/manjaro-thus/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -273,11 +273,11 @@ msgstr "S'està creant la partició lògica"
 msgid "Advanced installation mode"
 msgstr "Mode d'instal·lació avançat"
 
-#: src/installation_advanced.py:1092 ui/installation_advanced.ui:1000
+#: src/installation_advanced.py:1092 ui/installation_advanced.ui:1024
 msgid "Use this device for boot loader installation:"
 msgstr "Utilitza aquest dispositiu per a instal·lar el carregador d'arrencada:"
 
-#: src/installation_advanced.py:1102 ui/installation_advanced.ui:915
+#: src/installation_advanced.py:1102 ui/installation_advanced.ui:943
 msgid "New partition table"
 msgstr "Nova taula de particions"
 
@@ -285,46 +285,46 @@ msgstr "Nova taula de particions"
 msgid "Change..."
 msgstr "Canvia..."
 
-#: src/installation_advanced.py:1115 ui/installation_advanced.ui:98
+#: src/installation_advanced.py:1115 ui/installation_advanced.ui:407
 msgid "Size:"
 msgstr "Mida:"
 
-#: src/installation_advanced.py:1119 ui/installation_advanced.ui:300
+#: src/installation_advanced.py:1119 ui/installation_advanced.ui:630
 msgid "Type:"
 msgstr "Tipus:"
 
-#: src/installation_advanced.py:1123 ui/installation_advanced.ui:317
+#: src/installation_advanced.py:1123 ui/installation_advanced.ui:647
 msgid "Primary"
 msgstr "Primària"
 
-#: src/installation_advanced.py:1127 ui/installation_advanced.ui:337
+#: src/installation_advanced.py:1127 ui/installation_advanced.ui:671
 msgid "Logical"
 msgstr "Lògica"
 
-#: src/installation_advanced.py:1131 ui/installation_advanced.ui:357
+#: src/installation_advanced.py:1131 ui/installation_advanced.ui:695
 msgid "Extended"
 msgstr "Ampliada"
 
-#: src/installation_advanced.py:1135 ui/installation_advanced.ui:202
+#: src/installation_advanced.py:1135 ui/installation_advanced.ui:516
 msgid "Beginning of this space"
 msgstr "Al principi d'aquest espai"
 
-#: src/installation_advanced.py:1139 ui/installation_advanced.ui:222
+#: src/installation_advanced.py:1139 ui/installation_advanced.ui:540
 msgid "End of this space"
 msgstr "A la fi d'aquest espai"
 
 #: src/installation_advanced.py:1143 src/installation_advanced.py:1160
-#: ui/installation_advanced.ui:129 ui/installation_advanced.ui:601
+#: ui/installation_advanced.ui:179 ui/installation_advanced.ui:438
 msgid "Use as:"
 msgstr "Usa com:"
 
 #: src/installation_advanced.py:1147 src/installation_advanced.py:1164
-#: ui/installation_advanced.ui:162 ui/installation_advanced.ui:634
+#: ui/installation_advanced.ui:212 ui/installation_advanced.ui:476
 msgid "Mount point:"
 msgstr "Punt de muntatge:"
 
 #: src/installation_advanced.py:1151 src/installation_advanced.py:1168
-#: ui/installation_advanced.ui:388 ui/installation_advanced.ui:671
+#: ui/installation_advanced.ui:249 ui/installation_advanced.ui:730
 msgid "Label (optional):"
 msgstr "Etiqueta (opcional):"
 
@@ -332,7 +332,7 @@ msgstr "Etiqueta (opcional):"
 msgid "Encryption Options..."
 msgstr "Opcions d'encriptació..."
 
-#: src/installation_advanced.py:1172 ui/installation_advanced.ui:698
+#: src/installation_advanced.py:1172 ui/installation_advanced.ui:276
 msgid "Format:"
 msgstr "Format:"
 
@@ -578,13 +578,12 @@ msgstr "Si us plau, trieu el disc on voleu instal·lar el Manjaro\ni cliqueu el 
 msgid "Encryption Password:"
 msgstr "Contrasenya d'encriptació:"
 
-#: src/installation_automatic.py:101 src/user_info.py:115
-#: ui/installation_automatic.ui:161 ui/user_info.ui:79
+#: src/installation_automatic.py:101 src/user_info.py:124
+#: ui/installation_automatic.ui:161 ui/user_info.ui:80
 msgid "Confirm your password:"
 msgstr "Confirma la teva contrasenya:"
 
-#: src/installation_automatic.py:105 src/user_info.py:148
-#: ui/installation_automatic.ui:258 ui/user_info.ui:487
+#: src/installation_automatic.py:105 src/user_info.py:177
 msgid "show password"
 msgstr "mostra la contrasenya"
 
@@ -737,7 +736,7 @@ msgstr "No es pot muntar %s"
 msgid "Error running command: %s"
 msgstr "Error executant la comanda %s"
 
-#: src/installation_process.py:666 src/installation_process.py:716
+#: src/installation_process.py:666 src/installation_process.py:720
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
 msgstr "Afegit a fstab: UUID=%s %s %s %s 0 %s"
@@ -752,160 +751,168 @@ msgstr "S'ha afegit al crypttab: %s"
 msgid "Added to fstab : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
 msgstr "S'ha afegit al fstab: /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
 
-#: src/installation_process.py:720
+#: src/installation_process.py:724
 msgid "Added to fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
 msgstr "S'ha afegit al fstab: tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
 
-#: src/installation_process.py:781
+#: src/installation_process.py:785
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
 msgstr "Instal·lant el carregador d'arrencada GRUB(2) BIOS a %s"
 
-#: src/installation_process.py:793 src/installation_process.py:814
+#: src/installation_process.py:797 src/installation_process.py:818
 msgid "ERROR installing GRUB(2) BIOS."
 msgstr "ERROR instal·lant el GRUB(2) BIOS."
 
-#: src/installation_process.py:812
+#: src/installation_process.py:816
 msgid "GRUB(2) BIOS has been successfully installed."
 msgstr "S'ha instal·lat correctament el GRUB(2) BIOS."
 
-#: src/installation_process.py:826
+#: src/installation_process.py:830
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader in %s"
 msgstr "Instal·lant el carregador d'arrencada GRUB(2) UEFI %s a %s"
 
-#: src/installation_process.py:878
+#: src/installation_process.py:882
 msgid "ERROR installing GRUB(2) locale."
 msgstr "ERROR instal·lant la configuració local de GRUB(2)."
 
-#: src/installation_process.py:887
+#: src/installation_process.py:891
 #, python-format
 msgid "Enabled %s service."
 msgstr "S'ha activat el servei %s."
 
-#: src/installation_process.py:894
+#: src/installation_process.py:898
 #, python-format
 msgid "Error creating password hash for user %s"
 msgstr "Error creant el 'hash' de la contrasenya per l'usuari %s"
 
-#: src/installation_process.py:900
+#: src/installation_process.py:904
 #, python-format
 msgid "Error changing password for user %s"
 msgstr "No puc canviar la contrasenya per l'usuari %s"
 
-#: src/installation_process.py:912
+#: src/installation_process.py:916
 msgid "Setting hooks and modules in mkinitcpio.conf"
 msgstr "Configurant hooks i mòduls a mkinitcpio.conf"
 
-#: src/installation_process.py:977
+#: src/installation_process.py:981
 #, python-format
 msgid "%s: Enable automatic login for user %s."
 msgstr "%s: Activa l'inici automàtic de sessió per a l'usuari %s."
 
-#: src/installation_process.py:1072 src/installation_process.py:1083
+#: src/installation_process.py:1076 src/installation_process.py:1087
 msgid "Configuring your new system"
 msgstr "Configurant el sistema"
 
-#: src/installation_process.py:1075
+#: src/installation_process.py:1079
 msgid "fstab file generated."
 msgstr "fitxer fstab generat."
 
-#: src/installation_process.py:1081
+#: src/installation_process.py:1085
 msgid "Network configuration copied."
 msgstr "Configuració de la xarxa copiada."
 
-#: src/installation_process.py:1107
+#: src/installation_process.py:1111
 msgid "Timezone set."
 msgstr "Zona horària configurada."
 
-#: src/installation_process.py:1127
+#: src/installation_process.py:1132
 #, python-format
 msgid "Sudo configuration for user %s done."
 msgstr "Configuració sudo per a l'usuari %s finalitzada."
 
-#: src/installation_process.py:1137
+#: src/installation_process.py:1142
 #, python-format
 msgid "User %s added."
 msgstr "Usuari %s afegit."
 
-#: src/installation_process.py:1149
+#: src/installation_process.py:1154
 #, python-format
 msgid "Hostname  %s set."
 msgstr "S'ha configurat %s com a nom de l'ordinador."
 
-#: src/installation_process.py:1153
+#: src/installation_process.py:1159
+msgid "Set root password."
+msgstr ""
+
+#: src/installation_process.py:1162
 msgid "Set the same password to root."
 msgstr "Configureu la mateixa contrasenya per a root."
 
-#: src/installation_process.py:1159
+#: src/installation_process.py:1168
 msgid "Generating locales ..."
 msgstr "S'estan generant les configuracions locals..."
 
-#: src/installation_process.py:1180
+#: src/installation_process.py:1189
 msgid "Adjusting hardware clock ..."
 msgstr "S'està ajustant el rellotge de maquinari..."
 
-#: src/installation_process.py:1189
+#: src/installation_process.py:1198
 msgid "Configuring hardware ..."
 msgstr "S'està configurant el maquinari..."
 
-#: src/installation_process.py:1262
+#: src/installation_process.py:1271
 msgid "Set up graphics card ..."
 msgstr "S'està configurant la targeta gràfica..."
 
-#: src/installation_process.py:1269
+#: src/installation_process.py:1278
 msgid "Can't execute the MHWD script"
 msgstr "No es pot executar l'script MHWD"
 
-#: src/installation_process.py:1282
+#: src/installation_process.py:1291
 msgid "Configure display manager ..."
 msgstr "S'està configurant el gestor de visualització..."
 
-#: src/installation_process.py:1388
+#: src/installation_process.py:1397
 msgid "Configure System ..."
 msgstr "S'està configurant el sistema..."
 
-#: src/installation_process.py:1413
+#: src/installation_process.py:1422
 msgid "Removing live configuration (packages)"
 msgstr "Eliminant la configuració viva (paquets)"
 
-#: src/installation_process.py:1429
+#: src/installation_process.py:1438
 msgid "Configuring package manager"
 msgstr "Configurant el gestor de paquets"
 
-#: src/installation_process.py:1441
+#: src/installation_process.py:1450
 msgid "Finished configuring package manager."
 msgstr "Ha acabat la configuració del gestor de paquets."
 
-#: src/installation_process.py:1465
+#: src/installation_process.py:1474
 msgid "Running mkinitcpio ..."
 msgstr "S'està executant mkinitcpio..."
 
-#: src/installation_process.py:1468
+#: src/installation_process.py:1477
 msgid "Running mkinitcpio - done"
 msgstr "S'està executant mkinitcpio - fet"
 
-#: src/installation_process.py:1484
+#: src/installation_process.py:1493
 msgid "Encrypting user home dir ..."
 msgstr "S'està encriptant el directori de l'usuari..."
 
-#: src/installation_process.py:1486
+#: src/installation_process.py:1495
 msgid "User home dir encrypted"
 msgstr "Directori de l'usuari encriptat"
 
-#: src/keymap.py:61
+#: src/keymap.py:71
 msgid "Select your keyboard layout"
 msgstr "Selecciona la teva distribució de teclat"
 
-#: src/keymap.py:69
+#: src/keymap.py:75
+msgid "Type here to test your keyboard"
+msgstr ""
+
+#: src/keymap.py:82
 msgid "Layouts"
 msgstr "Distribucions"
 
-#: src/keymap.py:75
+#: src/keymap.py:88
 msgid "Variants"
 msgstr "Variants"
 
-#: src/keymap.py:97
+#: src/keymap.py:110
 #, python-format
 msgid "keyboard_layout is %s"
 msgstr "Teclat %s"
@@ -1118,117 +1125,131 @@ msgstr "Aturant els fils de les zones horàries..."
 msgid "Can't get the country code used to create a pacman mirrorlist"
 msgstr "No es pot obtenir el codi de país utilitzat per crear un mirall llista Pacman"
 
-#: src/user_info.py:83 ui/user_info.ui:35
+#: src/user_info.py:92 ui/user_info.ui:35
 msgid "Your name:"
 msgstr "El teu nom:"
 
-#: src/user_info.py:87 ui/user_info.ui:275
+#: src/user_info.py:96 ui/user_info.ui:206
 msgid "Your name"
 msgstr "El vostre nom"
 
-#: src/user_info.py:91 ui/user_info.ui:397
+#: src/user_info.py:100 ui/user_info.ui:328
 msgid "Hostname"
 msgstr "Nom de l'amfitrió"
 
-#: src/user_info.py:95 ui/user_info.ui:474
+#: src/user_info.py:104 ui/user_info.ui:405
 msgid "Your computer's name:"
 msgstr "El nom del teu ordinador:"
 
-#: src/user_info.py:99 ui/user_info.ui:49
+#: src/user_info.py:108 ui/user_info.ui:50
 msgid "Pick a username:"
 msgstr "Escull un nom d'usuari:"
 
-#: src/user_info.py:103 ui/user_info.ui:319
+#: src/user_info.py:112 ui/user_info.ui:250
 msgid "Username"
 msgstr "Nom d'usuari"
 
-#: src/user_info.py:107 ui/user_info.ui:64
+#: src/user_info.py:116 ui/user_info.ui:65
 msgid "Choose a password:"
 msgstr "Escull una contrasenya:"
 
-#: src/user_info.py:111 ui/user_info.ui:172
+#: src/user_info.py:120 src/user_info.py:136 ui/user_info.ui:103
+#: ui/user_info.ui:573
 msgid "Password"
 msgstr "Contrasenya"
 
-#: src/user_info.py:119 ui/user_info.ui:218
+#: src/user_info.py:128 src/user_info.py:144 ui/user_info.ui:149
+#: ui/user_info.ui:633
 msgid "Confirm password"
 msgstr "Confirmeu la vostra contrasenya"
 
-#: src/user_info.py:123
+#: src/user_info.py:132 ui/user_info.ui:610
+msgid "Choose a root password:"
+msgstr ""
+
+#: src/user_info.py:140 ui/user_info.ui:682
+msgid "Confirm root password:"
+msgstr ""
+
+#: src/user_info.py:148
 msgid "Its name as it appears to other computers."
 msgstr "El seu nom tal com es mostra als altres ordinadors."
 
-#: src/user_info.py:127
+#: src/user_info.py:152
 msgid "You must enter a name"
 msgstr "Has d'entrar un nom"
 
-#: src/user_info.py:131
+#: src/user_info.py:156
 msgid "You must enter a username"
 msgstr "Has d'entrar un nom d'usuari"
 
-#: src/user_info.py:135
+#: src/user_info.py:160 src/user_info.py:164
 msgid "You must enter a password"
 msgstr "Has d'entrar una contrasenya"
 
-#: src/user_info.py:139 ui/user_info.ui:97
+#: src/user_info.py:168 ui/user_info.ui:473
 msgid "Log in automatically"
 msgstr "Entra al sistema automàticament"
 
-#: src/user_info.py:140 ui/user_info.ui:114
-msgid "Require my password to log in"
-msgstr "Demana la contrasenya per poder entrar al sistema"
+#: src/user_info.py:169 ui/user_info.ui:490
+msgid "A password is required to log in"
+msgstr ""
 
-#: src/user_info.py:141 ui/user_info.ui:135
+#: src/user_info.py:170 ui/user_info.ui:518
 msgid "Encrypt my home folder"
 msgstr "Codifica la teva carpeta d'usuari"
 
-#: src/user_info.py:143
+#: src/user_info.py:172
 msgid "Who are you?"
 msgstr "Qui ets?"
 
-#: src/user_info.py:179
+#: src/user_info.py:180
+msgid "use a root password"
+msgstr ""
+
+#: src/user_info.py:249
 msgid ""
 "Manjaro will use eCryptfs to encrypt your home directory. Unfortunately, eCryptfs does not handle sparse files well.\n"
 "\n"
 msgstr "El Manjaro utilitzarà eCryptfs per a xifrar el vostre directori d'usuari. Malauradament, eCryptfs no gestiona correctament els fitxers dispersos.\n\n"
 
-#: src/user_info.py:180
+#: src/user_info.py:250
 msgid ""
 "Don't worry, for most intents and purposes this deficiency does not pose a problem.\n"
 "\n"
 msgstr "No patiu, per a la majoria de situacions, aquesta deficiència no suposa cap problema\n\n"
 
-#: src/user_info.py:181
+#: src/user_info.py:251
 msgid ""
 "Anyway, one popular and inadvisable application of eCryptfs is to encrypt a BitTorrent download location as this often requires eCryptfs to handle sparse files of 10 GB or more and may lead to intense disk starvation.\n"
 "\n"
 msgstr "De totes maneres, un popular i poc aconsellable ús d'eCryptfs és xifrar una ubicació de baixades de BitTorrent, que sovint requereix a eCryptfs gestionar fitxers dispersos de 10 o més GB i pot provocar un ús intensiu del disc dur.\n\n"
 
-#: src/user_info.py:182
+#: src/user_info.py:252
 msgid ""
 "A simple workaround is to place sparse files in an unencrypted .Public directory\n"
 "\n"
 msgstr "Una senzilla solució temporal consisteix en desar els fitxers dispersos en un directori .Public sense encriptar\n\n"
 
-#: src/user_info.py:183
+#: src/user_info.py:253
 msgid ""
 "Look at https://wiki.archlinux.org/index.php/ECryptfs for detailed information\n"
 "\n"
 msgstr "Mira https://wiki.archlinux.org/index.php/ECryptfs per obtenir informació detallada\n\n\n"
 
-#: src/user_info.py:184
+#: src/user_info.py:254
 msgid "Are you sure you want to encrypt your home directory?\n"
 msgstr "Esteu segur que voleu encriptar el vostre directori d'usuari?\n"
 
-#: src/user_info.py:254
+#: src/user_info.py:342
 msgid "Invalid characters entered"
 msgstr "Heu introduït caràcters no vàlids"
 
-#: src/user_info.py:258
+#: src/user_info.py:346
 msgid "Username can't contain dots"
 msgstr "El nom d'usuari no pot incloure punts"
 
-#: src/user_info.py:262
+#: src/user_info.py:350
 msgid "Too many characters"
 msgstr "Massa caràcters"
 
@@ -1264,47 +1285,47 @@ msgid ""
 "might need more space."
 msgstr "(*) Això depén fortament de quin entorn d'escriptori trieu, de manera que podríeu necessitar més espai."
 
-#: ui/installation_advanced.ui:74
-msgid "Create partition"
-msgstr "Crea una partició"
-
-#: ui/installation_advanced.ui:114
-msgid "Location:"
-msgstr "Ubicació:"
-
-#: ui/installation_advanced.ui:277
-msgid "MB"
-msgstr "MB"
-
-#: ui/installation_advanced.ui:424 ui/installation_advanced.ui:740
-msgid "Encryption options..."
-msgstr "Opcions d'encriptació..."
-
-#: ui/installation_advanced.ui:504
+#: ui/installation_advanced.ui:84
 msgid "Partition table type:"
 msgstr "Tipus de taula de particions:"
 
-#: ui/installation_advanced.ui:577
+#: ui/installation_advanced.ui:155
 msgid "Edit partition"
 msgstr "Edita la partició"
 
-#: ui/installation_advanced.ui:931
+#: ui/installation_advanced.ui:317 ui/installation_advanced.ui:774
+msgid "Encryption options..."
+msgstr "Opcions d'encriptació..."
+
+#: ui/installation_advanced.ui:383
+msgid "Create partition"
+msgstr "Crea una partició"
+
+#: ui/installation_advanced.ui:423
+msgid "Location:"
+msgstr "Ubicació:"
+
+#: ui/installation_advanced.ui:607
+msgid "MB"
+msgstr "MB"
+
+#: ui/installation_advanced.ui:958
 msgid "LVM..."
 msgstr "LVM..."
 
-#: ui/installation_advanced.ui:1100
+#: ui/installation_advanced.ui:1122
 msgid "LUKS volume name:"
 msgstr "Nom del volum LUKS:"
 
-#: ui/installation_advanced.ui:1114
+#: ui/installation_advanced.ui:1136
 msgid "Password:"
 msgstr "Contrasenya:"
 
-#: ui/installation_advanced.ui:1128
+#: ui/installation_advanced.ui:1150
 msgid "Confirm password:"
 msgstr "Confirmeu la contrasenya:"
 
-#: ui/installation_advanced.ui:1158
+#: ui/installation_advanced.ui:1179
 msgid "Use LUKS encryption: "
 msgstr "Utilitza encriptació LUKS:"
 
@@ -1391,6 +1412,10 @@ msgid ""
 "drive!</b>"
 msgstr "<b>ADVERTIMENT! Aquest mode d'instal·lació sobreescriurà totes les dades del vostre disc!</b>"
 
+#: ui/installation_automatic.ui:258 ui/user_info.ui:422
+msgid "Show password"
+msgstr ""
+
 #: ui/language.ui:26
 msgid "<span weight=\"bold\">Please choose your language:</span>"
 msgstr "<span weight=\"bold\">Si us plau seleccioneu el vostre idioma:</span>"
@@ -1408,22 +1433,30 @@ msgstr "<span weight='bold'>Avís: l'instal·lador Thus és programari en versi�
 msgid "<span weight=\"bold\" size=\"large\">Welcome to Manjaro</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Benvingut a Manjaro</span>"
 
-#: ui/user_info.ui:188
+#: ui/user_info.ui:119 ui/user_info.ui:588
 msgid "<small><span color=\"darkgreen\">Strong password</span></small>"
 msgstr "Contrasenya segura"
 
-#: ui/user_info.ui:246
+#: ui/user_info.ui:177 ui/user_info.ui:660
 msgid "<small><span color=\"darkred\">You must enter a password</span></small>"
 msgstr "<small><span color=\"darkred\">Heu d'introduir una contrasenya</span></small>"
 
-#: ui/user_info.ui:347
+#: ui/user_info.ui:278
 msgid "<small><span color=\"darkred\">You must enter a username</span></small>"
 msgstr "<small><span color=\"darkred\">Heu d'introduir un nom d'usuari</span></small>"
 
-#: ui/user_info.ui:425
+#: ui/user_info.ui:356
 msgid "<small><span color=\"darkred\">You must enter a name</span></small>"
 msgstr "<small><span color=\"darkred\">Heu d'entrar un nom</span></small>"
 
-#: ui/user_info.ui:447
+#: ui/user_info.ui:378
 msgid "<span size=\"small\">Its name as it appears to other computers.</span>"
 msgstr "<span size=\"small\">El seu nom tal com es mostra als altres ordinadors.</span>"
+
+#: ui/user_info.ui:439
+msgid "Use a root password"
+msgstr ""
+
+#: ui/user_info.ui:544
+msgid "Show root password"
+msgstr ""

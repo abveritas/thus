@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-19 12:40+0100\n"
-"PO-Revision-Date: 2013-12-19 11:47+0000\n"
+"POT-Creation-Date: 2013-12-20 19:36+0100\n"
+"PO-Revision-Date: 2013-12-20 18:40+0000\n"
 "Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/manjaro-thus/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -268,11 +268,11 @@ msgstr "Skapar logisk partition"
 msgid "Advanced installation mode"
 msgstr "Avancerad installationsmetod"
 
-#: src/installation_advanced.py:1092 ui/installation_advanced.ui:1000
+#: src/installation_advanced.py:1092 ui/installation_advanced.ui:1024
 msgid "Use this device for boot loader installation:"
 msgstr "Använd den här enheten för att installera starthanteraren:"
 
-#: src/installation_advanced.py:1102 ui/installation_advanced.ui:915
+#: src/installation_advanced.py:1102 ui/installation_advanced.ui:943
 msgid "New partition table"
 msgstr "Ny partionstabell"
 
@@ -280,46 +280,46 @@ msgstr "Ny partionstabell"
 msgid "Change..."
 msgstr "Ändra..."
 
-#: src/installation_advanced.py:1115 ui/installation_advanced.ui:98
+#: src/installation_advanced.py:1115 ui/installation_advanced.ui:407
 msgid "Size:"
 msgstr "Storlek:"
 
-#: src/installation_advanced.py:1119 ui/installation_advanced.ui:300
+#: src/installation_advanced.py:1119 ui/installation_advanced.ui:630
 msgid "Type:"
 msgstr "Typ:"
 
-#: src/installation_advanced.py:1123 ui/installation_advanced.ui:317
+#: src/installation_advanced.py:1123 ui/installation_advanced.ui:647
 msgid "Primary"
 msgstr "Primär"
 
-#: src/installation_advanced.py:1127 ui/installation_advanced.ui:337
+#: src/installation_advanced.py:1127 ui/installation_advanced.ui:671
 msgid "Logical"
 msgstr "Logisk"
 
-#: src/installation_advanced.py:1131 ui/installation_advanced.ui:357
+#: src/installation_advanced.py:1131 ui/installation_advanced.ui:695
 msgid "Extended"
 msgstr "Utökad"
 
-#: src/installation_advanced.py:1135 ui/installation_advanced.ui:202
+#: src/installation_advanced.py:1135 ui/installation_advanced.ui:516
 msgid "Beginning of this space"
 msgstr "Början av detta utrymme"
 
-#: src/installation_advanced.py:1139 ui/installation_advanced.ui:222
+#: src/installation_advanced.py:1139 ui/installation_advanced.ui:540
 msgid "End of this space"
 msgstr "Slutet av detta utrymme"
 
 #: src/installation_advanced.py:1143 src/installation_advanced.py:1160
-#: ui/installation_advanced.ui:129 ui/installation_advanced.ui:601
+#: ui/installation_advanced.ui:179 ui/installation_advanced.ui:438
 msgid "Use as:"
 msgstr "Använd som:"
 
 #: src/installation_advanced.py:1147 src/installation_advanced.py:1164
-#: ui/installation_advanced.ui:162 ui/installation_advanced.ui:634
+#: ui/installation_advanced.ui:212 ui/installation_advanced.ui:476
 msgid "Mount point:"
 msgstr "Monteringspunkt"
 
 #: src/installation_advanced.py:1151 src/installation_advanced.py:1168
-#: ui/installation_advanced.ui:388 ui/installation_advanced.ui:671
+#: ui/installation_advanced.ui:249 ui/installation_advanced.ui:730
 msgid "Label (optional):"
 msgstr "Etikett (valfritt):"
 
@@ -327,7 +327,7 @@ msgstr "Etikett (valfritt):"
 msgid "Encryption Options..."
 msgstr "Krypteringsalternativ..."
 
-#: src/installation_advanced.py:1172 ui/installation_advanced.ui:698
+#: src/installation_advanced.py:1172 ui/installation_advanced.ui:276
 msgid "Format:"
 msgstr "Formattera:"
 
@@ -573,13 +573,12 @@ msgstr "Vänligen välj vilken disk du vill installera Manjaro på och \nklicka 
 msgid "Encryption Password:"
 msgstr ""
 
-#: src/installation_automatic.py:101 src/user_info.py:115
-#: ui/installation_automatic.ui:161 ui/user_info.ui:79
+#: src/installation_automatic.py:101 src/user_info.py:124
+#: ui/installation_automatic.ui:161 ui/user_info.ui:80
 msgid "Confirm your password:"
 msgstr "Bekräfta ditt lösenord:"
 
-#: src/installation_automatic.py:105 src/user_info.py:148
-#: ui/installation_automatic.ui:258 ui/user_info.ui:487
+#: src/installation_automatic.py:105 src/user_info.py:177
 msgid "show password"
 msgstr "visa lösenordet"
 
@@ -732,7 +731,7 @@ msgstr "Kunde inte avmontera %s"
 msgid "Error running command: %s"
 msgstr ""
 
-#: src/installation_process.py:666 src/installation_process.py:716
+#: src/installation_process.py:666 src/installation_process.py:720
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
 msgstr ""
@@ -747,160 +746,168 @@ msgstr ""
 msgid "Added to fstab : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
 msgstr ""
 
-#: src/installation_process.py:720
+#: src/installation_process.py:724
 msgid "Added to fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
 msgstr ""
 
-#: src/installation_process.py:781
+#: src/installation_process.py:785
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
 msgstr "Installerar GRUB(2) BIOS starthanterare i %s"
 
-#: src/installation_process.py:793 src/installation_process.py:814
+#: src/installation_process.py:797 src/installation_process.py:818
 msgid "ERROR installing GRUB(2) BIOS."
 msgstr "FEL vid installation av GRUB(2) BIOS."
 
-#: src/installation_process.py:812
+#: src/installation_process.py:816
 msgid "GRUB(2) BIOS has been successfully installed."
 msgstr "GRUB(2) BIOS har installerats utan problem."
 
-#: src/installation_process.py:826
+#: src/installation_process.py:830
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader in %s"
 msgstr "Installerar GRUB(2) UEFI %s starthanterare i %s"
 
-#: src/installation_process.py:878
+#: src/installation_process.py:882
 msgid "ERROR installing GRUB(2) locale."
 msgstr ""
 
-#: src/installation_process.py:887
+#: src/installation_process.py:891
 #, python-format
 msgid "Enabled %s service."
 msgstr ""
 
-#: src/installation_process.py:894
+#: src/installation_process.py:898
 #, python-format
 msgid "Error creating password hash for user %s"
 msgstr "Fel vid skapande av lösenordskryptering för användare %s"
 
-#: src/installation_process.py:900
+#: src/installation_process.py:904
 #, python-format
 msgid "Error changing password for user %s"
 msgstr "Fel när lösenordet ändrades för användare %s"
 
-#: src/installation_process.py:912
+#: src/installation_process.py:916
 msgid "Setting hooks and modules in mkinitcpio.conf"
 msgstr ""
 
-#: src/installation_process.py:977
+#: src/installation_process.py:981
 #, python-format
 msgid "%s: Enable automatic login for user %s."
 msgstr "GDM: Aktivera automatisk inloggning för %s."
 
-#: src/installation_process.py:1072 src/installation_process.py:1083
+#: src/installation_process.py:1076 src/installation_process.py:1087
 msgid "Configuring your new system"
 msgstr "Konfigurerar ditt nya system"
 
-#: src/installation_process.py:1075
+#: src/installation_process.py:1079
 msgid "fstab file generated."
 msgstr ""
 
-#: src/installation_process.py:1081
+#: src/installation_process.py:1085
 msgid "Network configuration copied."
 msgstr ""
 
-#: src/installation_process.py:1107
+#: src/installation_process.py:1111
 msgid "Timezone set."
 msgstr ""
 
-#: src/installation_process.py:1127
+#: src/installation_process.py:1132
 #, python-format
 msgid "Sudo configuration for user %s done."
 msgstr ""
 
-#: src/installation_process.py:1137
+#: src/installation_process.py:1142
 #, python-format
 msgid "User %s added."
 msgstr ""
 
-#: src/installation_process.py:1149
+#: src/installation_process.py:1154
 #, python-format
 msgid "Hostname  %s set."
 msgstr ""
 
-#: src/installation_process.py:1153
+#: src/installation_process.py:1159
+msgid "Set root password."
+msgstr ""
+
+#: src/installation_process.py:1162
 msgid "Set the same password to root."
 msgstr ""
 
-#: src/installation_process.py:1159
+#: src/installation_process.py:1168
 msgid "Generating locales ..."
 msgstr "Genererar språk..."
 
-#: src/installation_process.py:1180
+#: src/installation_process.py:1189
 msgid "Adjusting hardware clock ..."
 msgstr ""
 
-#: src/installation_process.py:1189
+#: src/installation_process.py:1198
 msgid "Configuring hardware ..."
 msgstr "Konfigurerar hårdvara..."
 
-#: src/installation_process.py:1262
+#: src/installation_process.py:1271
 msgid "Set up graphics card ..."
 msgstr "Installerar grafikkort..."
 
-#: src/installation_process.py:1269
+#: src/installation_process.py:1278
 msgid "Can't execute the MHWD script"
 msgstr "Kan inte exekvera MHWD-skriptet"
 
-#: src/installation_process.py:1282
+#: src/installation_process.py:1291
 msgid "Configure display manager ..."
 msgstr "Konfigurerar grafikhanterare..."
 
-#: src/installation_process.py:1388
+#: src/installation_process.py:1397
 msgid "Configure System ..."
 msgstr "Konfigurerar System..."
 
-#: src/installation_process.py:1413
+#: src/installation_process.py:1422
 msgid "Removing live configuration (packages)"
 msgstr "Tar bort live-konfiguration (paket)"
 
-#: src/installation_process.py:1429
+#: src/installation_process.py:1438
 msgid "Configuring package manager"
 msgstr "Konfigurerar pakethanterare..."
 
-#: src/installation_process.py:1441
+#: src/installation_process.py:1450
 msgid "Finished configuring package manager."
 msgstr "Konfigurering av pakethanterare klar."
 
-#: src/installation_process.py:1465
+#: src/installation_process.py:1474
 msgid "Running mkinitcpio ..."
 msgstr ""
 
-#: src/installation_process.py:1468
+#: src/installation_process.py:1477
 msgid "Running mkinitcpio - done"
 msgstr ""
 
-#: src/installation_process.py:1484
+#: src/installation_process.py:1493
 msgid "Encrypting user home dir ..."
 msgstr ""
 
-#: src/installation_process.py:1486
+#: src/installation_process.py:1495
 msgid "User home dir encrypted"
 msgstr ""
 
-#: src/keymap.py:61
+#: src/keymap.py:71
 msgid "Select your keyboard layout"
 msgstr "Välj layout för ditt tangentbord"
 
-#: src/keymap.py:69
+#: src/keymap.py:75
+msgid "Type here to test your keyboard"
+msgstr ""
+
+#: src/keymap.py:82
 msgid "Layouts"
 msgstr "Layouter"
 
-#: src/keymap.py:75
+#: src/keymap.py:88
 msgid "Variants"
 msgstr "Varianter"
 
-#: src/keymap.py:97
+#: src/keymap.py:110
 #, python-format
 msgid "keyboard_layout is %s"
 msgstr "Tangentbordslayout är %s"
@@ -1113,117 +1120,131 @@ msgstr "Stoppar trådar för tidszoner..."
 msgid "Can't get the country code used to create a pacman mirrorlist"
 msgstr "Kan inte få språkkoden som används för att skapa lista över spegelservrar för pacman"
 
-#: src/user_info.py:83 ui/user_info.ui:35
+#: src/user_info.py:92 ui/user_info.ui:35
 msgid "Your name:"
 msgstr "Ditt namn:"
 
-#: src/user_info.py:87 ui/user_info.ui:275
+#: src/user_info.py:96 ui/user_info.ui:206
 msgid "Your name"
 msgstr "Ditt namn"
 
-#: src/user_info.py:91 ui/user_info.ui:397
+#: src/user_info.py:100 ui/user_info.ui:328
 msgid "Hostname"
 msgstr "Värdnamn"
 
-#: src/user_info.py:95 ui/user_info.ui:474
+#: src/user_info.py:104 ui/user_info.ui:405
 msgid "Your computer's name:"
 msgstr "Namn på din dator:"
 
-#: src/user_info.py:99 ui/user_info.ui:49
+#: src/user_info.py:108 ui/user_info.ui:50
 msgid "Pick a username:"
 msgstr "Välj ett användarnamn:"
 
-#: src/user_info.py:103 ui/user_info.ui:319
+#: src/user_info.py:112 ui/user_info.ui:250
 msgid "Username"
 msgstr "Användarnamn"
 
-#: src/user_info.py:107 ui/user_info.ui:64
+#: src/user_info.py:116 ui/user_info.ui:65
 msgid "Choose a password:"
 msgstr "Välj ett lösenord:"
 
-#: src/user_info.py:111 ui/user_info.ui:172
+#: src/user_info.py:120 src/user_info.py:136 ui/user_info.ui:103
+#: ui/user_info.ui:573
 msgid "Password"
 msgstr "Lösenord"
 
-#: src/user_info.py:119 ui/user_info.ui:218
+#: src/user_info.py:128 src/user_info.py:144 ui/user_info.ui:149
+#: ui/user_info.ui:633
 msgid "Confirm password"
 msgstr "Bekräfta lösenordet"
 
-#: src/user_info.py:123
+#: src/user_info.py:132 ui/user_info.ui:610
+msgid "Choose a root password:"
+msgstr ""
+
+#: src/user_info.py:140 ui/user_info.ui:682
+msgid "Confirm root password:"
+msgstr ""
+
+#: src/user_info.py:148
 msgid "Its name as it appears to other computers."
 msgstr ""
 
-#: src/user_info.py:127
+#: src/user_info.py:152
 msgid "You must enter a name"
 msgstr "Du måste ange ett namn"
 
-#: src/user_info.py:131
+#: src/user_info.py:156
 msgid "You must enter a username"
 msgstr "Du måste ange ett användarnamn"
 
-#: src/user_info.py:135
+#: src/user_info.py:160 src/user_info.py:164
 msgid "You must enter a password"
 msgstr "Du måste ange ett lösenord"
 
-#: src/user_info.py:139 ui/user_info.ui:97
+#: src/user_info.py:168 ui/user_info.ui:473
 msgid "Log in automatically"
 msgstr "Logga in automatiskt"
 
-#: src/user_info.py:140 ui/user_info.ui:114
-msgid "Require my password to log in"
-msgstr "Kräv mitt lösenord för att logga in"
+#: src/user_info.py:169 ui/user_info.ui:490
+msgid "A password is required to log in"
+msgstr ""
 
-#: src/user_info.py:141 ui/user_info.ui:135
+#: src/user_info.py:170 ui/user_info.ui:518
 msgid "Encrypt my home folder"
 msgstr "Kryptera min hemkatalog"
 
-#: src/user_info.py:143
+#: src/user_info.py:172
 msgid "Who are you?"
 msgstr "Vem är du?"
 
-#: src/user_info.py:179
+#: src/user_info.py:180
+msgid "use a root password"
+msgstr ""
+
+#: src/user_info.py:249
 msgid ""
 "Manjaro will use eCryptfs to encrypt your home directory. Unfortunately, eCryptfs does not handle sparse files well.\n"
 "\n"
 msgstr "Manjaro kommer att kryptera din hemkatalog med eCryptfs. Notera att eCryptfs inte hanterar vitt spridda, en sorts förallokerade, filer väl.\n"
 
-#: src/user_info.py:180
+#: src/user_info.py:250
 msgid ""
 "Don't worry, for most intents and purposes this deficiency does not pose a problem.\n"
 "\n"
 msgstr "Oroa dig inte, i de allra flesta fall så är denna begränsning inget problem. \n\n"
 
-#: src/user_info.py:181
+#: src/user_info.py:251
 msgid ""
 "Anyway, one popular and inadvisable application of eCryptfs is to encrypt a BitTorrent download location as this often requires eCryptfs to handle sparse files of 10 GB or more and may lead to intense disk starvation.\n"
 "\n"
 msgstr "Hur som helst - ett populärt men ej rekommenderat användningsområde för eCryptfs är att kryptera BitTorrent-kataloger. Detta leder ofta till vitt spridda filer på 10 GB eller mer, vilket gör att disken lätt fylls upp.\n\n"
 
-#: src/user_info.py:182
+#: src/user_info.py:252
 msgid ""
 "A simple workaround is to place sparse files in an unencrypted .Public directory\n"
 "\n"
 msgstr "För att kringgå detta kan man placera vitt spridda filer i en okrypterad publik katalog.\n\n"
 
-#: src/user_info.py:183
+#: src/user_info.py:253
 msgid ""
 "Look at https://wiki.archlinux.org/index.php/ECryptfs for detailed information\n"
 "\n"
 msgstr "För detaljerad information, vänligen besök https://wiki.archlinux.org/index.php/ECryptfs\n\n\n\n"
 
-#: src/user_info.py:184
+#: src/user_info.py:254
 msgid "Are you sure you want to encrypt your home directory?\n"
 msgstr "Är du säker på att du vill kryptera din hemkatalog?\n"
 
-#: src/user_info.py:254
+#: src/user_info.py:342
 msgid "Invalid characters entered"
 msgstr "Ogiltiga tecken angivna"
 
-#: src/user_info.py:258
+#: src/user_info.py:346
 msgid "Username can't contain dots"
 msgstr "Användarnamn får inte innehålla punkter"
 
-#: src/user_info.py:262
+#: src/user_info.py:350
 msgid "Too many characters"
 msgstr "För många tecken"
 
@@ -1259,47 +1280,47 @@ msgid ""
 "might need more space."
 msgstr ""
 
-#: ui/installation_advanced.ui:74
-msgid "Create partition"
-msgstr "Skapa partition"
-
-#: ui/installation_advanced.ui:114
-msgid "Location:"
-msgstr "Plats:"
-
-#: ui/installation_advanced.ui:277
-msgid "MB"
-msgstr "MB"
-
-#: ui/installation_advanced.ui:424 ui/installation_advanced.ui:740
-msgid "Encryption options..."
-msgstr "Krypteringsalternativ..."
-
-#: ui/installation_advanced.ui:504
+#: ui/installation_advanced.ui:84
 msgid "Partition table type:"
 msgstr "Typ av partitionstabell:"
 
-#: ui/installation_advanced.ui:577
+#: ui/installation_advanced.ui:155
 msgid "Edit partition"
 msgstr "Redigera partition"
 
-#: ui/installation_advanced.ui:931
+#: ui/installation_advanced.ui:317 ui/installation_advanced.ui:774
+msgid "Encryption options..."
+msgstr "Krypteringsalternativ..."
+
+#: ui/installation_advanced.ui:383
+msgid "Create partition"
+msgstr "Skapa partition"
+
+#: ui/installation_advanced.ui:423
+msgid "Location:"
+msgstr "Plats:"
+
+#: ui/installation_advanced.ui:607
+msgid "MB"
+msgstr "MB"
+
+#: ui/installation_advanced.ui:958
 msgid "LVM..."
 msgstr "LVM..."
 
-#: ui/installation_advanced.ui:1100
+#: ui/installation_advanced.ui:1122
 msgid "LUKS volume name:"
 msgstr "LUKS enhetens namn:"
 
-#: ui/installation_advanced.ui:1114
+#: ui/installation_advanced.ui:1136
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: ui/installation_advanced.ui:1128
+#: ui/installation_advanced.ui:1150
 msgid "Confirm password:"
 msgstr "Bekräfta ditt lösenord:"
 
-#: ui/installation_advanced.ui:1158
+#: ui/installation_advanced.ui:1179
 msgid "Use LUKS encryption: "
 msgstr "Använd LUKS kryptering:"
 
@@ -1386,6 +1407,10 @@ msgid ""
 "drive!</b>"
 msgstr "VARNING! Den här installationsmetoden kommer att skriva över allt på din disk!\n<b>WARNING! This installation mode will overwrite everything on your drive!</b>"
 
+#: ui/installation_automatic.ui:258 ui/user_info.ui:422
+msgid "Show password"
+msgstr ""
+
 #: ui/language.ui:26
 msgid "<span weight=\"bold\">Please choose your language:</span>"
 msgstr "<span weight=\"bold\">Vänligen välj språk:</span>"
@@ -1403,22 +1428,30 @@ msgstr ""
 msgid "<span weight=\"bold\" size=\"large\">Welcome to Manjaro</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Välkommen till Manjaro</span>"
 
-#: ui/user_info.ui:188
+#: ui/user_info.ui:119 ui/user_info.ui:588
 msgid "<small><span color=\"darkgreen\">Strong password</span></small>"
 msgstr "<small><span color=\"darkgreen\">Starkt lösenord</span></small>"
 
-#: ui/user_info.ui:246
+#: ui/user_info.ui:177 ui/user_info.ui:660
 msgid "<small><span color=\"darkred\">You must enter a password</span></small>"
 msgstr "<small><span color=\"darkred\">Du måste skriva in ett lösenord</span></small>"
 
-#: ui/user_info.ui:347
+#: ui/user_info.ui:278
 msgid "<small><span color=\"darkred\">You must enter a username</span></small>"
 msgstr "<small><span color=\"darkred\">Du måste skriva in ett användarnamn</span></small>"
 
-#: ui/user_info.ui:425
+#: ui/user_info.ui:356
 msgid "<small><span color=\"darkred\">You must enter a name</span></small>"
 msgstr "<small><span color=\"darkred\">Du måste skriva in ett namn</span></small>"
 
-#: ui/user_info.ui:447
+#: ui/user_info.ui:378
 msgid "<span size=\"small\">Its name as it appears to other computers.</span>"
 msgstr "<span size=\"small\">Namnet den använder för att prata med andra datorer.</span>"
+
+#: ui/user_info.ui:439
+msgid "Use a root password"
+msgstr ""
+
+#: ui/user_info.ui:544
+msgid "Show root password"
+msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-20 19:33+0100\n"
+"POT-Creation-Date: 2013-12-20 19:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1181,7 +1181,7 @@ msgid "Log in automatically"
 msgstr ""
 
 #: src/user_info.py:169 ui/user_info.ui:490
-msgid "Password required to log in"
+msgid "A password is required to log in"
 msgstr ""
 
 #: src/user_info.py:170 ui/user_info.ui:518
