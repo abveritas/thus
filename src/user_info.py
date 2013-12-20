@@ -368,7 +368,7 @@ class UserInfo(Gtk.Box):
                                       self.error_label['password'],
                                       self.password_strength)
 
-        btn = self.ui.get_object('checkbutton_show_password')
+        btn = self.ui.get_object('checkbutton_root_password')
         show = btn.get_active()
         if show:
             if widget == self.entry['root_password'] or \
