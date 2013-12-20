@@ -250,7 +250,16 @@ class Keymap(Gtk.Box):
             lang = "C"
 
         kbd_names._load(lang)
+
+        try:
+            keyboard_layout_human = self.keyboard_layout_human
+        except AttributeError:
+            keyboard_layout_human = "USA"
+            self.keyboard_layout_human = keyboard_layout_human
+
         country_code = kbd_names._layout_by_human[self.keyboard_layout_human]
+
+        self.keyboard_layout = country_code
 
         self.keyboard_variant = kbd_names._variant_by_human[country_code][keyboard_variant_human]
 
