@@ -185,10 +185,12 @@ class UserInfo(Gtk.Box):
         box.show()
         box = self.ui.get_object('hbox5')
         box.show()
-        label = self.ui.get_object('root_password')
+        label = self.ui.get_object('root_password_label')
         label.show()
         label = self.ui.get_object('verified_root_password_label')
         label.show()
+        btn = self.ui.get_object('checkbutton_show_root_password')
+        btn.show()
 
     def hide_root_password(self):
         """ Hide root password """
@@ -200,6 +202,8 @@ class UserInfo(Gtk.Box):
         label.hide()
         label = self.ui.get_object('verified_root_password_label')
         label.hide()
+        btn = self.ui.get_object('checkbutton_show_root_password')
+        btn.hide()
 
     def hide_widgets(self):
         """ Hide unused and message widgets """
