@@ -222,9 +222,7 @@ class Keymap(Gtk.Box):
             liststore.clear()
 
     def on_keyboardlayout_cursor_changed(self, widget):
-        self.variant_treeview.handler_block_by_func(self.on_keyboardvariant_cursor_changed)
         self.fill_variant_treeview()
-
         self.forward_button.set_sensitive(True)
 
     def on_keyboardvariant_cursor_changed(self, widget):
