@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.1 -->
+<!-- Generated with glade 3.16.0 on Fri Dec 20 15:50:20 2013 -->
 <interface>
-  <requires lib="gtk+" version="3.10"/>
+  <!-- interface-requires gtk+ 3.10 -->
   <object class="GtkBox" id="user_info">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -100,10 +100,10 @@
                 <property name="activates_default">True</property>
                 <property name="width_chars">20</property>
                 <property name="placeholder_text" translatable="yes">Password</property>
-                <signal name="changed" handler="info_loop" swapped="no"/>
                 <accessibility>
                   <relation type="labelled-by" target="password_label"/>
                 </accessibility>
+                <signal name="changed" handler="info_loop" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -146,10 +146,10 @@
                 <property name="activates_default">True</property>
                 <property name="width_chars">20</property>
                 <property name="placeholder_text" translatable="yes">Confirm password</property>
-                <signal name="changed" handler="info_loop" swapped="no"/>
                 <accessibility>
                   <relation type="labelled-by" target="verified_password_label"/>
                 </accessibility>
+                <signal name="changed" handler="info_loop" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -203,10 +203,10 @@
                 <property name="activates_default">True</property>
                 <property name="width_chars">40</property>
                 <property name="placeholder_text" translatable="yes">Your name</property>
-                <signal name="changed" handler="info_loop" swapped="no"/>
                 <accessibility>
                   <relation type="labelled-by" target="fullname_label"/>
                 </accessibility>
+                <signal name="changed" handler="info_loop" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -247,10 +247,10 @@
                 <property name="activates_default">True</property>
                 <property name="width_chars">15</property>
                 <property name="placeholder_text" translatable="yes">Username</property>
-                <signal name="changed" handler="info_loop" swapped="no"/>
                 <accessibility>
                   <relation type="labelled-by" target="username_label"/>
                 </accessibility>
+                <signal name="changed" handler="info_loop" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -325,11 +325,11 @@
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
                     <property name="placeholder_text" translatable="yes">Hostname</property>
-                    <signal name="changed" handler="info_loop" swapped="no"/>
                     <accessibility>
                       <relation type="labelled-by" target="hostname_label"/>
                       <relation type="labelled-by" target="hostname_extra_label"/>
                     </accessibility>
+                    <signal name="changed" handler="info_loop" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -562,6 +562,7 @@
                 <accessibility>
                   <relation type="labelled-by" target="password_label"/>
                 </accessibility>
+                <signal name="changed" handler="info_loop" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -622,6 +623,7 @@
                 <accessibility>
                   <relation type="labelled-by" target="verified_password_label"/>
                 </accessibility>
+                <signal name="changed" handler="info_loop" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
