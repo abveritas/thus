@@ -174,10 +174,10 @@ class UserInfo(Gtk.Box):
         self.title.set_markup(txt)
 
         btn = self.ui.get_object('checkbutton_show_password')
-        btn.set_label(_("show password"))
+        btn.set_label(_("Show password"))
 
         btn = self.ui.get_object('checkbutton_root_password')
-        btn.set_label(_("use a root password"))
+        btn.set_label(_("Use a root password"))
 
     def show_root_password(self):
         """ Show root password """
