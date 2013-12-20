@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-19 12:40+0100\n"
-"PO-Revision-Date: 2013-12-19 11:47+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2013-12-19 20:54+0000\n"
+"Last-Translator: tulliana <mdemiray@msn.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/manjaro-thus/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,7 +82,7 @@ msgstr "%s Bilinmeyen dosya sistemi tipi"
 #: src/auto_partition.py:173
 #, python-format
 msgid "Can't create file system %s"
-msgstr ""
+msgstr "%s Dosya sistemi oluşturulamıyor"
 
 #: src/auto_partition.py:319
 #, python-format
@@ -362,7 +362,7 @@ msgstr "BIOS GPT Boot için disk bölümü oluşturmadınız!"
 
 #: src/installation_advanced.py:1343
 msgid "Couldn't create BIOS GPT Boot partition"
-msgstr ""
+msgstr "BIOS GPT Önyükleme bölümü oluşturulamadı"
 
 #: src/installation_advanced.py:1461
 #, python-format
@@ -423,7 +423,7 @@ msgstr "%s Dosya sistemi içine %s etiketlendi %s oluşturuldu"
 #: src/installation_advanced.py:1692
 #, python-format
 msgid "Couldn't format partition '%s' with label '%s' as '%s'"
-msgstr ""
+msgstr "Bölümler biçimlendirilemez '%s' etiketle '%s' olarak '%s'"
 
 #: src/installation_advanced.py:1741
 #, python-format
@@ -695,7 +695,7 @@ msgstr "Masaüstü dosya sistemi bulunamadı! Kritik hata (çıkılıyor)."
 #: src/installation_process.py:481 src/installation_process.py:487
 #, python-format
 msgid "%s is already mounted at %s as %s"
-msgstr ""
+msgstr "%s zaten bağlanmış %s olarak %s"
 
 #: src/installation_process.py:498
 msgid "Indexing files to be copied ..."
@@ -973,26 +973,26 @@ msgstr "Üzgünüm dosya sistemi %s üzerine oluşturulamaz"
 #: src/parted3/lvm.py:75
 #, python-format
 msgid "Can't remove logical volume %s"
-msgstr ""
+msgstr "Mantıksal disk silinemez %s"
 
 #: src/parted3/lvm.py:92
 #, python-format
 msgid "Can't remove volume group %s"
-msgstr ""
+msgstr "Disk grubunu silinemezsiniz %s"
 
 #: src/parted3/lvm.py:103
 #, python-format
 msgid "Can't remove physical volume %s"
-msgstr ""
+msgstr "Fiziksel diski silemezsiniz %s"
 
 #: src/parted3/partition_module.py:104
 msgid "Exception: For more information take a look at /tmp/thus.log"
-msgstr ""
+msgstr "İstisnai Durum: Daha fazla bilgi için şuraya göz atın /tmp/thus.log"
 
 #: src/parted3/partition_module.py:169
 #, python-format
 msgid "Can't delete partition %s"
-msgstr ""
+msgstr "Disk bölümünü silemezsiniz %s"
 
 #: src/parted3/partition_module.py:219
 msgid "Partition is too large!"
@@ -1001,42 +1001,42 @@ msgstr "Disk bölümü çok büyük!"
 #: src/parted3/partition_module.py:278
 #, python-format
 msgid "Can't detect used space from %s"
-msgstr ""
+msgstr "%s Kullanılan alanı algılayamaz"
 
 #: src/parted3/used_space.py:39
 #, python-format
 msgid "Can't detect used space of NTFS partition %s"
-msgstr ""
+msgstr "NTFS bölümü %s kullanılan diski tespit edemez"
 
 #: src/parted3/used_space.py:66
 #, python-format
 msgid "Can't detect used space of EXTFS partition %s"
-msgstr ""
+msgstr "EXTFS bölümü %s kullanılan diski tespit edemez"
 
 #: src/parted3/used_space.py:93
 #, python-format
 msgid "Can't detect used space of FATFS partition %s"
-msgstr ""
+msgstr "FATFS bölümü %s kullanılan diski tespit edemez"
 
 #: src/parted3/used_space.py:124
 #, python-format
 msgid "Can't detect used space of JFS partition %s"
-msgstr ""
+msgstr "JFS bölümü %s kullanılan diski tespit edemez"
 
 #: src/parted3/used_space.py:149
 #, python-format
 msgid "Can't detect used space of REISERFS partition %s"
-msgstr ""
+msgstr "REISERFS bölümü %s kullanılan diski tespit edemez"
 
 #: src/parted3/used_space.py:174
 #, python-format
 msgid "Can't detect used space of BTRFS partition %s"
-msgstr ""
+msgstr "BTRFS bölümü %s kullanılan diski tespit edemez"
 
 #: src/parted3/used_space.py:217
 #, python-format
 msgid "Can't detect used space of XFS partition %s"
-msgstr ""
+msgstr "XFS bölümü %s kullanılan diski tespit edemez"
 
 #: src/rank_mirrors.py:54
 msgid "Can't find rank mirrors script"

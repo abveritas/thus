@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-19 13:16+0100\n"
+"POT-Creation-Date: 2013-12-20 10:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -260,11 +260,11 @@ msgstr ""
 msgid "Advanced installation mode"
 msgstr ""
 
-#: src/installation_advanced.py:1092 ui/installation_advanced.ui:1000
+#: src/installation_advanced.py:1092 ui/installation_advanced.ui:1024
 msgid "Use this device for boot loader installation:"
 msgstr ""
 
-#: src/installation_advanced.py:1102 ui/installation_advanced.ui:915
+#: src/installation_advanced.py:1102 ui/installation_advanced.ui:943
 msgid "New partition table"
 msgstr ""
 
@@ -272,46 +272,46 @@ msgstr ""
 msgid "Change..."
 msgstr ""
 
-#: src/installation_advanced.py:1115 ui/installation_advanced.ui:98
+#: src/installation_advanced.py:1115 ui/installation_advanced.ui:407
 msgid "Size:"
 msgstr ""
 
-#: src/installation_advanced.py:1119 ui/installation_advanced.ui:300
+#: src/installation_advanced.py:1119 ui/installation_advanced.ui:630
 msgid "Type:"
 msgstr ""
 
-#: src/installation_advanced.py:1123 ui/installation_advanced.ui:317
+#: src/installation_advanced.py:1123 ui/installation_advanced.ui:647
 msgid "Primary"
 msgstr ""
 
-#: src/installation_advanced.py:1127 ui/installation_advanced.ui:337
+#: src/installation_advanced.py:1127 ui/installation_advanced.ui:671
 msgid "Logical"
 msgstr ""
 
-#: src/installation_advanced.py:1131 ui/installation_advanced.ui:357
+#: src/installation_advanced.py:1131 ui/installation_advanced.ui:695
 msgid "Extended"
 msgstr ""
 
-#: src/installation_advanced.py:1135 ui/installation_advanced.ui:202
+#: src/installation_advanced.py:1135 ui/installation_advanced.ui:516
 msgid "Beginning of this space"
 msgstr ""
 
-#: src/installation_advanced.py:1139 ui/installation_advanced.ui:222
+#: src/installation_advanced.py:1139 ui/installation_advanced.ui:540
 msgid "End of this space"
 msgstr ""
 
 #: src/installation_advanced.py:1143 src/installation_advanced.py:1160
-#: ui/installation_advanced.ui:129 ui/installation_advanced.ui:601
+#: ui/installation_advanced.ui:179 ui/installation_advanced.ui:438
 msgid "Use as:"
 msgstr ""
 
 #: src/installation_advanced.py:1147 src/installation_advanced.py:1164
-#: ui/installation_advanced.ui:162 ui/installation_advanced.ui:634
+#: ui/installation_advanced.ui:212 ui/installation_advanced.ui:476
 msgid "Mount point:"
 msgstr ""
 
 #: src/installation_advanced.py:1151 src/installation_advanced.py:1168
-#: ui/installation_advanced.ui:388 ui/installation_advanced.ui:671
+#: ui/installation_advanced.ui:249 ui/installation_advanced.ui:730
 msgid "Label (optional):"
 msgstr ""
 
@@ -319,7 +319,7 @@ msgstr ""
 msgid "Encryption Options..."
 msgstr ""
 
-#: src/installation_advanced.py:1172 ui/installation_advanced.ui:698
+#: src/installation_advanced.py:1172 ui/installation_advanced.ui:276
 msgid "Format:"
 msgstr ""
 
@@ -881,19 +881,23 @@ msgstr ""
 msgid "User home dir encrypted"
 msgstr ""
 
-#: src/keymap.py:61
+#: src/keymap.py:62
 msgid "Select your keyboard layout"
 msgstr ""
 
-#: src/keymap.py:69
+#: src/keymap.py:66
+msgid "Type here to test your keyboard"
+msgstr ""
+
+#: src/keymap.py:73
 msgid "Layouts"
 msgstr ""
 
-#: src/keymap.py:75
+#: src/keymap.py:79
 msgid "Variants"
 msgstr ""
 
-#: src/keymap.py:97
+#: src/keymap.py:101
 #, python-format
 msgid "keyboard_layout is %s"
 msgstr ""
@@ -1259,47 +1263,47 @@ msgid ""
 "might need more space."
 msgstr ""
 
-#: ui/installation_advanced.ui:74
-msgid "Create partition"
-msgstr ""
-
-#: ui/installation_advanced.ui:114
-msgid "Location:"
-msgstr ""
-
-#: ui/installation_advanced.ui:277
-msgid "MB"
-msgstr ""
-
-#: ui/installation_advanced.ui:424 ui/installation_advanced.ui:740
-msgid "Encryption options..."
-msgstr ""
-
-#: ui/installation_advanced.ui:504
+#: ui/installation_advanced.ui:84
 msgid "Partition table type:"
 msgstr ""
 
-#: ui/installation_advanced.ui:577
+#: ui/installation_advanced.ui:155
 msgid "Edit partition"
 msgstr ""
 
-#: ui/installation_advanced.ui:931
+#: ui/installation_advanced.ui:317 ui/installation_advanced.ui:774
+msgid "Encryption options..."
+msgstr ""
+
+#: ui/installation_advanced.ui:383
+msgid "Create partition"
+msgstr ""
+
+#: ui/installation_advanced.ui:423
+msgid "Location:"
+msgstr ""
+
+#: ui/installation_advanced.ui:607
+msgid "MB"
+msgstr ""
+
+#: ui/installation_advanced.ui:958
 msgid "LVM..."
 msgstr ""
 
-#: ui/installation_advanced.ui:1100
+#: ui/installation_advanced.ui:1122
 msgid "LUKS volume name:"
 msgstr ""
 
-#: ui/installation_advanced.ui:1114
+#: ui/installation_advanced.ui:1136
 msgid "Password:"
 msgstr ""
 
-#: ui/installation_advanced.ui:1128
+#: ui/installation_advanced.ui:1150
 msgid "Confirm password:"
 msgstr ""
 
-#: ui/installation_advanced.ui:1158
+#: ui/installation_advanced.ui:1179
 msgid "Use LUKS encryption: "
 msgstr ""
 
