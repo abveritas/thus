@@ -152,7 +152,7 @@ class Keymap(Gtk.Box):
         for layout in sorted_layouts:
             liststore.append([layout])
         # Unblock signal
-        self.layout_treeview.handler_block_by_func(self.on_keyboardlayout_cursor_changed)
+        self.layout_treeview.handler_unblock_by_func(self.on_keyboardlayout_cursor_changed)
 
     def select_value_in_treeview(self, treeview, value):
         model = treeview.get_model()
