@@ -92,22 +92,19 @@ class Keymap(Gtk.Box):
 
     def prepare(self, direction):
         self.translate_ui()
-        self.fill_layout_treeview()
-        # self.fill_variant_treeview()
-        self.forward_button.set_sensitive(False)
-        self.translate_ui()
 
-        # select treeview with selected country in previous screen.
-        selected_country = self.settings.get("timezone_human_country")
+        if direction == 'forwards':
+            self.fill_layout_treeview()
+            self.forward_button.set_sensitive(False)
 
-        selected_country = self.fix_countries(selected_country)
-
-        found = self.select_value_in_treeview(self.layout_treeview, selected_country)
-
-        if found is False:
-            self.select_value_in_treeview(self.layout_treeview, "USA")
-
-        logging.info(_("keyboard_layout is %s") % selected_country)
+            # select treeview with selected country in previous screen.
+            selected_country = self.settings.get("timezone_human_country")
+            selected_country = self.fix_countries(selected_country)
+            found = self.select_value_in_treeview(self.layout_treeview, selected_country)
+            # If country not found default value is USA
+            if found is False:
+                self.select_value_in_treeview(self.layout_treeview, "USA")
+            logging.info(_("keyboard_layout is %s") % selected_country)
 
         self.show_all()
 
