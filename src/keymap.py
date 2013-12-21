@@ -144,7 +144,8 @@ class Keymap(Gtk.Box):
 
         #sorted_layouts.sort()
         sorted_layouts = misc.sort_list(sorted_layouts, self.settings.get("locale"))
-
+        # Block signal
+        self.layout_treeview.handler_block_by_func(self.on_keyboardlayout_cursor_changed)
         # Clear our model
         liststore = self.layout_treeview.get_model()
         liststore.clear()
@@ -152,6 +153,8 @@ class Keymap(Gtk.Box):
         # Add layouts (sorted)
         for layout in sorted_layouts:
             liststore.append([layout])
+        # Unblock signal
+        self.layout_treeview.handler_block_by_func(self.on_keyboardlayout_cursor_changed)
 
     def select_value_in_treeview(self, treeview, value):
         model = treeview.get_model()
@@ -290,7 +293,6 @@ class Keymap(Gtk.Box):
 
         # It makes no sense try loadkeys here (it's console)
         #subprocess.check_call(['loadkeys', self.keyboard_layout])
-
         with misc.raised_privileges():
             subprocess.check_call(['localectl', 'set-keymap', '--no-convert', self.keyboard_layout])
 
