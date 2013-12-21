@@ -139,8 +139,9 @@ class Keymap(Gtk.Box):
         for layout in kbd_names._layout_by_human:
             sorted_layouts.append(layout)
 
-        #sorted_layouts.sort()
-        sorted_layouts = misc.sort_list(sorted_layouts, self.settings.get("locale"))
+        sorted_layouts.sort()
+        #sorted_layouts = misc.sort_list(sorted_layouts, self.settings.get("locale"))
+
         # Block signal
         self.layout_treeview.handler_block_by_func(self.on_keyboardlayout_cursor_changed)
         # Clear our model
@@ -208,8 +209,8 @@ class Keymap(Gtk.Box):
                 for variant in variants[country_code]:
                     sorted_variants.append(variant)
 
-                #sorted_variants.sort()
-                sorted_variants = misc.sort_list(sorted_variants, self.settings.get("locale"))
+                sorted_variants.sort()
+                #sorted_variants = misc.sort_list(sorted_variants, self.settings.get("locale"))
 
                 # Block signal
                 self.variant_treeview.handler_block_by_func(self.on_keyboardvariant_cursor_changed)
