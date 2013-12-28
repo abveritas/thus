@@ -184,21 +184,21 @@ def get_used_btrfs(part):
             if part in line:
                 vsize = line.split()[3]
                 usize = line.split()[5]
-                vunits = vsize[-2:]
-                vsize = float(vsize[:-2])
-                uunits = usize[-2:]
-                usize = float(usize[:-2])
-                if vunits == 'MB':
+                vunits = vsize[-3:]
+                vsize = float(vsize[:-3])
+                uunits = usize[-3:]
+                usize = float(usize[:-3])
+                if vunits == 'MiB':
                     vmult = 1000000
-                elif vunits == 'GB':
+                elif vunits == 'GiB':
                     vmult = 1000000000
-                elif vunits == 'KB':
+                elif vunits == 'KiB':
                     vmult = 1000
-                if uunits == 'MB':
+                if uunits == 'MiB':
                     umult = 1000000
-                elif uunits == 'GB':
+                elif uunits == 'GiB':
                     umult = 1000000000
-                elif uunits == 'KB':
+                elif uunits == 'KiB':
                     umult = 1000
                 usize = usize * umult
                 vsize = vsize * umult

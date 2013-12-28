@@ -22,6 +22,7 @@ Graphical Installer for Manjaro Linux
  * python-dbus
  * python-cairo
  * python-pyqt 4/5 (optional)
+ * rsync
  * sudo
  * systemd
  * ttf-indic-otf
