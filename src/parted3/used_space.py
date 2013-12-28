@@ -177,32 +177,27 @@ def get_used_btrfs(part):
         show.fatal_error(txt)
 
     if result:
-        vsize, usize = (1, 0)
+        vsize, usize, umult, vmult = (1, 1, 1, 1)
         result = result.decode()
         lines = result.split('\n')
+        szmap = {"K":1000,
+                 "M":1000000,
+                 "G":1000000000,
+                 "T":1000000000000,
+                 "P":1000000000000000,
+                }
         for line in lines:
             if part in line:
                 vsize = line.split()[3]
                 usize = line.split()[5]
-                vunits = vsize[-3:]
-                vsize = float(vsize[:-3])
-                uunits = usize[-3:]
-                usize = float(usize[:-3])
-                if vunits == 'MiB':
-                    vmult = 1000000
-                elif vunits == 'GiB':
-                    vmult = 1000000000
-                elif vunits == 'KiB':
-                    vmult = 1000
-                if uunits == 'MiB':
-                    umult = 1000000
-                elif uunits == 'GiB':
-                    umult = 1000000000
-                elif uunits == 'KiB':
-                    umult = 1000
-                usize = usize * umult
-                vsize = vsize * umult
-        used = usize / vsize
+                for i in szmap:
+                    if i in vsize:
+                        vmult = szmap[i]
+                    if i in usize:
+                        umult = szmap[i]
+                usize = float(usize.strip("KMGTPBib")) * umult
+                vsize = float(vsize.strip("KMGTPBib")) * vmult
+        used = usize/vsize
     return used
 
 @misc.raise_privileges
