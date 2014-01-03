@@ -664,8 +664,6 @@ class InstallationAdvanced(Gtk.Box):
 
             if mymount in self.diskdic['mounts'] and mymount != mount_point:
                 show.warning(_("Can't use same mount point twice..."))
-            elif mymount == "/" and not format_check.get_active():
-                show.warning(_('Root partition must be formatted...'))
             else:
                 if mount_point:
                     self.diskdic['mounts'].remove(mount_point)
@@ -1412,10 +1410,6 @@ class InstallationAdvanced(Gtk.Box):
                         fmt = 'Yes'
                     else:
                         fmt = 'No'
-                    # Advanced method formats root by default
-                    # https://github.com/Antergos/Cnchi/issues/8
-                    if mnt == "/":
-                        fmt = 'Yes'
                     if is_new:
                         if lbl != "":
                             relabel = 'Yes'
@@ -1457,6 +1451,17 @@ class InstallationAdvanced(Gtk.Box):
                             if pm.check_mounted(partitions[partition_path]):
                                 mount_point, fs_type, writable = self.get_mount_point(partition_path)
                                 swap_partition = self.get_swap_partition(partition_path)
+                                if mount_point == "/" and not fmt:
+                                    msg = _('The root partition is not marked to be formatted.'
+                                        'This might create problems. Should it be marked to be formatted now?')
+                                    unformatted = True
+                                if unformatted:
+                                    response = show.question(msg)
+                                    if response != Gtk.ResponseType.YES:
+                                        # User doesn't want to unmount, we can't go on.
+                                        return []
+                                    else:
+                                        fmt = True
                                 if swap_partition == partition_path:
                                     msg = _("%s is mounted as swap.\nTo continue it has to be unmounted.\n"
                                         "Click Yes to unmount, or No to return\n") % partition_path
@@ -1494,11 +1499,6 @@ class InstallationAdvanced(Gtk.Box):
                             fmt = 'Yes'
                         else:
                             fmt = 'No'
-
-                        # Advanced method formats root by default
-                        # https://github.com/Antergos/Cnchi/issues/8
-                        if mnt == "/":
-                            fmt = 'Yes'
 
                         if is_new:
                             if lbl != "":
