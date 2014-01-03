@@ -506,8 +506,6 @@ class InstallationAdvanced(Gtk.Box):
                     if uid in self.stage_opts:
                         (is_new, label, mount_point, fs_type, fmt_active) = self.stage_opts[uid]
                         fmt_enable = not is_new
-                        if mount_point == "/":
-                            fmt_enable = False
                     else:
                         fmt_enable = True
                         if _("free space") not in path:
@@ -1451,17 +1449,6 @@ class InstallationAdvanced(Gtk.Box):
                             if pm.check_mounted(partitions[partition_path]):
                                 mount_point, fs_type, writable = self.get_mount_point(partition_path)
                                 swap_partition = self.get_swap_partition(partition_path)
-                                if mount_point == "/" and not fmt:
-                                    msg = _('The root partition is not marked to be formatted.'
-                                        'This might create problems. Should it be marked to be formatted now?')
-                                    unformatted = True
-                                if unformatted:
-                                    response = show.question(msg)
-                                    if response != Gtk.ResponseType.YES:
-                                        # User doesn't want to unmount, we can't go on.
-                                        return []
-                                    else:
-                                        fmt = True
                                 if swap_partition == partition_path:
                                     msg = _("%s is mounted as swap.\nTo continue it has to be unmounted.\n"
                                         "Click Yes to unmount, or No to return\n") % partition_path
@@ -1494,6 +1481,19 @@ class InstallationAdvanced(Gtk.Box):
                                     logging.warning(msg, partition_path)
 
                         (is_new, lbl, mnt, fs, fmt) = self.stage_opts[self.gen_partition_uid(path=partition_path)]
+
+                        if mnt == "/" and not fmt:
+                             msg = _('The root partition is not marked to be formatted.\n'
+                                     'This might create problems. Should it be marked to be formatted now?')
+                             response = show.question(msg)
+                             if response != Gtk.ResponseType.YES:
+                                 # User doesn't want to format root partition.
+                                 fmt = False
+                             else:
+                                 # Mark root partition to be formatted and check it in list.
+                                 fmt = True                           
+                                 self.stage_opts[self.gen_partition_uid(path=partition_path)] = (is_new, lbl, mnt, fs, fmt)
+                                 self.fill_partition_list()
 
                         if fmt:
                             fmt = 'Yes'
