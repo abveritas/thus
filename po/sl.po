@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-04 09:08+0100\n"
-"PO-Revision-Date: 2014-01-06 01:15+0000\n"
+"PO-Revision-Date: 2014-01-06 19:45+0000\n"
 "Last-Translator: b0f00nmanjaro <boris.fonda@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/manjaro-thus/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid ""
 "This installer must be run with administrative privileges and cannot "
 "continue without them."
-msgstr ""
+msgstr "Ta nameščevalnik mora teči z administratorjevimi privilegiji in ne more delovati brez teh."
 
 #: thus.py:127
 #, python-format
@@ -35,12 +35,12 @@ msgid ""
 "If you are sure that another installer is not already running\n"
 "you can manually delete the file %s\n"
 "and run this installer again."
-msgstr ""
+msgstr "Ne moreš poganjati dveh nameščevalnikov hkrati.\n\nČe si prepričan, da en nameščevalnik že ne teče, lahko ročno pobrišeš datoteko %s\nin poženeš nameščevalnik še enkrat."
 
 #: thus.py:139
 #, python-format
 msgid "Thus installer version %s"
-msgstr ""
+msgstr "Thus nameščevlnik verzija %s"
 
 #: thus.py:222
 #, python-format
@@ -60,7 +60,7 @@ msgstr "Končujem nameščevalnik..."
 #: src/installation_process.py:433
 #, python-format
 msgid "Unmounting %s"
-msgstr ""
+msgstr "Odklapnjam %s"
 
 #: src/auto_partition.py:101
 msgid "Can't delete existent LVM volumes (see below)"
@@ -94,7 +94,7 @@ msgstr ""
 #: src/auto_partition.py:537
 #, python-format
 msgid "Will setup LVM on device %s"
-msgstr ""
+msgstr "Bo namščen LVM na napravo %s"
 
 #: src/bootinfo.py:54 src/bootinfo.py:66 src/bootinfo.py:72 src/bootinfo.py:86
 #: src/installation_alongside.py:218
@@ -107,57 +107,57 @@ msgstr "Kateri tip zagonskega sistema imate?"
 
 #: src/bootloader.py:59
 msgid "BIOS (Most Common)"
-msgstr ""
+msgstr "BIOS(Najbolj pogosto)"
 
 #: src/bootloader.py:63
 msgid "64-bit UEFI"
-msgstr ""
+msgstr "64-bit UEFI"
 
 #: src/bootloader.py:67
 msgid "32-bit UEFI"
-msgstr ""
+msgstr "32-bit UEFI"
 
 #: src/bootloader.py:71
 msgid "Select 'Cancel' if you don't want to install a boot loader."
-msgstr ""
+msgstr "Izberi 'Prekini', če ne želiš namestiti zgonskega zaganjalnika."
 
 #: src/canonical/misc.py:923
 #, python-format
 msgid "Can't set locale %s"
-msgstr ""
+msgstr "Ne morem nastaviti lokalno %s"
 
 #: src/canonical/validation.py:132
 msgid "password is too short"
-msgstr ""
+msgstr "geslo je prekratko"
 
 #: src/canonical/validation.py:135
 msgid "weak password"
-msgstr ""
+msgstr "geslo je slabo"
 
 #: src/canonical/validation.py:138
 msgid "fair password"
-msgstr ""
+msgstr "dokaj dobro geslo"
 
 #: src/canonical/validation.py:141
 msgid "good password"
-msgstr ""
+msgstr "dobro geslo"
 
 #: src/canonical/validation.py:144
 msgid "strong password"
-msgstr ""
+msgstr "močno geslo"
 
 #: src/canonical/validation.py:159
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Gesli se ne ujemata"
 
 #: src/check.py:79
 msgid "System Check"
-msgstr ""
+msgstr "Preverjanje sistema"
 
 #: src/check.py:84
 #, python-format
 msgid "has at least %dGB available storage space"
-msgstr ""
+msgstr "ima na voljo najmanj %dGB prostora "
 
 #: src/check.py:89
 msgid ""
@@ -187,7 +187,7 @@ msgstr "Povezani smo na vir napajanja."
 
 #: src/check.py:175
 msgid "We have enough disk space."
-msgstr ""
+msgstr "Imamo dovilj prostora na disku."
 
 #: src/installation_advanced.py:210 src/installation_advanced.py:499
 #: src/installation_advanced.py:511
@@ -242,7 +242,7 @@ msgstr "podaljšan"
 
 #: src/installation_advanced.py:664 src/installation_advanced.py:914
 msgid "Can't use same mount point twice..."
-msgstr ""
+msgstr "Ne moreš uporabiti iste priklopne točke dvakrat..."
 
 #: src/installation_advanced.py:935
 msgid "Creating primary partition"
@@ -266,7 +266,7 @@ msgstr "Uporabi to napravo za namestitev zaganjalnika"
 
 #: src/installation_advanced.py:1098 ui/installation_advanced.ui:943
 msgid "New partition table"
-msgstr "Nova delilna tabela"
+msgstr "Nova tabela razdelkov"
 
 #: src/installation_advanced.py:1106
 msgid "Change..."
@@ -308,16 +308,16 @@ msgstr "Uporabi kot:"
 #: src/installation_advanced.py:1143 src/installation_advanced.py:1160
 #: ui/installation_advanced.ui:212 ui/installation_advanced.ui:476
 msgid "Mount point:"
-msgstr "Namestitveno mesto:"
+msgstr "Priklopna točka:"
 
 #: src/installation_advanced.py:1147 src/installation_advanced.py:1164
 #: ui/installation_advanced.ui:249 ui/installation_advanced.ui:730
 msgid "Label (optional):"
-msgstr "Oznaka (ni potrebno)"
+msgstr "Oznaka (ni nujno)"
 
 #: src/installation_advanced.py:1151
 msgid "Encryption Options..."
-msgstr ""
+msgstr "Kodirne možnosti"
 
 #: src/installation_advanced.py:1168 ui/installation_advanced.ui:276
 msgid "Format:"
@@ -325,11 +325,11 @@ msgstr "Format:"
 
 #: src/installation_advanced.py:1173
 msgid "Partition Table Type:"
-msgstr ""
+msgstr "Tip razdelčne tabele:"
 
 #: src/installation_advanced.py:1178
 msgid "Create Partition Table"
-msgstr ""
+msgstr "Ustvari razdelilno tabelo"
 
 #: src/installation_advanced.py:1181 src/installation_alongside.py:148
 #: src/installation_automatic.py:107
@@ -339,7 +339,7 @@ msgstr "Namesti zdaj!"
 #: src/installation_advanced.py:1269
 #, python-format
 msgid "Creating a new partition table of type %s for disk %s"
-msgstr "Ustvari delilno tabelo tipa %s za disk %s"
+msgstr "Ustvari tabelo razdelkov tipa %s za disk %s"
 
 #: src/installation_advanced.py:1279
 msgid ""
@@ -375,7 +375,7 @@ msgstr "%s je priklopljen na '%s'.\nDa lahko nadaljuješ mora biti odklopljen.\n
 #: src/installation_advanced.py:1480
 #, python-format
 msgid "%s shows as mounted (busy) but it has no mount point"
-msgstr ""
+msgstr "%s prikazuje kot priklopljeno (obremenjeno) vendar nima priklopne točke"
 
 #: src/installation_advanced.py:1486
 msgid ""
@@ -386,11 +386,11 @@ msgstr ""
 #: src/installation_advanced.py:1547
 #, python-format
 msgid "Partition %s will be deleted"
-msgstr "Particija %s bo izbrisana"
+msgstr "Razdelek %s bo izbrisan"
 
 #: src/installation_advanced.py:1554
 msgid "Partition"
-msgstr "Particija"
+msgstr "Razdelek"
 
 #: src/installation_advanced.py:1554
 msgid "New"
@@ -416,7 +416,7 @@ msgstr "Shranjevanje sprememb končano v %s"
 #: src/installation_advanced.py:1651
 #, python-format
 msgid "Creating %s filesystem in %s labeled %s"
-msgstr ""
+msgstr "Ustvarjam %s dtotečni sistem v %s označen %s"
 
 #: src/installation_advanced.py:1692
 #, python-format
@@ -426,15 +426,15 @@ msgstr ""
 #: src/installation_advanced.py:1741
 #, python-format
 msgid "Manjaro will install the bootloader of type %s in %s"
-msgstr "Manjaro bo namestil zaganjalnik tipa %s v %s"
+msgstr "Manjaro bo namestil zagonski zaganjalnik tipa %s v %s"
 
 #: src/installation_advanced.py:1744 src/installation_automatic.py:211
 msgid "Thus will not install any boot loader"
-msgstr ""
+msgstr "Thus ne bo namestil nobenega zagonskega zaganjalnika"
 
 #: src/installation_advanced.py:1758 src/installation_automatic.py:232
 msgid "Testing mode. Thus won't apply any changes to your system!"
-msgstr ""
+msgstr "Način za testiranje. Thus ne bo naredil nobenih sprememb tvojemu sisitemu!"
 
 #: src/installation_alongside.py:115
 #, python-format
@@ -443,7 +443,7 @@ msgstr "Ne morem naložiti %s css"
 
 #: src/installation_alongside.py:140
 msgid "Choose which OS you want to install Manjaro next to"
-msgstr ""
+msgstr "Izberi poleg katerega OS želiš namestiti Manjaro"
 
 #: src/installation_alongside.py:144
 msgid "Manjaro alongside another OS"
@@ -463,11 +463,11 @@ msgstr ""
 
 #: src/installation_alongside.py:222
 msgid "Unable to create list of partitions for alongside installation."
-msgstr ""
+msgstr "Ne morem ustvariti spiska razdelkov za namestitev, ki poteka vzporedno."
 
 #: src/installation_alongside.py:266
 msgid "Can't shrink the partition (maybe it's nearly full?)"
-msgstr ""
+msgstr "Ne morem skrčiti razdelka (mogoče je že zapolnjen?)"
 
 #: src/installation_alongside.py:353
 msgid "There are too many primary partitions, can't create a new one"
@@ -492,7 +492,7 @@ msgstr "Opozorilo: To bo izbrisalo podatke na disku"
 
 #: src/installation_ask.py:129
 msgid "Encrypt this installation for increased security."
-msgstr ""
+msgstr "Kodiraj to namestitev za večjo varnost."
 
 #: src/installation_ask.py:133
 msgid "You will be asked for the encryption key in the next step."
@@ -510,12 +510,12 @@ msgstr ""
 
 #: src/installation_ask.py:147 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
-msgstr ""
+msgstr "Nastavi Home v drug razdelek/volumen"
 
 #: src/installation_ask.py:151
 msgid ""
 "This will setup you /home directory in a different partition or volume."
-msgstr ""
+msgstr "To bo nastavilo tvojo home mapo na drugačen razdelek ali volumen."
 
 #: src/installation_ask.py:159 src/installation_ask.py:161
 #, python-format
@@ -524,7 +524,7 @@ msgstr "Naloži Manjaro poleg %s"
 
 #: src/installation_ask.py:168
 msgid "Manage your partitions and where to install Manjaro (advanced)"
-msgstr ""
+msgstr "Upravljaj z razdelki in določi kam boš namestitl Manjaro (napredno)"
 
 #: src/installation_ask.py:171
 msgid ""
@@ -559,7 +559,7 @@ msgstr "Izberi disk:"
 #: src/installation_automatic.py:87
 msgid ""
 "WARNING! This installation mode will overwrite everything on your drive!"
-msgstr ""
+msgstr "OPOZORILO! Ta način nameščevanja bo prepisal vse na tvojem disku!"
 
 #: src/installation_automatic.py:92 ui/installation_automatic.ui:59
 msgid ""
@@ -574,7 +574,7 @@ msgstr ""
 #: src/installation_automatic.py:101 src/user_info.py:124
 #: ui/installation_automatic.ui:161 ui/user_info.ui:80
 msgid "Confirm your password:"
-msgstr ""
+msgstr "Potrdi tvoje geslo:"
 
 #: src/installation_automatic.py:105 src/user_info.py:177
 #: ui/installation_automatic.ui:258 ui/user_info.ui:422
@@ -588,17 +588,17 @@ msgstr ""
 #: src/installation_automatic.py:165
 #, python-format
 msgid "Automatic install on %s"
-msgstr ""
+msgstr "Avtomatska namestitev na %s"
 
 #: src/installation_automatic.py:199
 #, python-format
 msgid "Thus will use %s as installation device"
-msgstr ""
+msgstr "Thus bo uporabil %s kot namestitveno napravo"
 
 #: src/installation_automatic.py:208
 #, python-format
 msgid "Thus will install the bootloader of type %s in %s"
-msgstr ""
+msgstr "Thus bo namestil zagonski zaganjalnik tipa %s in %s"
 
 #: src/installation_process.py:90
 #, python-format
@@ -617,26 +617,26 @@ msgstr ""
 
 #: src/installation_process.py:266
 msgid "Error creating partitions and their filesystems"
-msgstr ""
+msgstr "Napaka pri ustvarjanju razdelkov in njenih detotečnih sistemov"
 
 #: src/installation_process.py:304 src/installation_process.py:327
 #, python-format
 msgid "Mounting partition %s into %s directory"
-msgstr "Priklapljam particijo %s na %s mapo"
+msgstr "Priklapljam razdelek %s na %s mapo"
 
 #: src/installation_process.py:310
 #, python-format
 msgid "Mounting partition %s into %s/boot directory"
-msgstr "Priklapljam particijo %s na %s/boot mapo"
+msgstr "Priklapljam razdelek %s na %s/boot mapo"
 
 #: src/installation_process.py:315
 msgid "Couldn't mount root and boot partitions"
-msgstr ""
+msgstr "Nisem mogel priklopiti root in boot razdelkov"
 
 #: src/installation_process.py:333
 #, python-format
 msgid "Can't mount %s in %s"
-msgstr ""
+msgstr "Ne morem priklopiti %s in %s"
 
 #: src/installation_process.py:343
 #, python-format
@@ -645,7 +645,7 @@ msgstr ""
 
 #: src/installation_process.py:352
 msgid "Can't create necessary directories on destination system"
-msgstr ""
+msgstr "Ne morem ustvariti potrebnih map na sistemu"
 
 #: src/installation_process.py:358
 msgid "Install System ..."
@@ -710,11 +710,11 @@ msgstr ""
 #: src/installation_process.py:528
 #, python-format
 msgid "Restoring meta-information on %s"
-msgstr ""
+msgstr "Obnavljam meta-podatke na %s"
 
 #: src/installation_process.py:544
 msgid "Special dirs already mounted."
-msgstr ""
+msgstr "Posebne mape že priklopljene."
 
 #: src/installation_process.py:575
 msgid "Special dirs are not mounted. Skipping."
@@ -723,7 +723,7 @@ msgstr ""
 #: src/installation_process.py:585
 #, python-format
 msgid "Unable to umount %s"
-msgstr ""
+msgstr "Ne morem odklopiti %s"
 
 #: src/installation_process.py:604
 #, python-format
@@ -752,24 +752,24 @@ msgstr ""
 #: src/installation_process.py:785
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
-msgstr ""
+msgstr "Nameščam GRUB(2) BIOS zagonski zaganjalnik v %s"
 
 #: src/installation_process.py:797 src/installation_process.py:818
 msgid "ERROR installing GRUB(2) BIOS."
-msgstr ""
+msgstr "ERROR pri nameščanju GRUB(2) BIOS."
 
 #: src/installation_process.py:816
 msgid "GRUB(2) BIOS has been successfully installed."
-msgstr ""
+msgstr "GRUB(2) BIOS je bil uspešno nameščen."
 
 #: src/installation_process.py:830
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader in %s"
-msgstr ""
+msgstr "Nameščam GRUB(2) UEFI %s zagonski zaganjalnik v %s"
 
 #: src/installation_process.py:882
 msgid "ERROR installing GRUB(2) locale."
-msgstr ""
+msgstr "ERROR Nameščanje GRUB(2) lokalno"
 
 #: src/installation_process.py:891
 #, python-format
@@ -784,7 +784,7 @@ msgstr ""
 #: src/installation_process.py:904
 #, python-format
 msgid "Error changing password for user %s"
-msgstr ""
+msgstr "Napaka pri spreminjanju gesla za uporabnika %s"
 
 #: src/installation_process.py:916
 msgid "Setting hooks and modules in mkinitcpio.conf"
@@ -793,11 +793,11 @@ msgstr ""
 #: src/installation_process.py:981
 #, python-format
 msgid "%s: Enable automatic login for user %s."
-msgstr ""
+msgstr "%s: Uporabi avtomatično prijavo za uporabnika %s "
 
 #: src/installation_process.py:1076 src/installation_process.py:1087
 msgid "Configuring your new system"
-msgstr ""
+msgstr "Nastavljam tvoj novi sistem."
 
 #: src/installation_process.py:1079
 msgid "fstab file generated."
@@ -852,7 +852,7 @@ msgstr ""
 
 #: src/installation_process.py:1278
 msgid "Can't execute the MHWD script"
-msgstr ""
+msgstr "Ne morem izvršiti MHWD skripte"
 
 #: src/installation_process.py:1291
 msgid "Configure display manager ..."
@@ -864,15 +864,15 @@ msgstr ""
 
 #: src/installation_process.py:1422
 msgid "Removing live configuration (packages)"
-msgstr ""
+msgstr "Odstranjujem live nastavitve (paketi)"
 
 #: src/installation_process.py:1438
 msgid "Configuring package manager"
-msgstr ""
+msgstr "Nastavljam upravljalnik paketov"
 
 #: src/installation_process.py:1450
 msgid "Finished configuring package manager."
-msgstr ""
+msgstr "Končal z nastavljanjem upravljalnika paketov"
 
 #: src/installation_process.py:1474
 msgid "Running mkinitcpio ..."
@@ -892,7 +892,7 @@ msgstr ""
 
 #: src/keymap.py:72
 msgid "Select your keyboard layout"
-msgstr ""
+msgstr "Izberi svojo postavitev tipkovnice"
 
 #: src/keymap.py:76
 msgid "Type here to test your keyboard"
@@ -900,24 +900,24 @@ msgstr ""
 
 #: src/keymap.py:83
 msgid "Layouts"
-msgstr ""
+msgstr "Postavitve"
 
 #: src/keymap.py:89
 msgid "Variants"
-msgstr ""
+msgstr "Možnosti"
 
 #: src/keymap.py:108
 #, python-format
 msgid "keyboard_layout is %s"
-msgstr ""
+msgstr "postavitev_tipkovnice je %s"
 
 #: src/language.py:78
 msgid "Please choose your language:"
-msgstr ""
+msgstr "Prosim izberite svoj jezik:"
 
 #: src/language.py:83
 msgid "Notice: The Thus Installer is beta software."
-msgstr ""
+msgstr "Opomba: Thus nameščevalnik je beta program."
 
 #: src/language.py:84
 msgid ""
@@ -930,31 +930,31 @@ msgstr ""
 
 #: src/language.py:91
 msgid "Welcome to Manjaro!"
-msgstr ""
+msgstr "Dobrodošli v Manjaru!"
 
 #: src/language.py:108
 msgid "Languages"
-msgstr ""
+msgstr "Jeziki"
 
 #: src/language.py:128
 #, python-format
 msgid "Can't find translation file for the %s language"
-msgstr ""
+msgstr "Ne morem najti datotke za prevajanje za %s jezik"
 
 #: src/location.py:64
 msgid "Select your location"
-msgstr ""
+msgstr "Izberi svojo lokacijo"
 
 #: src/location.py:68
 msgid ""
 "The selected location will be used to help select the system locale.\n"
 "Normally this should be the country where you live.\n"
 "This is a shortlist of locations based on the language you selected."
-msgstr ""
+msgstr "Izbrana lokacija bo uporabljena za pomoč pri izbiri lokalnih nastavitev sistema.\nObičajno je bi to morala biti država v kateri prebivaš.\nTo je kratek spisek lokacij na podlagi jezika, ki si ga izbral/a"
 
 #: src/location.py:73
 msgid "Country, territory or area:"
-msgstr ""
+msgstr "Država, območje ali okoliš:"
 
 #: src/parted3/fs_module.py:147
 #, python-format
@@ -1036,7 +1036,7 @@ msgstr ""
 
 #: src/rank_mirrors.py:54
 msgid "Can't find rank mirrors script"
-msgstr ""
+msgstr "Ne morem najti rang mirror skript"
 
 #: src/rank_mirrors.py:61
 msgid "Couldn't execute auto mirroring selection"
@@ -1044,78 +1044,78 @@ msgstr ""
 
 #: src/show_message.py:53
 msgid "Manjaro Installer - Error"
-msgstr ""
+msgstr "Manjaro nameščevalnik - Napaka"
 
 #: src/show_message.py:65
 msgid "Manjaro Installer - Warning"
-msgstr ""
+msgstr "Manjaro nameščevalnik - Opozorilo"
 
 #: src/show_message.py:77
 msgid "Manjaro Installer - Information"
-msgstr ""
+msgstr "Manjaro nameščevalnik - Informacija"
 
 #: src/show_message.py:88
 msgid "Manjaro Installer - Question"
-msgstr ""
+msgstr "Manjaro nameščevalnik - Vprašanje"
 
 #: src/slides.py:94 src/slides.py:109
 msgid ""
 "Installation finished!\n"
 "Do you want to restart your system now?"
-msgstr ""
+msgstr "Nameščanje končano!\nAli želiš ponovno zagnati tvoj sistem ? "
 
 #: src/slides.py:102
 msgid "Installing Manjaro..."
-msgstr ""
+msgstr "Nameščam Manjaro..."
 
 #: src/slides.py:107
 msgid "Please wait..."
-msgstr ""
+msgstr "Prosim počakaj..."
 
 #: src/slides.py:217
 msgid "Do you want to retry?"
-msgstr ""
+msgstr "Želiš poskusiti znova?"
 
 #: src/timezone.py:111
 msgid "Where are you?"
-msgstr ""
+msgstr "Kje si ?"
 
 #: src/timezone.py:116 ui/timezone.ui:35
 msgid "Zone:"
-msgstr ""
+msgstr "Cona:"
 
 #: src/timezone.py:120 ui/timezone.ui:78
 msgid "Region:"
-msgstr ""
+msgstr "Regija:"
 
 #: src/timezone.py:124 ui/timezone.ui:104
 msgid "Use Network Time Protocol for clock synchronization:"
-msgstr ""
+msgstr "Uporabi Network Time Protokol za sinhronizacijo ure:"
 
 #: src/timezone.py:135
 #, python-format
 msgid "location changed to : %s"
-msgstr ""
+msgstr "lokacija se je spremenila v : %s"
 
 #: src/timezone.py:223
 msgid "Can't autodetect timezone coordinates"
-msgstr ""
+msgstr "Ne morem zaznati časovnih koordinat"
 
 #: src/timezone.py:283
 msgid "Stopping timezone threads..."
-msgstr ""
+msgstr "Ustavljam niti časovne cone..."
 
 #: src/timezone.py:397
 msgid "Can't get the country code used to create a pacman mirrorlist"
-msgstr ""
+msgstr "Ne morem dobiti državne kode, ki je bila uporabljena za ustvaritev pacman mirrorlist"
 
 #: src/user_info.py:92 ui/user_info.ui:35
 msgid "Your name:"
-msgstr ""
+msgstr "Tvoje ime:"
 
 #: src/user_info.py:96 ui/user_info.ui:206
 msgid "Your name"
-msgstr ""
+msgstr "Tvoje ime"
 
 #: src/user_info.py:100 ui/user_info.ui:328
 msgid "Hostname"
@@ -1123,29 +1123,29 @@ msgstr ""
 
 #: src/user_info.py:104 ui/user_info.ui:405
 msgid "Your computer's name:"
-msgstr ""
+msgstr "Ime računalnika:"
 
 #: src/user_info.py:108 ui/user_info.ui:50
 msgid "Pick a username:"
-msgstr ""
+msgstr "Izberi uporabniško ime:"
 
 #: src/user_info.py:112 ui/user_info.ui:250
 msgid "Username"
-msgstr ""
+msgstr "Uporabniško ime"
 
 #: src/user_info.py:116 ui/user_info.ui:65
 msgid "Choose a password:"
-msgstr ""
+msgstr "Izberi geslo:"
 
 #: src/user_info.py:120 src/user_info.py:136 ui/user_info.ui:103
 #: ui/user_info.ui:573
 msgid "Password"
-msgstr ""
+msgstr "Geslo"
 
 #: src/user_info.py:128 src/user_info.py:144 ui/user_info.ui:149
 #: ui/user_info.ui:634
 msgid "Confirm password"
-msgstr ""
+msgstr "Potrdi geslo"
 
 #: src/user_info.py:132 ui/user_info.ui:611
 msgid "Choose a root password:"
@@ -1157,23 +1157,23 @@ msgstr ""
 
 #: src/user_info.py:148
 msgid "Its name as it appears to other computers."
-msgstr ""
+msgstr "Njegovo ime kot se prikaže drugim računalnikom."
 
 #: src/user_info.py:152
 msgid "You must enter a name"
-msgstr ""
+msgstr "Moraš vtipkati ime"
 
 #: src/user_info.py:156
 msgid "You must enter a username"
-msgstr ""
+msgstr "Moraš vtipkati uporabniško ime"
 
 #: src/user_info.py:160 src/user_info.py:164
 msgid "You must enter a password"
-msgstr ""
+msgstr "Moraš vtipkati geslo"
 
 #: src/user_info.py:168 ui/user_info.ui:473
 msgid "Log in automatically"
-msgstr ""
+msgstr "Prijavi me avtomatsko"
 
 #: src/user_info.py:169 ui/user_info.ui:490
 msgid "A password is required to log in"
@@ -1185,7 +1185,7 @@ msgstr ""
 
 #: src/user_info.py:172
 msgid "Who are you?"
-msgstr ""
+msgstr "Kdo si ?"
 
 #: src/user_info.py:180 ui/user_info.ui:544
 msgid "Show root password"
@@ -1199,55 +1199,55 @@ msgstr ""
 msgid ""
 "Manjaro will use eCryptfs to encrypt your home directory. Unfortunately, eCryptfs does not handle sparse files well.\n"
 "\n"
-msgstr ""
+msgstr "Manjaro bo uporabil eCryptfs za enkripcijo tvoje home mape. Na žalost ima eCryptfs probleme z razpršenimi datotekami. \n"
 
 #: src/user_info.py:253
 msgid ""
 "Don't worry, for most intents and purposes this deficiency does not pose a problem.\n"
 "\n"
-msgstr ""
+msgstr "Ne skrbi, za večino namenov ta pomanjklivost ne povzroča problemov.\n"
 
 #: src/user_info.py:254
 msgid ""
 "Anyway, one popular and inadvisable application of eCryptfs is to encrypt a BitTorrent download location as this often requires eCryptfs to handle sparse files of 10 GB or more and may lead to intense disk starvation.\n"
 "\n"
-msgstr ""
+msgstr "Kakorkoliže, ene popularna in priporočena aplikacija eCryptfs je, da zakodira lokacijo za dol-poteg pri Bittorrent-u. To pa povzroči , da mora eCryptfs ravnati z razpršenimi datotekami velikosti 10 GB ali več kar nas priplje do velikega pomanjakanja prostora na disku.\n"
 
 #: src/user_info.py:255
 msgid ""
 "A simple workaround is to place sparse files in an unencrypted .Public directory\n"
 "\n"
-msgstr ""
+msgstr "Preprost obhod je, da razpršene datoeteke postavimo v nekodirano .Public mapo\n"
 
 #: src/user_info.py:256
 msgid ""
 "Look at https://wiki.archlinux.org/index.php/ECryptfs for detailed information\n"
 "\n"
-msgstr ""
+msgstr "Poglej na https://wiki.archlinux.org/index.php/ECryptfs za podrobne informacije\n"
 
 #: src/user_info.py:257
 msgid "Are you sure you want to encrypt your home directory?\n"
-msgstr ""
+msgstr "Ali si prepričan, da želiš zakodirati tvojo home mapo?\n"
 
 #: src/user_info.py:345
 msgid "Invalid characters entered"
-msgstr ""
+msgstr "Vstavil si neprevilen znak "
 
 #: src/user_info.py:349
 msgid "Username can't contain dots"
-msgstr ""
+msgstr "Uporabniško ime ne sme vsebovati pik"
 
 #: src/user_info.py:353
 msgid "Too many characters"
-msgstr ""
+msgstr "Preveč znakov"
 
 #: ui/bootloader.ui:7
 msgid "Boot"
-msgstr ""
+msgstr "Boot"
 
 #: ui/bootloader.ui:98
 msgid "BIOS (common)"
-msgstr ""
+msgstr "BIOS(pogosto)"
 
 #: ui/bootloader.ui:120
 msgid "x86_64 UEFI"
@@ -1259,13 +1259,13 @@ msgstr "i386 UEFI"
 
 #: ui/bootloader.ui:169
 msgid "Choose 'Cancel' if you don't want to install a boot loader"
-msgstr ""
+msgstr "Izberi 'Prekini', če nočeš namestiti zgonskega zaganjalnika"
 
 #: ui/check.ui:29
 msgid ""
 "<span weight=\"bold\" size=\"large\">For best results, please ensure that "
 "this computer:</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"large\">Za boljše rezultate, zagotovite, da ta računalnik:</span>"
 
 #: ui/check.ui:108
 msgid ""
@@ -1275,11 +1275,11 @@ msgstr ""
 
 #: ui/installation_advanced.ui:84
 msgid "Partition table type:"
-msgstr "Tip delilne tabele"
+msgstr "Tip razdelčne tabele"
 
 #: ui/installation_advanced.ui:155
 msgid "Edit partition"
-msgstr ""
+msgstr "Uredi razdelek"
 
 #: ui/installation_advanced.ui:317 ui/installation_advanced.ui:774
 msgid "Encryption options..."
@@ -1287,19 +1287,19 @@ msgstr "Kriptografske možnosti"
 
 #: ui/installation_advanced.ui:383
 msgid "Create partition"
-msgstr ""
+msgstr "Ustvari razdelek"
 
 #: ui/installation_advanced.ui:423
 msgid "Location:"
-msgstr ""
+msgstr "Lokacija:"
 
 #: ui/installation_advanced.ui:607
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: ui/installation_advanced.ui:958
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #: ui/installation_advanced.ui:1122
 msgid "LUKS volume name:"
@@ -1307,64 +1307,64 @@ msgstr ""
 
 #: ui/installation_advanced.ui:1136
 msgid "Password:"
-msgstr ""
+msgstr "Geslo:"
 
 #: ui/installation_advanced.ui:1150
 msgid "Confirm password:"
-msgstr ""
+msgstr "Potrdi geslo:"
 
 #: ui/installation_advanced.ui:1179
 msgid "Use LUKS encryption: "
-msgstr ""
+msgstr "Uporabi LUKS kodiranje:"
 
 #: ui/installation_alongside.ui:16
 msgid ""
 "<span size=\"large\">Choose which OS you want to install Manjaro next "
 "to</span>"
-msgstr ""
+msgstr "<span size=\"large\">Izberi kateri OS poleg katerega želiš namestiti Manjaro</span>"
 
 #: ui/installation_alongside.ui:90
 msgid "Choose the new size"
-msgstr ""
+msgstr "Izberi novo velikost"
 
 #: ui/installation_alongside.ui:157
 msgid "Other OS"
-msgstr ""
+msgstr "Drug OS"
 
 #: ui/installation_alongside.ui:169
 msgid "Manjaro"
-msgstr ""
+msgstr "Manjaro"
 
 #: ui/installation_alongside.ui:193 ui/installation_alongside.ui:205
 #: ui/slides.ui:74
 msgid "label"
-msgstr ""
+msgstr "oznaka"
 
 #: ui/installation_ask.ui:58
 msgid ""
 "<span weight=\"light\" size=\"small\">Warning: This will delete all "
 "programs, documents, photos, music and any other files on your disk</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">Opozorilo: To bo izbrisalo vse programe, dokumente,fotografije, glasbo in še mnoge druge datoteke na tvojem disku</span>"
 
 #: ui/installation_ask.ui:70
 msgid "Encrypts the new Manjaro installation for better security"
-msgstr ""
+msgstr "Zakodiraj novo nameščen Manjaro za boljšo varnost"
 
 #: ui/installation_ask.ui:91
 msgid ""
 "<span weight=\"light\" size=\"small\">You will be asked for the encryption "
 "key in the next step</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">V naslednjem koraku te bomo povprašali po kodrinem ključu</span>"
 
 #: ui/installation_ask.ui:102
 msgid "Use LVM with the new Manjaro installation"
-msgstr ""
+msgstr "Uporabi LVM za novo nameščen Manjaro "
 
 #: ui/installation_ask.ui:123
 msgid ""
 "<span weight=\"light\" size=\"small\">This will set up LVM allowing you to "
 "make snapshots and change partition sizes in a straightforward way</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">To bo nastavilo LVM in ti omogočilo, da narediš slike in spremnilo velikost razdelkov na neposreden način</span>"
 
 #: ui/installation_ask.ui:155
 msgid ""
@@ -1374,25 +1374,25 @@ msgstr ""
 
 #: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"
-msgstr ""
+msgstr "Namesti poleg drugih OS-ov"
 
 #: ui/installation_ask.ui:192
 msgid ""
 "<span weight=\"light\" size=\"small\">With this option you will be "
 "installing Manjaro alongside one of the other OSes you already have "
 "installed.</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">S to možnostjo boš namstil Manjaro poleg enega izmed OS-ov, ki so že nameščeni</span>"
 
 #: ui/installation_ask.ui:204
 msgid "Manage your partitions and choose where to install Manjaro (advanced)"
-msgstr ""
+msgstr "Upravljanje z razdelki in izbira poti kamor bo nameščen Manjaro (napredno)"
 
 #: ui/installation_ask.ui:230
 msgid ""
 "<span weight=\"light\" size=\"small\">You will be able to create/delete "
 "partitions, choose where to install Manjaro and also choose additional mount"
 " points.</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">Lahko boš ustvaril/izbrisal razdelek in izbral kam namestiti Manjaro ter izbral dodatne priklopne točke.</span>"
 
 #: ui/installation_automatic.ui:38
 msgid ""
@@ -1402,7 +1402,7 @@ msgstr ""
 
 #: ui/language.ui:26
 msgid "<span weight=\"bold\">Please choose your language:</span>"
-msgstr ""
+msgstr "<span weight=\"bold\">Prosim izberite jezik:</span>"
 
 #: ui/language.ui:89
 msgid ""
@@ -1411,28 +1411,28 @@ msgid ""
 "Thus is pre-release beta software that is under active development. It does not yet properly handle RAID, btrfs subvolumes, or other advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bug, please, visit <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr ""
+msgstr "<span weight='bold'>Opomba: Thus nameščevalnik je beta program.</span>\n\nThus je beta program pred izidom in je pod stalnim razvojem. Zaenkrat še ne zna upravljati z RAID, btrfs subvolumes ali drugimi naprednimi namestitvami. Prosim nadaljuj, a pazljivo, ker lahko izgubiš podatke!\n\nČe najdeš hrošča, prosim, obišči <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 
 #: ui/thus.ui:37
 msgid "<span weight=\"bold\" size=\"large\">Welcome to Manjaro</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"large\">Dobrodošli v Manjaro</span>"
 
 #: ui/user_info.ui:119 ui/user_info.ui:589
 msgid "<small><span color=\"darkgreen\">Strong password</span></small>"
-msgstr ""
+msgstr "<small><span color=\"darkgreen\">Močno geslo</span></small>"
 
 #: ui/user_info.ui:177 ui/user_info.ui:662
 msgid "<small><span color=\"darkred\">You must enter a password</span></small>"
-msgstr ""
+msgstr "<small><span color=\"darkred\">Vnesti moraš geslo</span></small>"
 
 #: ui/user_info.ui:278
 msgid "<small><span color=\"darkred\">You must enter a username</span></small>"
-msgstr ""
+msgstr "<small><span color=\"darkred\">Vnesti moraš uporabniško ime</span></small>"
 
 #: ui/user_info.ui:356
 msgid "<small><span color=\"darkred\">You must enter a name</span></small>"
-msgstr ""
+msgstr "<small><span color=\"darkred\">Vnesti moraš ime</span></small>"
 
 #: ui/user_info.ui:378
 msgid "<span size=\"small\">Its name as it appears to other computers.</span>"
-msgstr ""
+msgstr "<span size=\"small\">Njegovo ime kot se prikaže drugim računalnikom.</span>"
