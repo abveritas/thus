@@ -5,6 +5,7 @@
 
 from gi.repository import Gtk, Gdk
 import cairo
+import logging
 import subprocess
 import sys
 import math
@@ -293,7 +294,7 @@ class Keyboard(Gtk.DrawingArea):
         if self.layout == "th":
             font = "Tlwg Mono"
 
-        print ("Layout:", self.layout, "Font:", font, "Variant:", self.variant)
+        logging.debug("Layout: '%s', Font: '%s', Variant: '%s'", self.layout, font, self.variant)
 
         def drawRow(row, sx, sy, last_end=False):
             x = sx
