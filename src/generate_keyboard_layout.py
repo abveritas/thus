@@ -167,7 +167,7 @@ class Keyboard(Gtk.DrawingArea):
             i = 0
             for k in keys:
                 rect = (x, y, kw, kw)
-
+                rect = list(rect)
                 if i == len(keys) - 1 and last_end:
                     rect[2] = rect[0] + rw
 
@@ -178,7 +178,7 @@ class Keyboard(Gtk.DrawingArea):
 
                 # lower
                 cr.set_source_rgb(1.0, 1.0, 1.0)
-                cr.select_font_face("Helvetica", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD);
+                cr.select_font_face("Liberation Mono", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD);
                 cr.set_font_size(10)
                 cr.move_to(px, py)
                 cr.show_text(self.regular_text(k))
@@ -188,7 +188,7 @@ class Keyboard(Gtk.DrawingArea):
                 
                 # upper
                 cr.set_source_rgb(0.82, 0.82, 0.82)
-                cr.select_font_face("Helvetica", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL);
+                cr.select_font_face("Liberation Mono", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL);
                 cr.set_font_size(8)
                 cr.move_to(px, py)
                 cr.show_text(self.shift_text(k))

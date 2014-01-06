@@ -28,6 +28,7 @@ import canonical.keyboard_names as keyboard_names
 import logging
 import canonical.misc as misc
 import subprocess
+import generate_keyboard_layout
 
 _next_page = "installation_ask"
 _prev_page = "timezone"
@@ -54,7 +55,10 @@ class Keymap(Gtk.Box):
         self.variant_treeview = self.ui.get_object("keyboardvariant")
         self.keyboard_test_entry = self.ui.get_object("keyboard_test_entry")
 
-        self.keyboard_image = self.ui.get_object("keyboard_image")
+        # self.keyboard_image = self.ui.get_object("keyboard_image")
+        self.box1 = self.ui.get_object("box1")
+        self.keyboard_image = generate_keyboard_layout.Keyboard()
+        self.box1.add(self.keyboard_image)
 
         self.create_toolviews()
 
@@ -288,10 +292,5 @@ class Keymap(Gtk.Box):
             subprocess.check_call(['localectl', 'set-keymap', '--no-convert', self.keyboard_layout])
 
     def set_keyboard_image(self):
-        import generate_keyboard_layout
-        self.keyboard_image = generate_keyboard_layout.Keyboard(self.keyboard_image.get_parent_window())
-        
         self.keyboard_image.setLayout(self.keyboard_layout)
         self.keyboard_image.setVariant(self.keyboard_variant)
-
-        self.keyboard_image.show_all()
