@@ -257,8 +257,8 @@ class Keyboard(Gtk.DrawingArea):
         if self.layout == "ma":
             font = "Oriya"
         # Myanmar
-        if self.layout == "mm": #
-            font = "Gargi"
+        if self.layout == "mm":
+            font = "Myanmar3"
         # Nepal
         if self.layout == "np":
             font = "Gargi"
