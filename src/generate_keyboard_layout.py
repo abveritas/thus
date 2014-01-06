@@ -176,10 +176,10 @@ class Keyboard(Gtk.DrawingArea):
             font = "Oriya"
 
         # Afganistan
-        if self.layout == "af": # olpc-ps,
+        if self.layout == "af": # broken variants: olpc-ps,
             font = "Oriya"
         # Arabisch
-        if self.layout == "ara": # buckwalter,
+        if self.layout == "ara": # broken variants: buckwalter,
             font = "Oriya"
         # Armenia
         if self.layout == "am":
@@ -197,12 +197,8 @@ class Keyboard(Gtk.DrawingArea):
         if self.layout == "kh": #
             font = "Akaash"
         # China
-        if self.layout == "cn": # tib, tib_asciinum
+        if self.layout == "cn": # broken variants: tib, tib_asciinum
             font = "Oriya"
-            if self.variant == "tib":
-                font = font = "tw moe std kai"
-            if self.variant == "tib_asciinum":
-                font = font = "tw moe std kai"
         # Ethiopia
         if self.layout == "et": # broken, didn't found a font yet
             font = "Akaash"
