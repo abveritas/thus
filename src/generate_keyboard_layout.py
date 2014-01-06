@@ -123,7 +123,13 @@ class Keyboard(Gtk.DrawingArea):
         #print("************************************ width: ", width)
         #print("************************************ height: ", height)
 
-        self.usable_width = width - 6
+        width_limited = width - 6
+        height_limited = height * 3.5
+        if (width_limited < height_limited):
+            self.usable_width = width_limited
+        else:
+            self.usable_width = height_limited
+
         self.key_w = (self.usable_width - 14 * self.space) / 15
 
         #(width, height) = self.get_size_request()
