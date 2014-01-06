@@ -199,6 +199,10 @@ class Keyboard(Gtk.DrawingArea):
         # China
         if self.layout == "cn": # tib, tib_asciinum
             font = "Oriya"
+            if self.variant == "tib":
+                font = font = "tw moe std kai"
+            if self.variant == "tib_asciinum":
+                font = font = "tw moe std kai"
         # Ethiopia
         if self.layout == "et": # broken, didn't found a font yet
             font = "Akaash"
@@ -212,26 +216,44 @@ class Keyboard(Gtk.DrawingArea):
         if self.layout == "gn":
             font = "Oriya"
         # India
-        if self.layout == "in": # broken variants: guj, guru, jhelum, kan, ori, tel, urd-phonetic3, urd-phonetic, urd-winkeys
+        if self.layout == "in":
             font = "Gargi"
             if self.variant == "ben_probhat":
-                font = font = "Akaash"
-            if self.variant == "ben":
-                font = font = "Akaash"
-            if self.variant == "mal":
+                font = font = "Lohit Bengali"
+            if self.variant == "ben": # not all keys
+                font = font = "Lohit Bengali"
+            if self.variant == "guj": # not all keys
+                font = font = "Padmaa"
+            if self.variant == "guru":
+                font = font = "Lohit Punjabi"
+            if self.variant == "jhelum":
+                font = font = "Lohit Punjabi"
+            if self.variant == "kan":
+                font = font = "Lohit Kannada"
+            if self.variant == "mal": # not all keys
                 font = "Malayalam"
             if self.variant == "mal_lalitha":
                 font = "Malayalam"
+            if self.variant == "ori":
+                font = "Lohit Oriya"
             if self.variant == "tam_keyboard_with_numerals": # not all keys
-                font = "TSCu_Times"
+                font = "Lohit Tamil"
             if self.variant == "tam_TAB": # not all keys
                 font = "TSCu_Times"
             if self.variant == "tam_TSCII":
                 font = "TSCu_Times"
             if self.variant == "tam_unicode":
                 font = "TSCu_Times"
-            if self.variant == "tam": # not all keys
-                font = "TSCu_Times"
+            if self.variant == "tam":
+                font = "Lohit Tamil"
+            if self.variant == "tel":
+                font = "Lohit Telugu"
+            if self.variant == "urd-phonetic3": # not all keys
+                font = "Oriya"
+            if self.variant == "urd-phonetic": # not all keys
+                font = "Oriya"
+            if self.variant == "urd-winkeys": # not all keys
+                font = "Oriya"
         # Iran
         if self.layout == "ir":
             font = "Oriya"
@@ -278,7 +300,7 @@ class Keyboard(Gtk.DrawingArea):
         if self.layout == "vn":
             font = "Akaash"
 
-        print ("Layout:", self.layout, "Font:", font, "Variant:", self.variant)
+        print ("Layout: '", self.layout, "' Font: '", font, "' Variant: '", self.variant, "'")
 
         def drawRow(row, sx, sy, last_end=False):
             x = sx

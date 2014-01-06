@@ -25,8 +25,9 @@ Graphical Installer for Manjaro Linux
  * sudo
  * systemd
  * keyboardctl
- * ttf-indic-otf
+ * lohit-fonts
  * ttf-aboriginal-sans
+ * ttf-indic-otf
  * ttf-myanmar3
  * upower
  * util-linux
