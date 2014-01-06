@@ -25,10 +25,12 @@ Graphical Installer for Manjaro Linux
  * sudo
  * systemd
  * keyboardctl
- * lohit-fonts
  * ttf-aboriginal-sans
  * ttf-indic-otf
+ * ttf-khmer
+ * ttf-lohit-fonts
  * ttf-myanmar3
+ * ttf-thaana-fonts
  * upower
  * util-linux
  * webkitgtk 3

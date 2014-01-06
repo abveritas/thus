@@ -194,8 +194,8 @@ class Keyboard(Gtk.DrawingArea):
         if self.layout == "brai": # broken, even with ttf-ubraille
             font = "Braille"
         # Cambodia
-        if self.layout == "kh": #
-            font = "Akaash"
+        if self.layout == "kh":
+            font = "KhmerOS"
         # China
         if self.layout == "cn": # broken variants: tib, tib_asciinum
             font = "Oriya"
@@ -270,7 +270,7 @@ class Keyboard(Gtk.DrawingArea):
             font = "Oriya"
         # Maldives
         if self.layout == "mv": #
-            font = "Gargi"
+            font = "MVBoli"
         # Morocco
         if self.layout == "ma":
             font = "Oriya"
@@ -296,7 +296,7 @@ class Keyboard(Gtk.DrawingArea):
         if self.layout == "vn":
             font = "Akaash"
 
-        print ("Layout: '", self.layout, "' Font: '", font, "' Variant: '", self.variant, "'")
+        print ("Layout:", self.layout, "Font:", font, "Variant:", self.variant)
 
         def drawRow(row, sx, sy, last_end=False):
             x = sx
