@@ -26,6 +26,7 @@ Graphical Installer for Manjaro Linux
  * systemd
  * keyboardctl
  * ttf-indic-otf
+ * ttf-aboriginal-sans
  * upower
  * util-linux
  * webkitgtk 3

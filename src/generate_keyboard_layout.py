@@ -56,7 +56,7 @@ class Keyboard(Gtk.DrawingArea):
     def __init__(self, parent=None):
         Gtk.DrawingArea.__init__(self)
         
-        self.set_size_request(430, 130)
+        self.set_size_request(460, 130)
         
         self.codes = []
 
@@ -158,6 +158,128 @@ class Keyboard(Gtk.DrawingArea):
         w = self.usable_width
         kw = self.key_w
 
+        # broken: ad (Andorra), lk (Sri Lanka), brai (Braille)
+        # ?!?: us:chr
+
+        font = "Helvetica"
+
+        # Load fonts from ttf-aboriginal-sans package
+
+        # us:chr
+        if self.variant == "chr":
+            font = "Aboriginal Sans"
+
+        # Load fonts from ttf-indic-otf package
+
+        # fr,it:georgisch
+        if self.variant == "geo":
+            font = "Oriya"
+
+        # Afganistan
+        if self.layout == "af": # olpc-ps,
+            font = "Oriya"
+        # Arabisch
+        if self.layout == "ara": # buckwalter,
+            font = "Oriya"
+        # Armenia
+        if self.layout == "am":
+            font = "Oriya"
+        # Bangladesh
+        if self.layout == "bd":
+            font = "Akaash"
+        # Bhutan
+        if self.layout == "bt": ##
+            font = "Akaash"
+        # Braille
+        if self.layout == "brai": # broken, even with ttf-ubraille
+            font = "Braille"
+        # Cambodia
+        if self.layout == "kh": #
+            font = "Akaash"
+        # China
+        if self.layout == "cn": # tib, tib_asciinum
+            font = "Oriya"
+        # Ethiopia
+        if self.layout == "et": # broken, didn't found a font yet
+            font = "Akaash"
+        # Georgia
+        if self.layout == "ge":
+            font = "Oriya"
+        # Greece
+        if self.layout == "gr":
+            font = "Oriya"
+        # Guinea
+        if self.layout == "gn":
+            font = "Oriya"
+        # India
+        if self.layout == "in": # broken variants: guj, guru, jhelum, kan, ori, tel, urd-phonetic3, urd-phonetic, urd-winkeys
+            font = "Gargi"
+            if self.variant == "ben_probhat":
+                font = font = "Akaash"
+            if self.variant == "ben":
+                font = font = "Akaash"
+            if self.variant == "mal":
+                font = "Malayalam"
+            if self.variant == "mal_lalitha":
+                font = "Malayalam"
+            if self.variant == "tam_keyboard_with_numerals": # not all keys
+                font = "TSCu_Times"
+            if self.variant == "tam_TAB": # not all keys
+                font = "TSCu_Times"
+            if self.variant == "tam_TSCII":
+                font = "TSCu_Times"
+            if self.variant == "tam_unicode":
+                font = "TSCu_Times"
+            if self.variant == "tam": # not all keys
+                font = "TSCu_Times"
+        # Iran
+        if self.layout == "ir":
+            font = "Oriya"
+        # Iraq
+        if self.layout == "iq":
+            font = "Oriya"
+        # Ireland
+        if self.layout == "ie":
+            font = "Oriya"
+        # Israel
+        if self.layout == "il": # broken variants: biblical
+            font = "Oriya"
+        # Japan
+        if self.layout == "jp": # broken variants: kana
+            font = "Oriya"
+        # Laos
+        if self.layout == "la":
+            font = "Oriya"
+        # Maldives
+        if self.layout == "mv": #
+            font = "Gargi"
+        # Morocco
+        if self.layout == "ma":
+            font = "Oriya"
+        # Myanmar
+        if self.layout == "mm": #
+            font = "Gargi"
+        # Nepal
+        if self.layout == "np":
+            font = "Gargi"
+        # Pakistan
+        if self.layout == "pk": # not all keys
+            font = "Oriya"
+        # Sri Lanka
+        if self.layout == "lk": # broken variants: tam_TAB, tam_unicode
+            font = "Oriya"
+        # Syria
+        if self.layout == "sy": # broken variants: syc_phonetic, syc
+            font = "Oriya"
+        # Thailand
+        if self.layout == "th": # broken variants: pat, tis
+            font = "Oriya"
+        # Vietnam
+        if self.layout == "vn":
+            font = "Akaash"
+
+        print ("Layout:", self.layout, "Font:", font, "Variant:", self.variant)
+
         def drawRow(row, sx, sy, last_end=False):
             x = sx
             y = sy
@@ -177,7 +299,7 @@ class Keyboard(Gtk.DrawingArea):
 
                 # lower
                 cr.set_source_rgb(1.0, 1.0, 1.0)
-                cr.select_font_face("Liberation Mono", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD);
+                cr.select_font_face(font, cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD);
                 cr.set_font_size(10)
                 cr.move_to(px, py)
                 cr.show_text(self.regular_text(k))
@@ -187,7 +309,7 @@ class Keyboard(Gtk.DrawingArea):
                 
                 # upper
                 cr.set_source_rgb(0.82, 0.82, 0.82)
-                cr.select_font_face("Liberation Mono", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL);
+                cr.select_font_face(font, cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL);
                 cr.set_font_size(8)
                 cr.move_to(px, py)
                 cr.show_text(self.shift_text(k))
