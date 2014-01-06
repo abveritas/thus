@@ -160,7 +160,6 @@ class Keyboard(Gtk.DrawingArea):
         kw = self.key_w
 
         # broken: ad (Andorra), lk (Sri Lanka), brai (Braille)
-        # ?!?: us:chr
 
         font = "Helvetica"
 
@@ -170,7 +169,9 @@ class Keyboard(Gtk.DrawingArea):
         if self.variant == "chr":
             font = "Aboriginal Sans"
 
-        # Load fonts from ttf-indic-otf package
+        # Load fonts from:
+        # ttf-indic-otf, ttf-khmer, ttf-lohit-fonts, ttf-myanmar3
+        # ttf-thaana-fonts, ttf-tlwg
 
         # fr,it:georgisch
         if self.variant == "geo":
@@ -189,7 +190,7 @@ class Keyboard(Gtk.DrawingArea):
         if self.layout == "bd":
             font = "Akaash"
         # Bhutan
-        if self.layout == "bt": ##
+        if self.layout == "bt": # broken, didn't found a font yet
             font = "Akaash"
         # Braille
         if self.layout == "brai": # broken, even with ttf-ubraille
@@ -270,7 +271,7 @@ class Keyboard(Gtk.DrawingArea):
         if self.layout == "la":
             font = "Oriya"
         # Maldives
-        if self.layout == "mv": #
+        if self.layout == "mv":
             font = "MVBoli"
         # Morocco
         if self.layout == "ma":
