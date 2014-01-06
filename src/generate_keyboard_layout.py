@@ -3,18 +3,11 @@
 #
 #  generate_keyboard_layout.py
 
+from gi.repository import Gtk, Gdk
+import cairo
 import subprocess
 import sys
-
-try:
-    from PyQt5.QtCore import Qt, QRectF
-    from PyQt5.QtGui import QFont, QPainter, QPen, QPainterPath, QColor
-    from PyQt5.QtWidgets import QWidget, QApplication
-    pyqt5_available = True
-except ImportError:
-    from PyQt4.QtCore import Qt, QRectF
-    from PyQt4.QtGui import QApplication, QWidget, QFont, QPainter, QPen, QPainterPath, QColor, QPixmap
-    pyqt5_available = False
+import math
 
 #U+ , or +U+ ... to string
 def fromUnicodeString(raw):
@@ -22,11 +15,10 @@ def fromUnicodeString(raw):
         return chr(int(raw[2:], 16))
     elif raw[0:2] == "+U":
         return chr(int(raw[3:], 16))
-
     return ""
 
 
-class Keyboard(QWidget):
+class Keyboard(Gtk.DrawingArea):
 
     kb_104 = {
         "extended_return": False,
@@ -58,17 +50,24 @@ class Keyboard(QWidget):
         ()]
     }
 
-    lowerFont = QFont("Helvetica", 10, QFont.DemiBold)
-    upperFont = QFont("Helvetica", 8)
+    #lowerFont = "Helvetica SemiBold 10"
+    #upperFont = "Helvetica 8"
 
     def __init__(self, parent=None):
-        QWidget.__init__(self, parent)
+        Gtk.DrawingArea.__init__(self)
+        
+        self.set_size_request(430, 130)
+        
         self.codes = []
 
         self.layout = "us"
         self.variant = ""
-
+        
         self.kb = None
+        
+        self.connect('draw', self.do_draw_cb)
+        self.connect('configure-event', self.configure_event_cb)
+        
 
     def setLayout(self, layout):
         self.layout = layout
@@ -77,13 +76,15 @@ class Keyboard(QWidget):
         self.variant = variant
         self.loadCodes()
         self.loadInfo()
-        self.repaint()
+        #self.repaint()
+        self.configure_event_cb(None, None)
+        self.queue_draw()
 
     def loadInfo(self):
         kbl_104 = ["us", "th"]
         kbl_106 = ["jp"]
 
-        # most keyboards are 105 key so default to that
+        # Most keyboards are 105 key so default to that
         if self.layout in kbl_104:
             self.kb = self.kb_104
         elif self.layout in kbl_106:
@@ -91,28 +92,66 @@ class Keyboard(QWidget):
         elif self.kb != self.kb_105:
             self.kb = self.kb_105
 
-    def resizeEvent(self, re):
+    def rounded_rectangle(self, cr, x, y, width, height, aspect=1.0):
+        corner_radius = height / 10.0
+        radius = corner_radius / aspect;
+        degrees = math.pi / 180.0;
+        
+        cr.new_sub_path()
+        cr.arc(x + width - radius, y + radius, radius, -90 * degrees, 0 * degrees)
+        cr.arc(x + width - radius, y + height - radius, radius, 0 * degrees, 90 * degrees)
+        cr.arc(x + radius, y + height - radius, radius, 90 * degrees, 180 * degrees)
+        cr.arc(x + radius, y + radius, radius, 180 * degrees, 270 * degrees)
+        cr.close_path()
+
+        cr.set_source_rgb(0.5, 0.5, 0.5)
+        cr.fill_preserve()
+        cr.set_source_rgba(0.2, 0.2, 0.2, 0.5)
+        cr.set_line_width(2)
+        cr.stroke()
+
+    def configure_event_cb(self, widget, event):
         self.space = 6
-        self.usable_width = self.width() - 6
+                
+        width = self.get_allocated_width()
+        height = self.get_allocated_height()
+
+        print("************************************ width: ", width)
+        print("************************************ height: ", height)
+        
+        #(width, height) = self.get_size_request()
+        #print("************************************ width: ", width)
+        #print("************************************ height: ", height)
+
+        self.usable_width = width - 6
         self.key_w = (self.usable_width - 14 * self.space) / 15
 
-        self.setMaximumHeight(self.key_w * 4 + self.space * 5)
-
-    def paintEvent(self, pe):
-        p = QPainter(self)
-        p.setRenderHint(QPainter.Antialiasing)
-
-        p.setBrush(QColor(0xd6, 0xd6, 0xd6))
-        p.drawRect(0, 0, 640, 640)
-
-        pen = QPen()
-        pen.setWidth(1)
-        pen.setColor(QColor(0x58, 0x58, 0x58))
-        p.setPen(pen)
-
-        p.setBrush(QColor(0x58, 0x58, 0x58))
-
-        p.setBackgroundMode(Qt.TransparentMode)
+        #(width, height) = self.get_size_request()
+        #max_height = self.key_w * 4 + self.space * 5
+        
+        return False
+    
+    def do_draw_cb(self, widget, cr):
+        ''' The do_draw_cb is called when the widget is asked to draw itself
+            with the 'draw' as opposed to old function 'expose event' 
+            Remember that this will be called a lot of times, so it's usually
+            a good idea to write this code as optimized as it can be, don't
+            create any resources in here.
+            the 'cr' variable is the current Cairo context '''
+            
+        # Set background color to transparent
+        cr.set_source_rgba(1.0, 1.0, 1.0, 0.0)
+        cr.paint()
+        
+        # d6d6d6
+        cr.set_source_rgb(0.84, 0.84, 0.84)
+        cr.set_line_width(2)
+        
+        cr.rectangle(0, 0, 640, 640)
+        cr.stroke()
+                
+        # 585858
+        cr.set_source_rgb(0.22, 0.22, 0.22)
 
         rx = 3
 
@@ -127,28 +166,36 @@ class Keyboard(QWidget):
             rw = w - sx
             i = 0
             for k in keys:
-                rect = QRectF(x, y, kw, kw)
+                rect = (x, y, kw, kw)
 
                 if i == len(keys) - 1 and last_end:
-                    rect.setWidth(rw)
+                    rect[2] = rect[0] + rw
 
-                p.drawRoundedRect(rect, rx, rx)
+                self.rounded_rectangle(cr, rect[0], rect[1], rect[2], rect[3])
 
-                rect.adjust(5, 1, 0, 0)
+                px = rect[0] + 5
+                py = rect[1] + rect[3] - (rect[3] / 4)
 
-                p.setPen(QColor(0xff, 0xff, 0xff))
-                p.setFont(self.lowerFont)
-                p.drawText(rect, Qt.AlignLeft | Qt.AlignBottom, self.regular_text(k))
+                # lower
+                cr.set_source_rgb(1.0, 1.0, 1.0)
+                cr.select_font_face("Helvetica", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD);
+                cr.set_font_size(10)
+                cr.move_to(px, py)
+                cr.show_text(self.regular_text(k))
 
-                p.setPen(QColor(0x9e, 0xde, 0x00))
-                p.setFont(self.upperFont)
-                p.drawText(rect, Qt.AlignLeft | Qt.AlignTop, self.shift_text(k))
+                px = rect[0] + 5
+                py = rect[1] + (rect[3] / 3)
+                
+                # upper
+                cr.set_source_rgb(0.82, 0.82, 0.82)
+                cr.select_font_face("Helvetica", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL);
+                cr.set_font_size(8)
+                cr.move_to(px, py)
+                cr.show_text(self.shift_text(k))
 
                 rw = rw - space - kw
                 x = x + space + kw
                 i = i + 1
-
-                p.setPen(pen)
             return (x, rw)
 
         x = 6
@@ -170,8 +217,7 @@ class Keyboard(QWidget):
                 if self.kb == self.kb_105 and i == 3:
                     first_key_w = kw * 1.275
 
-                rect = QRectF(6, y, first_key_w, kw)
-                p.drawRoundedRect(rect, rx, rx)
+                self.rounded_rectangle(cr, 6, y, first_key_w, kw)
                 x = 6 + first_key_w + space
             else:
                 first_key_w = kw
@@ -182,14 +228,13 @@ class Keyboard(QWidget):
             remaining_widths[i] = rw
 
             if i != 1 and i != 2:
-                rect = QRectF(x, y, rw, kw)
-                p.drawRoundedRect(rect, rx, rx)
+                self.rounded_rectangle(cr, x, y, rw, kw)
 
             x = .5
             y = y + space + kw
-
+        
         if ext_return:
-            rx = rx * 2
+            #rx = rx * 2
             x1 = remaining_x[1]
             y1 = 6 + kw * 1 + space * 1
             w1 = remaining_widths[1]
@@ -199,29 +244,39 @@ class Keyboard(QWidget):
             # this is some serious crap... but it has to be so
             # maybe one day keyboards won't look like this...
             # one can only hope
-            pp = QPainterPath()
-            pp.moveTo(x1, y1 + rx)
-            pp.arcTo(x1, y1, rx, rx, 180, -90)
-            pp.lineTo(x1 + w1 - rx, y1)
-            pp.arcTo(x1 + w1 - rx, y1, rx, rx, 90, -90)
-            pp.lineTo(x1 + w1, y2 + kw - rx)
-            pp.arcTo(x1 + w1 - rx, y2 + kw - rx, rx, rx, 0, -90)
-            pp.lineTo(x2 + rx, y2 + kw)
-            pp.arcTo(x2, y2 + kw - rx, rx, rx, -90, -90)
-            pp.lineTo(x2, y1 + kw)
-            pp.lineTo(x1 + rx, y1 + kw)
-            pp.arcTo(x1, y1 + kw - rx, rx, rx, -90, -90)
-            pp.closeSubpath()
-
-            p.drawPath(pp)
+            #pp = QPainterPath()
+            degrees = math.pi / 180.0;
+            cr.new_sub_path()
+            
+            cr.move_to(x1, y1 + rx)
+            cr.arc(x1 + rx, y1 + rx, rx, 180 * degrees, -90 * degrees)
+            cr.line_to(x1 + w1 - rx, y1)
+            cr.arc(x1 + w1 - rx, y1 + rx, rx, -90 * degrees, 0)
+            cr.line_to(x1 + w1, y2 + kw - rx)
+            cr.arc(x1 + w1 - rx, y2 + kw - rx, rx, 0 * degrees, 90 * degrees)           
+            cr.line_to(x2 + rx, y2 + kw)
+            cr.arc(x2 + rx, y2 + kw - rx, rx, 90 * degrees, 180 * degrees)
+            cr.line_to(x2, y1 + kw)
+            cr.line_to(x1 + rx, y1 + kw)
+            cr.arc(x1 + rx, y1 + kw - rx, rx, 90 * degrees, 180 * degrees)
+            
+            cr.close_path()
+            cr.set_source_rgb(0.5, 0.5, 0.5)
+            cr.fill_preserve()
+            cr.set_source_rgba(0.2, 0.2, 0.2, 0.5)
+            cr.set_line_width(2)
+            cr.stroke()
         else:
             x = remaining_x[2]
             # Changed .5 to 6 because return key was out of line
             y = 6 + kw * 2 + space * 2
-            rect = QRectF(x, y, remaining_widths[2], kw)
-            p.drawRoundedRect(rect, rx, rx)
+            #rect = QRectF(x, y, remaining_widths[2], kw)
+            #p.drawRoundedRect(rect, rx, rx)
+            self.rounded_rectangle(cr, x, y, remaining_widths[2], kw)
 
-        QWidget.paintEvent(self, pe)
+
+        #QWidget.paintEvent(self, pe)
+        
 
     def regular_text(self, index):
         return self.codes[index - 1][0]
@@ -272,20 +327,22 @@ class Keyboard(QWidget):
             self.codes.append((plain, shift, ctrl, alt))
 
 ## testing
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
 
-    layout = sys.argv[1]
-    variant = sys.argv[2]
-    filename = sys.argv[3]
+def destroy(window):
+    Gtk.main_quit()
+
+if __name__ == "__main__":
+    window = Gtk.Window()
+    window.set_title ("Hello World")
+    box = Gtk.Box('Vertical',5)
 
     kb1 = Keyboard()
-    kb1.setLayout(layout)
-    kb1.setVariant(variant)
-
-    if pyqt5_available:
-        snapshot = QWidget.grab(kb1)
-    else:
-        snapshot = QPixmap.grabWidget(kb1)
-    #snapshot = snapshot.scaled(600, 200, Qt.IgnoreAspectRatio, Qt.FastTransformation)
-    snapshot.save(filename, "PNG")
+    
+    kb1.setLayout("jp")
+    kb1.setVariant("")
+        
+    window.add(kb1)
+                       
+    window.connect_after('destroy', destroy)
+    window.show_all()
+    Gtk.main()

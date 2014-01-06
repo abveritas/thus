@@ -21,10 +21,10 @@ Graphical Installer for Manjaro Linux
  * python-gobject 3
  * python-dbus
  * python-cairo
- * python-pyqt 4/5 (optional)
  * rsync
  * sudo
  * systemd
+ * keyboardctl
  * ttf-indic-otf
  * upower
  * util-linux
