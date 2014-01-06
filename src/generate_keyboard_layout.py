@@ -220,7 +220,7 @@ class Keyboard(Gtk.DrawingArea):
             font = "Lohit Telugu"
 
         # Font: Oriya
-        lst = [ "af", "ara", "am", "cn", "ge", "gr", "gn", "ir", "iq", "ie", "il", "jp", "la", "ma", "pk", "lk", "sy" ]
+        lst = [ "af", "ara", "am", "cn", "ge", "gr", "gn", "ir", "iq", "ie", "il", "la", "ma", "pk", "lk", "sy" ]
         for i in lst:
              if self.layout == i:
                  font = "Oriya"
