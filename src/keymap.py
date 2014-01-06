@@ -230,8 +230,7 @@ class Keymap(Gtk.Box):
 
     def on_keyboardvariant_cursor_changed(self, widget):
         self.store_values()
-        if self.pyqt_available:
-            self.set_keyboard_image()
+        self.set_keyboard_image()
 
     def store_values(self):
         # we've previously stored our layout, now store our variant
