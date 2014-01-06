@@ -55,9 +55,9 @@ class Keymap(Gtk.Box):
         self.variant_treeview = self.ui.get_object("keyboardvariant")
         self.keyboard_test_entry = self.ui.get_object("keyboard_test_entry")
 
-        self.box1 = self.ui.get_object("keyboard_image")
+        self.keyboard_box = self.ui.get_object("keyboard_box")
         self.keyboard_image = generate_keyboard_layout.Keyboard()
-        self.box1.add(self.keyboard_image)
+        self.keyboard_box.add(self.keyboard_image)
 
         self.create_toolviews()
 
