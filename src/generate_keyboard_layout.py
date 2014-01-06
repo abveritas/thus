@@ -290,11 +290,8 @@ class Keyboard(Gtk.DrawingArea):
         if self.layout == "sy": # broken variants: syc_phonetic, syc
             font = "Oriya"
         # Thailand
-        if self.layout == "th": # broken variants: pat, tis
-            font = "Oriya"
-        # Vietnam
-        if self.layout == "vn":
-            font = "Akaash"
+        if self.layout == "th":
+            font = "Tlwg Mono"
 
         print ("Layout:", self.layout, "Font:", font, "Variant:", self.variant)
 

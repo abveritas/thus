@@ -31,6 +31,7 @@ Graphical Installer for Manjaro Linux
  * ttf-lohit-fonts
  * ttf-myanmar3
  * ttf-thaana-fonts
+ * ttf-tlwg
  * upower
  * util-linux
  * webkitgtk 3
