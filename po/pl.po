@@ -13,14 +13,14 @@
 # Mateusz Mikołajczyk <mikolajczyk.mateusz@gmail.com>, 2013
 # manjarolinux <philm@manjaro.org>, 2013
 # Pieter19 <pieter1911@gmail.com>, 2013
-# Piotr Strębski <strebski@o2.pl>, 2013
+# Piotr Strębski <strebski@o2.pl>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-04 09:08+0100\n"
-"PO-Revision-Date: 2014-01-04 08:13+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2014-01-07 16:18+0000\n"
+"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/manjaro-thus/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -388,7 +388,7 @@ msgstr "%s wydaje się być zamontowanym (jest zajęty), ale nie ma żadnego pun
 msgid ""
 "The root partition is not marked to be formatted.\n"
 "This might create problems. Should it be marked to be formatted now?"
-msgstr ""
+msgstr "Partycja root nie została zaznaczona do sformatowania.\nMoże to stworzyć problemy. Czy zaznaczyć ją teraz do sformatowania?"
 
 #: src/installation_advanced.py:1547
 #, python-format
