@@ -28,7 +28,7 @@ import canonical.keyboard_names as keyboard_names
 import logging
 import canonical.misc as misc
 import subprocess
-import generate_keyboard_layout
+import keyboard_widget
 
 _next_page = "installation_ask"
 _prev_page = "timezone"
@@ -291,5 +291,6 @@ class Keymap(Gtk.Box):
             subprocess.check_call(['localectl', 'set-keymap', '--no-convert', self.keyboard_layout])
 
     def set_keyboard_image(self):
+        ''' Pass current keyboard layout to the keyboard widget. '''
         self.keyboard_image.setLayout(self.keyboard_layout)
         self.keyboard_image.setVariant(self.keyboard_variant)
