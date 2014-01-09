@@ -57,7 +57,7 @@ class Keymap(Gtk.Box):
 
         self.keyboard_box = self.ui.get_object("keyboard_box")
         self.keyboard_widget = keyboard_widget.KeyboardWidget()
-        self.keyboard_box.add(self.keyboard_image)
+        self.keyboard_box.add(self.keyboard_widget)
 
         self.create_toolviews()
 
@@ -233,7 +233,7 @@ class Keymap(Gtk.Box):
 
     def on_keyboardvariant_cursor_changed(self, widget):
         self.store_values()
-        self.set_keyboard_image()
+        self.set_keyboard_widget()
 
     def store_values(self):
         # we've previously stored our layout, now store our variant
@@ -290,7 +290,7 @@ class Keymap(Gtk.Box):
         with misc.raised_privileges():
             subprocess.check_call(['localectl', 'set-keymap', '--no-convert', self.keyboard_layout])
 
-    def set_keyboard_image(self):
+    def set_keyboard_widget(self):
         ''' Pass current keyboard layout to the keyboard widget. '''
         self.keyboard_widget.set_layout(self.keyboard_layout)
         self.keyboard_widget.set_variant(self.keyboard_variant)
