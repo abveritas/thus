@@ -292,5 +292,5 @@ class Keymap(Gtk.Box):
 
     def set_keyboard_image(self):
         ''' Pass current keyboard layout to the keyboard widget. '''
-        self.keyboard_image.setLayout(self.keyboard_layout)
-        self.keyboard_image.setVariant(self.keyboard_variant)
+        self.keyboard_widget.set_layout(self.keyboard_layout)
+        self.keyboard_widget.set_variant(self.keyboard_variant)
