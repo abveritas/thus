@@ -8,15 +8,15 @@
 # ほたゔぃあ(lindwurm), 2013
 # manjarolinux <philm@manjaro.org>, 2013
 # rago1975, 2013
-# rago1975, 2013
+# rago1975, 2013-2014
 # GNU/ひよこ大佐 <thel.vadam2485@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-04 09:08+0100\n"
-"PO-Revision-Date: 2014-01-04 08:13+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2014-01-08 21:41+0000\n"
+"Last-Translator: rago1975\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/manjaro-thus/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -384,7 +384,7 @@ msgstr "%s はマウントされたもの(busy)として表示されています
 msgid ""
 "The root partition is not marked to be formatted.\n"
 "This might create problems. Should it be marked to be formatted now?"
-msgstr ""
+msgstr "ルートパーティションがフォーマットのマークがつけられていません。\nこのことは問題を生じる可能性があります。今フォーマットのマークをつけますか?"
 
 #: src/installation_advanced.py:1547
 #, python-format

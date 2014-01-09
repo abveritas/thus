@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-04 09:08+0100\n"
-"PO-Revision-Date: 2014-01-06 19:45+0000\n"
+"PO-Revision-Date: 2014-01-07 22:36+0000\n"
 "Last-Translator: b0f00nmanjaro <boris.fonda@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/manjaro-thus/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -406,7 +406,7 @@ msgstr "Priklopna točka"
 
 #: src/installation_advanced.py:1575
 msgid "These disks will have partition actions:"
-msgstr ""
+msgstr "Ti diski bodo imeli razdelčne akcije:"
 
 #: src/installation_advanced.py:1628
 #, python-format
@@ -496,7 +496,7 @@ msgstr "Kodiraj to namestitev za večjo varnost."
 
 #: src/installation_ask.py:133
 msgid "You will be asked for the encryption key in the next step."
-msgstr ""
+msgstr "V naslednjem koraku boš vprašan za kodirni ključ."
 
 #: src/installation_ask.py:138
 msgid "Use LVM with this installation."
@@ -538,15 +538,15 @@ msgstr ""
 
 #: src/installation_ask.py:200
 msgid "Manjaro will be installed using LVM volumes"
-msgstr ""
+msgstr "Manjaro bo nameščen z  LVM volumni"
 
 #: src/installation_ask.py:202
 msgid "Manjaro will be installed using a separate /home volume."
-msgstr ""
+msgstr "Manjaro bo nameščen z ločenim /home volumnom."
 
 #: src/installation_ask.py:204
 msgid "Manjaro will be installed using a separate /home partition."
-msgstr ""
+msgstr "Manjaro bo nameščen z ločenim /home razdelkom."
 
 #: src/installation_automatic.py:79
 msgid "Automatic installation mode"
@@ -583,7 +583,7 @@ msgstr ""
 
 #: src/installation_automatic.py:163
 msgid "A LUKS password has been set"
-msgstr ""
+msgstr "LUKS geslo je bilo nastavljeno"
 
 #: src/installation_automatic.py:165
 #, python-format
@@ -613,7 +613,7 @@ msgstr "Nameščam  in uporabljam '%s' način"
 #: src/installation_process.py:244
 #, python-format
 msgid "Creating partitions and their filesystems in %s"
-msgstr ""
+msgstr "Ustvarjam razdelke in njihove datotečne sisteme v %s"
 
 #: src/installation_process.py:266
 msgid "Error creating partitions and their filesystems"
@@ -641,7 +641,7 @@ msgstr "Ne morem priklopiti %s in %s"
 #: src/installation_process.py:343
 #, python-format
 msgid "%s deleted"
-msgstr ""
+msgstr "%s izbrisano"
 
 #: src/installation_process.py:352
 msgid "Can't create necessary directories on destination system"
@@ -680,7 +680,7 @@ msgstr ""
 
 #: src/installation_process.py:440
 msgid "Installation finished successfully."
-msgstr ""
+msgstr "Namestitev se je končala uspešno."
 
 #: src/installation_process.py:467
 msgid "Base filesystem does not exist! Critical error (exiting)."
@@ -728,12 +728,12 @@ msgstr "Ne morem odklopiti %s"
 #: src/installation_process.py:604
 #, python-format
 msgid "Error running command: %s"
-msgstr ""
+msgstr "Napaka ko poženem ukaz: %s"
 
 #: src/installation_process.py:666 src/installation_process.py:720
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
-msgstr ""
+msgstr "V fstab je bilo dodano : UUID=%s %s %s %s 0 %s"
 
 #: src/installation_process.py:680
 #, python-format
@@ -788,7 +788,7 @@ msgstr "Napaka pri spreminjanju gesla za uporabnika %s"
 
 #: src/installation_process.py:916
 msgid "Setting hooks and modules in mkinitcpio.conf"
-msgstr ""
+msgstr "Natavljam hooks in module v mkinitcpio.conf"
 
 #: src/installation_process.py:981
 #, python-format
@@ -801,30 +801,30 @@ msgstr "Nastavljam tvoj novi sistem."
 
 #: src/installation_process.py:1079
 msgid "fstab file generated."
-msgstr ""
+msgstr "fstab datoteka generirana."
 
 #: src/installation_process.py:1085
 msgid "Network configuration copied."
-msgstr ""
+msgstr "Mrežne nastviteve skopiranje."
 
 #: src/installation_process.py:1111
 msgid "Timezone set."
-msgstr ""
+msgstr "Časovna cona nastavljena."
 
 #: src/installation_process.py:1132
 #, python-format
 msgid "Sudo configuration for user %s done."
-msgstr ""
+msgstr "Sudo nastavitev za uporabnika %s končana."
 
 #: src/installation_process.py:1142
 #, python-format
 msgid "User %s added."
-msgstr ""
+msgstr "Uporabnik %s added."
 
 #: src/installation_process.py:1154
 #, python-format
 msgid "Hostname  %s set."
-msgstr ""
+msgstr "Hostname %s nastavljeno."
 
 #: src/installation_process.py:1159
 msgid "Set root password."
@@ -832,7 +832,7 @@ msgstr ""
 
 #: src/installation_process.py:1162
 msgid "Set the same password to root."
-msgstr ""
+msgstr "Nastavi enako geslo za root."
 
 #: src/installation_process.py:1168
 msgid "Generating locales ..."
@@ -888,7 +888,7 @@ msgstr ""
 
 #: src/installation_process.py:1495
 msgid "User home dir encrypted"
-msgstr ""
+msgstr "Uporabnikova home mapa je zakodirana"
 
 #: src/keymap.py:72
 msgid "Select your keyboard layout"
@@ -926,7 +926,7 @@ msgid ""
 "advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bugs, please report them at <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr ""
+msgstr "Thus je beta program pred izidom in je pod stalnim razvojem.\nZaenkrat še ne zna upravljati z RAID, btrfs subvolumes ali drugimi naprednimi namestitvami.\nProsim nadaljuj, a pazljivo, ker lahko izgubiš podatke!\n\nČe najdeš hrošča, prosim, obišči <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 
 #: src/language.py:91
 msgid "Welcome to Manjaro!"
@@ -959,12 +959,12 @@ msgstr "Država, območje ali okoliš:"
 #: src/parted3/fs_module.py:147
 #, python-format
 msgid "Can't verify if %s is a Solid State Drive or not"
-msgstr ""
+msgstr "Ne morem preveriti, če %s je Solid State Drive ali ne"
 
 #: src/parted3/fs_module.py:172
 #, python-format
 msgid "Sorry but filesystem %s can't be shrinked"
-msgstr ""
+msgstr "Žal datotečni sisitme %s ne morem skrčiti"
 
 #: src/parted3/lvm.py:75
 #, python-format
@@ -1370,7 +1370,7 @@ msgstr "<span weight=\"light\" size=\"small\">To bo nastavilo LVM in ti omogoči
 msgid ""
 "<span weight=\"light\" size=\"small\">This will setup you /home directory in"
 " a different partition or volume.</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">To bo nastavilo tvojo /home mapo na drug razdelek ali volumen .</span>"
 
 #: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"
