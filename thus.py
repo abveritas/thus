@@ -51,10 +51,10 @@ import location
 import check
 import keymap
 import timezone
-import installation_ask
-import installation_automatic
-import installation_alongside
-import installation_advanced
+from installation import ask as installation_ask
+from installation import automatic as installation_automatic
+from installation import alongside as installation_alongside
+from installation import advanced as installation_advanced
 import user_info
 import slides
 import canonical.misc as misc
