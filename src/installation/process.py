@@ -385,7 +385,9 @@ class InstallationProcess(multiprocessing.Process):
                 all_ok = True
                 pass
             except Exception as err:
-                logging.debug('Unknown Error: %s. Unable to continue.' % err)
+                txt = ('Unknown Error: %s. Unable to continue.' % err)
+                logging.debug(txt)
+                self.queue_fatal_event(txt)
                 self.running = False
                 self.error = True
                 all_ok = False
@@ -946,7 +948,7 @@ class InstallationProcess(multiprocessing.Process):
             except:
                 logging.warning(_("Copying Grub(2) into OEM dir failed. Unknown Error."))
 
-        #TODO: Create themed shellx64_v2.efi
+        # TODO: Create themed shellx64_v2.efi
         '''# Copy uefi shell if none exists in /boot/EFI
         shell_src = "/usr/share/thus/grub2-theme/shellx64_v2.efi"
         shell_dst = os.path.join(self.dest_dir, "boot/EFI/shellx64_v2.efi")
