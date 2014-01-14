@@ -129,9 +129,9 @@ class InstallationAdvanced(Gtk.Box):
             combo.remove_all()
             for mp in sorted(fs.COMMON_MOUNT_POINTS):
                 combo.append_text(mp)
-            if self.uefi:
-                # Add "/boot/efi" mountpoint in the mountpoint combobox when in uefi mode
-                combo.append_text('/boot/efi')
+            #if self.uefi:
+            #    # Add "/boot/efi" mountpoint in the mountpoint combobox when in uefi mode
+            #    combo.append_text('/boot/efi')
 
         # We will store our devices here
         self.disks = None
@@ -1379,7 +1379,8 @@ class InstallationAdvanced(Gtk.Box):
                 if "fat" not in fs and "ntfs" not in fs:
                     #check_ok = True
                     exist_root = True
-            if mnt == "/boot/efi":
+            #if mnt == "/boot/efi":
+            if mnt == "/boot":
                 # Only fat partitions
                 if "fat" in fs:
                     exist_efi = True
@@ -1460,7 +1461,7 @@ class InstallationAdvanced(Gtk.Box):
                                 if "install" in mount_point:
                                     # If we're recovering from a failed/stopped install, there'll be
                                     # some mounted directories. Unmount them without asking.
-                                    subp = subprocess.Popen(['umount', partition_path], stdout=subprocess.PIPE)
+                                    subp = subprocess.Popen(['umount', '-l', partition_path], stdout=subprocess.PIPE)
                                     logging.debug("%s unmounted", mount_point)
                                 elif mounted:
                                     response = show.question(msg)
