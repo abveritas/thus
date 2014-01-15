@@ -370,6 +370,14 @@ class InstallationProcess(multiprocessing.Process):
             if self.settings.get('install_bootloader'):
                 self.queue_event('debug', _('Installing bootloader ...'))
                 self.install_bootloader()
+                # Warn user if Grub install hasn't completed successfully
+                # TODO: instruct how to fix.
+                if not self.bootloader_ok:
+                    msg = _("We apologize, but it seems Thus can't install the bootloader into your system.\n"
+                        "Please, before rebooting, do it by yourself.\n"
+                        "You can find more info in the GRUB archlinux's wiki page:\n"
+                        "\thttps://wiki.archlinux.org/index.php/GRUB.\n")
+                    self.queue_event('info', msg)
 
         except subprocess.CalledProcessError as err:
             logging.error(err)
@@ -414,10 +422,14 @@ class InstallationProcess(multiprocessing.Process):
                     try:
                         txt = _("Unmounting %s") % p
                         self.queue_event('debug', txt)
-                        subprocess.check_call(['umount', '-l', p])
+                        subprocess.check_call(['umount', p])
                     except subprocess.CalledProcessError as err:
-                        logging.warning(err)
-                        self.queue_event('debug', _("Can't unmount %s") % p)
+                        logging.error(err)
+                        try:
+                            subprocess.check_call(["umount", "-l", p])
+                        except subprocess.CalledProcessError as err:
+                            self.queue_event('warning', _("Can't unmount %s") % p)
+                            logging.warning(err)
             self.queue_event('debug', "Mounted devices: %s" % self.mount_devices)
             for path in self.mount_devices:
                 mount_part = self.mount_devices[path]
@@ -427,21 +439,29 @@ class InstallationProcess(multiprocessing.Process):
 
                         txt = _("Unmounting %s") % mount_dir
                         self.queue_event('debug', txt)
-                        subprocess.check_call(['umount', '-l', mount_dir])
+                        subprocess.check_call(['umount', mount_dir])
                     except subprocess.CalledProcessError as err:
-                        # We will continue as root and boot are already mounted
-                        logging.warning(err)
-                        self.queue_event('debug', _("Can't unmount %s") % mount_dir)
+                        logging.error(err)
+                        try:
+                            subprocess.check_call(["umount", "-l", mount_dir])
+                        except subprocess.CalledProcessError as err:
+                            # We will continue as root and boot are already mounted
+                            logging.warning(err)
+                            self.queue_event('debug', _("Can't unmount %s") % mount_dir)
             # now we can unmount /install
             (fsname, fstype, writable) = misc.mount_info(self.dest_dir)
             if fsname:
                 try:
                     txt = _("Unmounting %s") % self.dest_dir
                     self.queue_event('debug', txt)
-                    subprocess.check_call(['umount', '-l', self.dest_dir])
+                    subprocess.check_call(['umount', self.dest_dir])
                 except subprocess.CalledProcessError as err:
-                    logging.warning(err)
-                    self.queue_event('debug', _("Can't unmount %s") % p)
+                    logging.error(err)
+                    try:
+                        subprocess.check_call(["umount", "-l", self.dest_dir])
+                    except subprocess.CalledProcessError as err:
+                        logging.warning(err)
+                        self.queue_event('debug', _("Can't unmount %s") % p)
             # Installation finished successfully
             self.queue_event("finished", _("Installation finished successfully."))
             self.running = False
@@ -550,7 +570,7 @@ class InstallationProcess(multiprocessing.Process):
             self.queue_event('debug', _("Special dirs already mounted."))
             return
 
-        special_dirs = ["sys", "proc", "dev", "dev/pts", "sys/firmware/efi/efivars"]
+        special_dirs = ["sys", "proc", "dev", "dev/pts", "sys/firmware/efi"]
         for s_dir in special_dirs:
             mydir = os.path.join(self.dest_dir, s_dir)
             if not os.path.exists(mydir):
@@ -572,10 +592,10 @@ class InstallationProcess(multiprocessing.Process):
         subprocess.check_call(["mount", "-t", "devpts", "/dev/pts", mydir])
         subprocess.check_call(["chmod", "555", mydir])
 
-        efivars = "/sys/firmware/efi/efivars"
-        if os.path.exists(efivars):
-            mydir = os.path.join(self.dest_dir, efivars[1:])
-            subprocess.check_call(["mount", "-o", "bind", efivars, mydir])
+        efi = "/sys/firmware/efi"
+        if os.path.exists(efi):
+            mydir = os.path.join(self.dest_dir, efi[1:])
+            subprocess.check_call(["mount", "-o", "bind", efi, mydir])
 
         self.special_dirs_mounted = True
 
@@ -585,24 +605,27 @@ class InstallationProcess(multiprocessing.Process):
         if not self.special_dirs_mounted:
             self.queue_event('debug', _("Special dirs are not mounted. Skipping."))
             return
-
-        efivars = "/sys/firmware/efi/efivars"
-        if os.path.exists(efivars):
-            special_dirs = ["dev/pts", "sys/firmware/efi/efivars", "sys", "proc", "dev"]
+        efi = "/sys/firmware/efi/efivars"
+        if os.path.exists(efi):
+            special_dirs = ["dev/pts", "sys/firmware/efi", "sys", "proc", "dev"]
         else:
             special_dirs = ["dev/pts", "sys", "proc", "dev"]
 
         for s_dir in special_dirs:
             mydir = os.path.join(self.dest_dir, s_dir)
             try:
-                subprocess.check_call(["umount", "-l", mydir])
+                subprocess.check_call(["umount", mydir])
             except subprocess.CalledProcessError as err:
                 logging.error(err)
                 try:
                     subprocess.check_call(["umount", "-l", mydir])
-                except:
+                except subprocess.CalledProcessError as err:
                     self.queue_event('warning', _("Unable to umount %s") % mydir)
-            except:
+                    cmd = _("Command %s has failed.") % err.cmd
+                    logging.warning(cmd)
+                    out = _("Output : %s") % err.output 
+                    logging.warning(out)
+            except Exception as err:
                 self.queue_event('warning', _("Unable to umount %s") % mydir)
 
         self.special_dirs_mounted = False
@@ -851,7 +874,7 @@ class InstallationProcess(multiprocessing.Process):
         self.chroot_mount_special_dirs()
 
         self.chroot(['grub-install', '--directory=/usr/lib/grub/i386-pc',
-                     '--target=i386-pc', '--boot-directory=/boot',  '--recheck', grub_device])
+                     '--target=i386-pc', '--boot-directory=/boot', '--recheck', grub_device])
 
         self.install_bootloader_grub2_locales()
 
@@ -863,6 +886,7 @@ class InstallationProcess(multiprocessing.Process):
         core_path = os.path.join(self.dest_dir, "boot/grub/i386-pc/core.img")
         if os.path.exists(core_path):
             self.queue_event('info', _("GRUB(2) BIOS has been successfully installed."))
+            self.bootloader_ok = True
         else:
             self.queue_event('warning', _("ERROR installing GRUB(2) BIOS."))
 
@@ -872,17 +896,12 @@ class InstallationProcess(multiprocessing.Process):
         # TODO: If tests show it still not working 100%, try to manually add entry to loader (efibootmgr).
         uefi_arch = "x86_64"
         spec_uefi_arch = "x64"
-        spec_uefi_arch_2 = "X64"
+        spec_uefi_arch_caps = "X64"
 
         if arch == "UEFI_i386":
             uefi_arch = "i386"
             spec_uefi_arch = "ia32"
-            spec_uefi_arch_2 = "IA32"
-
-        grub_d_dir = os.path.join(self.dest_dir, "etc/grub.d")
-
-        if not os.path.exists(grub_d_dir):
-            os.makedirs(grub_d_dir)
+            spec_uefi_arch_caps = "IA32"
 
         grub_d_dir = os.path.join(self.dest_dir, "etc/grub.d")
 
@@ -909,44 +928,34 @@ class InstallationProcess(multiprocessing.Process):
                                    '--bootloader-id=manjaro_grub --boot-directory=/install/boot '
                                    '--recheck' % uefi_arch], shell=True, timeout=45)
         except subprocess.CalledProcessError as err:
-            logging.error('Command grub-install failed. Error output: %s' % err)
-        except subprocess.TimeoutExpired:
+            logging.error('Command grub-install failed. Error output: %s' % err.output)
+        except subprocess.TimeoutExpired as err:
             logging.error('Command grub-install timed out.')
-        except:
-            logging.error('Command grub-install failed. Unknown Error.')
- 
-        self.queue_event('info', _("Command grub-install completed. Installing grub2 locales."))
+        except Exception as err:
+            logging.error('Command grub-install failed. Unknown Error: %s' % err)
+
+        self.queue_event('info', _("Installing Grub2 locales."))
         self.install_bootloader_grub2_locales()
 
         # Copy grub into dirs known to be used as default by some OEMs if they are empty.
-        default_1 = os.path.join(self.dest_dir, "boot/EFI/BOOT/")
-        default_2 = os.path.join(self.dest_dir, "boot/EFI/Microsoft/Boot/")
-        grub_dir_src = os.path.join(self.dest_dir, "boot/EFI/manjaro_grub/")
+        defaults = [(os.path.join(self.dest_dir, "boot/EFI/BOOT/"), 'BOOT' + spec_uefi_arch_caps + '.efi'),
+                    (os.path.join(self.dest_dir, "boot/EFI/Microsoft/Boot/"), 'bootmgfw.efi')]
+        grub_dir_src = os.path.join(self.dest_dir, "boot/EFI/antergos_grub/")
         grub_efi_old = ('grub' + spec_uefi_arch + '.efi')
-        if not os.path.exists(default_1):
-            grub_efi_new = ('BOOT' + spec_uefi_arch_2 + '.efi')
-            self.queue_event('info', _("No OEM loader found in /EFI/BOOT. Copying Grub(2) into dir."))
-            os.makedirs(default_1)
-            try:
-                shutil.copy(grub_dir_src + grub_efi_old, default_1 + grub_efi_new)
-            except FileNotFoundError:
-                logging.warning(_("Copying Grub(2) into OEM dir failed. File Not Found."))
-            except FileExistsError:
-                logging.warning(_("Copying Grub(2) into OEM dir failed. File Exists."))
-            except:
-                logging.warning(_("Copying Grub(2) into OEM dir failed. Unknown Error."))
-        elif not os.path.exists(default_2):
-            grub_efi_new = 'bootmgfw.efi'
-            self.queue_event('info', _("No OEM loader found in /EFI/Microsoft/Boot. Copying Grub(2) into dir."))
-            os.makedirs(default_2)
-            try:
-                shutil.copy(grub_dir_src + grub_efi_old, default_2 + grub_efi_new)
-            except FileNotFoundError:
-                logging.warning(_("Copying Grub(2) into OEM dir failed. File Not Found."))
-            except FileExistsError:
-                logging.warning(_("Copying Grub(2) into OEM dir failed. File Exists."))
-            except:
-                logging.warning(_("Copying Grub(2) into OEM dir failed. Unknown Error."))
+        for default in defaults:
+            path, grub_efi_new = default
+            if not os.path.exists(path):
+                self.queue_event('info', _("No OEM loader found in %s. Copying Grub(2) into dir.") % path)
+                os.makedirs(path)
+                try:
+                    shutil.copy(grub_dir_src + grub_efi_old, path + grub_efi_new)
+                except FileNotFoundError:
+                    logging.warning(_("Copying Grub(2) into OEM dir failed. File Not Found."))
+                except FileExistsError:
+                    logging.warning(_("Copying Grub(2) into OEM dir failed. File Exists."))
+                except Exception as err:
+                    logging.warning(_("Copying Grub(2) into OEM dir failed. Unknown Error."))
+                    logging.warning(err)
 
         # TODO: Create themed shellx64_v2.efi
         '''# Copy uefi shell if none exists in /boot/EFI
@@ -958,20 +967,20 @@ class InstallationProcess(multiprocessing.Process):
             logging.warning(_("UEFI Shell drop-in not found at %s"), shell_src)
         except FileExistsError:
             logging.warning(_("UEFI Shell already exists at %s"), shell_dst)
-        except:
-            logging.warning(_("UEFI Shell drop-in could not be copied."))'''
+        except Exception as err:
+            logging.warning(_("UEFI Shell drop-in could not be copied."))
+            logging.warning(err)'''
 
         # Run grub-mkconfig last
         self.queue_event('info', _("Generating grub.cfg"))
-
+        self.chroot_mount_special_dirs()
 
         locale = self.settings.get("locale")
-        grub_cfg = "/boot/grub/grub.cfg"
- 
-        self.chroot_mount_special_dirs()
-        self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o %s' % (locale, grub_cfg)])
+        self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o /boot/grub/grub.cfg' % locale])
 
         self.chroot_umount_special_dirs()
+
+        self.bootloader_ok = True
 
     def install_bootloader_grub2_locales(self):
         """ Install Grub2 locales """

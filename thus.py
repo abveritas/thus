@@ -65,15 +65,13 @@ import show_message as show
 DESKTOPS = ["none"]
 
 # Command line options
-_alternate_package_list = ""
-_force_grub_type = False
-_log_level = logging.INFO
-_update = False
-_use_staging = False
-_verbose = False
-
-# Do not perform any changes (this is just for testing purposes)
-_testing = False
+cmd_line = {
+    "force_grub_type" : "False",
+    "log_level" : "logging.INFO",
+    "update" : "False",
+    "use_staging" : "False",
+    "testing" : "False",
+    "verbose" : "False" }
 
 # Useful vars for gettext (translations)
 APP_NAME = "thus"
@@ -165,7 +163,7 @@ class Main(Gtk.Window):
         self.settings.set("desktops", DESKTOPS)
 
         # Set if a grub type must be installed (user choice)
-        self.settings.set("force_grub_type", _force_grub_type)
+        self.settings.set("force_grub_type", cmd_line['force_grub_type'])
 
         self.ui = Gtk.Builder()
         self.ui.add_from_file(ui_dir + "thus.ui")
@@ -200,7 +198,7 @@ class Main(Gtk.Window):
         self.callback_queue = multiprocessing.JoinableQueue()
 
         # save in config if we have enabled staging features
-        self.settings.set("use_staging", _use_staging)
+        self.settings.set("use_staging", cmd_line['use_staging'])
 
         # Load all pages
         # (each one is a screen, a step in the install process)
@@ -215,11 +213,8 @@ class Main(Gtk.Window):
         params['callback_queue'] = self.callback_queue
         params['settings'] = self.settings
         params['main_progressbar'] = self.ui.get_object('progressbar1')
-        params['alternate_package_list'] = _alternate_package_list
-        params['testing'] = _testing
-
-        if len(_alternate_package_list) > 0:
-            logging.info(_("Using '%s' file as package list") % _alternate_package_list)
+        params['alternate_package_list'] = cmd_line['alternate_package_list']
+        params['testing'] = cmd_line['testing']
 
         self.pages["language"] = language.Language(params)
         self.pages["location"] = location.Location(params)
@@ -359,7 +354,7 @@ class Main(Gtk.Window):
 def setup_logging():
     """ Configure our logger """
     logger = logging.getLogger()
-    logger.setLevel(_log_level)
+    logger.setLevel(cmd_line['log_level'])
     # Log format
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     # Create file handler
@@ -368,7 +363,7 @@ def setup_logging():
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
-    if _verbose:
+    if cmd_line['verbose']:
         # Show log messages to stdout
         stream_handler = logging.StreamHandler()
         stream_handler.setLevel(_log_level)
@@ -417,13 +412,7 @@ def init_thus():
     """ This function initialises Thus """
 
     # Command line options
-    global _force_grub_type
-    global _force_update
-    global _log_level
-    global _update
-    global _use_staging
-    global _verbose
-    global _testing
+    global cmd_line
 
     if not check_gtk_version():
         sys.exit(1)
@@ -442,25 +431,25 @@ def init_thus():
 
     for option, argument in options:
         if option in ('-d', '--debug'):
-            _log_level = logging.DEBUG
+            cmd_line['log_level'] = logging.DEBUG
         elif option in ('-g', '--force-grub-type'):
             if argument in ('bios', 'efi', 'ask', 'none'):
-                _force_grub_type = argument
+                cmd_line['force_grub_type'] = argument
         elif option in ('-h', '--help'):
             show_help()
             sys.exit(0)
         elif option in ('-s', '--staging'):
-            _use_staging = True
+            cmd_line['use_staging'] = True
         elif option in ('-t', '--testing'):
-            _testing = True
+            cmd_line['testing'] = True
         elif option in ('-u', '--update'):
-            _update = True
+            cmd_line['update'] = True
         elif option in ('-v', '--verbose'):
-            _verbose = True
+            cmd_line['verbose'] = True
         else:
             assert False, "Unhandled option"
 
-    if _update:
+    if cmd_line['update']:
         setup_logging()
         # Check if program needs to be updated
         upd = updater.Updater(_force_update)
@@ -468,7 +457,7 @@ def init_thus():
             # Remove /tmp/.setup-running to be able to run another
             # instance of Thus
             remove_temp_files()
-            if not _force_update:
+            if not cmd_line['force_update']:
                 print("Program updated! Restarting...")
                 # Run another instance of Thus (which will be the new version)
                 os.execl(sys.executable, *([sys.executable] + sys.argv))
