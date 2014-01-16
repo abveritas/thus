@@ -66,12 +66,14 @@ DESKTOPS = ["none"]
 
 # Command line options
 cmd_line = {
-    "force_grub_type" : "False",
-    "log_level" : "logging.INFO",
-    "update" : "False",
-    "use_staging" : "False",
-    "testing" : "False",
-    "verbose" : "False" }
+    "alternate_package_list" : "",
+    "force_grub_type" : False,
+    "force_update" : False,
+    "log_level" : logging.INFO,
+    "update" : False,
+    "use_staging" : False,
+    "testing" : False,
+    "verbose" : False}
 
 # Useful vars for gettext (translations)
 APP_NAME = "thus"
@@ -359,14 +361,14 @@ def setup_logging():
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     # Create file handler
     file_handler = logging.FileHandler('/tmp/thus.log', mode='w')
-    file_handler.setLevel(_log_level)
+    file_handler.setLevel(cmd_line['log_level'])
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
     if cmd_line['verbose']:
         # Show log messages to stdout
         stream_handler = logging.StreamHandler()
-        stream_handler.setLevel(_log_level)
+        stream_handler.setLevel(cmd_line['log_level'])
         stream_handler.setFormatter(formatter)
         logger.addHandler(stream_handler)
 
@@ -452,7 +454,7 @@ def init_thus():
     if cmd_line['update']:
         setup_logging()
         # Check if program needs to be updated
-        upd = updater.Updater(_force_update)
+        upd = updater.Updater(cmd_line['force_update'])
         if upd.update():
             # Remove /tmp/.setup-running to be able to run another
             # instance of Thus
