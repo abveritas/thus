@@ -101,7 +101,7 @@ def get_devices():
                 disk_dic[dev.path] = diskob
             except Exception as e:
                 logging.error(e)
-                show.fatal_error(_("Exception: For more information take a look at /tmp/thus.log"))
+                show.error((_("Exception: For more information take a look at /tmp/thus.log"), e))
 
                 disk_dic[dev.path] = None
 
@@ -169,7 +169,8 @@ def delete_partition(diskob, part):
         txt = _("Can't delete partition %s") % part
         logging.error(txt)
         logging.error(e)
-        show.fatal_error(txt)
+        debugtxt = ("%s\n%s" % (txt, err)) 
+        show.error(debugtxt)
 
 def get_partition_size(diskob, part):
     dev = diskob.device
@@ -218,7 +219,8 @@ def create_partition(diskob, part_type, geom):
     if diskob.maxPartitionLength < maxgeom.length:
         txt = _('Partition is too large!')
         logging.error(txt)
-        show.fatal_error(txt)
+        debugtxt = ("%s\n%s" % (txt, err)) 
+        show.error(debugtxt)
         return None
     else:
         npartition = parted.Partition(disk=diskob, type=part_type, geometry=maxgeom)
@@ -278,7 +280,8 @@ def get_used_space_from_path(path):
         txt = _("Can't detect used space from %s") % path
         logging.error(txt)
         logging.error(err)
-        show.fatal_error(txt)
+        debugtxt = ("%s\n%s" % (txt, err)) 
+        show.error(debugtxt)
 
     return used_space
 
