@@ -787,7 +787,6 @@ class InstallationProcess(multiprocessing.Process):
 
         default_dir = os.path.join(self.dest_dir, "etc/default")
         default_grub = os.path.join(default_dir, "grub")
-        theme = ""
         swap_partition = self.mount_devices["swap"]
         swap_uuid = fs.get_info(swap_partition)['UUID']
         kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=' + swap_uuid + ' quiet"'
@@ -803,10 +802,8 @@ class InstallationProcess(multiprocessing.Process):
 
             # Let GRUB automatically add the kernel parameters for root encryption
             if self.settings.get("luks_key_pass") == "":
-                #default_line = 'GRUB_CMDLINE_LINUX="cryptdevice=%s:cryptManjaro cryptkey=%s:ext2:/.keyfile-root"' % (root_device, boot_device)
                 default_line = 'GRUB_CMDLINE_LINUX="cryptdevice=/dev/disk/by-uuid/%s:cryptManjaro cryptkey=/dev/disk/by-uuid/%s:ext2:/.keyfile-root"' % (root_uuid, boot_uuid)
             else:
-                #default_line = 'GRUB_CMDLINE_LINUX="cryptdevice=%s:cryptManjaro"' % root_device
                 default_line = 'GRUB_CMDLINE_LINUX="cryptdevice=/dev/disk/by-uuid/%s:cryptManjaro"' % root_uuid
 
             with open(default_grub, 'r') as grub_file:
@@ -830,9 +827,7 @@ class InstallationProcess(multiprocessing.Process):
                 lines = [x.strip() for x in grub_file.readlines()]
 
             for i in range(len(lines)):
-                if lines[i].startswith("#GRUB_THEME") or lines[i].startswith("GRUB_THEME"):
-                    lines[i] = theme
-                elif lines[i].startswith("#GRUB_CMDLINE_LINUX_DEFAULT"):
+                if lines[i].startswith("#GRUB_CMDLINE_LINUX_DEFAULT"):
                     lines[i] = kernel_cmd
                 elif lines[i].startswith("GRUB_CMDLINE_LINUX_DEFAULT"):
                     lines[i] = kernel_cmd
