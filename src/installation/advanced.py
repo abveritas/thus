@@ -25,6 +25,7 @@
 #  MA 02110-1301, USA.
 
 """ Installation advanced module. Custom partition screen """
+import os.path
 
 from gi.repository import Gtk, Gdk
 import subprocess
@@ -129,9 +130,9 @@ class InstallationAdvanced(Gtk.Box):
             combo.remove_all()
             for mp in sorted(fs.COMMON_MOUNT_POINTS):
                 combo.append_text(mp)
-            #if self.uefi:
-            #    # Add "/boot/efi" mountpoint in the mountpoint combobox when in uefi mode
-            #    combo.append_text('/boot/efi')
+            if self.uefi:
+                # Add "/boot/efi" mountpoint in the mountpoint combobox when in uefi mode
+                combo.append_text('/boot/efi')
 
         # We will store our devices here
         self.disks = None
@@ -1379,8 +1380,7 @@ class InstallationAdvanced(Gtk.Box):
                 if "fat" not in fs and "ntfs" not in fs:
                     #check_ok = True
                     exist_root = True
-            #if mnt == "/boot/efi":
-            if mnt == "/boot":
+            if mnt == "/boot/efi":
                 # Only fat partitions
                 if "fat" in fs:
                     exist_efi = True
@@ -1732,10 +1732,11 @@ class InstallationAdvanced(Gtk.Box):
         if checkbox.get_active() is False:
             self.settings.set('install_bootloader', False)
         else:
-            # Ask bootloader type
-            import bootloader
-            bl = bootloader.BootLoader(self.settings)
-            bl.ask()
+            self.settings.set('install_bootloader', True)
+            if os.path.exists("/sys/firmware/efi/systab"):
+                self.settings.set('bootloader_type', "UEFI_x86_64")
+            else:
+                self.settings.set('bootloader_type', "GRUB2")
 
         if self.settings.get('install_bootloader'):
             self.settings.set('bootloader_device', self.grub_device)

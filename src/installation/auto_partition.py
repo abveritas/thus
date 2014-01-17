@@ -170,7 +170,7 @@ class AutoPartition(object):
             if fs_type not in mkfs.keys():
                 txt = _("Unkown filesystem type %s"), fs_type
                 logging.error(txt)
-                show.fatal_error(txt)
+                show.error(txt)
                 return
 
             command = mkfs[fs_type]
@@ -182,7 +182,7 @@ class AutoPartition(object):
                 logging.error(txt)
                 logging.error(err.cmd)
                 logging.error(err.output)
-                show.fatal_error(txt)
+                show.error(txt)
                 return
 
             # Flush file system buffers
@@ -358,7 +358,7 @@ class AutoPartition(object):
         if self.uefi:
             gpt_bios_grub_part_size = 2
             uefisys_part_size = 512
-            empty_space_size = 1
+            empty_space_size = 2
         else:
             gpt_bios_grub_part_size = 0
             uefisys_part_size = 0

@@ -27,7 +27,6 @@
 """ Installation thread module. Where the real installation happens """
 
 import crypt
-import info
 import logging
 import multiprocessing
 import os
@@ -36,9 +35,6 @@ import shutil
 import subprocess
 import sys
 import time
-import urllib.request
-import urllib.error
-import xml.etree.ElementTree as etree
 
 import encfs
 from installation import auto_partition
@@ -46,8 +42,6 @@ import parted3.fs_module as fs
 import canonical.misc as misc
 
 from configobj import ConfigObj
-import stat
-import math
 
 conf_file = '/etc/thus.conf'
 configuration = ConfigObj(conf_file)
@@ -745,6 +739,7 @@ class InstallationProcess(multiprocessing.Process):
                     self.settings.set('btrfs', True)
                 else:
                     chk = '1'
+                    self.settings.set('btrfs', False)
                 opts = "rw,relatime,data=ordered"
             else:
                 full_path = os.path.join(self.dest_dir, path)
@@ -792,6 +787,7 @@ class InstallationProcess(multiprocessing.Process):
 
         default_dir = os.path.join(self.dest_dir, "etc/default")
         default_grub = os.path.join(default_dir, "grub")
+        theme = ""
         swap_partition = self.mount_devices["swap"]
         swap_uuid = fs.get_info(swap_partition)['UUID']
         kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=' + swap_uuid + ' quiet"'
@@ -919,14 +915,11 @@ class InstallationProcess(multiprocessing.Process):
         # grub2-efi installation isn't done in a chroot because when efibootmgr
         # runs it doesn't detect a uefi environment and fails to add a new uefi
         # boot entry.
-        #subprocess.check_call(['grub-install --target=%s-efi --efi-directory=/install/boot/efi --bootloader-id=manjaro_grub '
-        #    '--boot-directory=/install/boot --recheck' % uefi_arch], shell=True)
-
         self.queue_event('info', _("Installing GRUB(2) UEFI %s boot loader") % uefi_arch)
         try:
-            subprocess.check_call(['grub-install --target=%s-efi --efi-directory=/install/boot '
+            subprocess.check_call(['grub-install --target=%s-efi --efi-directory=/install/boot/efi '
                                    '--bootloader-id=manjaro_grub --boot-directory=/install/boot '
-                                   '--recheck' % uefi_arch], shell=True, timeout=45)
+                                   '--recheck --debug' % uefi_arch], shell=True, timeout=45)
         except subprocess.CalledProcessError as err:
             logging.error('Command grub-install failed. Error output: %s' % err.output)
         except subprocess.TimeoutExpired as err:
@@ -938,9 +931,9 @@ class InstallationProcess(multiprocessing.Process):
         self.install_bootloader_grub2_locales()
 
         # Copy grub into dirs known to be used as default by some OEMs if they are empty.
-        defaults = [(os.path.join(self.dest_dir, "boot/EFI/BOOT/"), 'BOOT' + spec_uefi_arch_caps + '.efi'),
-                    (os.path.join(self.dest_dir, "boot/EFI/Microsoft/Boot/"), 'bootmgfw.efi')]
-        grub_dir_src = os.path.join(self.dest_dir, "boot/EFI/antergos_grub/")
+        defaults = [(os.path.join(self.dest_dir, "boot/efi/EFI/BOOT/"), 'BOOT' + spec_uefi_arch_caps + '.efi'),
+                    (os.path.join(self.dest_dir, "boot/efi/EFI/Microsoft/Boot/"), 'bootmgfw.efi')]
+        grub_dir_src = os.path.join(self.dest_dir, "boot/efi/EFI/manjaro_grub/")
         grub_efi_old = ('grub' + spec_uefi_arch + '.efi')
         for default in defaults:
             path, grub_efi_new = default

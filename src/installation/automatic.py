@@ -24,12 +24,9 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 
-import xml.etree.ElementTree as etree
 
 from gi.repository import Gtk
-import subprocess
 import os
-import sys
 import canonical.misc as misc
 import logging
 from installation import process as installation_process
@@ -203,10 +200,11 @@ class InstallationAutomatic(Gtk.Box):
         #self.install_progress.set_sensitive(True)
         logging.info(_("Thus will use %s as installation device") % self.auto_device)
 
-        # Ask (if guessing doesn't work) bootloader type
-        import bootloader
-        bl = bootloader.BootLoader(self.settings)
-        bl.ask()
+        self.settings.set('install_bootloader', True)
+        if os.path.exists("/sys/firmware/efi"):
+            self.settings.set('bootloader_type', "UEFI_x86_64")
+        else:
+            self.settings.set('bootloader_type', "GRUB2")
 
         if self.settings.get('install_bootloader'):
             self.settings.set('bootloader_device', self.auto_device)
