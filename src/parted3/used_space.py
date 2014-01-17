@@ -39,7 +39,7 @@ def get_used_ntfs(part):
         txt = _("Can't detect used space of NTFS partition %s") % part
         logging.error(txt)
         logging.error(err)
-        debugtxt = ("%s\n%s" % (txt, err)) 
+        debugtxt = ("%s\n%s" % (txt, err))
         show.error(debugtxt)
 
     if result:
@@ -67,7 +67,7 @@ def get_used_ext(part):
         txt = _("Can't detect used space of EXTFS partition %s") % part
         logging.error(txt)
         logging.error(err)
-        debugtxt = ("%s\n%s" % (txt, err)) 
+        debugtxt = ("%s\n%s" % (txt, err))
         show.error(debugtxt)
 
     if result:
@@ -95,7 +95,7 @@ def get_used_fat(part):
         txt = _("Can't detect used space of FATFS partition %s") % part
         logging.error(txt)
         logging.error(err)
-        debugtxt = ("%s\n%s" % (txt, err)) 
+        debugtxt = ("%s\n%s" % (txt, err))
         show.error(debugtxt)
 
     if result:
@@ -127,7 +127,7 @@ def get_used_jfs(part):
         txt = _("Can't detect used space of JFS partition %s") % part
         logging.error(txt)
         logging.error(err)
-        debugtxt = ("%s\n%s" % (txt, err)) 
+        debugtxt = ("%s\n%s" % (txt, err))
         show.error(debugtxt)
 
     if result:
@@ -153,7 +153,7 @@ def get_used_reiser(part):
         txt = _("Can't detect used space of REISERFS partition %s") % part
         logging.error(txt)
         logging.error(err)
-        debugtxt = ("%s\n%s" % (txt, err)) 
+        debugtxt = ("%s\n%s" % (txt, err))
         show.error(debugtxt)
 
     if result:
@@ -182,7 +182,7 @@ def get_used_btrfs(part):
         txt = _("Can't detect used space of BTRFS partition %s") % part
         logging.error(txt)
         logging.error(err)
-        debugtxt = ("%s\n%s" % (txt, err)) 
+        debugtxt = ("%s\n%s" % (txt, err))
         show.error(debugtxt)
 
     if result:
@@ -221,7 +221,7 @@ def get_used_xfs(part):
         txt = _("Can't detect used space of XFS partition %s") % part
         logging.error(txt)
         logging.error(err)
-        debugtxt = ("%s\n%s" % (txt, err)) 
+        debugtxt = ("%s\n%s" % (txt, err))
         show.error(debugtxt)
 
     if result:

@@ -75,7 +75,7 @@ def remove_logical_volume(logical_volume):
         txt = _("Can't remove logical volume %s") % logical_volume
         logging.error(txt)
         logging.error(err)
-        debugtxt = ("%s\n%s" % (txt, err)) 
+        debugtxt = ("%s\n%s" % (txt, err))
         show.error(debugtxt)
 
 @misc.raise_privileges
@@ -93,7 +93,7 @@ def remove_volume_group(volume_group):
         txt = _("Can't remove volume group %s") % volume_group
         logging.error(txt)
         logging.error(err)
-        debugtxt = ("%s\n%s" % (txt, err)) 
+        debugtxt = ("%s\n%s" % (txt, err))
         show.error(debugtxt)
 
 @misc.raise_privileges
@@ -105,5 +105,5 @@ def remove_physical_volume(physical_volume):
         txt = _("Can't remove physical volume %s") % physical_volume
         logging.error(txt)
         logging.error(err)
-        debugtxt = ("%s\n%s" % (txt, err)) 
+        debugtxt = ("%s\n%s" % (txt, err))
         show.error(debugtxt)

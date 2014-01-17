@@ -256,8 +256,13 @@ class InstallationProcess(multiprocessing.Process):
                 self.mount_devices = auto.get_mount_devices()
                 self.fs_devices = auto.get_fs_devices()
             except subprocess.CalledProcessError as err:
-                logging.error(err.output)
-                self.queue_event('error', _("Error creating partitions and their filesystems"))
+                txt = _("Error creating partitions and their filesystems")
+                logging.error(txt)
+                cmd = _("Command %s has failed.") % err.cmd
+                logging.error(cmd)
+                out = _("Output : %s") % err.output
+                logging.error(out)
+                self.queue_fatal_event(txt)
                 return
 
         if self.method == 'alongside':
@@ -323,8 +328,12 @@ class InstallationProcess(multiprocessing.Process):
                         subprocess.check_call(['mount', mount_part, mount_dir])
                     except subprocess.CalledProcessError as err:
                         # We will continue as root and boot are already mounted
-                        logging.warning(err)
-                        self.queue_event('debug', _("Can't mount %s in %s") % (mount_part, mount_dir))
+                        txt = _("Can't mount %s in %s") % (mount_part, mount_dir)
+                        self.queue_event('warning', txt)
+                        cmd = _("Command %s has failed.") % err.cmd
+                        logging.warning(cmd)
+                        out = _("Output : %s") % err.output
+                        logging.warning(out)
 
         # Nasty workaround:
         # If pacman was stoped and /var is in another partition than root
@@ -342,8 +351,13 @@ class InstallationProcess(multiprocessing.Process):
             subprocess.check_call(['mkdir', '-p', '%s/etc/pacman.d/gnupg/' % self.dest_dir])
             subprocess.check_call(['mkdir', '-p', '%s/var/log/' % self.dest_dir])
         except subprocess.CalledProcessError as err:
-            logging.error(err)
-            self.queue_fatal_event(_("Can't create necessary directories on destination system"))
+            txt = _("Can't create necessary directories on destination system")
+            logging.error(txt)
+            cmd = _("Command %s has failed") % err.cmd
+            logging.error(cmd)
+            out = _("Output : %s") % err.output
+            logging.error(out)
+            self.queue_fatal_event(txt)
             return False
 
         all_ok = True
@@ -571,7 +585,6 @@ class InstallationProcess(multiprocessing.Process):
                 os.makedirs(mydir)
 
         mydir = os.path.join(self.dest_dir, "sys")
-
         subprocess.check_call(["mount", "-t", "sysfs", "/sys", mydir])
         subprocess.check_call(["chmod", "555", mydir])
 
@@ -599,7 +612,7 @@ class InstallationProcess(multiprocessing.Process):
         if not self.special_dirs_mounted:
             self.queue_event('debug', _("Special dirs are not mounted. Skipping."))
             return
-        efi = "/sys/firmware/efi/efivars"
+        efi = "/sys/firmware/efi"
         if os.path.exists(efi):
             special_dirs = ["dev/pts", "sys/firmware/efi", "sys", "proc", "dev"]
         else:
@@ -617,10 +630,11 @@ class InstallationProcess(multiprocessing.Process):
                     self.queue_event('warning', _("Unable to umount %s") % mydir)
                     cmd = _("Command %s has failed.") % err.cmd
                     logging.warning(cmd)
-                    out = _("Output : %s") % err.output 
+                    out = _("Output : %s") % err.output
                     logging.warning(out)
             except Exception as err:
                 self.queue_event('warning', _("Unable to umount %s") % mydir)
+                logging.error(err)
 
         self.special_dirs_mounted = False
 
@@ -772,10 +786,10 @@ class InstallationProcess(multiprocessing.Process):
 
     def install_bootloader(self):
         """ Installs bootloader """
+
         self.modify_grub_default()
 
         bootloader = self.settings.get('bootloader_type')
-
         if bootloader == "GRUB2":
             self.install_bootloader_grub2_bios()
         else:
@@ -1054,7 +1068,6 @@ class InstallationProcess(multiprocessing.Process):
 
         if self.blvm or self.settings.get("use_lvm"):
             hooks.append("lvm2")
-
         if self.settings.get('btrfs'):
             hooks.extend(["filesystems", "keyboard"])
         else:
