@@ -404,8 +404,8 @@ def parse_options():
 
     import argparse
     parser = argparse.ArgumentParser(description="Thus v%s - Manjaro Installer" % info.THUS_VERSION)
-    parser.add_argument("-d", "--debug", help=_("Sets Cnchi log level to 'debug'"), action="store_true")
-    parser.add_argument("-u", "--update", help=_("Update Cnchi to the latest version (-uu will force the update)"), action="count")
+    parser.add_argument("-d", "--debug", help=_("Sets Thus log level to 'debug'"), action="store_true")
+    parser.add_argument("-u", "--update", help=_("Update Thus to the latest version (-uu will force the update)"), action="count")
     parser.add_argument("-t", "--testing", help=_("Do not perform any changes (useful for developers)"), action="store_true")
     parser.add_argument("-v", "--verbose", help=_("Show logging messages to stdout"), action="store_true")
     parser.add_argument("-z", "--z_hidden", help=_("Show options in development (DO NOT USE THIS!)"), action="store_true")
