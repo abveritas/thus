@@ -408,6 +408,7 @@ def parse_options():
     parser.add_argument("-u", "--update", help=_("Update Cnchi to the latest version (-uu will force the update)"), action="count")
     parser.add_argument("-t", "--testing", help=_("Do not perform any changes (useful for developers)"), action="store_true")
     parser.add_argument("-v", "--verbose", help=_("Show logging messages to stdout"), action="store_true")
+    parser.add_argument("-z", "--z_hidden", help=_("Show options in development (DO NOT USE THIS!)"), action="store_true")
 
     return parser.parse_args()
 
