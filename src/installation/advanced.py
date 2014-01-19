@@ -1096,6 +1096,10 @@ class InstallationAdvanced(Gtk.Box):
         label = self.ui.get_object('grub_device_label')
         label.set_markup(txt)
 
+        txt = _("Use partition where /boot is mounted (not recommended)")
+        label = self.ui.get_object('grub_install_label')
+        label.set_markup(txt)
+
         #txt = _("TODO: Here goes a warning message")
         #txt = "<span weight='bold'>%s</span>" % txt
         #label = self.ui.get_object('part_advanced_warning_message')
