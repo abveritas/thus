@@ -161,10 +161,10 @@ class Updater():
         return True
 
     def replace_old_with_new_versions(self):
-        logging.info("Replacing version %s with version %s..." % (info.thus_VERSION, self.web_version))
+        logging.info("Replacing version %s with version %s..." % (info.THUS_VERSION, self.web_version))
         for f in self.web_files:
             name = f['name']
-            old_name = os.path.join(_base_dir, name + "." + info.thus_VERSION.replace(".", "_"))
+            old_name = os.path.join(_base_dir, name + "." + info.THUS_VERSION.replace(".", "_"))
             new_name = os.path.join(_base_dir, name + "." + self.web_version.replace(".", "_"))
             cur_name = os.path.join(_base_dir, name)
 
