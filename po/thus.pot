@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-19 10:20+0100\n"
+"POT-Creation-Date: 2014-01-19 11:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Label"
 msgstr ""
 
-#: src/installation/advanced.py:298 src/installation/advanced.py:1570
+#: src/installation/advanced.py:298 src/installation/advanced.py:1571
 msgid "Format"
 msgstr ""
 
@@ -251,8 +251,8 @@ msgid "none"
 msgstr ""
 
 #: src/installation/advanced.py:538 src/installation/advanced.py:950
-#: src/installation/advanced.py:1431 src/installation/advanced.py:1523
-#: src/installation/advanced.py:1665 src/installation/advanced.py:1761
+#: src/installation/advanced.py:1432 src/installation/advanced.py:1524
+#: src/installation/advanced.py:1666 src/installation/advanced.py:1762
 msgid "extended"
 msgstr ""
 
@@ -356,12 +356,12 @@ msgstr ""
 msgid "Install now!"
 msgstr ""
 
-#: src/installation/advanced.py:1279
+#: src/installation/advanced.py:1280
 #, python-format
 msgid "Creating a new partition table of type %s for disk %s"
 msgstr ""
 
-#: src/installation/advanced.py:1289
+#: src/installation/advanced.py:1290
 msgid ""
 "GRUB requires a BIOS Boot Partition (2 MiB, no filesystem, \"EF02\" type "
 "code in gdisk or \"bios_grub\" flag in GNU Parted) in BIOS systems to embed "
@@ -370,15 +370,15 @@ msgid ""
 "Thus will create this special partition for you now."
 msgstr ""
 
-#: src/installation/advanced.py:1321
+#: src/installation/advanced.py:1322
 msgid "Can't create BIOS GPT Boot partition!"
 msgstr ""
 
-#: src/installation/advanced.py:1348
+#: src/installation/advanced.py:1349
 msgid "Couldn't create BIOS GPT Boot partition"
 msgstr ""
 
-#: src/installation/advanced.py:1469
+#: src/installation/advanced.py:1470
 #, python-format
 msgid ""
 "%s is mounted as swap.\n"
@@ -386,7 +386,7 @@ msgid ""
 "Click Yes to unmount, or No to return\n"
 msgstr ""
 
-#: src/installation/advanced.py:1473
+#: src/installation/advanced.py:1474
 #, python-format
 msgid ""
 "%s is mounted in '%s'.\n"
@@ -394,72 +394,72 @@ msgid ""
 "Click Yes to unmount, or No to return\n"
 msgstr ""
 
-#: src/installation/advanced.py:1496
+#: src/installation/advanced.py:1497
 #, python-format
 msgid "%s shows as mounted (busy) but it has no mount point"
 msgstr ""
 
-#: src/installation/advanced.py:1502
+#: src/installation/advanced.py:1503
 msgid ""
 "The root partition is not marked to be formatted.\n"
 "This might create problems. Should it be marked to be formatted now?"
 msgstr ""
 
-#: src/installation/advanced.py:1563
+#: src/installation/advanced.py:1564
 #, python-format
 msgid "Partition %s will be deleted"
 msgstr ""
 
-#: src/installation/advanced.py:1570
+#: src/installation/advanced.py:1571
 msgid "Partition"
 msgstr ""
 
-#: src/installation/advanced.py:1570
+#: src/installation/advanced.py:1571
 msgid "New"
 msgstr ""
 
-#: src/installation/advanced.py:1570
+#: src/installation/advanced.py:1571
 msgid "Relabel"
 msgstr ""
 
-#: src/installation/advanced.py:1570
+#: src/installation/advanced.py:1571
 msgid "Mount"
 msgstr ""
 
-#: src/installation/advanced.py:1591
+#: src/installation/advanced.py:1592
 msgid "These disks will have partition actions:"
 msgstr ""
 
-#: src/installation/advanced.py:1644
+#: src/installation/advanced.py:1645
 #, python-format
 msgid "Saving changes done in %s"
 msgstr ""
 
-#: src/installation/advanced.py:1668
+#: src/installation/advanced.py:1669
 #, python-format
 msgid "Creating %s filesystem in %s labeled %s"
 msgstr ""
 
-#: src/installation/advanced.py:1713
+#: src/installation/advanced.py:1714
 #, python-format
 msgid "Setting boot flag in %s partition"
 msgstr ""
 
-#: src/installation/advanced.py:1731
+#: src/installation/advanced.py:1732
 #, python-format
 msgid "Couldn't format partition '%s' with label '%s' as '%s'"
 msgstr ""
 
-#: src/installation/advanced.py:1784
+#: src/installation/advanced.py:1785
 #, python-format
 msgid "Manjaro will install the bootloader of type %s in %s"
 msgstr ""
 
-#: src/installation/advanced.py:1789 src/installation/automatic.py:216
+#: src/installation/advanced.py:1790 src/installation/automatic.py:216
 msgid "Thus will not install any boot loader"
 msgstr ""
 
-#: src/installation/advanced.py:1805 src/installation/automatic.py:237
+#: src/installation/advanced.py:1806 src/installation/automatic.py:237
 msgid "Testing mode. Thus won't apply any changes to your system!"
 msgstr ""
 
@@ -716,12 +716,12 @@ msgid "System configured."
 msgstr ""
 
 #: src/installation/process.py:379
-msgid "Installing bootloader ..."
+msgid "Installing boot loader ..."
 msgstr ""
 
 #: src/installation/process.py:384
 msgid ""
-"We apologize, but it seems Thus can't install the bootloader into your "
+"We apologize, but it seems Thus can't install the boot loader into your "
 "system.\n"
 "Please, before rebooting, do it by yourself.\n"
 "You can find more info in the GRUB archlinux's wiki page:\n"

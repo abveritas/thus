@@ -376,12 +376,12 @@ class InstallationProcess(multiprocessing.Process):
 
             # Install boot loader (always after running mkinitcpio)
             if self.settings.get('install_bootloader'):
-                self.queue_event('debug', _('Installing bootloader ...'))
+                self.queue_event('debug', _('Installing boot loader ...'))
                 self.install_bootloader()
                 # Warn user if Grub install hasn't completed successfully
                 # TODO: instruct how to fix.
                 if not self.bootloader_ok:
-                    msg = _("We apologize, but it seems Thus can't install the bootloader into your system.\n"
+                    msg = _("We apologize, but it seems Thus can't install the boot loader into your system.\n"
                         "Please, before rebooting, do it by yourself.\n"
                         "You can find more info in the GRUB archlinux's wiki page:\n"
                         "\thttps://wiki.archlinux.org/index.php/GRUB\n")
@@ -783,7 +783,7 @@ class InstallationProcess(multiprocessing.Process):
             fstab_file.write(full_text)
 
     def install_bootloader(self):
-        """ Installs bootloader """
+        """ Installs boot loader """
 
         self.modify_grub_default()
 
@@ -860,7 +860,7 @@ class InstallationProcess(multiprocessing.Process):
         logging.debug('/etc/default/grub configuration completed successfully.')
 
     def install_bootloader_grub2_bios(self):
-        """ Install bootloader in a BIOS system """
+        """ Install boot loader in a BIOS system """
         grub_location = self.settings.get('bootloader_location')
 
         self.queue_event('info', _("Installing GRUB(2) BIOS boot loader in %s") % grub_location)
@@ -898,7 +898,7 @@ class InstallationProcess(multiprocessing.Process):
             self.queue_event('warning', _("ERROR installing GRUB(2) BIOS."))
 
     def install_bootloader_grub2_efi(self, arch):
-        """ Install bootloader in a UEFI system """
+        """ Install boot loader in a UEFI system """
         # TODO: Clean this up a bit. It is working in vbox but needs testing on other hardware.
         # TODO: If tests show it still not working 100%, try to manually add entry to loader (efibootmgr).
         uefi_arch = "x86_64"
