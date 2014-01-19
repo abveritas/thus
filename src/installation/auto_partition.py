@@ -369,14 +369,14 @@ class AutoPartition(object):
         device = self.auto_device
         device_name = check_output("basename %s" % device)
         base_path = "/sys/block/%s" % device_name
-        disc_size = 0
+        disk_size = 0
         if os.path.exists("%s/size" % base_path):
             with open("%s/queue/logical_block_size" % base_path, 'r') as f:
                 logical_block_size = int(f.read())
             with open("%s/size" % base_path, 'r') as f:
                 size = int(f.read())
 
-            disc_size = ((logical_block_size * size) / 1024) / 1024
+            disk_size = ((logical_block_size * size) / 1024) / 1024
         else:
             txt = _("Setup cannot detect size of your device, please use advanced "
                 "installation routine for partitioning and mounting devices.")
@@ -403,7 +403,7 @@ class AutoPartition(object):
         if swap_part_size > max_swap:
             swap_part_size = max_swap
 
-        root_part_size = disc_size - (empty_space_size + gpt_bios_grub_part_size + efisys_part_size + boot_part_size + swap_part_size)
+        root_part_size = disk_size - (empty_space_size + gpt_bios_grub_part_size + efisys_part_size + boot_part_size + swap_part_size)
 
         home_part_size = 0
         if self.home:
@@ -418,7 +418,7 @@ class AutoPartition(object):
 
         lvm_pv_part_size = swap_part_size + root_part_size + home_part_size
 
-        logging.debug("disc_size %dMB", disc_size)
+        logging.debug("disk_size %dMB", disk_size)
         logging.debug("gpt_bios_grub_part_size %dMB", gpt_bios_grub_part_size)
         logging.debug("efisys_part_size %dMB", efisys_part_size)
         logging.debug("boot_part_size %dMB", boot_part_size)
