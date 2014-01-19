@@ -78,9 +78,7 @@ class InstallationAdvanced(Gtk.Box):
         # hold deleted partitions that exist now
         self.to_be_deleted = []
 
-        self.uefi = False
-        if os.path.exists("/sys/firmware/efi/systab"):
-            self.uefi = True
+        self.uefi = self.settings.get('efi')
 
         # Call base class
         super().__init__()
@@ -1739,7 +1737,7 @@ class InstallationAdvanced(Gtk.Box):
             self.settings.set('install_bootloader', False)
         else:
             self.settings.set('install_bootloader', True)
-            if os.path.exists("/sys/firmware/efi/systab"):
+            if self.settings.get('efi'):
                 self.settings.set('bootloader_type', "UEFI_x86_64")
             else:
                 self.settings.set('bootloader_type', "GRUB2")

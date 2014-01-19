@@ -137,11 +137,7 @@ class AutoPartition(object):
         # Will use these queue to show progress info to the user
         self.callback_queue = callback_queue
 
-        self.uefi = False
-
-        if os.path.exists("/sys/firmware/efi"):
-            # TODO: Check if UEFI works
-            self.uefi = True
+        self.uefi = self.settings.get('efi')
 
     def mkfs(self, device, fs_type, mount_point, label_name, fs_options="", btrfs_devices=""):
         """ We have two main cases: "swap" and everything else. """

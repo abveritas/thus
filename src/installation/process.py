@@ -599,10 +599,9 @@ class InstallationProcess(multiprocessing.Process):
         subprocess.check_call(["mount", "-t", "devpts", "/dev/pts", mydir])
         subprocess.check_call(["chmod", "555", mydir])
 
-        efi = "/sys/firmware/efi"
-        if os.path.exists(efi):
-            mydir = os.path.join(self.dest_dir, efi[1:])
-            subprocess.check_call(["mount", "-o", "bind", efi, mydir])
+        if self.settings.get('efi'):
+            mydir = os.path.join(self.dest_dir, "sys/firmware/efi")
+            subprocess.check_call(["mount", "-o", "bind", "/sys/firmware/efi", mydir])
 
         self.special_dirs_mounted = True
 
@@ -612,8 +611,8 @@ class InstallationProcess(multiprocessing.Process):
         if not self.special_dirs_mounted:
             self.queue_event('debug', _("Special dirs are not mounted. Skipping."))
             return
-        efi = "/sys/firmware/efi"
-        if os.path.exists(efi):
+
+        if self.settings.get('efi'):
             special_dirs = ["dev/pts", "sys/firmware/efi", "sys", "proc", "dev"]
         else:
             special_dirs = ["dev/pts", "sys", "proc", "dev"]
@@ -753,7 +752,6 @@ class InstallationProcess(multiprocessing.Process):
                     self.settings.set('btrfs', True)
                 else:
                     chk = '1'
-                    self.settings.set('btrfs', False)
                 opts = "rw,relatime,data=ordered"
             else:
                 full_path = os.path.join(self.dest_dir, path)
@@ -929,7 +927,7 @@ class InstallationProcess(multiprocessing.Process):
         # boot entry.
         self.queue_event('info', _("Installing GRUB(2) UEFI %s boot loader") % uefi_arch)
         try:
-            subprocess.check_call(['grub-install --target=%s-efi --efi-directory=/install/boot/efi '
+            subprocess.checkt_call(['grub-install --target=%s-efi --efi-directory=/install/boot/efi '
                                    '--bootloader-id=manjaro_grub --boot-directory=/install/boot '
                                    '--recheck --debug' % uefi_arch], shell=True, timeout=45)
         except subprocess.CalledProcessError as err:

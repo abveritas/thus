@@ -201,7 +201,7 @@ class InstallationAutomatic(Gtk.Box):
         logging.info(_("Thus will use %s as installation device") % self.auto_device)
 
         self.settings.set('install_bootloader', True)
-        if os.path.exists("/sys/firmware/efi"):
+        if self.settings.get('efi'):
             self.settings.set('bootloader_type', "UEFI_x86_64")
         else:
             self.settings.set('bootloader_type', "GRUB2")
