@@ -137,7 +137,7 @@ def get_partitions(diskob):
         #I can't think of a case of less than 1mb partition
         #psizemb = psize / (limiter * limiter)
         #psizegb = psizemb / limiter
-        #grabs the filesystem type
+        #grabs the file system type
         #if partition.fileSystem:
         #    ptype = partition.fileSystem.type
         #else:

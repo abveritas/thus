@@ -51,7 +51,7 @@ def get_info(part):
 
 @misc.raise_privileges
 def get_type(part):
-    """ Get filesystem type using blkid """
+    """ Get file system type using blkid """
     try:
         ret = subprocess.check_output(shlex.split('blkid -o value -s TYPE %s' % part)).decode().strip()
     except subprocess.CalledProcessError as err:
@@ -61,7 +61,7 @@ def get_type(part):
 
 @misc.raise_privileges
 def label_fs(fstype, part, label):
-    """ Get filesystem label """
+    """ Get file system label """
     ladic = {'ext2':'e2label %(part)s %(label)s',
              'ext3':'e2label %(part)s %(label)s',
              'ext4':'e2label %(part)s %(label)s',
@@ -72,7 +72,7 @@ def label_fs(fstype, part, label):
              'jfs':'jfs_tune -L %(label)s %(part)s',
              'reiserfs':'reiserfstune -l %(label)s %(part)s',
              'xfs':'xfs_admin -l %(label)s %(part)s',
-             'btrfs':'btrfs filesystem label %(part)s %(label)s'}
+             'btrfs':'btrfs file system label %(part)s %(label)s'}
     fstype = fstype.lower()
     # OK, the below is a quick cheat.  vars() returns all variables
     # in a dictionary.  So 'part' and 'label' will be defined
@@ -88,7 +88,7 @@ def label_fs(fstype, part, label):
 
 @misc.raise_privileges
 def create_fs(part, fstype, label='', other_opts=''):
-    """ Create filesystem using mkfs """
+    """ Create file system using mkfs """
 
     # Set some default options
     # -m 1 reserves 1% for root, because I think 5% is too much on
@@ -170,7 +170,7 @@ def resize(part, fs_type, new_size_in_mb):
     elif 'ext' in fs_type:
         res = resize_ext(part, new_size_in_mb)
     else:
-        logging.error(_("Sorry but filesystem %s can't be resized"), fs_type)
+        logging.error(_("Sorry but file system %s can't be resized"), fs_type)
 
     return res
 

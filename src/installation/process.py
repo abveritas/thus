@@ -235,7 +235,7 @@ class InstallationProcess(multiprocessing.Process):
         if self.method == 'automatic':
             self.auto_device = self.settings.get('auto_device')
 
-            self.queue_event('debug', _("Creating partitions and their filesystems in %s") % self.auto_device)
+            self.queue_event('debug', _("Creating partitions and their file systems in %s") % self.auto_device)
 
             # If no key password is given a key file is generated and stored in /boot
             # (see auto_partition.py)
@@ -256,7 +256,7 @@ class InstallationProcess(multiprocessing.Process):
                 self.mount_devices = auto.get_mount_devices()
                 self.fs_devices = auto.get_fs_devices()
             except subprocess.CalledProcessError as err:
-                txt = _("Error creating partitions and their filesystems")
+                txt = _("Error creating partitions and their file systems")
                 logging.error(txt)
                 cmd = _("Command %s has failed.") % err.cmd
                 logging.error(cmd)
@@ -498,11 +498,11 @@ class InstallationProcess(multiprocessing.Process):
                 os.mkdir("/source_desktop")
             # find the squashfs..
             if(not os.path.exists(self.media)):
-                txt = _("Base filesystem does not exist! Critical error (exiting).")
+                txt = _("Base file system does not exist! Critical error (exiting).")
                 logging.error(txt)
                 self.queue_fatal_event(txt)
             if(not os.path.exists(self.media_desktop)):
-                txt = _("Desktop filesystem does not exist! Critical error (exiting).")
+                txt = _("Desktop file system does not exist! Critical error (exiting).")
                 logging.error(txt)
                 self.queue_fatal_event(txt)
 
@@ -520,7 +520,7 @@ class InstallationProcess(multiprocessing.Process):
             else:
                 logging.warning(_("%s is already mounted at %s as %s") % (self.media_desktop, mount_point, device))
 
-            # walk root filesystem
+            # walk root file system
             SOURCE = "/source/"
             DEST = self.dest_dir
             directory_times = []
@@ -540,7 +540,7 @@ class InstallationProcess(multiprocessing.Process):
             t = FileCopyThread(self, our_current, our_total, SOURCE, DEST)
             t.start()
             t.join()
-            # walk desktop filesystem
+            # walk desktop file system
             SOURCE = "/source_desktop/"
             DEST = self.dest_dir
             directory_times = []
@@ -709,7 +709,7 @@ class InstallationProcess(multiprocessing.Process):
             if parti in self.fs_devices:
                 myfmt = self.fs_devices[parti]
             else:
-                # It hasn't any filesystem defined
+                # It hasn't any file system defined
                 continue
 
             # Take care of swap partitions
@@ -762,7 +762,7 @@ class InstallationProcess(multiprocessing.Process):
                     if i in self.mount_devices[path] and self.ssd[i]:
                         opts = 'defaults,noatime,nodiratime'
                         # As of linux kernel version 3.7, the following
-                        # filesystems support TRIM: ext4, btrfs, JFS, and XFS.
+                        # file systems support TRIM: ext4, btrfs, JFS, and XFS.
                         # If using a TRIM supported SSD, discard is a valid mount option for swap
                         if myfmt == 'ext4' or myfmt == 'btrfs' or myfmt == 'jfs' or myfmt == 'xfs' or myfmt == 'swap':
                             opts += ',discard'
@@ -1059,8 +1059,8 @@ class InstallationProcess(multiprocessing.Process):
         hooks = ["base", "udev", "autodetect", "modconf", "block"]
         modules = []
 
-        # It is important that the encrypt hook comes before the filesystems hook
-        # (in case you are using LVM on LUKS, the order should be: encrypt lvm2 filesystems)
+        # It is important that the encrypt hook comes before the file systems hook
+        # (in case you are using LVM on LUKS, the order should be: encrypt lvm2 file systems)
 
         if self.settings.get("use_luks"):
             hooks.append("encrypt")

@@ -176,7 +176,7 @@ def get_used_btrfs(part):
     """ Gets used space in a Btrfs partition """
     used = 0
     try:
-        result = subprocess.check_output(shlex.split("btrfs filesystem show %s" % part))
+        result = subprocess.check_output(shlex.split("btrfs file system show %s" % part))
     except subprocess.CalledProcessError as err:
         result = None
         txt = _("Can't detect used space of BTRFS partition %s") % part

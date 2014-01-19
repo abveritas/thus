@@ -98,14 +98,14 @@ class InstallationAdvanced(Gtk.Box):
         self.create_partition_dialog = self.ui.get_object('create_partition_dialog')
         self.edit_partition_dialog = self.ui.get_object('edit_partition_dialog')
 
-        # Initialize our create partition dialog filesystems' combo.
+        # Initialize our create partition dialog file systems' combo.
         use_combo = self.ui.get_object('partition_use_combo')
         use_combo.remove_all()
         for fs_name in sorted(fs.NAMES):
             use_combo.append_text(fs_name)
         use_combo.set_wrap_width(2)
 
-        # Initialize our edit partition dialog filesystems' combo.
+        # Initialize our edit partition dialog file systems' combo.
         use_combo = self.ui.get_object('partition_use_combo2')
         use_combo.remove_all()
         for fs_name in sorted(fs.NAMES):
@@ -622,9 +622,9 @@ class InstallationAdvanced(Gtk.Box):
         partition_path = row[8]
         fmtable = row[11]
 
-        # Can't edit an partition with LVM filesystem type
+        # Can't edit an partition with LVM file system type
         if "lvm2" in fs.lower():
-            logging.warning("Can't edit an partition with LVM filesystem type")
+            logging.warning("Can't edit an partition with LVM file system type")
             return
 
         # Set fs in dialog combobox
@@ -1294,7 +1294,7 @@ class InstallationAdvanced(Gtk.Box):
 
                 if ptype == 'gpt' and not self.efi:
                     # Show warning (see https://github.com/Antergos/Cnchi/issues/63)
-                    show.warning(_('GRUB requires a BIOS Boot Partition (2 MiB, no filesystem, "EF02" type code in gdisk '
+                    show.warning(_('GRUB requires a BIOS Boot Partition (2 MiB, no file system, "EF02" type code in gdisk '
                         'or "bios_grub" flag in GNU Parted) in BIOS systems to embed its core.img file due to lack of '
                         'post-MBR embed gap in GPT disks.\n\n'
                         'Thus will create this special partition for you now.'))
@@ -1303,7 +1303,7 @@ class InstallationAdvanced(Gtk.Box):
         dialog.hide()
 
     def create_bios_gpt_boot_partition(self, disk_path):
-        """ Create an unformatted partition with no filesystem and with a bios_grub flag on. """
+        """ Create an unformatted partition with no file system and with a bios_grub flag on. """
         # It won't be formated
         formatme = False
 
@@ -1398,8 +1398,8 @@ class InstallationAdvanced(Gtk.Box):
         for part_path in self.stage_opts:
             (is_new, lbl, mnt, fs, fmt) = self.stage_opts[part_path]
             if mnt == "/":
-                # Don't allow vfat as / filesystem, it will not work!
-                # Don't allow ntfs as / filesystem, this is stupid!
+                # Don't allow vfat as / file system, it will not work!
+                # Don't allow ntfs as / file system, this is stupid!
                 if "fat" not in fs and "ntfs" not in fs:
                     #check_ok = True
                     exist_root = True
@@ -1665,7 +1665,7 @@ class InstallationAdvanced(Gtk.Box):
                         efiboot = True
 
                 for partition_path in apartitions:
-                    # Get label, mount point and filesystem of staged partitions
+                    # Get label, mount point and file system of staged partitions
                     uid = self.gen_partition_uid(path=partition_path)
                     if uid in self.stage_opts:
                         (is_new, lbl, mnt, fisy, fmt) = self.stage_opts[uid]
@@ -1673,7 +1673,7 @@ class InstallationAdvanced(Gtk.Box):
                         if fisy == _("extended") or fisy == "bios-gpt-boot":
                             continue
 
-                        logging.info(_("Creating %s filesystem in %s labeled %s") % (fisy, partition_path, lbl))
+                        logging.info(_("Creating %s file system in %s labeled %s") % (fisy, partition_path, lbl))
 
                         # EFI and /boot/efi is the EFI partition mount point -> Flag /boot/efi as boot
                         if (mnt == '/boot/efi'):

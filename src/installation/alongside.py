@@ -383,7 +383,7 @@ class InstallationAlongside(Gtk.Box):
             # destroy original partition and create a new resized one
             pm.split_partition(device_path, partition_path, new_size)
         else:
-            txt = _("Can't shrink %s(%s) filesystem") % (otherOS, fs_type)
+            txt = _("Can't shrink %s(%s) file system") % (otherOS, fs_type)
             logging.error(txt)
             show.error(txt)
             return
