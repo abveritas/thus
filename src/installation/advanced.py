@@ -1244,7 +1244,8 @@ class InstallationAdvanced(Gtk.Box):
     def on_partition_list_new_label_activate(self, button):
         """ Create a new partition table """
         # TODO: We should check first if there's any mounted partition (including swap)
-
+        # Swapoff all swap partitions as they may be auto-mounted, and may cause problems later
+        subp = subprocess.Popen(['sh', '-c', 'swapoff -a'], stdout=subprocess.PIPE)
         selection = self.partition_list.get_selection()
 
         if not selection:
