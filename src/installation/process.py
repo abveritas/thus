@@ -799,9 +799,9 @@ class InstallationProcess(multiprocessing.Process):
 
         default_dir = os.path.join(self.dest_dir, "etc/default")
         default_grub = os.path.join(default_dir, "grub")
-        swap_partition = self.mount_devices["swap"]
-        swap_uuid = fs.get_info(swap_partition)['UUID']
-        if swap_partition:
+        if "swap" in self.mount_devices:
+            swap_partition = self.mount_devices["swap"]
+            swap_uuid = fs.get_info(swap_partition)['UUID']
             kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=' + swap_uuid + ' quiet"'
         else:
             kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="quiet"'
@@ -927,7 +927,7 @@ class InstallationProcess(multiprocessing.Process):
         # boot entry.
         self.queue_event('info', _("Installing GRUB(2) UEFI %s boot loader") % uefi_arch)
         try:
-            subprocess.checkt_call(['grub-install --target=%s-efi --efi-directory=/install/boot/efi '
+            subprocess.check_call(['grub-install --target=%s-efi --efi-directory=/install/boot/efi '
                                    '--bootloader-id=manjaro_grub --boot-directory=/install/boot '
                                    '--recheck --debug' % uefi_arch], shell=True, timeout=45)
         except subprocess.CalledProcessError as err:
