@@ -79,7 +79,7 @@ class Updater():
             return True
 
         #version is always: x.y.z
-        cur_ver = info.thus_VERSION.split(".")
+        cur_ver = info.THUS_VERSION.split(".")
         web_ver = self.web_version.split(".")
 
         cur = [int(cur_ver[0]), int(cur_ver[1]), int(cur_ver[2])]
