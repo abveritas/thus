@@ -353,14 +353,17 @@ class AutoPartition(object):
     def run(self):
         key_files = ["/tmp/.keyfile-root", "/tmp/.keyfile-home"]
 
+        # Partition sizes are expressed in MB
         if self.efi:
             gpt_bios_grub_part_size = 2
-            efisys_part_size = 512
+            efisys_part_size = 100
             empty_space_size = 2
         else:
             gpt_bios_grub_part_size = 0
             efisys_part_size = 0
             empty_space_size = 0
+
+        boot_part_size = 200
 
         # Get just the disk size in 1000*1000 MB
         device = self.auto_device
@@ -381,16 +384,24 @@ class AutoPartition(object):
             show.warning(txt)
             return
 
-        # Partition sizes are expressed in MB
-
-        boot_part_size = 256
-
         mem_total = check_output("grep MemTotal /proc/meminfo")
         mem_total = int(mem_total.split()[1])
+        mem = mem_total / 1024
 
-        swap_part_size = 1536
-        if mem_total <= 1572864:
-            swap_part_size = mem_total / 1024
+        # Suggested sizes from Anaconda installer
+        if mem < 2048:
+            swap_part_size = 2 * mem
+        elif 2048 <= mem < 8192:
+            swap_part_size = mem
+        elif 8192 <= mem < 65536:
+            swap_part_size = mem / 2
+        else:
+            swap_part_size = 4096
+
+        # Max swap size is 10% of all available disk size
+        max_swap = disk_size * 0.1
+        if swap_part_size > max_swap:
+            swap_part_size = max_swap
 
         root_part_size = disc_size - (empty_space_size + gpt_bios_grub_part_size + efisys_part_size + boot_part_size + swap_part_size)
 
