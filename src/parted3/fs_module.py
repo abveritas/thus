@@ -20,7 +20,7 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 
-""" Functions to work with file systems """
+""" Functions to work with filesystems """
 
 import subprocess
 import shlex
@@ -51,7 +51,7 @@ def get_info(part):
 
 @misc.raise_privileges
 def get_type(part):
-    """ Get file system type using blkid """
+    """ Get filesystem type using blkid """
     try:
         ret = subprocess.check_output(shlex.split('blkid -o value -s TYPE %s' % part)).decode().strip()
     except subprocess.CalledProcessError as err:
@@ -61,7 +61,7 @@ def get_type(part):
 
 @misc.raise_privileges
 def label_fs(fstype, part, label):
-    """ Get file system label """
+    """ Get filesystem label """
     ladic = {'ext2':'e2label %(part)s %(label)s',
              'ext3':'e2label %(part)s %(label)s',
              'ext4':'e2label %(part)s %(label)s',
@@ -88,7 +88,7 @@ def label_fs(fstype, part, label):
 
 @misc.raise_privileges
 def create_fs(part, fstype, label='', other_opts=''):
-    """ Create file system using mkfs """
+    """ Create filesystem using mkfs """
 
     # Set some default options
     # -m 1 reserves 1% for root, because I think 5% is too much on
@@ -170,7 +170,7 @@ def resize(part, fs_type, new_size_in_mb):
     elif 'ext' in fs_type:
         res = resize_ext(part, new_size_in_mb)
     else:
-        logging.error(_("Sorry but file system %s can't be resized"), fs_type)
+        logging.error(_("Sorry but filesystem %s can't be resized"), fs_type)
 
     return res
 

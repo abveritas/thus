@@ -286,7 +286,7 @@ def is_removable(device):
 
 
 def mount_info(path):
-    """Return file system name, type, and ro/rw for a given mountpoint."""
+    """Return filesystem name, type, and ro/rw for a given mountpoint."""
     fsname = ''
     fstype = ''
     writable = ''

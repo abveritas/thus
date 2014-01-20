@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-19 21:50+0100\n"
+"POT-Creation-Date: 2014-01-19 22:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,12 +88,12 @@ msgstr ""
 
 #: src/installation/auto_partition.py:169
 #, python-format
-msgid "Unkown file system type %s"
+msgid "Unkown filesystem type %s"
 msgstr ""
 
 #: src/installation/auto_partition.py:179
 #, python-format
-msgid "Can't create file system %s"
+msgid "Can't create filesystem %s"
 msgstr ""
 
 #: src/installation/auto_partition.py:325
@@ -363,7 +363,7 @@ msgstr ""
 
 #: src/installation/advanced.py:1297
 msgid ""
-"GRUB requires a BIOS Boot Partition (2 MiB, no file system, \"EF02\" type "
+"GRUB requires a BIOS Boot Partition (2 MiB, no filesystem, \"EF02\" type "
 "code in gdisk or \"bios_grub\" flag in GNU Parted) in BIOS systems to embed "
 "its core.img file due to lack of post-MBR embed gap in GPT disks.\n"
 "\n"
@@ -437,7 +437,7 @@ msgstr ""
 
 #: src/installation/advanced.py:1676
 #, python-format
-msgid "Creating %s file system in %s labeled %s"
+msgid "Creating %s filesystem in %s labeled %s"
 msgstr ""
 
 #: src/installation/advanced.py:1720
@@ -502,7 +502,7 @@ msgstr ""
 
 #: src/installation/alongside.py:386
 #, python-format
-msgid "Can't shrink %s(%s) file system"
+msgid "Can't shrink %s(%s) filesystem"
 msgstr ""
 
 #: src/installation/ask.py:99
@@ -648,11 +648,11 @@ msgstr ""
 
 #: src/installation/process.py:238
 #, python-format
-msgid "Creating partitions and their file systems in %s"
+msgid "Creating partitions and their filesystems in %s"
 msgstr ""
 
 #: src/installation/process.py:259
-msgid "Error creating partitions and their file systems"
+msgid "Error creating partitions and their filesystems"
 msgstr ""
 
 #: src/installation/process.py:261 src/installation/process.py:333
@@ -745,11 +745,11 @@ msgid "Installation finished successfully."
 msgstr ""
 
 #: src/installation/process.py:501
-msgid "Base file system does not exist! Critical error (exiting)."
+msgid "Base filesystem does not exist! Critical error (exiting)."
 msgstr ""
 
 #: src/installation/process.py:505
-msgid "Desktop file system does not exist! Critical error (exiting)."
+msgid "Desktop filesystem does not exist! Critical error (exiting)."
 msgstr ""
 
 #: src/installation/process.py:515 src/installation/process.py:521
@@ -1059,7 +1059,7 @@ msgstr ""
 
 #: src/parted3/fs_module.py:173
 #, python-format
-msgid "Sorry but file system %s can't be resized"
+msgid "Sorry but filesystem %s can't be resized"
 msgstr ""
 
 #: src/parted3/lvm.py:75

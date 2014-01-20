@@ -166,7 +166,7 @@ class AutoPartition(object):
 
             # Make sure the fs type is one we can handle
             if fs_type not in mkfs.keys():
-                txt = _("Unkown file system type %s"), fs_type
+                txt = _("Unkown filesystem type %s"), fs_type
                 logging.error(txt)
                 show.error(txt)
                 return
@@ -176,21 +176,21 @@ class AutoPartition(object):
             try:
                 subprocess.check_call(command.split())
             except subprocess.CalledProcessError as err:
-                txt = _("Can't create file system %s") % fs_type
+                txt = _("Can't create filesystem %s") % fs_type
                 logging.error(txt)
                 logging.error(err.cmd)
                 logging.error(err.output)
                 show.error(txt)
                 return
 
-            # Flush file system buffers
+            # Flush filesystem buffers
             subprocess.check_call(["sync"])
 
             # Create our mount directory
             path = self.dest_dir + mount_point
             subprocess.check_call(["mkdir", "-p", path])
 
-            # Mount our new file system
+            # Mount our new filesystem
             subprocess.check_call(["mount", "-t", fs_type, device, path])
 
             # Change permission of base directories to avoid btrfs issues

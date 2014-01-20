@@ -215,7 +215,7 @@ class InstallationAutomatic(Gtk.Box):
         else:
             logging.warning(_("Thus will not install any boot loader"))
 
-        # We don't need to pass neither which devices will be mounted nor which file systems
+        # We don't need to pass neither which devices will be mounted nor which filesystems
         # the devices will be formated with, as auto_partition.py takes care of everything
         # in an automatic installation.
         mount_devices = {}
