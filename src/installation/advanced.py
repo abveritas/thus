@@ -1403,7 +1403,8 @@ class InstallationAdvanced(Gtk.Box):
                 if "fat" not in fs and "ntfs" not in fs:
                     #check_ok = True
                     exist_root = True
-            if mnt == "/boot/efi" or mnt == "/boot":
+            #if mnt == "/boot/efi" or mnt == "/boot":
+            if mnt == "/boot/efi":
                 # Only fat partitions
                 if "fat" in fs:
                     exist_fat_boot = True

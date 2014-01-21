@@ -899,8 +899,6 @@ class InstallationProcess(multiprocessing.Process):
 
     def install_bootloader_grub2_efi(self, arch):
         """ Install boot loader in a UEFI system """
-        # TODO: Clean this up a bit. It is working in vbox but needs testing on other hardware.
-        # TODO: If tests show it still not working 100%, try to manually add entry to loader (efibootmgr).
         uefi_arch = "x86_64"
         spec_uefi_arch = "x64"
         spec_uefi_arch_caps = "X64"
@@ -930,7 +928,7 @@ class InstallationProcess(multiprocessing.Process):
         efi_path = self.settings.get('bootloader_location')
         try:
             subprocess.check_call(['grub-install --target=%s-efi --efi-directory=/install%s '
-                                   '--bootloader-id=manjaro_grub --boot-directory=/install/boot '
+                                   '--bootloader-id=manjaro --boot-directory=/install/boot '
                                    '--recheck --debug' % (uefi_arch, efi_path)], shell=True, timeout=45)
         except subprocess.CalledProcessError as err:
             logging.error('Command grub-install failed. Error output: %s' % err.output)
@@ -941,13 +939,13 @@ class InstallationProcess(multiprocessing.Process):
 
         self.queue_event('info', _("Installing Grub2 locales."))
         self.install_bootloader_grub2_locales()
-
+        """
         # Copy grub into dirs known to be used as default by some OEMs if they are empty.
         defaults = [(os.path.join(self.dest_dir, "%s/EFI/BOOT/" % (efi_path[1:])),
                      'BOOT' + spec_uefi_arch_caps + '.efi'),
                     (os.path.join(self.dest_dir, "%s/EFI/Microsoft/Boot/" % (efi_path[1:])),
                      'bootmgfw.efi')]
-        grub_dir_src = os.path.join(self.dest_dir, "%s/EFI/manjaro_grub/" % (efi_path[1:]))
+        grub_dir_src = os.path.join(self.dest_dir, "%s/EFI/manjaro/" % (efi_path[1:]))
         grub_efi_old = ('grub' + spec_uefi_arch + '.efi')
         for default in defaults:
             path, grub_efi_new = default
@@ -963,7 +961,7 @@ class InstallationProcess(multiprocessing.Process):
                 except Exception as err:
                     logging.warning(_("Copying Grub(2) into OEM dir failed. Unknown Error."))
                     logging.warning(err)
-
+        """
         # TODO: Create themed shellx64_v2.efi
         '''# Copy uefi shell if none exists in /boot/EFI
         shell_src = "/usr/share/thus/grub2-theme/shellx64_v2.efi"
