@@ -1715,7 +1715,7 @@ class InstallationAdvanced(Gtk.Box):
                                 self.blvm = True  # Tells process.py there is a lvm partition
                                 for ee in pvs[vgname]:
                                     print(partitions)
-                                    self.boot_partition = "";
+                                    self.grub_partition = ""
                                     if not pm.get_flag(partitions[ee], pm.PED_PARTITION_BOOT):
                                         logging.info(_("Setting boot flag in %s partition") % (partitions[ee]))
                                         (res, err) = pm.set_flag(pm.PED_PARTITION_BOOT, partitions[ee])
