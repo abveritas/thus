@@ -476,6 +476,15 @@ class InstallationProcess(multiprocessing.Process):
             self.error = False
             return True
 
+    def get_cpu(self):
+        # Check if system is an intel system. Not sure if we want to move this to hardware module when its done.
+        process1 = subprocess.Popen(["hwinfo", "--cpu"], stdout=subprocess.PIPE)
+        process2 = subprocess.Popen(["grep", "Model:[[:space:]]"],
+                                    stdin=process1.stdout, stdout=subprocess.PIPE)
+        process1.stdout.close()
+        out, err = process2.communicate()
+        return out.decode().lower()
+
     def check_source_folder(self, mount_point):
         """ Check if source folders are mounted """
         device = None
