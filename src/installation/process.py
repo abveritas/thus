@@ -1077,8 +1077,6 @@ class InstallationProcess(multiprocessing.Process):
         locale = self.settings.get('locale')
         export = "export LANG=%s" % locale
 
-        self.chroot_mount_special_dirs()
-
         # Run mkinitcpio on the target system
         self.chroot_mount_special_dirs()
         self.chroot([export, "&&", "/usr/bin/mkinitcpio", "-p", self.kernel])
