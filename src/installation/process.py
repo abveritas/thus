@@ -1073,14 +1073,19 @@ class InstallationProcess(multiprocessing.Process):
 
         self.set_mkinitcpio_hooks_and_modules(hooks, modules)
 
-        # run mkinitcpio on the target system
+        # Fix for bsdcpio error
+        locale = self.settings.get('locale')
+        export = "export LANG=%s" % locale
+
         self.chroot_mount_special_dirs()
-        self.chroot(["/usr/bin/mkinitcpio", "-p", self.kernel])
+
+        # Run mkinitcpio on the target system
+        self.chroot_mount_special_dirs()
+        self.chroot([export, "&&", "/usr/bin/mkinitcpio", "-p", self.kernel])
         self.chroot_umount_special_dirs()
 
     def uncomment_locale_gen(self, locale):
         """ Uncomment selected locale in /etc/locale.gen """
-        #self.chroot(['sed', '-i', '-r', '"s/#(.*%s)/\1/g"' % locale, "/etc/locale.gen"])
 
         text = []
         with open("%s/etc/locale.gen" % self.dest_dir, "r") as gen:
