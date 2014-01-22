@@ -740,6 +740,9 @@ class InstallationProcess(multiprocessing.Process):
             if "fat" in myfmt:
                 myfmt = 'vfat'
 
+            if "btrfs" in myfmt:
+                self.settings.set('btrfs', True)
+
             # Avoid adding a partition to fstab when
             # it has no mount point (swap has been checked before)
             if path == "":
@@ -749,10 +752,10 @@ class InstallationProcess(multiprocessing.Process):
                 # We do not run fsck on btrfs partitions
                 if "btrfs" in myfmt:
                     chk = '0'
-                    self.settings.set('btrfs', True)
+                    opts = 'rw,relatime,space_cache,autodefrag,inode_cache'
                 else:
                     chk = '1'
-                opts = "rw,relatime,data=ordered"
+                    opts = "rw,relatime,data=ordered"
             else:
                 full_path = os.path.join(self.dest_dir, path)
                 subprocess.check_call(["mkdir", "-p", full_path])
@@ -760,12 +763,14 @@ class InstallationProcess(multiprocessing.Process):
             if self.ssd is not None:
                 for i in self.ssd:
                     if i in self.mount_devices[path] and self.ssd[i]:
-                        opts = 'defaults,noatime,nodiratime'
+                        opts = 'defaults,noatime'
                         # As of linux kernel version 3.7, the following
                         # filesystems support TRIM: ext4, btrfs, JFS, and XFS.
                         # If using a TRIM supported SSD, discard is a valid mount option for swap
-                        if myfmt == 'ext4' or myfmt == 'btrfs' or myfmt == 'jfs' or myfmt == 'xfs' or myfmt == 'swap':
+                        if myfmt == 'ext4' or myfmt == 'jfs' or myfmt == 'xfs' or myfmt == 'swap':
                             opts += ',discard'
+                        elif myfmt == 'btrfs':
+                            opts = 'rw,noatime,compress=lzo,ssd,discard,space_cache,autodefrag,inode_cache'
                         if path == '/':
                             root_ssd = 1
 
@@ -802,7 +807,7 @@ class InstallationProcess(multiprocessing.Process):
         if "swap" in self.mount_devices:
             swap_partition = self.mount_devices["swap"]
             swap_uuid = fs.get_info(swap_partition)['UUID']
-            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=' + swap_uuid + ' quiet"'
+            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=%s quiet"' % swap_uuid
         else:
             kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="quiet"'
 
@@ -1054,6 +1059,8 @@ class InstallationProcess(multiprocessing.Process):
         """ Runs mkinitcpio """
         # Add lvm and encrypt hooks if necessary
 
+        cpu = self.get_cpu()
+
         hooks = ["base", "udev", "autodetect", "modconf", "block"]
         modules = []
 
@@ -1066,10 +1073,18 @@ class InstallationProcess(multiprocessing.Process):
 
         if self.blvm or self.settings.get("use_lvm"):
             hooks.append("lvm2")
-        if self.settings.get('btrfs'):
-            hooks.extend(["filesystems", "keyboard"])
+
+        if "swap" in self.mount_devices:
+            hooks.extend(["resume", "filesystems", "keyboard"])
         else:
-            hooks.extend(["filesystems", "keyboard", "fsck"])
+            hooks.extend(["filesystems", "keyboard"])
+
+        if self.settings.get('btrfs') and cpu is not 'genuineintel':
+            modules.append('crc32c')
+        elif self.settings.get('btrfs') and cpu is 'genuineintel':
+            modules.append('crc32c-intel')
+        else:
+            hooks.append("fsck")
 
         self.set_mkinitcpio_hooks_and_modules(hooks, modules)
 
