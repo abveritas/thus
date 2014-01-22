@@ -1099,11 +1099,10 @@ class InstallationProcess(multiprocessing.Process):
 
         # Fix for bsdcpio error
         locale = self.settings.get('locale')
-        export = "export LANG=%s" % locale
 
         # Run mkinitcpio on the target system
         self.chroot_mount_special_dirs()
-        self.chroot([export, "&&", "/usr/bin/mkinitcpio", "-p", self.kernel])
+        self.chroot(['sh', '-c', 'LANG=%s /usr/bin/mkinitcpio -p %s' % (locale, self.kernel)])
         self.chroot_umount_special_dirs()
 
     def uncomment_locale_gen(self, locale):
