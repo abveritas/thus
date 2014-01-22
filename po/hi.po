@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-19 21:17+0100\n"
-"PO-Revision-Date: 2014-01-19 20:22+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2014-01-22 16:48+0000\n"
+"Last-Translator: sivananda <kotagirisivananda@gmail.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/manjaro-thus/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,23 +56,23 @@ msgstr "इंस्टॉलर बंद होने जा रहा है"
 
 #: thus.py:411
 msgid "Sets Thus log level to 'debug'"
-msgstr ""
+msgstr "समूह इस प्रकार 'डिबग' के लिए स्तर लॉग इन करें"
 
 #: thus.py:412
 msgid "Update Thus to the latest version (-uu will force the update)"
-msgstr ""
+msgstr "नवीनतम संस्करण में इस प्रकार अद्यतन (uu अद्यतन मजबूर करेंगे)"
 
 #: thus.py:413
 msgid "Do not perform any changes (useful for developers)"
-msgstr ""
+msgstr "किसी भी परिवर्तन का निष्पादन न (डेवलपर्स के लिए उपयोगी)"
 
 #: thus.py:414
 msgid "Show logging messages to stdout"
-msgstr ""
+msgstr "Stdout में प्रवेश संदेश दिखाएं"
 
 #: thus.py:415
 msgid "Show options in development (DO NOT USE THIS!)"
-msgstr ""
+msgstr "विकास में दिखाएँ विकल्प (इस का उपयोग नहीं है!)"
 
 #: src/installation/auto_partition.py:75 src/installation/auto_partition.py:85
 #: src/installation/process.py:431 src/installation/process.py:448
@@ -84,7 +84,7 @@ msgstr "उतारी %s"
 #: src/installation/auto_partition.py:79 src/installation/auto_partition.py:89
 #, python-format
 msgid "Unmounting %s failed. Trying lazy arg."
-msgstr ""
+msgstr "उतारी %s में विफल रहा है. आलसी ARG कोशिश कर रहा है."
 
 #: src/installation/auto_partition.py:109
 msgid "Can't delete existent LVM volumes (see below)"
@@ -102,7 +102,7 @@ msgstr "अज्ञात फाइल सिस्टम प्रकार %s
 #: src/installation/auto_partition.py:179
 #, python-format
 msgid "Can't create filesystem %s"
-msgstr ""
+msgstr "फाइल सिस्टम %s नहीं बना सकता है"
 
 #: src/installation/auto_partition.py:325
 #, python-format
@@ -290,7 +290,7 @@ msgstr "बूट लोडर स्थापना के लिए इस उ
 
 #: src/installation/advanced.py:1105 ui/installation_advanced.ui:1081
 msgid "Use the partition where /boot is mounted (not recommended)"
-msgstr ""
+msgstr "/boot  मुहिम शुरू की है, जहां विभाजन का उपयोग करें (अनुशंसित नहीं)"
 
 #: src/installation/advanced.py:1115 ui/installation_advanced.ui:943
 msgid "New partition table"
@@ -449,7 +449,7 @@ msgstr "%s लेबल %s में %s फाइल सिस्टम बन�
 #: src/installation/advanced.py:1720
 #, python-format
 msgid "Setting boot flag in %s partition"
-msgstr ""
+msgstr "%s विभाजन में बूट ध्वज स्थापित"
 
 #: src/installation/advanced.py:1738
 #, python-format
@@ -548,7 +548,7 @@ msgstr "एक अलग विभाजन / मात्रा में अ�
 #: src/installation/ask.py:144
 msgid ""
 "This will setup your /home directory in a different partition or volume."
-msgstr ""
+msgstr "एक अलग विभाजन या मात्रा में इस वसीयत सेटअप अपने /home निर्देशिका."
 
 #: src/installation/ask.py:152 src/installation/ask.py:154
 #, python-format
@@ -639,7 +639,7 @@ msgid ""
 "Do you really want to proceed and delete all your content on your hard drive?\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "आप वास्तव में अपनी हार्ड ड्राइव पर अपने सभी सामग्री आगे बढ़ना है और इसे हटाना चाहते हैं?\n\n%s"
 
 #: src/installation/process.py:84
 #, python-format
@@ -664,13 +664,13 @@ msgstr "विभाजन और उनकी फाइल सिस्टम �
 #: src/installation/process.py:630
 #, python-format
 msgid "Command %s has failed."
-msgstr ""
+msgstr "कमांड %s में नाकाम रही है."
 
 #: src/installation/process.py:263 src/installation/process.py:335
 #: src/installation/process.py:358 src/installation/process.py:632
 #, python-format
 msgid "Output : %s"
-msgstr ""
+msgstr "आउटपुट: %s"
 
 #: src/installation/process.py:303 src/installation/process.py:326
 #, python-format
@@ -703,7 +703,7 @@ msgstr "गंतव्य प्रणाली पर आवश्यक न�
 #: src/installation/process.py:356
 #, python-format
 msgid "Command %s has failed"
-msgstr ""
+msgstr "कमांड %s में नाकाम रही है"
 
 #: src/installation/process.py:366
 msgid "Install System ..."
@@ -723,7 +723,7 @@ msgstr "सिस्टम के विन्यस्त."
 
 #: src/installation/process.py:379
 msgid "Installing boot loader ..."
-msgstr ""
+msgstr "बूट लोडर संस्थापित किया ..."
 
 #: src/installation/process.py:384
 msgid ""
@@ -731,7 +731,7 @@ msgid ""
 "Please, before rebooting, do it by yourself.\n"
 "You can find more info in the GRUB archlinux's wiki page:\n"
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
-msgstr ""
+msgstr "हम क्षमा चाहते हैं, लेकिन यह आपके सिस्टम में बूट लोडर को संस्थापित नहीं कर सकते हैं इस प्रकार है.\n, रिबूट करने से पहले, अपने आप से यह कर दीजिये.\nआप GRUB archlinux के विकी पेज में अधिक जानकारी पा सकते हैं:\n⇥ https://wiki.archlinux.org/index.php/GRUB\n"
 
 #: src/installation/process.py:420
 #, python-format
@@ -798,7 +798,7 @@ msgstr "त्रुटि चल कमांड:%s"
 
 #: src/installation/process.py:688
 msgid "Can't copy network configuration files"
-msgstr ""
+msgstr "नेटवर्क विन्यास फाइल कॉपी नहीं कर सकते"
 
 #: src/installation/process.py:718 src/installation/process.py:773
 #, python-format
@@ -834,37 +834,37 @@ msgstr "GRUB (2) BIOS को सफलतापूर्वक स्थाप�
 
 #: src/installation/process.py:921
 msgid "ERROR installing GRUB(2) UEFI."
-msgstr ""
+msgstr "GRUB (2) UEFI स्थापित करने में त्रुटि."
 
 #: src/installation/process.py:929
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader"
-msgstr ""
+msgstr "GRUB(2) UEFI %s बूट लोडर का अधिष्ठापन"
 
 #: src/installation/process.py:942
 msgid "Installing Grub2 locales."
-msgstr ""
+msgstr "GRUB2 स्थानों पर स्थापित कर रहा है."
 
 #: src/installation/process.py:955
 #, python-format
 msgid "No OEM loader found in %s. Copying Grub(2) into dir."
-msgstr ""
+msgstr "%s में कोई OEM लोडर. खाना कॉपी कर रहा है (2) dir में."
 
 #: src/installation/process.py:960
 msgid "Copying Grub(2) into OEM dir failed. File Not Found."
-msgstr ""
+msgstr "OEM dir में Grub(2) कॉपी कर रहा है विफल रही है. फ़ाइल नहीं मिली."
 
 #: src/installation/process.py:962
 msgid "Copying Grub(2) into OEM dir failed. File Exists."
-msgstr ""
+msgstr "OEM dir में <Grub(2)> कॉपी कर रहा है विफल रही है. फ़ाइलअस्तित्वमेंहै."
 
 #: src/installation/process.py:964
 msgid "Copying Grub(2) into OEM dir failed. Unknown Error."
-msgstr ""
+msgstr "OEM dir में Grub(2) कॉपी कर रहा है विफल रही है. अज्ञात त्रुटि."
 
 #: src/installation/process.py:982
 msgid "Generating grub.cfg"
-msgstr ""
+msgstr "सृजन grub.cfg"
 
 #: src/installation/process.py:1004
 msgid "ERROR installing GRUB(2) locale."
@@ -908,7 +908,7 @@ msgstr "नेटवर्क विन्यास की नकल की."
 
 #: src/installation/process.py:1235
 msgid "Time zone set."
-msgstr ""
+msgstr "समय क्षेत्र निर्धारित."
 
 #: src/installation/process.py:1256
 #, python-format
@@ -1063,7 +1063,7 @@ msgstr "%s एक ठोस राज्य ड्राइव है या न
 #: src/parted3/fs_module.py:173
 #, python-format
 msgid "Sorry but filesystem %s can't be resized"
-msgstr ""
+msgstr "क्षमा करें, लेकिन फाइल सिस्टम %s आकार नहीं बदला जा सकता है"
 
 #: src/parted3/lvm.py:75
 #, python-format
@@ -1402,7 +1402,7 @@ msgstr "LVM..."
 
 #: ui/installation_advanced.ui:1024
 msgid "Install boot loader"
-msgstr ""
+msgstr "बूट लोडर संस्थापित"
 
 #: ui/installation_advanced.ui:1167
 msgid "LUKS volume name:"
@@ -1473,7 +1473,7 @@ msgstr "<span weight=\"light\" size=\"small\">यह आपको फोटो �
 msgid ""
 "<span weight=\"light\" size=\"small\">This will setup your /home directory "
 "in a different partition or volume.</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\"> एक अलग विभाजन या मात्रा में इस वसीयत सेटअप अपने /home निर्देशिका </span>"
 
 #: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"

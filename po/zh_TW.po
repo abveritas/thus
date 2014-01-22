@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-19 21:17+0100\n"
-"PO-Revision-Date: 2014-01-19 20:22+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2014-01-22 14:11+0000\n"
+"Last-Translator: 柏諺 黃 <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/manjaro-thus/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,23 +54,23 @@ msgstr "離開安裝程式..."
 
 #: thus.py:411
 msgid "Sets Thus log level to 'debug'"
-msgstr ""
+msgstr "將 Thus 的 log 級別設為 'debug'"
 
 #: thus.py:412
 msgid "Update Thus to the latest version (-uu will force the update)"
-msgstr ""
+msgstr "升級 Thus 到最新版（-uu 將會強制升級）"
 
 #: thus.py:413
 msgid "Do not perform any changes (useful for developers)"
-msgstr ""
+msgstr "不要做出任何改變（對開發者很有用）"
 
 #: thus.py:414
 msgid "Show logging messages to stdout"
-msgstr ""
+msgstr "顯示日誌訊息到標準輸出"
 
 #: thus.py:415
 msgid "Show options in development (DO NOT USE THIS!)"
-msgstr ""
+msgstr "顯示仍在開發中的選項（請不要使用這個！）"
 
 #: src/installation/auto_partition.py:75 src/installation/auto_partition.py:85
 #: src/installation/process.py:431 src/installation/process.py:448
@@ -82,7 +82,7 @@ msgstr "正在卸載 %s"
 #: src/installation/auto_partition.py:79 src/installation/auto_partition.py:89
 #, python-format
 msgid "Unmounting %s failed. Trying lazy arg."
-msgstr ""
+msgstr "卸載 %s 失敗。正在嘗試 lazy arg。"
 
 #: src/installation/auto_partition.py:109
 msgid "Can't delete existent LVM volumes (see below)"
@@ -100,7 +100,7 @@ msgstr "未知的檔案系統類型 %s"
 #: src/installation/auto_partition.py:179
 #, python-format
 msgid "Can't create filesystem %s"
-msgstr ""
+msgstr "無法創建檔案系統 %s"
 
 #: src/installation/auto_partition.py:325
 #, python-format
@@ -141,7 +141,7 @@ msgstr "32位元 UEFI"
 
 #: src/bootloader.py:71
 msgid "Select 'Cancel' if you don't want to install a boot loader."
-msgstr ""
+msgstr "如果您不想安裝開機選擇器，請選擇 '取消' 。"
 
 #: src/canonical/misc.py:929
 #, python-format
@@ -284,11 +284,11 @@ msgstr "進階安裝模式"
 
 #: src/installation/advanced.py:1100 ui/installation_advanced.ui:1046
 msgid "Use this device for boot loader installation:"
-msgstr ""
+msgstr "使用這個裝置安裝開機載入器："
 
 #: src/installation/advanced.py:1105 ui/installation_advanced.ui:1081
 msgid "Use the partition where /boot is mounted (not recommended)"
-msgstr ""
+msgstr "使用掛載 /boot 的分割區（不建議） "
 
 #: src/installation/advanced.py:1115 ui/installation_advanced.ui:943
 msgid "New partition table"
@@ -447,7 +447,7 @@ msgstr "正在創建 %s 檔案系統在 %s 已加上標籤的 %s"
 #: src/installation/advanced.py:1720
 #, python-format
 msgid "Setting boot flag in %s partition"
-msgstr ""
+msgstr "正在為 %s 分割區設定開機旗標"
 
 #: src/installation/advanced.py:1738
 #, python-format
@@ -461,7 +461,7 @@ msgstr "Manjaro 將會安裝 %s 類型的開機載入器到 %s 上"
 
 #: src/installation/advanced.py:1796 src/installation/automatic.py:216
 msgid "Thus will not install any boot loader"
-msgstr ""
+msgstr "Thus 將不會安裝任何開機載入器"
 
 #: src/installation/advanced.py:1812 src/installation/automatic.py:237
 msgid "Testing mode. Thus won't apply any changes to your system!"
@@ -546,7 +546,7 @@ msgstr "將您的家目錄設置為不同的分割區/容量"
 #: src/installation/ask.py:144
 msgid ""
 "This will setup your /home directory in a different partition or volume."
-msgstr ""
+msgstr "將會把您的 /home 目錄設定為不同的分割區或容量。"
 
 #: src/installation/ask.py:152 src/installation/ask.py:154
 #, python-format
@@ -637,7 +637,7 @@ msgid ""
 "Do you really want to proceed and delete all your content on your hard drive?\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "您真的想要繼續進行並刪除您硬碟上的所有內容嗎？\n\n%s"
 
 #: src/installation/process.py:84
 #, python-format
@@ -662,13 +662,13 @@ msgstr "在創建分割區及其檔案系統時遇到錯誤"
 #: src/installation/process.py:630
 #, python-format
 msgid "Command %s has failed."
-msgstr ""
+msgstr "指令 %s 執行失敗。"
 
 #: src/installation/process.py:263 src/installation/process.py:335
 #: src/installation/process.py:358 src/installation/process.py:632
 #, python-format
 msgid "Output : %s"
-msgstr ""
+msgstr "輸出： %s"
 
 #: src/installation/process.py:303 src/installation/process.py:326
 #, python-format
@@ -701,7 +701,7 @@ msgstr "無法在目標系統上創建必要的目錄"
 #: src/installation/process.py:356
 #, python-format
 msgid "Command %s has failed"
-msgstr ""
+msgstr "指令 %s 執行失敗"
 
 #: src/installation/process.py:366
 msgid "Install System ..."
@@ -721,7 +721,7 @@ msgstr "系統設定完成。"
 
 #: src/installation/process.py:379
 msgid "Installing boot loader ..."
-msgstr ""
+msgstr "正在安裝開機載入器 ..."
 
 #: src/installation/process.py:384
 msgid ""
@@ -729,7 +729,7 @@ msgid ""
 "Please, before rebooting, do it by yourself.\n"
 "You can find more info in the GRUB archlinux's wiki page:\n"
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
-msgstr ""
+msgstr "我們很抱歉，但看來 Thus 無法安裝開機載入器到您的系統中。\n請在重新開機前自行安裝。\n您可以在 archlinux 的 wiki 頁面中找到關於 GRUB 的更多資訊：\n\thttps://wiki.archlinux.org/index.php/GRUB\n"
 
 #: src/installation/process.py:420
 #, python-format
@@ -796,7 +796,7 @@ msgstr "執行命令時遇到錯誤： %s"
 
 #: src/installation/process.py:688
 msgid "Can't copy network configuration files"
-msgstr ""
+msgstr "無法複製網路設定檔"
 
 #: src/installation/process.py:718 src/installation/process.py:773
 #, python-format
@@ -820,7 +820,7 @@ msgstr "已加入 fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
 #: src/installation/process.py:866
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
-msgstr ""
+msgstr "正在安裝 GRUB(2) BIOS 開機載入器到 %s"
 
 #: src/installation/process.py:876 src/installation/process.py:898
 msgid "ERROR installing GRUB(2) BIOS."
@@ -832,37 +832,37 @@ msgstr "GRUB(2) BIOS 已成功安裝。"
 
 #: src/installation/process.py:921
 msgid "ERROR installing GRUB(2) UEFI."
-msgstr ""
+msgstr "安裝 URFI 模式的 GRUB(2)時遇到錯誤。"
 
 #: src/installation/process.py:929
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader"
-msgstr ""
+msgstr "正在安裝 GRUB(2) UEFI %s 開機載入器"
 
 #: src/installation/process.py:942
 msgid "Installing Grub2 locales."
-msgstr ""
+msgstr "正在安裝 GRUB2 語系。"
 
 #: src/installation/process.py:955
 #, python-format
 msgid "No OEM loader found in %s. Copying Grub(2) into dir."
-msgstr ""
+msgstr "在 %s 中沒有發現 OEM 載入器。正在複製 GRUB(2) 到資料夾中。"
 
 #: src/installation/process.py:960
 msgid "Copying Grub(2) into OEM dir failed. File Not Found."
-msgstr ""
+msgstr "複製 GRUB(2) 到 OEM 資料夾時失敗。檔案找不到。"
 
 #: src/installation/process.py:962
 msgid "Copying Grub(2) into OEM dir failed. File Exists."
-msgstr ""
+msgstr "複製 GRUB(2) 到 OEM 資料夾時失敗。檔案存在。"
 
 #: src/installation/process.py:964
 msgid "Copying Grub(2) into OEM dir failed. Unknown Error."
-msgstr ""
+msgstr "複製 GRUB(2) 到 OEM 資料夾時失敗。未知錯誤。"
 
 #: src/installation/process.py:982
 msgid "Generating grub.cfg"
-msgstr ""
+msgstr "正在生成 grub.cfg"
 
 #: src/installation/process.py:1004
 msgid "ERROR installing GRUB(2) locale."
@@ -906,7 +906,7 @@ msgstr "網路組態已複製。"
 
 #: src/installation/process.py:1235
 msgid "Time zone set."
-msgstr ""
+msgstr "時區設置。"
 
 #: src/installation/process.py:1256
 #, python-format
@@ -1061,7 +1061,7 @@ msgstr "無法確認 %s 是否為固態硬碟"
 #: src/parted3/fs_module.py:173
 #, python-format
 msgid "Sorry but filesystem %s can't be resized"
-msgstr ""
+msgstr "抱歉，檔案系統 %s 無法調整大小"
 
 #: src/parted3/lvm.py:75
 #, python-format
@@ -1356,7 +1356,7 @@ msgstr "i386 UEFI"
 
 #: ui/bootloader.ui:169
 msgid "Choose 'Cancel' if you don't want to install a boot loader"
-msgstr ""
+msgstr "如果您不想安裝開機載入器，請選擇 '取消' 。"
 
 #: ui/check.ui:29
 msgid ""
@@ -1400,7 +1400,7 @@ msgstr "LVM..."
 
 #: ui/installation_advanced.ui:1024
 msgid "Install boot loader"
-msgstr ""
+msgstr "安裝開機載入器"
 
 #: ui/installation_advanced.ui:1167
 msgid "LUKS volume name:"
@@ -1471,7 +1471,7 @@ msgstr "<span weight=\"light\" size=\"small\">將會設定 LVM 讓您以更簡�
 msgid ""
 "<span weight=\"light\" size=\"small\">This will setup your /home directory "
 "in a different partition or volume.</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">將會把您的 /home 目錄設定為不同的分割區或容量。</span>"
 
 #: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"
