@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-19 21:17+0100\n"
-"PO-Revision-Date: 2014-01-21 21:48+0000\n"
+"PO-Revision-Date: 2014-01-23 16:19+0000\n"
 "Last-Translator: richie4422 <riko442@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/manjaro-thus/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "Nemôžete mať spustené dva procesy jedného inštalátora.\n\nAk ste 
 #: thus.py:143
 #, python-format
 msgid "Thus installer version %s"
-msgstr ""
+msgstr "Inštalátor Thus verzia %s"
 
 #: thus.py:234
 msgid "Manjaro Installer"
@@ -75,7 +75,7 @@ msgstr ""
 #: src/installation/process.py:463
 #, python-format
 msgid "Unmounting %s"
-msgstr ""
+msgstr "Odpájanie %s"
 
 #: src/installation/auto_partition.py:79 src/installation/auto_partition.py:89
 #, python-format
@@ -114,7 +114,7 @@ msgstr ""
 #: src/installation/auto_partition.py:537
 #, python-format
 msgid "Will setup LVM on device %s"
-msgstr ""
+msgstr "Nastaví LVM na zariadení %s"
 
 #: src/bootinfo.py:53 src/bootinfo.py:65 src/bootinfo.py:71 src/bootinfo.py:85
 #: src/installation/alongside.py:218
@@ -127,15 +127,15 @@ msgstr "Aký typ bootovania má váš systém?"
 
 #: src/bootloader.py:59
 msgid "BIOS (Most Common)"
-msgstr ""
+msgstr "BIOS ( Najčastejšie)"
 
 #: src/bootloader.py:63
 msgid "64-bit UEFI"
-msgstr ""
+msgstr "64-bit UEFI"
 
 #: src/bootloader.py:67
 msgid "32-bit UEFI"
-msgstr ""
+msgstr "32-bit UEFI"
 
 #: src/bootloader.py:71
 msgid "Select 'Cancel' if you don't want to install a boot loader."
@@ -144,7 +144,7 @@ msgstr ""
 #: src/canonical/misc.py:929
 #, python-format
 msgid "Can't set locale %s"
-msgstr ""
+msgstr "Nie je možné nastaviť lokalizáciu %s"
 
 #: src/canonical/validation.py:132
 msgid "password is too short"
@@ -172,12 +172,12 @@ msgstr "Zadané heslá sa nezhodujú"
 
 #: src/check.py:79
 msgid "System Check"
-msgstr ""
+msgstr "Kontrola systému"
 
 #: src/check.py:84
 #, python-format
 msgid "has at least %dGB available storage space"
-msgstr ""
+msgstr "má minimálne %dGB voľného miesta"
 
 #: src/check.py:89
 msgid ""
@@ -341,7 +341,7 @@ msgstr "Menovka (nepovinné):"
 
 #: src/installation/advanced.py:1168
 msgid "Encryption Options..."
-msgstr ""
+msgstr "Možnosti šifrovania"
 
 #: src/installation/advanced.py:1185 ui/installation_advanced.ui:276
 msgid "Format:"
@@ -349,7 +349,7 @@ msgstr "Formát:"
 
 #: src/installation/advanced.py:1190
 msgid "Partition Table Type:"
-msgstr ""
+msgstr "Typ tabuľky oddielov:"
 
 #: src/installation/advanced.py:1195
 msgid "Create Partition Table"
@@ -492,7 +492,7 @@ msgstr ""
 
 #: src/installation/alongside.py:222
 msgid "Unable to create list of partitions for alongside installation."
-msgstr ""
+msgstr "Nie je možné vytvoriť zoznam oddielov pre existujúcu inštaláciu."
 
 #: src/installation/alongside.py:266
 msgid "Can't shrink the partition (maybe it's nearly full?)"
@@ -521,7 +521,7 @@ msgstr "Pozor: Toto odstráni všetky dáta na disku"
 
 #: src/installation/ask.py:122
 msgid "Encrypt this installation for increased security."
-msgstr ""
+msgstr "Zašifrovať túto inštaláciu pre vyššiu bezpečnosť."
 
 #: src/installation/ask.py:126
 msgid "You will be asked for the encryption key in the next step."
@@ -539,7 +539,7 @@ msgstr ""
 
 #: src/installation/ask.py:140 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
-msgstr ""
+msgstr "Umiestniť váš domovský priečinok na iný oddiel"
 
 #: src/installation/ask.py:144
 msgid ""
@@ -567,15 +567,15 @@ msgstr ""
 
 #: src/installation/ask.py:193
 msgid "Manjaro will be installed using LVM volumes"
-msgstr ""
+msgstr "Manjaro sa nainštaluje pomocou LVM"
 
 #: src/installation/ask.py:195
 msgid "Manjaro will be installed using a separate /home volume."
-msgstr ""
+msgstr "Manjaro sa nainštaluje s oddeleným zväzkom /home"
 
 #: src/installation/ask.py:197
 msgid "Manjaro will be installed using a separate /home partition."
-msgstr ""
+msgstr "Manjaro sa nainštaluje s oddeleným oddielom /home"
 
 #: src/installation/automatic.py:76
 msgid "Automatic installation mode"
@@ -612,7 +612,7 @@ msgstr "Zobraziť heslo"
 
 #: src/installation/automatic.py:165
 msgid "A LUKS password has been set"
-msgstr ""
+msgstr "Heslo LUKS bolo nastavené"
 
 #: src/installation/automatic.py:167
 #, python-format
@@ -650,7 +650,7 @@ msgstr "Inštalujem metódou '%s' "
 #: src/installation/process.py:238
 #, python-format
 msgid "Creating partitions and their filesystems in %s"
-msgstr ""
+msgstr "Vytváranie oddielov a ich súborových systémov v %s"
 
 #: src/installation/process.py:259
 msgid "Error creating partitions and their filesystems"
@@ -690,7 +690,7 @@ msgstr "Nebolo možné pripojiť %s v %s"
 #: src/installation/process.py:346
 #, python-format
 msgid "%s deleted"
-msgstr ""
+msgstr "%s odstránených"
 
 #: src/installation/process.py:354
 msgid "Can't create necessary directories on destination system"
@@ -742,7 +742,7 @@ msgstr ""
 
 #: src/installation/process.py:474
 msgid "Installation finished successfully."
-msgstr ""
+msgstr "Inštalácia bola úspešne ukončená."
 
 #: src/installation/process.py:501
 msgid "Base filesystem does not exist! Critical error (exiting)."
@@ -790,7 +790,7 @@ msgstr "Nepodarilo sa pripojiť %s"
 #: src/installation/process.py:655
 #, python-format
 msgid "Error running command: %s"
-msgstr ""
+msgstr "Chyba pri spúštaní príkazu: %s"
 
 #: src/installation/process.py:688
 msgid "Can't copy network configuration files"
@@ -799,7 +799,7 @@ msgstr ""
 #: src/installation/process.py:718 src/installation/process.py:773
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
-msgstr ""
+msgstr "Pridané do fstab: UUID=%s %s %s %s 0 %s"
 
 #: src/installation/process.py:732
 #, python-format
@@ -896,11 +896,11 @@ msgstr "Konfigurácia vášho nového systému"
 
 #: src/installation/process.py:1203
 msgid "fstab file generated."
-msgstr ""
+msgstr "súbor fstab vytvorený."
 
 #: src/installation/process.py:1209
 msgid "Network configuration copied."
-msgstr ""
+msgstr "Konfigurácia siete skopírovaná."
 
 #: src/installation/process.py:1235
 msgid "Time zone set."
@@ -909,17 +909,17 @@ msgstr ""
 #: src/installation/process.py:1256
 #, python-format
 msgid "Sudo configuration for user %s done."
-msgstr ""
+msgstr "Konfigurácia sudo pre používateľa %s hotová."
 
 #: src/installation/process.py:1266
 #, python-format
 msgid "User %s added."
-msgstr ""
+msgstr "Používateľ %s pridaný."
 
 #: src/installation/process.py:1278
 #, python-format
 msgid "Hostname  %s set."
-msgstr ""
+msgstr "Názov hostiteľa %s nastavený."
 
 #: src/installation/process.py:1283
 msgid "Set root password."
@@ -927,7 +927,7 @@ msgstr ""
 
 #: src/installation/process.py:1286
 msgid "Set the same password to root."
-msgstr ""
+msgstr "Použiť rovnaké heslo ako root."
 
 #: src/installation/process.py:1292
 msgid "Generating locales ..."
@@ -983,7 +983,7 @@ msgstr ""
 
 #: src/installation/process.py:1616
 msgid "User home dir encrypted"
-msgstr ""
+msgstr "Používateľský domovský priečinok je zašifrovaný"
 
 #: src/keymap.py:67
 msgid "Select your keyboard layout"
