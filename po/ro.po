@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-19 21:17+0100\n"
-"PO-Revision-Date: 2014-01-21 00:53+0000\n"
+"PO-Revision-Date: 2014-01-23 19:44+0000\n"
 "Last-Translator: Ayceman <alexandru.ianu@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/manjaro-thus/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -128,7 +128,7 @@ msgstr "necunoscut"
 
 #: src/bootloader.py:54 ui/bootloader.ui:69
 msgid "What is your boot system type?"
-msgstr "Care este tipul vostru de sistem de inițializare"
+msgstr "Care este tipul vostru de sistem de inițializare?"
 
 #: src/bootloader.py:59
 msgid "BIOS (Most Common)"
@@ -540,7 +540,7 @@ msgstr "Folosește LVM cu această instalare"
 msgid ""
 "This will set up LVM allowing you to make snapshots and change partition "
 "sizes in a straightforward way."
-msgstr "Aceasta ca configura LVM permițând crearea de instantanee și schimbarea ușoară a mărimii partiților"
+msgstr "Aceasta va configura LVM permițând crearea de instantanee și schimbarea ușoară a mărimii partiților"
 
 #: src/installation/ask.py:140 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
@@ -1468,7 +1468,7 @@ msgstr "Utilizează LVM cu noua instalare Manjaro"
 msgid ""
 "<span weight=\"light\" size=\"small\">This will set up LVM allowing you to "
 "make snapshots and change partition sizes in a straightforward way</span>"
-msgstr "<span weight=\"light\" size=\"small\">Aceasta ca configura LVM permițând crearea de instantanee și schimbarea ușoară a mărimii partiților</span>"
+msgstr "<span weight=\"light\" size=\"small\">Aceasta va configura LVM permițând crearea de instantanee și schimbarea ușoară a mărimii partiților</span>"
 
 #: ui/installation_ask.ui:155
 msgid ""

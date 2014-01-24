@@ -16,6 +16,7 @@
 # Lilax <fbutz.delaire@mac.com>, 2013
 # Gatien Bovyn <gatien.bovyn@hotmail.com>, 2013
 # gilles74 <gillessoixantequatorze@orange.fr>, 2013
+# guinux <guillaume@manjaro.org>, 2014
 # janmaro <inactive+janmaro@transifex.com>, 2014
 # janmaro <inactive+janmaro@transifex.com>, 2014
 # Lilax <fbutz.delaire@mac.com>, 2013
@@ -31,8 +32,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-19 21:17+0100\n"
-"PO-Revision-Date: 2014-01-19 20:22+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2014-01-24 09:03+0000\n"
+"Last-Translator: guinux <guillaume@manjaro.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/manjaro-thus/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,7 +100,7 @@ msgstr "Démonter %s"
 #: src/installation/auto_partition.py:79 src/installation/auto_partition.py:89
 #, python-format
 msgid "Unmounting %s failed. Trying lazy arg."
-msgstr ""
+msgstr "Echec du démantoge de %s. Essai d'options sures."
 
 #: src/installation/auto_partition.py:109
 msgid "Can't delete existent LVM volumes (see below)"
@@ -117,7 +118,7 @@ msgstr "Type de système de fichiers %s inconnu"
 #: src/installation/auto_partition.py:179
 #, python-format
 msgid "Can't create filesystem %s"
-msgstr ""
+msgstr "Création du système de fichier %s impossible"
 
 #: src/installation/auto_partition.py:325
 #, python-format
@@ -277,7 +278,7 @@ msgstr "aucun"
 #: src/installation/advanced.py:1439 src/installation/advanced.py:1531
 #: src/installation/advanced.py:1673 src/installation/advanced.py:1768
 msgid "extended"
-msgstr "prolongé"
+msgstr "étendue"
 
 #: src/installation/advanced.py:675 src/installation/advanced.py:926
 msgid "Can't use same mount point twice..."
@@ -654,7 +655,7 @@ msgid ""
 "Do you really want to proceed and delete all your content on your hard drive?\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Voulez-vous vraiment continuer et effacer tout le contenu de votre disque dur ?\n\n%s"
 
 #: src/installation/process.py:84
 #, python-format
@@ -746,7 +747,7 @@ msgid ""
 "Please, before rebooting, do it by yourself.\n"
 "You can find more info in the GRUB archlinux's wiki page:\n"
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
-msgstr ""
+msgstr "Excusez-nous mais il semble que Thus ne peut pas installer le gestionnaire de démarrage.\nVeuillez, avant de redémarrer, le faire vous-meme.\nDes informations sont disponibles sur le wiki d'Archlinux:\n   https://wiki.archlinux.org/index.php/GRUB\n"
 
 #: src/installation/process.py:420
 #, python-format
@@ -1078,7 +1079,7 @@ msgstr "Ne pas vérifier si %s est un SSD"
 #: src/parted3/fs_module.py:173
 #, python-format
 msgid "Sorry but filesystem %s can't be resized"
-msgstr ""
+msgstr "Désolé mais le système de fichier %s ne peut pas etre redimensionné"
 
 #: src/parted3/lvm.py:75
 #, python-format

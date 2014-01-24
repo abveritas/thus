@@ -25,8 +25,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-19 21:17+0100\n"
-"PO-Revision-Date: 2014-01-19 20:22+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2014-01-24 13:10+0000\n"
+"Last-Translator: holmeslinux <holmes_holmes@live.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/manjaro-thus/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,23 +65,23 @@ msgstr "Saindo do instalador..."
 
 #: thus.py:411
 msgid "Sets Thus log level to 'debug'"
-msgstr ""
+msgstr "Thus conjunto de nível log para 'debug'"
 
 #: thus.py:412
 msgid "Update Thus to the latest version (-uu will force the update)"
-msgstr ""
+msgstr "Atualize Thus, para a versão mais recente (-uu vai forçar a atualização)"
 
 #: thus.py:413
 msgid "Do not perform any changes (useful for developers)"
-msgstr ""
+msgstr "Não realizar quaisquer alterações (útil para desenvolvedores)"
 
 #: thus.py:414
 msgid "Show logging messages to stdout"
-msgstr ""
+msgstr "Mostrar mensagens de log para stdout"
 
 #: thus.py:415
 msgid "Show options in development (DO NOT USE THIS!)"
-msgstr ""
+msgstr "Mostrar opções em desenvolvimento (NÃO USE ESTE!)"
 
 #: src/installation/auto_partition.py:75 src/installation/auto_partition.py:85
 #: src/installation/process.py:431 src/installation/process.py:448
@@ -93,7 +93,7 @@ msgstr "Desmontando %s"
 #: src/installation/auto_partition.py:79 src/installation/auto_partition.py:89
 #, python-format
 msgid "Unmounting %s failed. Trying lazy arg."
-msgstr ""
+msgstr "Desmontando %s falhou. Tentando lazy arg."
 
 #: src/installation/auto_partition.py:109
 msgid "Can't delete existent LVM volumes (see below)"
@@ -111,7 +111,7 @@ msgstr "Tipo de sistema de arquivos desconhecido %s"
 #: src/installation/auto_partition.py:179
 #, python-format
 msgid "Can't create filesystem %s"
-msgstr ""
+msgstr "Não é possível criar sistema de arquivos %s"
 
 #: src/installation/auto_partition.py:325
 #, python-format
@@ -152,7 +152,7 @@ msgstr "32-bit UEFI"
 
 #: src/bootloader.py:71
 msgid "Select 'Cancel' if you don't want to install a boot loader."
-msgstr ""
+msgstr "Selecione \"Cancelar\" se você não quiser instalar um gerenciador de inicialização."
 
 #: src/canonical/misc.py:929
 #, python-format
@@ -295,11 +295,11 @@ msgstr "Modo de instalação avançado"
 
 #: src/installation/advanced.py:1100 ui/installation_advanced.ui:1046
 msgid "Use this device for boot loader installation:"
-msgstr ""
+msgstr "Use este dispositivo para instalação do gerenciador de inicialização:"
 
 #: src/installation/advanced.py:1105 ui/installation_advanced.ui:1081
 msgid "Use the partition where /boot is mounted (not recommended)"
-msgstr ""
+msgstr "Use a partição onde o /boot é montada (não recomendado)"
 
 #: src/installation/advanced.py:1115 ui/installation_advanced.ui:943
 msgid "New partition table"
@@ -458,7 +458,7 @@ msgstr "Criando sistema de arquivo %s em %s com nome %s"
 #: src/installation/advanced.py:1720
 #, python-format
 msgid "Setting boot flag in %s partition"
-msgstr ""
+msgstr "Definir flag de arranque na partição %s"
 
 #: src/installation/advanced.py:1738
 #, python-format
@@ -472,7 +472,7 @@ msgstr "Manjaro instalará o bootloader do tipo %s em %s"
 
 #: src/installation/advanced.py:1796 src/installation/automatic.py:216
 msgid "Thus will not install any boot loader"
-msgstr ""
+msgstr "Thus não vai instalar nenhum gerenciaor de inicialização"
 
 #: src/installation/advanced.py:1812 src/installation/automatic.py:237
 msgid "Testing mode. Thus won't apply any changes to your system!"
@@ -557,7 +557,7 @@ msgstr "Definir a sua Home em uma partição/volume diferente"
 #: src/installation/ask.py:144
 msgid ""
 "This will setup your /home directory in a different partition or volume."
-msgstr ""
+msgstr "Isto irá configurar seu diretório /home em uma partição ou volume diferente."
 
 #: src/installation/ask.py:152 src/installation/ask.py:154
 #, python-format
@@ -648,7 +648,7 @@ msgid ""
 "Do you really want to proceed and delete all your content on your hard drive?\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Você realmente quer prosseguir e apagar todo o seu conteúdo no seu disco rígido?\n\n%s"
 
 #: src/installation/process.py:84
 #, python-format
@@ -673,13 +673,13 @@ msgstr "Erro ao criar as partições e seus sistemas de arquivos"
 #: src/installation/process.py:630
 #, python-format
 msgid "Command %s has failed."
-msgstr ""
+msgstr "Comando %s falhou."
 
 #: src/installation/process.py:263 src/installation/process.py:335
 #: src/installation/process.py:358 src/installation/process.py:632
 #, python-format
 msgid "Output : %s"
-msgstr ""
+msgstr "Saída : %s"
 
 #: src/installation/process.py:303 src/installation/process.py:326
 #, python-format
@@ -712,7 +712,7 @@ msgstr "Não é possível criar os diretórios necessários no sistema de destin
 #: src/installation/process.py:356
 #, python-format
 msgid "Command %s has failed"
-msgstr ""
+msgstr "Comando %s falhou"
 
 #: src/installation/process.py:366
 msgid "Install System ..."
@@ -732,7 +732,7 @@ msgstr "Sistema configurado."
 
 #: src/installation/process.py:379
 msgid "Installing boot loader ..."
-msgstr ""
+msgstr "Instalando o gerenciador de inicialização..."
 
 #: src/installation/process.py:384
 msgid ""
@@ -740,7 +740,7 @@ msgid ""
 "Please, before rebooting, do it by yourself.\n"
 "You can find more info in the GRUB archlinux's wiki page:\n"
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
-msgstr ""
+msgstr "Pedimos desculpas, mas parece que isso não é possível instalar o gerenciador de inicialização em seu sistema.\nPor favor, antes de reiniciar, faça-o por si mesmo.\nVocê pode encontrar mais informações sobre o GRUB na página wiki do ArchLinux:\n⇥ https://wiki.archlinux.org/index.php/GRUB\n"
 
 #: src/installation/process.py:420
 #, python-format
@@ -807,7 +807,7 @@ msgstr "Erro ao executar o comando: %s"
 
 #: src/installation/process.py:688
 msgid "Can't copy network configuration files"
-msgstr ""
+msgstr "Não é possível copiar arquivos de configuração de rede"
 
 #: src/installation/process.py:718 src/installation/process.py:773
 #, python-format
@@ -831,7 +831,7 @@ msgstr "Adicionado ao fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
 #: src/installation/process.py:866
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
-msgstr ""
+msgstr "Instalando o GRUB(2) gerenciador de inicialização do BIOS em %s"
 
 #: src/installation/process.py:876 src/installation/process.py:898
 msgid "ERROR installing GRUB(2) BIOS."
@@ -843,37 +843,37 @@ msgstr "GRUB (2) BIOS foi instalado com sucesso."
 
 #: src/installation/process.py:921
 msgid "ERROR installing GRUB(2) UEFI."
-msgstr ""
+msgstr "ERRO ao instalar o GRUB(2) UEFI."
 
 #: src/installation/process.py:929
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader"
-msgstr ""
+msgstr "Instalando o gerenciador de inicialização GRUB(2) UEFI %s"
 
 #: src/installation/process.py:942
 msgid "Installing Grub2 locales."
-msgstr ""
+msgstr "Instalando localidades GRUB2."
 
 #: src/installation/process.py:955
 #, python-format
 msgid "No OEM loader found in %s. Copying Grub(2) into dir."
-msgstr ""
+msgstr "Nenhum carregador OEM encontrado em %s. Copiando GRUB(2) no dir."
 
 #: src/installation/process.py:960
 msgid "Copying Grub(2) into OEM dir failed. File Not Found."
-msgstr ""
+msgstr "Copiando Grub(2) no dir OEM falhou. Arquivo não encontrado."
 
 #: src/installation/process.py:962
 msgid "Copying Grub(2) into OEM dir failed. File Exists."
-msgstr ""
+msgstr "Copiando Grub(2) no dir OEM falhou. Arquivo existe."
 
 #: src/installation/process.py:964
 msgid "Copying Grub(2) into OEM dir failed. Unknown Error."
-msgstr ""
+msgstr "Copiando GRUB(2) no dir OEM falhou. Erro desconhecido."
 
 #: src/installation/process.py:982
 msgid "Generating grub.cfg"
-msgstr ""
+msgstr "Criando grub.cfg"
 
 #: src/installation/process.py:1004
 msgid "ERROR installing GRUB(2) locale."
@@ -917,7 +917,7 @@ msgstr "Configuração de rede copiado."
 
 #: src/installation/process.py:1235
 msgid "Time zone set."
-msgstr ""
+msgstr "Fuso horário definido."
 
 #: src/installation/process.py:1256
 #, python-format
@@ -1025,7 +1025,7 @@ msgstr "Por favor, escolha o seu idioma:"
 
 #: src/language.py:83
 msgid "Notice: The Thus Installer is beta software."
-msgstr "Aviso: O Instalador Thus é um software Beta."
+msgstr "Aviso: O Instalador Thus é um software beta."
 
 #: src/language.py:84
 msgid ""
@@ -1072,7 +1072,7 @@ msgstr "Não é possível verificar se %s é um Disco de Estado Sólido"
 #: src/parted3/fs_module.py:173
 #, python-format
 msgid "Sorry but filesystem %s can't be resized"
-msgstr ""
+msgstr "Desculpe, mas o sistema de arquivos %s não pode ser redimensionado"
 
 #: src/parted3/lvm.py:75
 #, python-format
@@ -1367,7 +1367,7 @@ msgstr "i386 UEFI"
 
 #: ui/bootloader.ui:169
 msgid "Choose 'Cancel' if you don't want to install a boot loader"
-msgstr ""
+msgstr "Escolha 'Cancelar' se você não quiser instalar um gerenciador de inicialização"
 
 #: ui/check.ui:29
 msgid ""
@@ -1411,7 +1411,7 @@ msgstr "LVM..."
 
 #: ui/installation_advanced.ui:1024
 msgid "Install boot loader"
-msgstr ""
+msgstr "Instalar gerenciador de inicialização"
 
 #: ui/installation_advanced.ui:1167
 msgid "LUKS volume name:"
@@ -1482,7 +1482,7 @@ msgstr "<span weight=\"light\" size=\"small\">Isto irá configurar o LVM permiti
 msgid ""
 "<span weight=\"light\" size=\"small\">This will setup your /home directory "
 "in a different partition or volume.</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">Isto irá configurar seu diretório /home em uma partição ou volume diferente.</span>"
 
 #: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"
