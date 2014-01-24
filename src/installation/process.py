@@ -110,10 +110,13 @@ class FileCopyThread(Thread):
                 num_files_copied = num_files_total_local - num_files_remaining + self.offset
                 if num_files_copied % 100 == 0:
                     self.update_progress(num_files_copied)
-            else:
+            # Disabled until we find a proper solution for BadDrawable (invalid Pixmap or Window parameter) errors
+            # Details: serial YYYYY error_code 9 request_code 62 minor_code 0
+            # This might even speed up the copy process ...
+            """else:
                 # we've got a filename!
                 if num_files_copied % 100 == 0:
-                    self.update_label(line.decode().strip())
+                    self.update_label(line.decode().strip())"""
 
         self.offset = num_files_copied
 
