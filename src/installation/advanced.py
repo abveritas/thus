@@ -393,10 +393,12 @@ class InstallationAdvanced(Gtk.Box):
                     uid = self.gen_partition_uid(path=partition_path)
                     if fs.get_type(partition_path):
                         fs_type = fs.get_type(partition_path)
-                    else:
+                    elif used_space.is_btrfs(partition_path):
                         # kludge, btrfs not being detected...
-                        if used_space.is_btrfs(partition_path):
-                            fs_type = 'btrfs'
+                        fs_type = 'btrfs'
+                    else:
+                        # Say unknown if we can't detect fs type instead of assumming btrfs
+                        fs_type = 'unknown'
 
                     if uid in self.stage_opts:
                         (is_new, label, mount_point, fs_type, fmt_active) = self.stage_opts[uid]
@@ -439,7 +441,7 @@ class InstallationAdvanced(Gtk.Box):
             if disk is None:
                 # Maybe disk without a partition table?
                 row = [disk_path, "", "", "", False, False, "", "", "",
-                       "", 0, False, is_ssd, False, False]
+                    "", 0, False, is_ssd, False, False]
                 self.partition_list_store.append(None, row)
             else:
                 dev = disk.device
@@ -448,7 +450,7 @@ class InstallationAdvanced(Gtk.Box):
                 size_txt = self.get_size(dev.length, dev.sectorSize)
 
                 row = [dev.path, "", "", "", False, False, size_txt, "",
-                       "", "", 0, False, is_ssd, True, True]
+                    "", "", 0, False, is_ssd, True, True]
                 if '/dev/mapper/' in disk_path:
                     continue
                 disk_parent = self.partition_list_store.append(None, row)
@@ -481,12 +483,13 @@ class InstallationAdvanced(Gtk.Box):
                     # Get filesystem
                     if p.fileSystem and p.fileSystem.type:
                         fs_type = p.fileSystem.type
+                    # Check if its free space before trying to get the filesystem with blkid.
                     elif 'free' in partition_path:
                         fs_type = _("none")
-                    # try blkid
                     elif fs.get_type(path):
                         fs_type = fs.get_type(path)
                     else:
+                        # Unknown filesystem
                         fs_type = '?'
 
                     # Nothing should be mounted at this point
@@ -511,6 +514,8 @@ class InstallationAdvanced(Gtk.Box):
                     if uid in self.stage_opts:
                         (is_new, label, mount_point, fs_type, fmt_active) = self.stage_opts[uid]
                         fmt_enable = not is_new
+                        if mount_point == "/":
+                            fmt_enable = False
                     else:
                         fmt_enable = True
                         if _("free space") not in path:
@@ -666,7 +671,9 @@ class InstallationAdvanced(Gtk.Box):
             mymount = mount_combo_entry.get_text().strip()
 
             if mymount in self.diskdic['mounts'] and mymount != mount_point:
-                show.warning(_("Can't use same mount point twice..."))
+                show.warning(_('Cannot use same mount twice.'))
+            elif mymount == "/" and not format_check.get_active():
+                show.warning(_('Root partition must be formatted.'))
             else:
                 if mount_point:
                     self.diskdic['mounts'].remove(mount_point)
@@ -1395,7 +1402,6 @@ class InstallationAdvanced(Gtk.Box):
                 # Don't allow vfat as / filesystem, it will not work!
                 # Don't allow ntfs as / filesystem, this is stupid!
                 if "fat" not in fs and "ntfs" not in fs:
-                    #check_ok = True
                     exist_root = True
             #if mnt == "/boot/efi" or mnt == "/boot":
             if mnt == "/boot/efi":
@@ -1467,6 +1473,7 @@ class InstallationAdvanced(Gtk.Box):
                             mounted = False
                             if pm.check_mounted(partitions[partition_path]):
                                 mount_point, fs_type, writable = self.get_mount_point(partition_path)
+                                #if "swap" in fs_type:
                                 swap_partition = self.get_swap_partition(partition_path)
                                 if swap_partition == partition_path:
                                     msg = _("%s is mounted as swap.\nTo continue it has to be unmounted.\n"
@@ -1728,6 +1735,7 @@ class InstallationAdvanced(Gtk.Box):
                         if fmt:
                             # All of fs module takes paths, not partition objs
                             if not self.testing:
+                                # Create filesystem using mkfs
                                 (error, msg) = fs.create_fs(partition_path, fisy, lbl)
                                 if error == 0:
                                     logging.info(msg)

@@ -313,8 +313,13 @@ class InstallationProcess(multiprocessing.Process):
                     self.queue_event('debug', txt)
                     subprocess.check_call(['mount', boot_partition, "%s/boot" % self.dest_dir])
             except subprocess.CalledProcessError as err:
-                logging.error(err)
-                self.queue_fatal_event(_("Couldn't mount root and boot partitions"))
+                txt = _("Couldn't mount root and boot partitions")
+                logging.error(txt)
+                cmd = _("Command %s has failed") % err.cmd
+                logging.error(cmd)
+                out = _("Output : %s") % err.output 
+                logging.error(out)
+                self.queue_fatal_event(txt)
                 return False
 
         # In advanced mode, mount all partitions (root and boot are already mounted)
@@ -665,7 +670,6 @@ class InstallationProcess(multiprocessing.Process):
             txt = out.decode().strip()
             if len(txt) > 0:
                 logging.debug(txt)
-
         except OSError as err:
             logging.exception(_("Error running command: %s"), err.strerror)
             raise
@@ -754,7 +758,6 @@ class InstallationProcess(multiprocessing.Process):
             # fstab uses vfat to mount fat16 and fat32 partitions
             if "fat" in myfmt:
                 myfmt = 'vfat'
-
             if "btrfs" in myfmt:
                 self.settings.set('btrfs', True)
 
@@ -762,7 +765,6 @@ class InstallationProcess(multiprocessing.Process):
             # it has no mount point (swap has been checked before)
             if path == "":
                 continue
-
             if path == '/':
                 # We do not run fsck on btrfs partitions
                 if "btrfs" in myfmt:
