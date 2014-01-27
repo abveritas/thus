@@ -959,7 +959,7 @@ class InstallationProcess(multiprocessing.Process):
 
         self.queue_event('info', _("Installing Grub2 locales."))
         self.install_bootloader_grub2_locales()
-        """
+
         # Copy grub into dirs known to be used as default by some OEMs if they are empty.
         defaults = [(os.path.join(self.dest_dir, "%s/EFI/BOOT/" % (efi_path[1:])),
                      'BOOT' + spec_uefi_arch_caps + '.efi'),
@@ -981,7 +981,7 @@ class InstallationProcess(multiprocessing.Process):
                 except Exception as err:
                     logging.warning(_("Copying Grub(2) into OEM dir failed. Unknown Error."))
                     logging.warning(err)
-        """
+
         # TODO: Create themed shellx64_v2.efi
         '''# Copy uefi shell if none exists in /boot/EFI
         shell_src = "/usr/share/thus/grub2-theme/shellx64_v2.efi"
