@@ -1636,6 +1636,8 @@ class InstallationAdvanced(Gtk.Box):
 
     def create_staged_partitions(self):
         """ Create staged partitions """
+        # Sometimes a swap partition can still be active at this point
+        subp = subprocess.Popen(['sh', '-c', 'swapoff -a'], stdout=subprocess.PIPE)
 
         partitions = {}
         if self.disks is not None:
