@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-27 23:32+0100\n"
+"POT-Creation-Date: 2014-01-31 23:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,8 +67,8 @@ msgid "Show options in development (DO NOT USE THIS!)"
 msgstr ""
 
 #: src/installation/auto_partition.py:74 src/installation/auto_partition.py:83
-#: src/installation/process.py:439 src/installation/process.py:456
-#: src/installation/process.py:471
+#: src/installation/process.py:432 src/installation/process.py:449
+#: src/installation/process.py:464
 #, python-format
 msgid "Unmounting %s"
 msgstr ""
@@ -113,28 +113,8 @@ msgid "Will setup LVM on device %s"
 msgstr ""
 
 #: src/bootinfo.py:53 src/bootinfo.py:65 src/bootinfo.py:71 src/bootinfo.py:85
-#: src/installation/alongside.py:218
+#: src/installation/alongside.py:220
 msgid "unknown"
-msgstr ""
-
-#: src/bootloader.py:54 ui/bootloader.ui:69
-msgid "What is your boot system type?"
-msgstr ""
-
-#: src/bootloader.py:59
-msgid "BIOS (Most Common)"
-msgstr ""
-
-#: src/bootloader.py:63
-msgid "64-bit UEFI"
-msgstr ""
-
-#: src/bootloader.py:67
-msgid "32-bit UEFI"
-msgstr ""
-
-#: src/bootloader.py:71
-msgid "Select 'Cancel' if you don't want to install a boot loader."
 msgstr ""
 
 #: src/canonical/misc.py:929
@@ -210,7 +190,7 @@ msgstr ""
 msgid "free space"
 msgstr ""
 
-#: src/installation/advanced.py:289 src/installation/alongside.py:170
+#: src/installation/advanced.py:289 src/installation/alongside.py:172
 msgid "Device"
 msgstr ""
 
@@ -351,7 +331,7 @@ msgstr ""
 msgid "Create Partition Table"
 msgstr ""
 
-#: src/installation/advanced.py:1195 src/installation/alongside.py:148
+#: src/installation/advanced.py:1195 src/installation/alongside.py:150
 #: src/installation/automatic.py:103
 msgid "Install now!"
 msgstr ""
@@ -468,39 +448,39 @@ msgstr ""
 msgid "Can't load %s css"
 msgstr ""
 
-#: src/installation/alongside.py:140
+#: src/installation/alongside.py:142
 msgid "Choose which OS you want to install Manjaro next to"
 msgstr ""
 
-#: src/installation/alongside.py:144
+#: src/installation/alongside.py:146
 msgid "Manjaro alongside another OS"
 msgstr ""
 
-#: src/installation/alongside.py:173
+#: src/installation/alongside.py:175
 msgid "Detected OS"
 msgstr ""
 
-#: src/installation/alongside.py:176
+#: src/installation/alongside.py:178
 msgid "Filesystem"
 msgstr ""
 
-#: src/installation/alongside.py:194
+#: src/installation/alongside.py:196
 msgid "pyparted3 not found!"
 msgstr ""
 
-#: src/installation/alongside.py:222
+#: src/installation/alongside.py:224
 msgid "Unable to create list of partitions for alongside installation."
 msgstr ""
 
-#: src/installation/alongside.py:266
+#: src/installation/alongside.py:268
 msgid "Can't shrink the partition (maybe it's nearly full?)"
 msgstr ""
 
-#: src/installation/alongside.py:353
+#: src/installation/alongside.py:355
 msgid "There are too many primary partitions, can't create a new one"
 msgstr ""
 
-#: src/installation/alongside.py:386
+#: src/installation/alongside.py:388
 #, python-format
 msgid "Can't shrink %s(%s) filesystem"
 msgstr ""
@@ -646,343 +626,334 @@ msgstr ""
 msgid "Installing using the '%s' method"
 msgstr ""
 
-#: src/installation/process.py:241
+#: src/installation/process.py:242
 #, python-format
 msgid "Creating partitions and their filesystems in %s"
 msgstr ""
 
-#: src/installation/process.py:262
+#: src/installation/process.py:263
 msgid "Error creating partitions and their filesystems"
 msgstr ""
 
-#: src/installation/process.py:264 src/installation/process.py:341
-#: src/installation/process.py:647
+#: src/installation/process.py:265 src/installation/process.py:342
+#: src/installation/process.py:640
 #, python-format
 msgid "Command %s has failed."
 msgstr ""
 
-#: src/installation/process.py:266 src/installation/process.py:320
-#: src/installation/process.py:343 src/installation/process.py:366
-#: src/installation/process.py:649
+#: src/installation/process.py:267 src/installation/process.py:321
+#: src/installation/process.py:344 src/installation/process.py:367
+#: src/installation/process.py:642
 #, python-format
 msgid "Output : %s"
 msgstr ""
 
-#: src/installation/process.py:306 src/installation/process.py:334
+#: src/installation/process.py:307 src/installation/process.py:335
 #, python-format
 msgid "Mounting partition %s into %s directory"
 msgstr ""
 
-#: src/installation/process.py:312
+#: src/installation/process.py:313
 #, python-format
 msgid "Mounting partition %s into %s/boot directory"
 msgstr ""
 
-#: src/installation/process.py:316
+#: src/installation/process.py:317
 msgid "Couldn't mount root and boot partitions"
 msgstr ""
 
-#: src/installation/process.py:318 src/installation/process.py:364
+#: src/installation/process.py:319 src/installation/process.py:365
 #, python-format
 msgid "Command %s has failed"
 msgstr ""
 
-#: src/installation/process.py:339
+#: src/installation/process.py:340
 #, python-format
 msgid "Can't mount %s in %s"
 msgstr ""
 
-#: src/installation/process.py:354
+#: src/installation/process.py:355
 #, python-format
 msgid "%s deleted"
 msgstr ""
 
-#: src/installation/process.py:362
+#: src/installation/process.py:363
 msgid "Can't create necessary directories on destination system"
 msgstr ""
 
-#: src/installation/process.py:374
+#: src/installation/process.py:375
 msgid "Install System ..."
 msgstr ""
 
-#: src/installation/process.py:379
+#: src/installation/process.py:380
 msgid "System installed."
 msgstr ""
 
-#: src/installation/process.py:381
+#: src/installation/process.py:382
 msgid "Configuring system ..."
 msgstr ""
 
-#: src/installation/process.py:383
+#: src/installation/process.py:384
 msgid "System configured."
 msgstr ""
 
-#: src/installation/process.py:387
+#: src/installation/process.py:388
 msgid "Installing boot loader ..."
 msgstr ""
 
-#: src/installation/process.py:392
-msgid ""
-"We apologize, but it seems Thus can't install the boot loader into your "
-"system.\n"
-"Please, before rebooting, do it by yourself.\n"
-"You can find more info in the GRUB archlinux's wiki page:\n"
-"\thttps://wiki.archlinux.org/index.php/GRUB\n"
-msgstr ""
-
-#: src/installation/process.py:428
+#: src/installation/process.py:421
 #, python-format
 msgid "Can't copy Thus log to %s"
 msgstr ""
 
-#: src/installation/process.py:447 src/installation/process.py:466
-#: src/installation/process.py:480
+#: src/installation/process.py:440 src/installation/process.py:459
+#: src/installation/process.py:473
 #, python-format
 msgid "Can't unmount %s"
 msgstr ""
 
-#: src/installation/process.py:482
+#: src/installation/process.py:475
 msgid "Installation finished successfully."
 msgstr ""
 
-#: src/installation/process.py:518
+#: src/installation/process.py:511
 msgid "Base filesystem does not exist! Critical error (exiting)."
 msgstr ""
 
-#: src/installation/process.py:522
+#: src/installation/process.py:515
 msgid "Desktop filesystem does not exist! Critical error (exiting)."
 msgstr ""
 
-#: src/installation/process.py:532 src/installation/process.py:538
+#: src/installation/process.py:525 src/installation/process.py:531
 #, python-format
 msgid "%s is already mounted at %s as %s"
 msgstr ""
 
-#: src/installation/process.py:549
+#: src/installation/process.py:542
 msgid "Indexing files to be copied ..."
 msgstr ""
 
-#: src/installation/process.py:554
+#: src/installation/process.py:547
 msgid "Extracting root-image ..."
 msgstr ""
 
-#: src/installation/process.py:564
+#: src/installation/process.py:557
 msgid "Extracting desktop-image ..."
 msgstr ""
 
-#: src/installation/process.py:579
+#: src/installation/process.py:572
 #, python-format
 msgid "Restoring meta-information on %s"
 msgstr ""
 
-#: src/installation/process.py:595
+#: src/installation/process.py:588
 msgid "Special dirs already mounted."
 msgstr ""
 
-#: src/installation/process.py:629
+#: src/installation/process.py:622
 msgid "Special dirs are not mounted. Skipping."
 msgstr ""
 
-#: src/installation/process.py:646 src/installation/process.py:652
+#: src/installation/process.py:639 src/installation/process.py:645
 #, python-format
 msgid "Unable to umount %s"
 msgstr ""
 
-#: src/installation/process.py:674
+#: src/installation/process.py:667
 #, python-format
 msgid "Error running command: %s"
 msgstr ""
 
-#: src/installation/process.py:707
+#: src/installation/process.py:700
 msgid "Can't copy network configuration files"
 msgstr ""
 
-#: src/installation/process.py:737 src/installation/process.py:795
+#: src/installation/process.py:730 src/installation/process.py:788
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
 msgstr ""
 
-#: src/installation/process.py:751
+#: src/installation/process.py:744
 #, python-format
 msgid "Added to crypttab : %s"
 msgstr ""
 
-#: src/installation/process.py:755
+#: src/installation/process.py:748
 #, python-format
 msgid "Added to fstab : /dev/mapper/cryptManjaroHome %s %s %s 0 %s"
 msgstr ""
 
-#: src/installation/process.py:799
+#: src/installation/process.py:792
 msgid "Added to fstab : tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0"
 msgstr ""
 
-#: src/installation/process.py:888
+#: src/installation/process.py:881
 #, python-format
 msgid "Installing GRUB(2) BIOS boot loader in %s"
 msgstr ""
 
-#: src/installation/process.py:898 src/installation/process.py:920
+#: src/installation/process.py:891 src/installation/process.py:913
 msgid "ERROR installing GRUB(2) BIOS."
 msgstr ""
 
-#: src/installation/process.py:917
+#: src/installation/process.py:910
 msgid "GRUB(2) BIOS has been successfully installed."
 msgstr ""
 
-#: src/installation/process.py:941
+#: src/installation/process.py:934
 msgid "ERROR installing GRUB(2) UEFI."
 msgstr ""
 
-#: src/installation/process.py:949
+#: src/installation/process.py:942
 #, python-format
 msgid "Installing GRUB(2) UEFI %s boot loader"
 msgstr ""
 
-#: src/installation/process.py:962
+#: src/installation/process.py:955
 msgid "Installing Grub2 locales."
 msgstr ""
 
-#: src/installation/process.py:975
+#: src/installation/process.py:968
 #, python-format
 msgid "No OEM loader found in %s. Copying Grub(2) into dir."
 msgstr ""
 
-#: src/installation/process.py:980
+#: src/installation/process.py:973
 msgid "Copying Grub(2) into OEM dir failed. File Not Found."
 msgstr ""
 
-#: src/installation/process.py:982
+#: src/installation/process.py:975
 msgid "Copying Grub(2) into OEM dir failed. File Exists."
 msgstr ""
 
-#: src/installation/process.py:984
+#: src/installation/process.py:977
 msgid "Copying Grub(2) into OEM dir failed. Unknown Error."
 msgstr ""
 
-#: src/installation/process.py:1002
+#: src/installation/process.py:995
 msgid "Generating grub.cfg"
 msgstr ""
 
-#: src/installation/process.py:1024
+#: src/installation/process.py:1017
 msgid "ERROR installing GRUB(2) locale."
 msgstr ""
 
-#: src/installation/process.py:1033
+#: src/installation/process.py:1026
 #, python-format
 msgid "Enabled %s service."
 msgstr ""
 
-#: src/installation/process.py:1040
+#: src/installation/process.py:1033
 #, python-format
 msgid "Error creating password hash for user %s"
 msgstr ""
 
-#: src/installation/process.py:1046
+#: src/installation/process.py:1039
 #, python-format
 msgid "Error changing password for user %s"
 msgstr ""
 
-#: src/installation/process.py:1058
+#: src/installation/process.py:1051
 msgid "Setting hooks and modules in mkinitcpio.conf"
 msgstr ""
 
-#: src/installation/process.py:1137
+#: src/installation/process.py:1130
 #, python-format
 msgid "%s: Enable automatic login for user %s."
 msgstr ""
 
-#: src/installation/process.py:1232 src/installation/process.py:1243
+#: src/installation/process.py:1225 src/installation/process.py:1236
 msgid "Configuring your new system"
 msgstr ""
 
-#: src/installation/process.py:1235
+#: src/installation/process.py:1228
 msgid "fstab file generated."
 msgstr ""
 
-#: src/installation/process.py:1241
+#: src/installation/process.py:1234
 msgid "Network configuration copied."
 msgstr ""
 
-#: src/installation/process.py:1267
+#: src/installation/process.py:1260
 msgid "Time zone set."
 msgstr ""
 
-#: src/installation/process.py:1288
+#: src/installation/process.py:1281
 #, python-format
 msgid "Sudo configuration for user %s done."
 msgstr ""
 
-#: src/installation/process.py:1298
+#: src/installation/process.py:1291
 #, python-format
 msgid "User %s added."
 msgstr ""
 
-#: src/installation/process.py:1310
+#: src/installation/process.py:1303
 #, python-format
 msgid "Hostname  %s set."
 msgstr ""
 
-#: src/installation/process.py:1315
+#: src/installation/process.py:1308
 msgid "Set root password."
 msgstr ""
 
-#: src/installation/process.py:1318
+#: src/installation/process.py:1311
 msgid "Set the same password to root."
 msgstr ""
 
-#: src/installation/process.py:1324
+#: src/installation/process.py:1317
 msgid "Generating locales ..."
 msgstr ""
 
-#: src/installation/process.py:1342
+#: src/installation/process.py:1335
 msgid "Adjusting hardware clock ..."
 msgstr ""
 
-#: src/installation/process.py:1351
+#: src/installation/process.py:1344
 msgid "Configuring hardware ..."
 msgstr ""
 
-#: src/installation/process.py:1424
+#: src/installation/process.py:1417
 msgid "Set up graphics card ..."
 msgstr ""
 
-#: src/installation/process.py:1431
+#: src/installation/process.py:1424
 msgid "Can't execute the MHWD script"
 msgstr ""
 
-#: src/installation/process.py:1444
+#: src/installation/process.py:1437
 msgid "Configure display manager ..."
 msgstr ""
 
-#: src/installation/process.py:1550
+#: src/installation/process.py:1543
 msgid "Configure System ..."
 msgstr ""
 
-#: src/installation/process.py:1575
+#: src/installation/process.py:1568
 msgid "Removing live configuration (packages)"
 msgstr ""
 
-#: src/installation/process.py:1591
+#: src/installation/process.py:1584
 msgid "Configuring package manager"
 msgstr ""
 
-#: src/installation/process.py:1603
+#: src/installation/process.py:1596
 msgid "Finished configuring package manager."
 msgstr ""
 
-#: src/installation/process.py:1627
+#: src/installation/process.py:1620
 msgid "Running mkinitcpio ..."
 msgstr ""
 
-#: src/installation/process.py:1630
+#: src/installation/process.py:1623
 msgid "Running mkinitcpio - done"
 msgstr ""
 
-#: src/installation/process.py:1646
+#: src/installation/process.py:1639
 msgid "Encrypting user home dir ..."
 msgstr ""
 
-#: src/installation/process.py:1648
+#: src/installation/process.py:1641
 msgid "User home dir encrypted"
 msgstr ""
 
@@ -1078,20 +1049,28 @@ msgstr ""
 msgid "Can't remove physical volume %s"
 msgstr ""
 
-#: src/parted3/partition_module.py:104
-msgid "Exception: For more information take a look at /tmp/thus.log"
+#: src/parted3/partition_module.py:107
+#, python-format
+msgid "Unrecognised disk label in device %s."
 msgstr ""
 
-#: src/parted3/partition_module.py:168
+#: src/parted3/partition_module.py:111
+#, python-format
+msgid ""
+"Exception: %s.\n"
+"For more information take a look at /tmp/thus.log"
+msgstr ""
+
+#: src/parted3/partition_module.py:178
 #, python-format
 msgid "Can't delete partition %s"
 msgstr ""
 
-#: src/parted3/partition_module.py:219
+#: src/parted3/partition_module.py:229
 msgid "Partition is too large!"
 msgstr ""
 
-#: src/parted3/partition_module.py:279
+#: src/parted3/partition_module.py:289
 #, python-format
 msgid "Can't detect used space from %s"
 msgstr ""
@@ -1139,19 +1118,19 @@ msgstr ""
 msgid "Couldn't execute auto mirroring selection"
 msgstr ""
 
-#: src/show_message.py:53
+#: src/show_message.py:54
 msgid "Manjaro Installer - Error"
 msgstr ""
 
-#: src/show_message.py:65
+#: src/show_message.py:66
 msgid "Manjaro Installer - Warning"
 msgstr ""
 
-#: src/show_message.py:77
+#: src/show_message.py:78
 msgid "Manjaro Installer - Information"
 msgstr ""
 
-#: src/show_message.py:88
+#: src/show_message.py:89
 msgid "Manjaro Installer - Question"
 msgstr ""
 
@@ -1169,7 +1148,18 @@ msgstr ""
 msgid "Please wait..."
 msgstr ""
 
-#: src/slides.py:217
+#: src/slides.py:197
+msgid ""
+"IMPORTANT: There may have been a problem with the Grub(2) bootloader\n"
+"installation which could prevent your system from booting properly. Before\n"
+"rebooting, you may want to verify whether or not GRUB(2) is installed and\n"
+"configured. The Arch Linux Wiki contains troubleshooting information:\n"
+"\thttps://wiki.archlinux.org/index.php/GRUB\n"
+"\n"
+"Would you like to view the wiki page now?"
+msgstr ""
+
+#: src/slides.py:234
 msgid "Do you want to retry?"
 msgstr ""
 
@@ -1346,6 +1336,10 @@ msgstr ""
 
 #: ui/bootloader.ui:7
 msgid "Boot"
+msgstr ""
+
+#: ui/bootloader.ui:69
+msgid "What is your boot system type?"
 msgstr ""
 
 #: ui/bootloader.ui:98

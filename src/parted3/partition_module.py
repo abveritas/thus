@@ -83,22 +83,22 @@ def get_devices():
     for dev in device_list:
         if dev.path in myhome:
             continue
-        #I left all of the below here but commented out to see some use cases
-        #isbusy = in use/mounted.  Needs to flag if 'yes' to prompt user to umount
-        #isbusy = dev.busy
-        #path gives /dev/sda or something similar
-        #myname = dev.path
-        #Hard drives measure themselves assuming kilo=1000, mega=1mil, etc
-        #limiter = 1000
-        #Some disk size calculations
-        #byte_size = dev.length * dev.sectorSize
-        #megabyte_size = byte_size / (limiter * limiter)
-        #gigabyte_size = megabyte_size / limiter
-        #print(byte_size)
-        #print(dev.length)
-        #Must create disk object to drill down
+        # I left all of the below here but commented out to see some use cases
+        # isbusy = in use/mounted.  Needs to flag if 'yes' to prompt user to umount
+        # isbusy = dev.busy
+        # path gives /dev/sda or something similar
+        # myname = dev.path
+        # Hard drives measure themselves assuming kilo=1000, mega=1mil, etc
+        # limiter = 1000
+        # Some disk size calculations
+        # byte_size = dev.length * dev.sectorSize
+        # megabyte_size = byte_size / (limiter * limiter)
+        # gigabyte_size = megabyte_size / limiter
+        # print(byte_size)
+        # print(dev.length)
+        # Must create disk object to drill down
 
-        # skip cd drive and special devices like LUKS and LVM
+        # Skip cd drive and special devices like LUKS and LVM
         if not dev.path.startswith("/dev/sr") and not dev.path.startswith("/dev/mapper"):
             try:
                 diskob = parted.Disk(dev)

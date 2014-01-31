@@ -188,6 +188,7 @@ class InstallationProcess(multiprocessing.Process):
         self.kernel = ""
         self.vmlinuz = ""
         self.dest_dir = ""
+        self.bootloader_ok = self.settings.get('bootloader_ok')
 
     def queue_fatal_event(self, txt):
         """ Queues the fatal event and exits process """
@@ -386,14 +387,6 @@ class InstallationProcess(multiprocessing.Process):
             if self.settings.get('install_bootloader'):
                 self.queue_event('debug', _('Installing boot loader ...'))
                 self.install_bootloader()
-                # Warn user if Grub install hasn't completed successfully
-                # TODO: instruct how to fix.
-                if not self.bootloader_ok:
-                    msg = _("We apologize, but it seems Thus can't install the boot loader into your system.\n"
-                        "Please, before rebooting, do it by yourself.\n"
-                        "You can find more info in the GRUB archlinux's wiki page:\n"
-                        "\thttps://wiki.archlinux.org/index.php/GRUB\n")
-                    self.queue_event('info', msg)
 
         except subprocess.CalledProcessError as err:
             logging.error(err)
@@ -915,7 +908,7 @@ class InstallationProcess(multiprocessing.Process):
         core_path = os.path.join(self.dest_dir, "boot/grub/i386-pc/core.img")
         if os.path.exists(core_path):
             self.queue_event('info', _("GRUB(2) BIOS has been successfully installed."))
-            self.bootloader_ok = True
+            self.settings.set('bootloader_ok', True)
         else:
             self.queue_event('warning', _("ERROR installing GRUB(2) BIOS."))
 
@@ -1007,7 +1000,7 @@ class InstallationProcess(multiprocessing.Process):
 
         self.chroot_umount_special_dirs()
 
-        self.bootloader_ok = True
+        self.settings.set('bootloader_ok', True)
 
     def install_bootloader_grub2_locales(self):
         """ Install Grub2 locales """
