@@ -36,6 +36,10 @@ try:
 except ImportError:
     print("Can't import parted module! This installer won't work.")
 
+OK = 0
+UNRECOGNISED_DISK_LABEL = -1
+UNKNOWN_ERROR = -2
+
 # Partition types
 PARTITION_PRIMARY = 0
 PARTITION_LOGICAL = 1
@@ -98,14 +102,17 @@ def get_devices():
         if not dev.path.startswith("/dev/sr") and not dev.path.startswith("/dev/mapper"):
             try:
                 diskob = parted.Disk(dev)
-                disk_dic[dev.path] = diskob
+                result = OK
             except parted.DiskLabelException as err:
-                logging.error(_('Exception in parted module: %s. Trying to continue.' % err))
-                disk_dic[dev.path] = None
+                logging.warning(_('Unrecognised disk label in device %s.') % dev.path)
+                diskob = None
+                result = UNRECOGNISED_DISK_LABEL
             except Exception as err:
-                logging.error(err)
-                show.error(_('Exception in parted module: %s.' % err))
-                disk_dic[dev.path] = None
+                show.error((_("Exception: %s.\nFor more information take a look at /tmp/thus.log") % err))
+                diskob = None
+                result = UNKNOWN_ERROR
+            finally:
+                disk_dic[dev.path] = (diskob, result)
 
     return disk_dic
 
