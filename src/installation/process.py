@@ -895,8 +895,12 @@ class InstallationProcess(multiprocessing.Process):
 
         self.chroot_mount_special_dirs()
 
-        self.chroot(['grub-install', '--directory=/usr/lib/grub/i386-pc',
-                     '--target=i386-pc', '--boot-directory=/boot', '--recheck', grub_location])
+        if len(grub_location) > 8:  # ex: /dev/sdXY > 8
+            self.chroot(['grub-install', '--directory=/usr/lib/grub/i386-pc',
+                         '--target=i386-pc', '--boot-directory=/boot', '--recheck', '--force', grub_location])
+        else:
+            self.chroot(['grub-install', '--directory=/usr/lib/grub/i386-pc',
+                         '--target=i386-pc', '--boot-directory=/boot', '--recheck', grub_location])
 
         self.install_bootloader_grub2_locales()
 
