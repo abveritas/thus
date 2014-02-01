@@ -79,9 +79,6 @@ class InstallationAdvanced(Gtk.Box):
         # hold deleted partitions that exist now
         self.to_be_deleted = []
 
-        self.efi = self.settings.get('efi')
-        self.efi_path = ""
-
         # Call base class
         super().__init__()
 
@@ -126,7 +123,7 @@ class InstallationAdvanced(Gtk.Box):
         mount_combos.append(self.ui.get_object('partition_mount_combo'))
         mount_combos.append(self.ui.get_object('partition_mount_combo2'))
 
-        if self.efi:
+        if os.path.exists('/sys/firmware/efi'):
             mount_points = fs.COMMON_MOUNT_POINTS_EFI
         else:
             mount_points = fs.COMMON_MOUNT_POINTS
@@ -145,6 +142,9 @@ class InstallationAdvanced(Gtk.Box):
         self.grub_device_entry = self.ui.get_object('grub_device_entry')
         self.grub_devices = dict()
         self.grub_device = {}
+        # Disable boot device selection in uefi systems
+        if os.path.exists('/sys/firmware/efi'):
+            self.grub_device_entry.set_sensitive(False)
 
         # Initialise our partition list treeview
         self.partition_list = self.ui.get_object('partition_list_treeview')
@@ -264,8 +264,8 @@ class InstallationAdvanced(Gtk.Box):
         self.select_first_combobox_item(self.grub_device_entry)
 
     def on_grub_device_check_toggled(self, checkbox):
-        combo = self.ui.get_object("grub_device_entry")
-        combo.set_sensitive(checkbox.get_active())
+        if not os.path.exists('/sys/firmware/efi'):
+            self.grub_device_entry.set_sensitive(checkbox.get_active())
 
     def select_first_combobox_item(self, combobox):
         """ Automatically select first entry """
