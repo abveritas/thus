@@ -80,7 +80,6 @@ class InstallationAdvanced(Gtk.Box):
 
         self.efi = self.settings.get('efi')
         self.efi_path = ""
-        self.grub_partition = ""
 
         # Call base class
         super().__init__()
@@ -261,14 +260,6 @@ class InstallationAdvanced(Gtk.Box):
     def on_grub_install_check_toggled(self, checkbox):
         combo = self.ui.get_object("grub_device_entry")
         combo.set_sensitive(checkbox.get_active())
-        device_radio = self.ui.get_object("grub_device_radio")
-        device_radio.set_sensitive(checkbox.get_active())
-        partition_radio = self.ui.get_object("grub_partition_radio")
-        partition_radio.set_sensitive(checkbox.get_active())
-
-    def on_grub_partition_radio_toggled(self, radio):
-        combo = self.ui.get_object("grub_device_entry")
-        combo.set_sensitive(not radio.get_active())
 
     def select_first_combobox_item(self, combobox):
         """ Automatically select first entry """
@@ -1099,11 +1090,6 @@ class InstallationAdvanced(Gtk.Box):
         label = self.ui.get_object('grub_device_label')
         label.set_markup(txt)
 
-        txt = _("Use the partition where /boot is mounted (not recommended)")
-        txt = "<span size='small'>%s</span>" % txt
-        label = self.ui.get_object('grub_partition_label')
-        label.set_markup(txt)
-
         #txt = _("TODO: Here goes a warning message")
         #txt = "<span weight='bold'>%s</span>" % txt
         #label = self.ui.get_object('part_advanced_warning_message')
@@ -1696,7 +1682,6 @@ class InstallationAdvanced(Gtk.Box):
                         # BIOS and / is the boot partition (no /boot or /boot/efi partition) -> Flag / as boot
                         # BIOS or EFI, and /boot is the boot or/and the efi partition (no /boot/efi) -> Flag /boot as boot
                         if ((mnt == '/' and not boot) or (mnt == '/boot' and not efiboot)) and ('/dev/mapper' not in partition_path):
-                            self.grub_partition = partition_path;
                             self.efi_path = mnt;
                             if not pm.get_flag(partitions[partition_path], pm.PED_PARTITION_BOOT):
                                 logging.info(("Setting boot flag in %s partition") % (partition_path))
@@ -1715,7 +1700,6 @@ class InstallationAdvanced(Gtk.Box):
                                 self.blvm = True  # Tells process.py there is a lvm partition
                                 for ee in pvs[vgname]:
                                     print(partitions)
-                                    self.grub_partition = ""
                                     if not pm.get_flag(partitions[ee], pm.PED_PARTITION_BOOT):
                                         logging.info(_("Setting boot flag in %s partition") % (partitions[ee]))
                                         (res, err) = pm.set_flag(pm.PED_PARTITION_BOOT, partitions[ee])
@@ -1783,12 +1767,7 @@ class InstallationAdvanced(Gtk.Box):
                 self.settings.set('bootloader_location', self.efi_path)
             else:
                 self.settings.set('bootloader_type', "GRUB2")
-                # Check if the user wants to install the bootloader to a disk or a partition
-                device_radio = self.ui.get_object("grub_device_radio")
-                if device_radio.get_active() is True:
-                    self.settings.set('bootloader_location', self.grub_device)
-                else:
-                    self.settings.set('bootloader_location', self.grub_partition)
+                self.settings.set('bootloader_location', self.grub_device)
             logging.info(_("Manjaro will install the bootloader of type %s in %s"),
                             self.settings.get('bootloader_type'),
                             self.settings.get('bootloader_location'))
