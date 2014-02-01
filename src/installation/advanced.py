@@ -31,6 +31,7 @@ from gi.repository import Gtk, Gdk
 import subprocess
 import os
 import logging
+import canonical.gtkwidgets as gtkwidgets
 
 # Insert the src/parted directory at the front of the path.
 #base_dir = os.path.dirname(__file__) or '.'
@@ -193,6 +194,11 @@ class InstallationAdvanced(Gtk.Box):
     def check_buttons(self, selection):
         """ Activates/deactivates our buttons depending on which is selected in the
             partition treeview """
+
+        if self.stage_opts:
+            button = self.ui.get_object('partition_button_undo')
+            button.set_sensitive(True)
+
         button_new = self.ui.get_object('partition_button_new')
         button_new.set_sensitive(False)
 
@@ -257,7 +263,7 @@ class InstallationAdvanced(Gtk.Box):
         # Automatically select first entry
         self.select_first_combobox_item(self.grub_device_entry)
 
-    def on_grub_install_check_toggled(self, checkbox):
+    def on_grub_device_check_toggled(self, checkbox):
         combo = self.ui.get_object("grub_device_entry")
         combo.set_sensitive(checkbox.get_active())
 
@@ -505,6 +511,8 @@ class InstallationAdvanced(Gtk.Box):
                     if uid in self.stage_opts:
                         (is_new, label, mount_point, fs_type, fmt_active) = self.stage_opts[uid]
                         fmt_enable = not is_new
+                        if mount_point == "/":
+                            fmt_enable = False
                     else:
                         fmt_enable = True
                         if _("free space") not in path:
@@ -1090,6 +1098,27 @@ class InstallationAdvanced(Gtk.Box):
         label = self.ui.get_object('grub_device_label')
         label.set_markup(txt)
 
+        txt = _("Mount checklist:")
+        txt = "<span weight='bold'>%s</span>" % txt
+        label = self.ui.get_object('mnt_chklist')
+        label.set_markup(txt)
+
+        part = self.ui.get_object('root_part')
+        txt = _("Root")
+        part.props.label = txt + " ( / )"
+
+        part = self.ui.get_object('boot_part')
+        txt = _("Boot")
+        part.props.label = txt + " ( /boot )"
+
+        part = self.ui.get_object('boot_efi_part')
+        txt = _("EFI")
+        part.props.label = txt + " ( /boot/efi )"
+
+        part = self.ui.get_object('swap_part')
+        txt = _("Swap")
+        part.props.label = txt
+
         #txt = _("TODO: Here goes a warning message")
         #txt = "<span weight='bold'>%s</span>" % txt
         #label = self.ui.get_object('part_advanced_warning_message')
@@ -1186,11 +1215,10 @@ class InstallationAdvanced(Gtk.Box):
 
     def prepare(self, direction):
         """ Prepare our dialog to show/hide/activate/deactivate what's necessary """
+
         self.fill_grub_device_entry()
-
-        self.fill_partition_list()
-
         self.translate_ui()
+        self.fill_partition_list()
         self.show_all()
 
         # TODO: Enable this and finish LUKS encryption
@@ -1203,7 +1231,6 @@ class InstallationAdvanced(Gtk.Box):
 
         #label = self.ui.get_object('part_advanced_recalculating_label')
         #label.hide()
-
         spinner = self.ui.get_object('partition_recalculating_spinner')
         spinner.hide()
 
@@ -1229,13 +1256,12 @@ class InstallationAdvanced(Gtk.Box):
         button.set_sensitive(False)
 
         button = self.ui.get_object('partition_button_undo')
-        button.set_sensitive(True)
+        button.set_sensitive(False)
 
     def on_partition_list_new_label_activate(self, button):
         """ Create a new partition table """
         # TODO: We should check first if there's any mounted partition (including swap)
-        # Swapoff all swap partitions as they may be auto-mounted, and may cause problems later
-        subp = subprocess.Popen(['sh', '-c', 'swapoff -a'], stdout=subprocess.PIPE)
+
         selection = self.partition_list.get_selection()
 
         if not selection:
@@ -1268,14 +1294,14 @@ class InstallationAdvanced(Gtk.Box):
                     ptype = 'gpt'
 
                 logging.info(_("Creating a new partition table of type %s for disk %s") % (ptype, disk_path))
-                
+
                 new_disk = pm.make_new_disk(disk_path, ptype)
                 self.disks[disk_path] = (new_disk, pm.OK)
 
                 self.fill_grub_device_entry()
                 self.fill_partition_list()
 
-                if ptype == 'gpt' and not self.efi:
+                if ptype == 'gpt' and not os.path.exists('/sys/firmware/efi'):
                     # Show warning (see https://github.com/Antergos/Cnchi/issues/63)
                     show.warning(_('GRUB requires a BIOS Boot Partition (2 MiB, no filesystem, "EF02" type code in gdisk '
                         'or "bios_grub" flag in GNU Parted) in BIOS systems to embed its core.img file due to lack of '
@@ -1366,35 +1392,71 @@ class InstallationAdvanced(Gtk.Box):
         a fat partition mounted in /boot or /boot/efi must be defined too
         """
 
-        check_ok = False
+        # Initialize our mount point check widgets
 
-        exist_root = False
-        exist_fat_boot = False
+        check_parts = ["root", "boot", "boot_efi", "swap"]
+
+        has_part = {}
+        for check_part in check_parts:
+            has_part[check_part] = False
+
+        # Are we in a EFI system?
+        is_uefi = os.path.exists('/sys/firmware/efi')
+
+        # TODO: Check total system RAM in hardware module so we can require swap for low memory systems
+        need_swap = False
+
+        part = {}
+        for check_part in check_parts:
+            part[check_part] = self.ui.get_object(check_part + "_part")
+            part[check_part].set_state(has_part[check_part])
+
+        # Only show mount checks that apply to current system.
+        part["boot_efi"].hide()
+        part["boot"].hide()
+        part["swap"].hide()
+
+        if is_uefi:
+            part["boot_efi"].show()
+        elif self.lv_partitions and not is_uefi:
+            part["boot"].show()
+        elif need_swap:
+            part["swap"].show()
 
         # Be sure to just call get_devices once
         if self.disks is None:
             self.disks = pm.get_devices()
 
-        # No device should be mounted now except install media.
-
-        # Check root and boot fs
+        # Check mount points and filesystems
         for part_path in self.stage_opts:
             (is_new, lbl, mnt, fs, fmt) = self.stage_opts[part_path]
             if mnt == "/":
                 # Don't allow vfat as / filesystem, it will not work!
                 # Don't allow ntfs as / filesystem, this is stupid!
                 if "fat" not in fs and "ntfs" not in fs:
-                    exist_root = True
-            #if mnt == "/boot/efi" or mnt == "/boot":
-            if mnt == "/boot/efi":
+                    has_part["root"] = True
+                    part["root"].set_state(True)
+            # /boot or /boot/efi
+            if is_uefi and (mnt == "/boot/efi") and ("fat" in fs):
                 # Only fat partitions
-                if "fat" in fs:
-                    exist_fat_boot = True
+                has_part["boot_efi"] = True
+                part["boot_efi"].set_state(True)
+            if mnt == "/boot" and "f2fs" not in fs and "btrfs" not in fs and self.lv_partitions:
+                has_part["boot"] = True
+                part["boot"].set_state(True)
+            if mnt == "swap":
+                has_part["swap"] = True
+                part["swap"].set_state(True)
 
-        if self.efi:
-            check_ok = exist_root and exist_fat_boot
+        if is_uefi:
+            check_ok = has_part["root"] and has_part["boot_efi"]
+        elif self.lv_partitions and not is_uefi:
+            check_ok = has_part["root"] and has_part["boot"]
         else:
-            check_ok = exist_root
+            check_ok = has_part["root"]
+
+        if need_swap:
+            check_ok = check_ok and has_part["swap"]
 
         self.forward_button.set_sensitive(check_ok)
 
@@ -1415,6 +1477,10 @@ class InstallationAdvanced(Gtk.Box):
                         fmt = 'Yes'
                     else:
                         fmt = 'No'
+                    # Advanced method formats root by default
+                    # https://github.com/Antergos/Cnchi/issues/8
+                    if mnt == "/":
+                        fmt = 'Yes'
                     if is_new:
                         if lbl != "":
                             relabel = 'Yes'
@@ -1758,24 +1824,22 @@ class InstallationAdvanced(Gtk.Box):
                 #    mount_point, fs, writable = self.get_mount_point(p.path)
                 #    mount_devices[mount_point] = partition_path
 
-        # Install bootloader?
-        install_checkbox = self.ui.get_object("grub_install_check")
-        if install_checkbox.get_active() is True:
-            self.settings.set('install_bootloader', True)
-            if self.efi:
-                self.settings.set('bootloader_type', "UEFI_x86_64")
-                self.settings.set('bootloader_location', self.efi_path)
-            else:
-                self.settings.set('bootloader_type', "GRUB2")
-                self.settings.set('bootloader_location', self.grub_device)
-            logging.info(_("Manjaro will install the bootloader of type %s in %s"),
-                            self.settings.get('bootloader_type'),
-                            self.settings.get('bootloader_location'))
-        else:
+        checkbox = self.ui.get_object("grub_device_check")
+        if checkbox.get_active() is False:
             self.settings.set('install_bootloader', False)
             logging.warning(_("Thus will not install any boot loader"))
-
-
+        else:
+            self.settings.set('install_bootloader', True)
+            if os.path.exists("/sys/firmware/efi/systab"):
+                bootloader_type = "UEFI_x86_64"
+                self.settings.set('bootloader_location', self.efi_path)
+            else:
+                bootloader_type = "GRUB2"
+                self.settings.set('bootloader_location', self.grub_device)
+            self.settings.set('bootloader_type', bootloader_type)
+            logging.info(_("Manjaro will install the bootloader of type %s in %s"),
+                         self.settings.get('bootloader_type'),
+                         self.settings.get('bootloader_location'))
 
         if not self.testing:
             self.process = installation_process.InstallationProcess(
