@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-02 14:28+0000\n"
+"PO-Revision-Date: 2014-02-03 09:29+0000\n"
 "Last-Translator: ansich <mojmejlzaforume@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/manjaro-thus/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid ""
 "This installer must be run with administrative privileges and cannot "
 "continue without them."
-msgstr "Ta nameščevalnik mora teči s skrbniškimi privilegiji in ne more delovati brez njih."
+msgstr "Ta namestitveni program mora teči s skrbniškimi privilegiji in ne more delovati brez njih."
 
 #: thus.py:131
 #, python-format
@@ -38,20 +38,20 @@ msgid ""
 "If you are sure that another installer is not already running\n"
 "you can manually delete the file %s\n"
 "and run this installer again."
-msgstr "Izvajanje hkratnih instanc tega nameščevalnika ni dovoljeno.\n\nČe ste prepričani, da ena instanca nameščevalnika ni že v teku, lahko ročno pobrišete datoteko %s\nin ponovno poženete nameščevalnik."
+msgstr "Izvajanje dveh hkratnih instanc tega namestitvenega programa ni dovoljeno.\n\nČe ste prepričani, da ena instanca ni že v teku, lahko ročno pobrišete datoteko %s\nin ponovno zaženete namestilnik."
 
 #: thus.py:143
 #, python-format
 msgid "Thus installer version %s"
-msgstr "Nameščevalnik Thus, verzija %s"
+msgstr "Namestilnik Thus, verzija %s"
 
 #: thus.py:234
 msgid "Manjaro Installer"
-msgstr "Manjaro nameščevalnik"
+msgstr "Namestilnik Manjara"
 
 #: thus.py:290
 msgid "Quiting installer..."
-msgstr "Končujem nameščevalnik..."
+msgstr "Končujem namestitveni program ..."
 
 #: thus.py:411
 msgid "Sets Thus log level to 'debug'"
@@ -648,7 +648,7 @@ msgstr "Kompiram '/%s'"
 #: src/installation/process.py:165
 #, python-format
 msgid "Installing using the '%s' method"
-msgstr "Nameščam  in uporabljam '%s' način"
+msgstr "Nameščam z uporabo '%s' metode"
 
 #: src/installation/process.py:242
 #, python-format
@@ -1008,7 +1008,7 @@ msgstr "Prosim izberite svoj jezik:"
 
 #: src/language.py:83
 msgid "Notice: The Thus Installer is beta software."
-msgstr "Opomba: Nameščevalnik Thus je beta program."
+msgstr "Opomba: Namestilnik Thus je beta program."
 
 #: src/language.py:84
 msgid ""
@@ -1017,7 +1017,7 @@ msgid ""
 "advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bugs, please report them at <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr "Thus je beta program pred izidom in je v procesu dejavnega razvoja.\nZaenkrat še ne zmore pravilno upravljati z RAID, btrfs podnosilci ali drugimi naprednimi konfiguracijami.\nNadaljujte pazljivo, ker obstaja možnost izgube podatkov!\n\nČe v programu najdete hrošče, prosimo, da obiščite <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
+msgstr "Thus je beta program, ki je še pred izidom (pre-release) in tako v procesu dejavnega razvoja.\nZaenkrat še ne zmore pravilno upravljati z RAID, btrfs podnosilci ali drugimi naprednimi konfiguracijami.\nNadaljujte pazljivo, ker obstaja možnost izgube podatkov!\n\nČe v programu najdete hrošče, prosimo, da obiščite <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 
 #: src/language.py:91
 msgid "Welcome to Manjaro!"
@@ -1143,29 +1143,29 @@ msgstr ""
 
 #: src/show_message.py:54
 msgid "Manjaro Installer - Error"
-msgstr "Manjaro nameščevalnik - Napaka"
+msgstr "Namestilnik Manjarar - Napaka"
 
 #: src/show_message.py:66
 msgid "Manjaro Installer - Warning"
-msgstr "Manjaro nameščevalnik - Opozorilo"
+msgstr "Namestilnik Manjara - Opozorilo"
 
 #: src/show_message.py:78
 msgid "Manjaro Installer - Information"
-msgstr "Manjaro nameščevalnik - Informacija"
+msgstr "Namestilnik Manjara - Informacija"
 
 #: src/show_message.py:89
 msgid "Manjaro Installer - Question"
-msgstr "Manjaro nameščevalnik - Vprašanje"
+msgstr "Namestilnik Manjara - Vprašanje"
 
 #: src/slides.py:94 src/slides.py:109
 msgid ""
 "Installation finished!\n"
 "Do you want to restart your system now?"
-msgstr "Nameščanje končano!\nAli želite ponovno zagnati vaš sistem ? "
+msgstr "Namestitev zaključena!\nAli želite ponovno zagnati vaš sistem? "
 
 #: src/slides.py:102
 msgid "Installing Manjaro..."
-msgstr "Nameščam Manjaro..."
+msgstr "Nameščam Manjaro ..."
 
 #: src/slides.py:107
 msgid "Please wait..."
@@ -1180,7 +1180,7 @@ msgid ""
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
 "\n"
 "Would you like to view the wiki page now?"
-msgstr "POMEMBNO: Ob nameščanju zagonskega nalagalnika Grub(2) so bile morda prisotne\nnepravilnosti, zaradi katerih se vaš sistem morda ne bo pravilno zagnal. Preden ga \nponovno zaženete, je zato priporočljivo, da preverite, če je Grub(2) nameščen in nastavljen.\nArch Linux Wiki vsebuje informacije, ki lahko pomagajo pri odpravljanju napak:\n⇥https://wiki.archlinux.org/index.php/GRUB\n\nAli želite to wiki stran obiskati sedaj?"
+msgstr "POMEMBNO: Ob nameščanju zagonskega nalagalnika Grub(2) so se morda zgodile\nnepravilnosti, zaradi katerih se vaš sistem morda ne bo pravilno zagnal. Preden ga \nponovno zaženete, je zato priporočljivo, da preverite, če je Grub(2) nameščen in nastavljen.\nArch Linux Wiki vsebuje informacije, ki lahko pomagajo pri odpravljanju napak:\n⇥https://wiki.archlinux.org/index.php/GRUB\n\nAli želite to wiki stran obiskati sedaj?"
 
 #: src/slides.py:234
 msgid "Do you want to retry?"
@@ -1529,7 +1529,7 @@ msgid ""
 "Thus is pre-release beta software that is under active development. It does not yet properly handle RAID, btrfs subvolumes, or other advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bug, please, visit <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr "<span weight='bold'>Opomba: Nameščevalnik Thus je beta program.</span>\n\nThus je beta program pred izidom in je v procesu dejavnega razvoja. Zaenkrat še ni zmožen pravilno upravljati z RAID, btrfs podnosilci ali drugimi naprednimi konfiguracijami. Nadaljujte pazljivo, ker obstaja možnost izgube podatkov!\n\nČe v programu najdete hrošče, prosimo obiščite <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
+msgstr "<span weight='bold'>Opomba: Namestilnik Thus je beta program.</span>\n\nThus je beta program, ki je še pred izidom (pre-release) in tako v procesu dejavnega razvoja. Zaenkrat še ni zmožen pravilno upravljati z RAID, btrfs podnosilci ali drugimi naprednimi konfiguracijami. Nadaljujte pazljivo, ker obstaja možnost izgube podatkov!\n\nČe v programu najdete hrošče, prosimo obiščite <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 
 #: ui/thus.ui:37
 msgid "<span weight=\"bold\" size=\"large\">Welcome to Manjaro</span>"

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-02 16:51+0000\n"
+"PO-Revision-Date: 2014-02-03 16:50+0000\n"
 "Last-Translator: RacerBG <georgiev_1994@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/manjaro-thus/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -537,7 +537,7 @@ msgstr "Използване на LVM с тази инсталация."
 msgid ""
 "This will set up LVM allowing you to make snapshots and change partition "
 "sizes in a straightforward way."
-msgstr ""
+msgstr "Това ще даде възможност на LVM в бъдеще да прави моментни копия и да променя размера на дяловете по лесен начин."
 
 #: src/installation/ask.py:140 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
@@ -758,11 +758,11 @@ msgstr "Индексиране на файлове за копиране ..."
 
 #: src/installation/process.py:547
 msgid "Extracting root-image ..."
-msgstr ""
+msgstr "Разархивиране на root-image ..."
 
 #: src/installation/process.py:557
 msgid "Extracting desktop-image ..."
-msgstr ""
+msgstr "Разархивиране на desktop-image ..."
 
 #: src/installation/process.py:572
 #, python-format
@@ -789,7 +789,7 @@ msgstr "Грешка при изпълнение на команда: %s"
 
 #: src/installation/process.py:700
 msgid "Can't copy network configuration files"
-msgstr ""
+msgstr "Не може да се копират файловете на мрежовата конфигурация."
 
 #: src/installation/process.py:730 src/installation/process.py:788
 #, python-format
@@ -843,15 +843,15 @@ msgstr ""
 
 #: src/installation/process.py:977
 msgid "Copying Grub(2) into OEM dir failed. File Not Found."
-msgstr ""
+msgstr "Копирането на Grub(2) в директорията на OEM се провали. Файла Не е Намерен."
 
 #: src/installation/process.py:979
 msgid "Copying Grub(2) into OEM dir failed. File Exists."
-msgstr ""
+msgstr "Копирането на Grub(2) в директорията на OEM се провали. Файла Съществува."
 
 #: src/installation/process.py:981
 msgid "Copying Grub(2) into OEM dir failed. Unknown Error."
-msgstr ""
+msgstr "Копирането на Grub(2) в директорията на OEM се провали. Непозната Грешка."
 
 #: src/installation/process.py:999
 msgid "Generating grub.cfg"
@@ -1081,7 +1081,7 @@ msgstr "Непознат етикет на диска в устройство %s
 msgid ""
 "Exception: %s.\n"
 "For more information take a look at /tmp/thus.log"
-msgstr ""
+msgstr "Изключение: %s.\nЗа повече информация погледнете в /tmp/thus.log"
 
 #: src/parted3/partition_module.py:178
 #, python-format
@@ -1487,7 +1487,7 @@ msgstr "<span weight=\"light\" size=\"small\">Това ще даде възмо�
 msgid ""
 "<span weight=\"light\" size=\"small\">This will setup your /home directory "
 "in a different partition or volume.</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">Настройката ще премести вашата /home директория в друг дял или диск.</span>"
 
 #: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"
