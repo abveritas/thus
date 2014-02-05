@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-03 16:50+0000\n"
+"PO-Revision-Date: 2014-02-04 13:58+0000\n"
 "Last-Translator: RacerBG <georgiev_1994@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/manjaro-thus/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -82,7 +82,7 @@ msgstr "Демонтиране %s"
 #: src/installation/auto_partition.py:78 src/installation/auto_partition.py:87
 #, python-format
 msgid "Unmounting %s failed. Trying lazy arg."
-msgstr ""
+msgstr "Демонтирането на %s се провали. Опит с мързелив арг."
 
 #: src/installation/auto_partition.py:107
 msgid "Can't delete existent LVM volumes (see below)"
@@ -1179,7 +1179,7 @@ msgid ""
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
 "\n"
 "Would you like to view the wiki page now?"
-msgstr ""
+msgstr "ВАЖНО: Вероятно e ималo проблем с инсталацията на Grub(2),\nкойто да попречи на системата ви да зареди правилно. Преди\nрестарт, трябва да се убедите дали GRUB(2) е инсталиран и\nнастроен. Обърнете се към Arch Linux Wiki за повече информация:\n  https://wiki.archlinux.org/index.php/GRUB\n\nИскате ли да посетите страницата сега?"
 
 #: src/slides.py:234
 msgid "Do you want to retry?"

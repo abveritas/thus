@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-01 23:08+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2014-02-05 10:14+0000\n"
+"Last-Translator: Tornes Llume <l.lumex03.tornes@gmail.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/manjaro-thus/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -196,7 +196,7 @@ msgstr "espaciu llibre"
 
 #: src/installation/advanced.py:266
 msgid "It's not recommended to install grub in a partition"
-msgstr ""
+msgstr "Nun s'aconseya instalar GRUB nuna partición"
 
 #: src/installation/advanced.py:294 src/installation/alongside.py:172
 msgid "Device"
@@ -274,7 +274,7 @@ msgstr ""
 
 #: src/installation/advanced.py:1119
 msgid "Root"
-msgstr ""
+msgstr "Root"
 
 #: src/installation/advanced.py:1123 ui/bootloader.ui:7
 msgid "Boot"
@@ -282,11 +282,11 @@ msgstr "Arranque"
 
 #: src/installation/advanced.py:1127
 msgid "EFI"
-msgstr ""
+msgstr "EFI"
 
 #: src/installation/advanced.py:1131
 msgid "Swap"
-msgstr ""
+msgstr "Swap"
 
 #: src/installation/advanced.py:1139
 msgid "New partition table"
@@ -720,7 +720,7 @@ msgstr "Sistema configuráu."
 
 #: src/installation/process.py:388
 msgid "Installing boot loader ..."
-msgstr ""
+msgstr "N'instalando'l xestor d'arranque..."
 
 #: src/installation/process.py:421
 #, python-format
@@ -1052,7 +1052,7 @@ msgstr "Nun pue verificase si %s ye un SSD o non"
 #: src/parted3/fs_module.py:173
 #, python-format
 msgid "Sorry but filesystem %s can't be resized"
-msgstr ""
+msgstr "Perdón, pero nun pue remanase'l sistema d'archivos %s"
 
 #: src/parted3/lvm.py:75
 #, python-format
@@ -1072,14 +1072,14 @@ msgstr "Nun pue esniciase'l volume físicu %s"
 #: src/parted3/partition_module.py:107
 #, python-format
 msgid "Unrecognised disk label in device %s."
-msgstr ""
+msgstr "Desconocida etiqueta'l discu nel preséu %s."
 
 #: src/parted3/partition_module.py:111
 #, python-format
 msgid ""
 "Exception: %s.\n"
 "For more information take a look at /tmp/thus.log"
-msgstr ""
+msgstr "Esceición: %s.\nPa más información agüeya /tmp/thus.log"
 
 #: src/parted3/partition_module.py:178
 #, python-format
@@ -1177,7 +1177,7 @@ msgid ""
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
 "\n"
 "Would you like to view the wiki page now?"
-msgstr ""
+msgstr "IMPORTANTE: Pue haber torgues cola instalación del xestor d'arranque\nGRUB (2), esto pue faer que'l to equipu nun s'anicie afayadizamente.\nEnantes de reaniciar, pues querer verificar si GRUB(2) ta instaláu ya \nconfiguráu, o non. La páxina Wiki d'ArchLinux caltien más información\nalrodiu d'esto:\n\thttps://wiki.archlinux.org/index.php/GRUB\n\n¿Prestaríate ver la páxina wiki agora?"
 
 #: src/slides.py:234
 msgid "Do you want to retry?"
