@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-04 12:32+0000\n"
+"PO-Revision-Date: 2014-02-05 21:46+0000\n"
 "Last-Translator: rago1975\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/manjaro-thus/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -1180,7 +1180,7 @@ msgid ""
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
 "\n"
 "Would you like to view the wiki page now?"
-msgstr ""
+msgstr "重要: Grub(2) ブートローダーのインストールによってシステムが適切にブートすることを\n妨害する問題が発生する可能性があります。\n再起動の前にGrub(2) がインストールされ設定が行われたか、確認することができます。\n Arch Linux Wikiにトラブルシューティングについての情報が記載されています。\n⇥https://wiki.archlinux.org/index.php/GRUB\n\nいま、そのwikiページを見ますか?"
 
 #: src/slides.py:234
 msgid "Do you want to retry?"
@@ -1409,11 +1409,11 @@ msgstr "メガバイト"
 
 #: ui/installation_advanced.ui:895
 msgid "New Partition Table"
-msgstr ""
+msgstr "新しいパーティションテーブル"
 
 #: ui/installation_advanced.ui:951
 msgid "Mount Checklist:"
-msgstr ""
+msgstr "マウントチェックリスト:"
 
 #: ui/installation_advanced.ui:1106
 msgid "LVM..."

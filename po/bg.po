@@ -6,6 +6,7 @@
 # breaker loc <breaker9loc@gmail.com>, 2014
 # Fingli, 2013
 # RacerBG <georgiev_1994@abv.bg>, 2014
+# RacerBG <georgiev_1994@abv.bg>, 2014
 # loot270 <loot270@abv.bg>, 2013
 # petko10 <pditchev@gmail.com>, 2013
 # Fingli, 2013
@@ -14,7 +15,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-04 13:58+0000\n"
+"PO-Revision-Date: 2014-02-06 16:34+0000\n"
 "Last-Translator: RacerBG <georgiev_1994@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/manjaro-thus/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -272,7 +273,7 @@ msgstr "Използване на това устройство за инста�
 
 #: src/installation/advanced.py:1113
 msgid "Mount checklist:"
-msgstr ""
+msgstr "Списък за монтиране:"
 
 #: src/installation/advanced.py:1119
 msgid "Root"
@@ -447,7 +448,7 @@ msgstr "Създаване на %s файлова система в %s с ети
 #: src/installation/advanced.py:1783
 #, python-format
 msgid "Setting boot flag in %s partition"
-msgstr ""
+msgstr "Настройване на зареждащ флаг в %s дял"
 
 #: src/installation/advanced.py:1802
 #, python-format
@@ -669,7 +670,7 @@ msgstr "Командата %s се провали."
 #: src/installation/process.py:642
 #, python-format
 msgid "Output : %s"
-msgstr ""
+msgstr "Процес : %s"
 
 #: src/installation/process.py:307 src/installation/process.py:335
 #, python-format
@@ -1412,7 +1413,7 @@ msgstr "Нова Таблица на Дяловете"
 
 #: ui/installation_advanced.ui:951
 msgid "Mount Checklist:"
-msgstr ""
+msgstr "Списък за Монтиране:"
 
 #: ui/installation_advanced.ui:1106
 msgid "LVM..."
