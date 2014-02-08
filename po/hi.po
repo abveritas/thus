@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-01 23:08+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2014-02-07 17:03+0000\n"
+"Last-Translator: sivananda <kotagirisivananda@gmail.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/manjaro-thus/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -200,7 +200,7 @@ msgstr "मुक्त जगह "
 
 #: src/installation/advanced.py:266
 msgid "It's not recommended to install grub in a partition"
-msgstr ""
+msgstr "यह एक विभाजन में grub स्थापित करने की सिफारिश नहीं कर रहा है"
 
 #: src/installation/advanced.py:294 src/installation/alongside.py:172
 msgid "Device"
@@ -274,11 +274,11 @@ msgstr "बूट लोडर स्थापना के लिए इस उ
 
 #: src/installation/advanced.py:1113
 msgid "Mount checklist:"
-msgstr ""
+msgstr "माउंट चेकलिस्ट:"
 
 #: src/installation/advanced.py:1119
 msgid "Root"
-msgstr ""
+msgstr "जड़"
 
 #: src/installation/advanced.py:1123 ui/bootloader.ui:7
 msgid "Boot"
@@ -286,11 +286,11 @@ msgstr "बूट "
 
 #: src/installation/advanced.py:1127
 msgid "EFI"
-msgstr ""
+msgstr "EFI"
 
 #: src/installation/advanced.py:1131
 msgid "Swap"
-msgstr ""
+msgstr "Swap"
 
 #: src/installation/advanced.py:1139
 msgid "New partition table"
@@ -841,19 +841,19 @@ msgstr "GRUB2 स्थानों पर स्थापित कर रह�
 #: src/installation/process.py:972
 #, python-format
 msgid "No OEM loader found in %s. Copying Grub(2) into dir."
-msgstr ""
+msgstr "%s में कोई OEM लोडर. डायरेक्टरी में Grub(2) कॉपी कर रहा है."
 
 #: src/installation/process.py:977
 msgid "Copying Grub(2) into OEM dir failed. File Not Found."
-msgstr ""
+msgstr "OEM Dir में Grub(2) कॉपी कर रहा है विफल रही है. फ़ाइल नहीं मिली."
 
 #: src/installation/process.py:979
 msgid "Copying Grub(2) into OEM dir failed. File Exists."
-msgstr ""
+msgstr "OEM Dir में Grub(2) कॉपी कर रहा है विफल रही है. फ़ाइलअस्तित्वमेंहै."
 
 #: src/installation/process.py:981
 msgid "Copying Grub(2) into OEM dir failed. Unknown Error."
-msgstr ""
+msgstr "OEM Dir में Grub(2) कॉपी कर रहा है विफल रही है. अज्ञात त्रुटि"
 
 #: src/installation/process.py:999
 msgid "Generating grub.cfg"
@@ -1076,14 +1076,14 @@ msgstr "%s भौतिक आयतन को हटा नहीं सकत�
 #: src/parted3/partition_module.py:107
 #, python-format
 msgid "Unrecognised disk label in device %s."
-msgstr ""
+msgstr "डिवाइस में अपरिचित डिस्क लेबल %s."
 
 #: src/parted3/partition_module.py:111
 #, python-format
 msgid ""
 "Exception: %s.\n"
 "For more information take a look at /tmp/thus.log"
-msgstr ""
+msgstr "अपवाद: %s.\nअधिक जानकारी के लिए /tmp/thus.log पर एक नज़र रखना"
 
 #: src/parted3/partition_module.py:178
 #, python-format
@@ -1112,7 +1112,7 @@ msgstr "EXTFS %s विभाजन का इस्तेमाल अंतर
 #: src/parted3/used_space.py:94
 #, python-format
 msgid "Can't detect used space of FAT partition %s"
-msgstr ""
+msgstr "FAT विभाजन %s का इस्तेमाल अंतरिक्ष पहचान नहीं कर सकता"
 
 #: src/parted3/used_space.py:125
 #, python-format
@@ -1181,7 +1181,7 @@ msgid ""
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
 "\n"
 "Would you like to view the wiki page now?"
-msgstr ""
+msgstr "महत्वपूर्ण: Grub(2) बूटलोडर के साथ एक समस्या नहीं किया गया हो सकता है\nठीक से बूटिंग से आपके सिस्टम को रोकने सकता है जो स्थापना. से पहले\nrebooting, आप GRUB(2) स्थापित किया गया है या नहीं, यह सत्यापित करना चाहते हैं और हो सकता है\nविन्यस्त है. आर्क लिनक्स विकी समस्या निवारण जानकारी है:\n⇥ https://wiki.archlinux.org/index.php/GRUB\n\nआप अब विकी पेज देखने के लिए करना चाहेंगे?"
 
 #: src/slides.py:234
 msgid "Do you want to retry?"
@@ -1410,11 +1410,11 @@ msgstr "मेगाबाय्ट्स "
 
 #: ui/installation_advanced.ui:895
 msgid "New Partition Table"
-msgstr ""
+msgstr "विभाजन तालिका"
 
 #: ui/installation_advanced.ui:951
 msgid "Mount Checklist:"
-msgstr ""
+msgstr "माउंट चेकलिस्ट:"
 
 #: ui/installation_advanced.ui:1106
 msgid "LVM..."

@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-03 09:29+0000\n"
-"Last-Translator: ansich <mojmejlzaforume@gmail.com>\n"
+"PO-Revision-Date: 2014-02-07 13:20+0000\n"
+"Last-Translator: b0f00nmanjaro <boris.fonda@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/manjaro-thus/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -870,7 +870,7 @@ msgstr "Storitev %s omogočena."
 #: src/installation/process.py:1037
 #, python-format
 msgid "Error creating password hash for user %s"
-msgstr ""
+msgstr "Napaka pri ustvarjanju razpršila za geslo uporabnika %s"
 
 #: src/installation/process.py:1043
 #, python-format
@@ -1139,7 +1139,7 @@ msgstr "Ne morem najti skripta rangiranja zrcal"
 
 #: src/rank_mirrors.py:61
 msgid "Couldn't execute auto mirroring selection"
-msgstr ""
+msgstr "Nisem mogel izvršiti izbire samodejnega zrcaljenja"
 
 #: src/show_message.py:54
 msgid "Manjaro Installer - Error"

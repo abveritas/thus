@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-05 10:14+0000\n"
+"PO-Revision-Date: 2014-02-07 09:57+0000\n"
 "Last-Translator: Tornes Llume <l.lumex03.tornes@gmail.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/manjaro-thus/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -544,7 +544,7 @@ msgstr "Afitar el to direutoriu Home nuna/nun partición/volume xebraos"
 #: src/installation/ask.py:144
 msgid ""
 "This will setup your /home directory in a different partition or volume."
-msgstr ""
+msgstr "Esto configurará'l to direutoriu /home nuna partición o volume xebraos."
 
 #: src/installation/ask.py:152 src/installation/ask.py:154
 #, python-format
@@ -837,19 +837,19 @@ msgstr "N'instalando llingues Grub2."
 #: src/installation/process.py:972
 #, python-format
 msgid "No OEM loader found in %s. Copying Grub(2) into dir."
-msgstr ""
+msgstr "Nun s'alcontró cargador OEM en %s. En copiando GRUB(2) a dir."
 
 #: src/installation/process.py:977
 msgid "Copying Grub(2) into OEM dir failed. File Not Found."
-msgstr ""
+msgstr "Falló la copia de GRUB(2) al direutoriu OEM. Nun s'alcontró'l ficheru."
 
 #: src/installation/process.py:979
 msgid "Copying Grub(2) into OEM dir failed. File Exists."
-msgstr ""
+msgstr "Falló la copia de GRUB(2) al direutoriu OEM. El ficheru esiste."
 
 #: src/installation/process.py:981
 msgid "Copying Grub(2) into OEM dir failed. Unknown Error."
-msgstr ""
+msgstr "Falló la copia de GRUB(2) al direutoriu OEM. Erru desconocíu."
 
 #: src/installation/process.py:999
 msgid "Generating grub.cfg"
@@ -1406,7 +1406,7 @@ msgstr "MB"
 
 #: ui/installation_advanced.ui:895
 msgid "New Partition Table"
-msgstr ""
+msgstr "Tabla particiones nueva"
 
 #: ui/installation_advanced.ui:951
 msgid "Mount Checklist:"
@@ -1485,7 +1485,7 @@ msgstr "<span weight=\"light\" size=\"small\">Esto configurará LVM en permitien
 msgid ""
 "<span weight=\"light\" size=\"small\">This will setup your /home directory "
 "in a different partition or volume.</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">Esto configurará'l to direutoriu /home nuna partición o volume xebraos.</span>"
 
 #: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"
