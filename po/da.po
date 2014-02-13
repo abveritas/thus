@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-11 18:53+0000\n"
+"PO-Revision-Date: 2014-02-12 19:51+0000\n"
 "Last-Translator: Snubbi <carl@manjaro.dk>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/manjaro-thus/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -371,7 +371,7 @@ msgid ""
 "GRUB requires a BIOS Boot Partition (2 MiB, no filesystem, \"EF02\" type code in gdisk or \"bios_grub\" flag in GNU Parted) in BIOS systems to embed its core.img file due to lack of post-MBR embed gap in GPT disks.\n"
 "\n"
 "Thus will create this special partition for you now."
-msgstr "GRUB kræver en BIOS-bootpartition (2MB, intet filsystem, \"EF02\"-typ i gdisk eller \"bios_grub\"-flag i GNU Parted) i BIOS-systemer til at indlejle sin core.img-fil på grund af en manglende plads efter MBR i GPT-diske.\n\nThus vil nu oprette denne specialpartition."
+msgstr "GRUB kræver en BIOS-bootpartition (2MB, intet filsystem, \"EF02\"-type kode i gdisk eller \"bios_grub\"-flag i GNU Parted) i BIOS-systemer til at indlejle sin core.img-fil på grund af en manglende plads efter MBR i GPT-diske.\n\nThus vil nu oprette denne specialpartition."
 
 #: src/installation/advanced.py:1350
 msgid "Can't create BIOS GPT Boot partition!"
@@ -705,7 +705,7 @@ msgstr "Kan ikke oprette de nødvendige mapper på systemet"
 
 #: src/installation/process.py:375
 msgid "Install System ..."
-msgstr "Installer system ..."
+msgstr "Installerer system ..."
 
 #: src/installation/process.py:380
 msgid "System installed."
@@ -779,7 +779,7 @@ msgstr "Specialmapper er ikke monteret. De springes over."
 #: src/installation/process.py:639 src/installation/process.py:645
 #, python-format
 msgid "Unable to umount %s"
-msgstr "Ude af stand til at montere %s"
+msgstr "Ude af stand til at afmontere %s"
 
 #: src/installation/process.py:667
 #, python-format
@@ -937,7 +937,7 @@ msgstr "Konfigurerer hardware..."
 
 #: src/installation/process.py:1421
 msgid "Set up graphics card ..."
-msgstr "Opsæt grafikkort..."
+msgstr "Opsætter grafikkort..."
 
 #: src/installation/process.py:1428
 msgid "Can't execute the MHWD script"
@@ -945,11 +945,11 @@ msgstr "Kan ikke køre KHWD-scriptet"
 
 #: src/installation/process.py:1441
 msgid "Configure display manager ..."
-msgstr "Opsæt display manager..."
+msgstr "Opsætter display manager..."
 
 #: src/installation/process.py:1547
 msgid "Configure System ..."
-msgstr "Opsæt system..."
+msgstr "Opsætter system..."
 
 #: src/installation/process.py:1572
 msgid "Removing live configuration (packages)"
