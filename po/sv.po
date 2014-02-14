@@ -11,6 +11,8 @@
 # faidoc <faidoc@gmail.com>, 2013
 # fredrikfritte <fredrikfritte@gmail.com>, 2013
 # mats_bjork007 <mats_bjork007@yahoo.se>, 2013
+# cashew75 <cashew75s@gmail.com>, 2014
+# sixdegree <n.carlsson@gmail.com>, 2014
 #   <pojk3n@gmail.com>, 2011
 # 1Miguel1 <the1miguel1guy@gmail.com>, 2013
 msgid ""
@@ -18,8 +20,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-12 21:47+0000\n"
-"Last-Translator: aldorgan <d.ubuntu@gmail.com>\n"
+"PO-Revision-Date: 2014-02-14 12:12+0000\n"
+"Last-Translator: cashew75 <cashew75s@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/manjaro-thus/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -104,7 +106,7 @@ msgstr "Okänd filsystem typ %s"
 #: src/installation/auto_partition.py:176
 #, python-format
 msgid "Can't create filesystem %s"
-msgstr ""
+msgstr "Kan inte skapa filsystem %s"
 
 #: src/installation/auto_partition.py:322
 #, python-format
@@ -120,7 +122,7 @@ msgstr "installations programmet kan inte dektektera storleken av din lagring, A
 #: src/installation/auto_partition.py:534
 #, python-format
 msgid "Will setup LVM on device %s"
-msgstr ""
+msgstr "Kommer sätta upp LVM på enhet %s"
 
 #: src/bootinfo.py:53 src/bootinfo.py:65 src/bootinfo.py:71 src/bootinfo.py:85
 #: src/installation/alongside.py:220
@@ -130,7 +132,7 @@ msgstr "okänt"
 #: src/canonical/misc.py:929
 #, python-format
 msgid "Can't set locale %s"
-msgstr ""
+msgstr "Kan inte ändra språk till %s"
 
 #: src/canonical/validation.py:132
 msgid "password is too short"
@@ -202,7 +204,7 @@ msgstr "tillgängligt utrymme"
 
 #: src/installation/advanced.py:266
 msgid "It's not recommended to install grub in a partition"
-msgstr ""
+msgstr "Det är inte rekomenderat att installera grub på en partition"
 
 #: src/installation/advanced.py:294 src/installation/alongside.py:172
 msgid "Device"
@@ -276,11 +278,11 @@ msgstr "Använd den här enheten för att installera starthanteraren:"
 
 #: src/installation/advanced.py:1113
 msgid "Mount checklist:"
-msgstr ""
+msgstr "Monterings checklista:"
 
 #: src/installation/advanced.py:1119
 msgid "Root"
-msgstr ""
+msgstr "Root"
 
 #: src/installation/advanced.py:1123 ui/bootloader.ui:7
 msgid "Boot"
@@ -288,7 +290,7 @@ msgstr "Boot"
 
 #: src/installation/advanced.py:1127
 msgid "EFI"
-msgstr ""
+msgstr "EFI"
 
 #: src/installation/advanced.py:1131
 msgid "Swap"
@@ -405,7 +407,7 @@ msgstr "%s är monterad i '%s'.\nFör att fortsätta måste den avmonteras.\nKli
 #: src/installation/advanced.py:1567
 #, python-format
 msgid "%s shows as mounted (busy) but it has no mount point"
-msgstr ""
+msgstr "%s anges som monterad (upptagen) men saknar monterings punkt"
 
 #: src/installation/advanced.py:1573
 msgid ""
@@ -451,7 +453,7 @@ msgstr "Skapar filsystem av typen %s i %s med etiketten %s"
 #: src/installation/advanced.py:1783
 #, python-format
 msgid "Setting boot flag in %s partition"
-msgstr ""
+msgstr "Ställer in boot flagga på %s partitionen"
 
 #: src/installation/advanced.py:1802
 #, python-format
@@ -498,7 +500,7 @@ msgstr "Kan inte hitta pyparted3!"
 
 #: src/installation/alongside.py:224
 msgid "Unable to create list of partitions for alongside installation."
-msgstr ""
+msgstr "Det går inte att skapa lista över partitioner vid sidan av installationen."
 
 #: src/installation/alongside.py:268
 msgid "Can't shrink the partition (maybe it's nearly full?)"
@@ -569,7 +571,7 @@ msgstr "Du får möjlighet att skapa och ta bort partitioner, välja var Manjaro
 
 #: src/installation/ask.py:190
 msgid "Manjaro installation will be encrypted using LUKS"
-msgstr ""
+msgstr "Manjaro installationen kommer att krypteras med LUKS"
 
 #: src/installation/ask.py:193
 msgid "Manjaro will be installed using LVM volumes"
@@ -577,11 +579,11 @@ msgstr "Manjaro installeras med LVM-uppsättning"
 
 #: src/installation/ask.py:195
 msgid "Manjaro will be installed using a separate /home volume."
-msgstr ""
+msgstr "Manjaro installeras med separat /home volym"
 
 #: src/installation/ask.py:197
 msgid "Manjaro will be installed using a separate /home partition."
-msgstr ""
+msgstr "Manjaro installeras med separat /home volym"
 
 #: src/installation/automatic.py:75
 msgid "Automatic installation mode"
@@ -656,7 +658,7 @@ msgstr "Använder '%s' som metod för installation"
 #: src/installation/process.py:242
 #, python-format
 msgid "Creating partitions and their filesystems in %s"
-msgstr ""
+msgstr "Skapar partitioner och deras filsystem i %s"
 
 #: src/installation/process.py:263
 msgid "Error creating partitions and their filesystems"
@@ -666,7 +668,7 @@ msgstr "Fel i skapande av partitioner och filsystem"
 #: src/installation/process.py:640
 #, python-format
 msgid "Command %s has failed."
-msgstr ""
+msgstr "Kommando %s fungerar inte."
 
 #: src/installation/process.py:267 src/installation/process.py:321
 #: src/installation/process.py:344 src/installation/process.py:367
@@ -745,7 +747,7 @@ msgstr "Installationen har slutförts utan problem"
 
 #: src/installation/process.py:511
 msgid "Base filesystem does not exist! Critical error (exiting)."
-msgstr ""
+msgstr "Grund filsystemet finns inte! Kritiskt fel (avslutar)."
 
 #: src/installation/process.py:515
 msgid "Desktop filesystem does not exist! Critical error (exiting)."
@@ -789,7 +791,7 @@ msgstr "Kunde inte avmontera %s"
 #: src/installation/process.py:667
 #, python-format
 msgid "Error running command: %s"
-msgstr ""
+msgstr "Fel vid exekvering av kommando %s"
 
 #: src/installation/process.py:700
 msgid "Can't copy network configuration files"
@@ -798,7 +800,7 @@ msgstr "Nätverks konfiguration inte kopierad"
 #: src/installation/process.py:730 src/installation/process.py:788
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
-msgstr ""
+msgstr "La till fstab : UUID=%s %s %s %s 0 %s"
 
 #: src/installation/process.py:744
 #, python-format
@@ -843,19 +845,19 @@ msgstr "Installerar grub2 lokaler"
 #: src/installation/process.py:972
 #, python-format
 msgid "No OEM loader found in %s. Copying Grub(2) into dir."
-msgstr ""
+msgstr "Ingen OEM loader hittad i %s. Kopierar Grub(2) till katalogen."
 
 #: src/installation/process.py:977
 msgid "Copying Grub(2) into OEM dir failed. File Not Found."
-msgstr ""
+msgstr "Misslyckades med att kopiera Grub(2) till OEM katalogen. Filen kunde inte hittas."
 
 #: src/installation/process.py:979
 msgid "Copying Grub(2) into OEM dir failed. File Exists."
-msgstr ""
+msgstr "Misslyckades med att kopiera Grub(2) till OEM katalogen. Filen finns redan."
 
 #: src/installation/process.py:981
 msgid "Copying Grub(2) into OEM dir failed. Unknown Error."
-msgstr ""
+msgstr "Misslyckades med att kopiera Grub(2) till OEM katalogen. Okänt fel."
 
 #: src/installation/process.py:999
 msgid "Generating grub.cfg"
@@ -882,7 +884,7 @@ msgstr "Fel när lösenordet ändrades för användare %s"
 
 #: src/installation/process.py:1055
 msgid "Setting hooks and modules in mkinitcpio.conf"
-msgstr ""
+msgstr "Ställer in hooks och moduler i mkinitcpio.conf"
 
 #: src/installation/process.py:1134
 #, python-format
@@ -908,17 +910,17 @@ msgstr "Tidszon aktivt"
 #: src/installation/process.py:1285
 #, python-format
 msgid "Sudo configuration for user %s done."
-msgstr ""
+msgstr "Sudo konfigurering för användare %s klar."
 
 #: src/installation/process.py:1295
 #, python-format
 msgid "User %s added."
-msgstr ""
+msgstr "Lade till användare %s"
 
 #: src/installation/process.py:1307
 #, python-format
 msgid "Hostname  %s set."
-msgstr ""
+msgstr "Värdnamn %s satt."
 
 #: src/installation/process.py:1312
 msgid "Set root password."
@@ -982,7 +984,7 @@ msgstr "Krypterar användarens hemmapp"
 
 #: src/installation/process.py:1645
 msgid "User home dir encrypted"
-msgstr ""
+msgstr "Användarens hemkatalog krypterad"
 
 #: src/keymap.py:67
 msgid "Select your keyboard layout"
@@ -1020,7 +1022,7 @@ msgid ""
 "advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bugs, please report them at <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr ""
+msgstr "Thus är förhandsutgiven mjukvara som är under aktiv utveckling.\nDen hanterar ännu inte RAID, btrfs underkataloger och andra\navancerade inställningar. Gå vidare med försiktighet eftersom dataförlust är möjlig!\n\nOm du hittar buggar, rapportera dom till <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 
 #: src/language.py:91
 msgid "Welcome to Manjaro!"
@@ -1053,12 +1055,12 @@ msgstr "Land, distrikt eller område:"
 #: src/parted3/fs_module.py:148
 #, python-format
 msgid "Can't verify if %s is a Solid State Drive or not"
-msgstr ""
+msgstr "Kan inte bekräfta om %s är en Solid State disk eller inte"
 
 #: src/parted3/fs_module.py:173
 #, python-format
 msgid "Sorry but filesystem %s can't be resized"
-msgstr ""
+msgstr "Tyvärr, det går inte att ändra storlek på %s"
 
 #: src/parted3/lvm.py:75
 #, python-format
@@ -1078,14 +1080,14 @@ msgstr "Kan inte ta bort fysisk volym %s"
 #: src/parted3/partition_module.py:107
 #, python-format
 msgid "Unrecognised disk label in device %s."
-msgstr ""
+msgstr "Okänd volym etikett på enhet %s."
 
 #: src/parted3/partition_module.py:111
 #, python-format
 msgid ""
 "Exception: %s.\n"
 "For more information take a look at /tmp/thus.log"
-msgstr ""
+msgstr "Undantag: %s.\nFör mer information titta i /tmp/thus.log"
 
 #: src/parted3/partition_module.py:178
 #, python-format
@@ -1114,7 +1116,7 @@ msgstr "Kan inte hitta använt utrymme på EXTFS partionen %s"
 #: src/parted3/used_space.py:94
 #, python-format
 msgid "Can't detect used space of FAT partition %s"
-msgstr ""
+msgstr "Kan inte hitta använt utrymme på FAT partionen %s"
 
 #: src/parted3/used_space.py:125
 #, python-format
@@ -1183,7 +1185,7 @@ msgid ""
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
 "\n"
 "Would you like to view the wiki page now?"
-msgstr ""
+msgstr "VIKTIGT: Det kan ha uppstått ett problem med Grub(2) bootlader\ninstallationen vilket kan leda till att ditt system inte starta på rätt sätt. Före\ndu startar om bör du försöka bekräfta om GRUB(2) är installerad och\nkonfigurerad. Arch Linux wikin innehåller felsökningsinformation:\nhttps://wiki.archlinux.org/index.php/GRUB\n\nVill du besöka wiki sidan nu?"
 
 #: src/slides.py:234
 msgid "Do you want to retry?"
@@ -1416,7 +1418,7 @@ msgstr "Ny partionstabell"
 
 #: ui/installation_advanced.ui:951
 msgid "Mount Checklist:"
-msgstr ""
+msgstr "Monterings checklista:"
 
 #: ui/installation_advanced.ui:1106
 msgid "LVM..."
@@ -1491,7 +1493,7 @@ msgstr "<span weight=\"light\" size=\"small\">Detta ställer in LVM och möjligg
 msgid ""
 "<span weight=\"light\" size=\"small\">This will setup your /home directory "
 "in a different partition or volume.</span>"
-msgstr ""
+msgstr "<span weight=\"light\" size=\"small\">Detta kommer skapa din /home katalog på en annan partition eller enhet.</span>"
 
 #: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"
@@ -1532,7 +1534,7 @@ msgid ""
 "Thus is pre-release beta software that is under active development. It does not yet properly handle RAID, btrfs subvolumes, or other advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
 "If you find any bug, please, visit <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
-msgstr ""
+msgstr "<span weight='bold'>Notice: Thus installeraren är beta programvara.</span>\n\nFortfarande under utveckling. Det är känt att det INTE fungerar än med LVM, RAID, btrfs-subvolymer, eller andra avancerade konfigurationer. Vänligen iaktta försiktighet då det finns risk för att data går förlorad.\n\nOm du hittar någon bugg - besök <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>"
 
 #: ui/thus.ui:37
 msgid "<span weight=\"bold\" size=\"large\">Welcome to Manjaro</span>"
