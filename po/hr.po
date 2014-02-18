@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-14 13:40+0000\n"
+"PO-Revision-Date: 2014-02-16 09:24+0000\n"
 "Last-Translator: ssik64 <ssik64@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/manjaro-thus/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -98,7 +98,7 @@ msgstr "Nepoznat datotečni sustav %s"
 #: src/installation/auto_partition.py:176
 #, python-format
 msgid "Can't create filesystem %s"
-msgstr ""
+msgstr "Nemogu kreirati datotečni sustav %s"
 
 #: src/installation/auto_partition.py:322
 #, python-format
@@ -660,7 +660,7 @@ msgstr ""
 #: src/installation/process.py:640
 #, python-format
 msgid "Command %s has failed."
-msgstr ""
+msgstr "Neuspjela %s naredba."
 
 #: src/installation/process.py:267 src/installation/process.py:321
 #: src/installation/process.py:344 src/installation/process.py:367
@@ -712,7 +712,7 @@ msgstr "Sistem instaliran."
 
 #: src/installation/process.py:382
 msgid "Configuring system ..."
-msgstr ""
+msgstr "Podešavam sustav ..."
 
 #: src/installation/process.py:384
 msgid "System configured."
@@ -720,7 +720,7 @@ msgstr "Sistem postavljen."
 
 #: src/installation/process.py:388
 msgid "Installing boot loader ..."
-msgstr ""
+msgstr "Instaliram pokretač sustava ..."
 
 #: src/installation/process.py:421
 #, python-format
@@ -920,7 +920,7 @@ msgstr "Postavi root lozinku."
 
 #: src/installation/process.py:1315
 msgid "Set the same password to root."
-msgstr ""
+msgstr "Postavi istu lozinku za root."
 
 #: src/installation/process.py:1321
 msgid "Generating locales ..."
@@ -936,7 +936,7 @@ msgstr "postavljam sklopovlje ..."
 
 #: src/installation/process.py:1421
 msgid "Set up graphics card ..."
-msgstr ""
+msgstr "Postavi grafičku karticu ..."
 
 #: src/installation/process.py:1428
 msgid "Can't execute the MHWD script"
