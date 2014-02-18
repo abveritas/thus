@@ -1,9 +1,9 @@
 import sys
 from importlib import import_module
-from PySide import QtGui
+from PyQt5 import QtWidgets
 
 
-class Wizard(QtGui.QMainWindow):
+class Wizard(QtWidgets.QMainWindow):
     def __init__(self, loader):
         super(Wizard, self).__init__()
         self.loader = loader
@@ -14,7 +14,7 @@ class Wizard(QtGui.QMainWindow):
         self.initUI()
 
     def getPage(self, page):
-        page = import_module('pages.%s' % page)
+        page = import_module(page)
         # page = page.Page(self.pageWidget)
         page = page.Page()
 
@@ -39,29 +39,29 @@ class Wizard(QtGui.QMainWindow):
         self.loadPage(self.page.next_page)
 
     def initUI(self):
-        centralWidget = QtGui.QWidget(self)
+        centralWidget = QtWidgets.QWidget(self)
         self.statusBar().showMessage(
             'Thus installer v. %s' % self.loader.version())
 
-        vLayout = QtGui.QVBoxLayout(centralWidget)
+        vLayout = QtWidgets.QVBoxLayout(centralWidget)
 
-        distrolabel = QtGui.QLabel(self.loader.config.get('distro', 'name'))
+        distrolabel = QtWidgets.QLabel(self.loader.config.get('distro', 'name'))
 
-        self.pageWidget = QtGui.QWidget()
-        self.pageWidget.setLayout(QtGui.QVBoxLayout())
+        self.pageWidget = QtWidgets.QWidget()
+        self.pageWidget.setLayout(QtWidgets.QVBoxLayout())
 
-        stepswidget = QtGui.QLabel('Steps')
+        stepswidget = QtWidgets.QLabel('Steps')
 
-        self.prevStepButton = QtGui.QPushButton("Prev")
+        self.prevStepButton = QtWidgets.QPushButton("Prev")
         self.prevStepButton.clicked.connect(
             self.prevpage
         )
-        self.nextStepButton = QtGui.QPushButton("Next")
+        self.nextStepButton = QtWidgets.QPushButton("Next")
         self.nextStepButton.clicked.connect(
             self.nextpage
         )
-        bottomWidget = QtGui.QWidget(self)
-        bottomLine = QtGui.QHBoxLayout(bottomWidget)
+        bottomWidget = QtWidgets.QWidget(self)
+        bottomLine = QtWidgets.QHBoxLayout(bottomWidget)
         bottomLine.addWidget(stepswidget)
         bottomLine.addStretch(1)
         bottomLine.addWidget(self.prevStepButton)

@@ -1,7 +1,7 @@
-from PySide import QtGui
+from PyQt5 import QtWidgets
 
 
-class AbstractPage(QtGui.QWidget):
+class AbstractPage(QtWidgets.QWidget):
     def load(self, values, wizard):
         pass
 
