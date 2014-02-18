@@ -4,13 +4,14 @@
 # 
 # Translators:
 # truongap <truongap.ars@gmail.com>, 2014
+# truongap <truongap.ars@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-18 18:35+0000\n"
-"Last-Translator: truongap <truongap.ars@gmail.com>\n"
+"PO-Revision-Date: 2014-02-18 21:19+0000\n"
+"Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Vietnamese (Viet Nam) (http://www.transifex.com/projects/p/manjaro-thus/language/vi_VN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -391,7 +392,7 @@ msgid ""
 "%s is mounted in '%s'.\n"
 "To continue it has to be unmounted.\n"
 "Click Yes to unmount, or No to return\n"
-msgstr "%s được gắn kết vào '%1'\nĐể tiếp tục nó cần được gỡ bỏ.\nNhấn Vâng để gỡ bỏ, hay Không để quay lại\n"
+msgstr "%s được gắn kết vào '%s'\nĐể tiếp tục nó cần được gỡ bỏ.\nNhấn Vâng để gỡ bỏ, hay Không để quay lại\n"
 
 #: src/installation/advanced.py:1567
 #, python-format
@@ -674,7 +675,7 @@ msgstr "Gắn phân vùng %s vào %s"
 #: src/installation/process.py:313
 #, python-format
 msgid "Mounting partition %s into %s/boot directory"
-msgstr "Gắn phân vùng %s vào đường dẫn %/boot"
+msgstr "Gắn phân vùng %s vào đường dẫn %s/boot"
 
 #: src/installation/process.py:317
 msgid "Couldn't mount root and boot partitions"

@@ -7,6 +7,7 @@
 # CostGranda <costeeleation@openmailbox.org>, 2013
 # CostGranda <costeeleation@openmailbox.org>, 2013
 # Diegongui <diegobacigalup@gmail.com>, 2013
+# Diegongui <diegobacigalup@gmail.com>, 2013
 # tarkin88 <franksg88@gmail.com>, 2013
 # j3nnn1 <jcmm986@gmail.com>, 2012
 # Juan Antonio Cánovas Pérez <traumness@gmail.com>, 2011
@@ -17,24 +18,27 @@
 # leonelhermetica <leonelmalon@gmail.com>, 2013
 # Nastrand <luisvalladares94@gmail.com>, 2014
 # manjarolinux <philm@manjaro.org>, 2013
+# Nastrand <luisvalladares94@gmail.com>, 2014
 # neiko <neikokz+tsfx@gmail.com>, 2011
 # Pablo Lezaeta <prflr88@gmail.com>, 2013
 # Pablo Lezaeta <prflr88@gmail.com>, 2013
 # manjarolinux <philm@manjaro.org>, 2013-2014
 # Rodrigo Cares <rcares@gmail.com>, 2012
 # rodrigog83, 2013
+# rodrigog83, 2013
 # Stif <saibot22@gmail.com>, 2013
 # Stif <saibot22@gmail.com>, 2013
 # tarkin88 <franksg88@gmail.com>, 2013
 # tutan_kbron <the.darkspider@gmail.com>, 2013
+# tutan_kbron <the.darkspider@gmail.com>, 2013-2014
 # tutan_kbron <the.darkspider@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-13 16:13+0000\n"
-"Last-Translator: Nastrand <luisvalladares94@gmail.com>\n"
+"PO-Revision-Date: 2014-02-18 21:26+0000\n"
+"Last-Translator: manjarolinux <philm@manjaro.org>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/projects/p/manjaro-thus/language/es_419/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -769,7 +773,7 @@ msgstr "Sistema de archivos del escritorio no existe! Error crítico (saliendo).
 #: src/installation/process.py:525 src/installation/process.py:531
 #, python-format
 msgid "%s is already mounted at %s as %s"
-msgstr "% ya está montada en %s como %s"
+msgstr "%s ya está montada en %s como %s"
 
 #: src/installation/process.py:542
 msgid "Indexing files to be copied ..."
@@ -813,7 +817,7 @@ msgstr "No se puede copiar los archivos de configuración de red"
 #: src/installation/process.py:730 src/installation/process.py:788
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
-msgstr "Agregado al fstab : UUID= &s %s %s 0 %s"
+msgstr "Agregado al fstab : UUID= %s %s %s %s 0 %s"
 
 #: src/installation/process.py:744
 #, python-format
