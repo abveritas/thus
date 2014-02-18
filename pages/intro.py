@@ -20,7 +20,6 @@ class Page(AbstractPage):
         self.languages = QtGui.QStandardItemModel()
         with gzip.open(self.data('languagelist.data.gz')) as f:
             for line in f:
-                print(line)
                 l = line.decode('utf-8').strip('\n').split(':')
                 # if l[0] is empty string then we've reached the end of file
                 # if l[0] == '0' then this denotes C => no localisation
@@ -57,6 +56,7 @@ class Page(AbstractPage):
         self.proxy.setFilterCaseSensitivity(QtCore.Qt.CaseInsensitive)
 
         language_view.setModel(self.proxy)
+        self.language_view = language_view
 
         language_search_layout.addWidget(language_filter)
         language_search_layout.addWidget(language_view)
@@ -72,23 +72,23 @@ class Page(AbstractPage):
 
         language_filter.textChanged.connect(self.proxy.setFilterFixedString)
 
-        print(self.font())
-        #self.setFont(self._font)
-        print(self.font())
-
     @property
     def next_page(self):
-        return 'second'
+        return 'pages.second'
 
     @property
     def prev_page(self):
         return None
 
     def get_values(self):
+        selected_language = self.language_view.selectedIndexes()[0]
+
         return {
-            'name': self._in.text()
+            'language': selected_language.data(QtCore.Qt.UserRole + 1),
+            'row': selected_language.row()
         }
 
     def load(self, values, wizard):
-        # self._in.setText(values.get('name', ''))
-        pass
+        if 'row' in values:
+            index = self.proxy.index(values['row'], 0)
+            self.language_view.setCurrentIndex(index)
