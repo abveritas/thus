@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-18 21:19+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2014-02-19 06:27+0000\n"
+"Last-Translator: truongap <truongap.ars@gmail.com>\n"
 "Language-Team: Vietnamese (Viet Nam) (http://www.transifex.com/projects/p/manjaro-thus/language/vi_VN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -835,19 +835,19 @@ msgstr ""
 #: src/installation/process.py:972
 #, python-format
 msgid "No OEM loader found in %s. Copying Grub(2) into dir."
-msgstr ""
+msgstr "Không có bộ nạp OEM được tìm thấy ở %s. Đang chép Grub(2) vào thư mục."
 
 #: src/installation/process.py:977
 msgid "Copying Grub(2) into OEM dir failed. File Not Found."
-msgstr ""
+msgstr "Sao chép Grub(2) vào thư mục OEM thất bại. Không tìm thấy tệp tin."
 
 #: src/installation/process.py:979
 msgid "Copying Grub(2) into OEM dir failed. File Exists."
-msgstr ""
+msgstr "Sao chép Grub(2) vào thư mục OEM thất bại. Tồn tại tệp tin."
 
 #: src/installation/process.py:981
 msgid "Copying Grub(2) into OEM dir failed. Unknown Error."
-msgstr ""
+msgstr "Sao chép Grub(2) vào thư mục OEM thất bại. Không xác định được lỗi."
 
 #: src/installation/process.py:999
 msgid "Generating grub.cfg"
@@ -1070,7 +1070,7 @@ msgstr "Không thể gỡ bỏ ổ cứng vật lý %s"
 #: src/parted3/partition_module.py:107
 #, python-format
 msgid "Unrecognised disk label in device %s."
-msgstr ""
+msgstr "Không nhận được nhãn đĩa của thiết bị %s."
 
 #: src/parted3/partition_module.py:111
 #, python-format
@@ -1175,7 +1175,7 @@ msgid ""
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
 "\n"
 "Would you like to view the wiki page now?"
-msgstr ""
+msgstr "Quan trọng: Có thể có vấn đề với quá trình cài đặt bộ nạp Grub(2)\nđiều đó có thể khiến hệ thống không được khởi động bình thường. Trước khi\nkhởi động lại, bạn có thể muốn kiểm tra lại Grub(2) đã được cài đặt và thiết lập\nhay chưa. Arch Linux Wiki bao gồm thông tin để xác định lỗi:\n    https://wiki.archlinux.org/index.php/GRUB\n\nBạn có muốn truy cập trang wiki ngay bây giờ không?"
 
 #: src/slides.py:234
 msgid "Do you want to retry?"
@@ -1404,7 +1404,7 @@ msgstr "MB"
 
 #: ui/installation_advanced.ui:895
 msgid "New Partition Table"
-msgstr ""
+msgstr "Bảng phân vùng mới"
 
 #: ui/installation_advanced.ui:951
 msgid "Mount Checklist:"
