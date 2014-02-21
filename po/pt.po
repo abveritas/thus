@@ -4,7 +4,7 @@
 # 
 # Translators:
 # allanmcrae <allan@archlinux.org>, 2013
-# arcorreia <arcorreia@gmx.com>, 2013
+# arcorreia <arcorreia@gmx.com>, 2013-2014
 # arcorreia <arcorreia@gmx.com>, 2013
 # bidu <clubvascodagama@yahoo.ca>, 2013
 # Bruno Guerreiro <american.jesus.pt@gmail.com>, 2013
@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-14 13:51+0000\n"
-"Last-Translator: finomeno <finomeno@gmail.com>\n"
+"PO-Revision-Date: 2014-02-20 23:23+0000\n"
+"Last-Translator: arcorreia <arcorreia@gmx.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/manjaro-thus/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -257,7 +257,7 @@ msgstr "nenhum"
 #: src/installation/advanced.py:1501 src/installation/advanced.py:1594
 #: src/installation/advanced.py:1738 src/installation/advanced.py:1832
 msgid "extended"
-msgstr "alargada"
+msgstr "extendida"
 
 #: src/installation/advanced.py:679 src/installation/advanced.py:932
 msgid "Can't use same mount point twice..."
@@ -269,7 +269,7 @@ msgstr "A criar partição primária"
 
 #: src/installation/advanced.py:964
 msgid "Creating extended partition"
-msgstr "A criar partição alargada"
+msgstr "A criar partição extendida"
 
 #: src/installation/advanced.py:970
 msgid "Creating logical partition"
@@ -329,7 +329,7 @@ msgstr "Lógica"
 
 #: src/installation/advanced.py:1168 ui/installation_advanced.ui:695
 msgid "Extended"
-msgstr "Alargada"
+msgstr "Extendida"
 
 #: src/installation/advanced.py:1172 ui/installation_advanced.ui:516
 msgid "Beginning of this space"
@@ -352,7 +352,7 @@ msgstr "Ponto de montagem:"
 #: src/installation/advanced.py:1188 src/installation/advanced.py:1205
 #: ui/installation_advanced.ui:249 ui/installation_advanced.ui:730
 msgid "Label (optional):"
-msgstr "Etiqueta (opcional)"
+msgstr "Etiqueta (opcional):"
 
 #: src/installation/advanced.py:1192
 msgid "Encryption Options..."
@@ -554,12 +554,12 @@ msgstr "Isto configurará o LVM permitindo a criação de snapshots e a mudança
 
 #: src/installation/ask.py:140 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
-msgstr "Definir a sua Home numa partição/volume diferente"
+msgstr "Definir a sua pasta Home numa partição/volume diferente"
 
 #: src/installation/ask.py:144
 msgid ""
 "This will setup your /home directory in a different partition or volume."
-msgstr "Isto irá definir seu directório /home em uma partição ou volume diferente."
+msgstr "Isto irá definir seu directório /home numa partição ou volume diferente."
 
 #: src/installation/ask.py:152 src/installation/ask.py:154
 #, python-format
@@ -807,7 +807,7 @@ msgstr "Não é possível copiar arquivos de configuração de rede"
 #: src/installation/process.py:730 src/installation/process.py:788
 #, python-format
 msgid "Added to fstab : UUID=%s %s %s %s 0 %s"
-msgstr "adicionado ao fstab:  UUID=%s %s %s %s 0 %s"
+msgstr "Adicionado ao fstab:  UUID=%s %s %s %s 0 %s"
 
 #: src/installation/process.py:744
 #, python-format
@@ -995,7 +995,7 @@ msgstr "Pasta home do utilizador encriptada"
 
 #: src/keymap.py:67
 msgid "Select your keyboard layout"
-msgstr "Selecione a disposição do seu teclado"
+msgstr "Seleccione a disposição do seu teclado"
 
 #: src/keymap.py:71
 msgid "Type here to test your keyboard"
@@ -1192,7 +1192,7 @@ msgid ""
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
 "\n"
 "Would you like to view the wiki page now?"
-msgstr "IMPORTANTE: Pode ter havido um problema com a instalação do carregador\nde arranque Grub(2) o que poderá impedir o seu sistema de arrancar\nnormalmente. Antes de reiniciar, poderá querer verificar se o GRUB(2) está\nou não instalado e configurado. O Wiki do Arch Linux contém informação de\nsolução de problemas:\n⇥https://wiki.archlinux.org/index.php/GRUB\n\nGostaria de visitar agora a página do Wiki?"
+msgstr "IMPORTANTE: Pode ter havido um problema com a instalação do carregador\nde arranque Grub(2) o que poderá impedir o seu sistema de arrancar\nnormalmente. Antes de reiniciar, poderá querer verificar se o GRUB(2) está\nou não instalado e configurado. O Wiki do Arch Linux contém informação de\nsolução de problemas:\n      https://wiki.archlinux.org/index.php/GRUB\n\nGostaria de visitar agora a página do Wiki?"
 
 #: src/slides.py:234
 msgid "Do you want to retry?"
@@ -1445,13 +1445,13 @@ msgstr "Confirme a senha:"
 
 #: ui/installation_advanced.ui:1316
 msgid "Use LUKS encryption: "
-msgstr "Use encripção LUKS:"
+msgstr "Use encriptação LUKS:"
 
 #: ui/installation_alongside.ui:16
 msgid ""
 "<span size=\"large\">Choose which OS you want to install Manjaro next "
 "to</span>"
-msgstr "<span size=\"large\">Selecione o sistema operativo ao lado do qual deseja instalar o Manjaro</span>"
+msgstr "<span size=\"large\">Seleccione o sistema operativo ao lado do qual deseja instalar o Manjaro</span>"
 
 #: ui/installation_alongside.ui:90
 msgid "Choose the new size"
@@ -1500,7 +1500,7 @@ msgstr "<span weight=\"light\" size=\"small\">Isto irá configurar o LVM permiti
 msgid ""
 "<span weight=\"light\" size=\"small\">This will setup your /home directory "
 "in a different partition or volume.</span>"
-msgstr "<span weight=\"light\" size=\"small\">Isto irá definir seu directório /home em uma partição ou volume diferente.</span>"
+msgstr "<span weight=\"light\" size=\"small\">Isto irá definir seu directório /home numa partição ou volume diferente.</span>"
 
 #: ui/installation_ask.ui:166
 msgid "Install alongside other OSes"
