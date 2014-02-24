@@ -1533,7 +1533,7 @@ class InstallationProcess(multiprocessing.Process):
                 os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/enlightenment_start|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
             elif os.path.exists("%s/usr/bin/openbox-session" % self.dest_dir):
                 os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/openbox-session|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            elif os.path.exists("%s/usr/bin/lxsession'" % self.dest_dir):
+            elif os.path.exists("%s/usr/bin/lxsession" % self.dest_dir):
                 os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/lxsession|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
             os.system("chgrp -R lxdm %s/var/lib/lxdm" % self.dest_dir)
             os.system("chgrp lxdm %s/etc/lxdm/lxdm.conf" % self.dest_dir)
