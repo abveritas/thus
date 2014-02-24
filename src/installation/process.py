@@ -1482,15 +1482,15 @@ class InstallationProcess(multiprocessing.Process):
                 os.system("echo \"[User]\" > %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
                 if os.path.exists("%s/usr/bin/startxfce4" % self.dest_dir):
                     os.system("echo \"XSession=xfce\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                elif os.path.exists("%s/usr/bin/cinnamon-session" % self.dest_dir):
+                if os.path.exists("%s/usr/bin/cinnamon-session" % self.dest_dir):
                     os.system("echo \"XSession=cinnamon-session\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                elif os.path.exists("%s/usr/bin/mate-session" % self.dest_dir):
+                if os.path.exists("%s/usr/bin/mate-session" % self.dest_dir):
                     os.system("echo \"XSession=mate\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                elif os.path.exists("%s/usr/bin/enlightenment_start" % self.dest_dir):
+                if os.path.exists("%s/usr/bin/enlightenment_start" % self.dest_dir):
                     os.system("echo \"XSession=enlightenment\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                elif os.path.exists("%s/usr/bin/openbox-session" % self.dest_dir):
+                if os.path.exists("%s/usr/bin/openbox-session" % self.dest_dir):
                     os.system("echo \"XSession=openbox\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                elif os.path.exists("%s/usr/bin/lxsession" % self.dest_dir):
+                if os.path.exists("%s/usr/bin/lxsession" % self.dest_dir):
                     os.system("echo \"XSession=LXDE\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
                 os.system("echo \"Icon=\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
             self.desktop_manager = 'gdm'
@@ -1525,15 +1525,15 @@ class InstallationProcess(multiprocessing.Process):
             self.chroot(['groupadd', '--system', 'lxdm'])
             if os.path.exists("%s/usr/bin/startxfce4" % self.dest_dir):
                 os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/startxfce4|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            elif os.path.exists("%s/usr/bin/cinnamon-session" % self.dest_dir):
+            if os.path.exists("%s/usr/bin/cinnamon-session" % self.dest_dir):
                 os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/cinnamon-session|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            elif os.path.exists("%s/usr/bin/mate-session" % self.dest_dir):
+            if os.path.exists("%s/usr/bin/mate-session" % self.dest_dir):
                 os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/mate-session|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            elif os.path.exists("%s/usr/bin/enlightenment_start" % self.dest_dir):
+            if os.path.exists("%s/usr/bin/enlightenment_start" % self.dest_dir):
                 os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/enlightenment_start|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            elif os.path.exists("%s/usr/bin/openbox-session" % self.dest_dir):
+            if os.path.exists("%s/usr/bin/openbox-session" % self.dest_dir):
                 os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/openbox-session|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            elif os.path.exists("%s/usr/bin/lxsession" % self.dest_dir):
+            if os.path.exists("%s/usr/bin/lxsession" % self.dest_dir):
                 os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/lxsession|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
             os.system("chgrp -R lxdm %s/var/lib/lxdm" % self.dest_dir)
             os.system("chgrp lxdm %s/etc/lxdm/lxdm.conf" % self.dest_dir)
