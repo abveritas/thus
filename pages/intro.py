@@ -8,6 +8,7 @@ import gzip
 import codecs
 from PyQt5.QtCore import QTextCodec, QByteArray
 from PyQt5.QtGui import QFontDatabase
+from PyQt5.QtWidgets import QMessageBox
 
 
 class Page(AbstractPage):
@@ -22,8 +23,8 @@ class Page(AbstractPage):
             for line in f:
                 l = line.decode('utf-8').strip('\n').split(':')
                 # if l[0] is empty string then we've reached the end of file
-                # if l[0] == '0' then this denotes C => no localisation
-                if l[0] and l[0] != '0':
+                # if l[1] == 'C' then this denotes C => no localisation
+                if l[0] and l[1] != 'C':
                     display = l[-1]
                     # those 4 languages unfortunetely don't display nicely
                     # so we'll stick with their english name.
@@ -34,12 +35,6 @@ class Page(AbstractPage):
                     item = QtGui.QStandardItem(display)
                     item.setData(l[1])
                     self.languages.appendRow(item)
-
-        self.fonts = QFontDatabase()
-        #id = self.fonts.addApplicationFont("data/fonts/FUTURAM.ttf")
-        #fontName = self.fonts.applicationFontFamilies(id)[0]
-        #style = self.fonts.styles(fontName)[0]
-        #self._font = self.fonts.font(fontName, style, self.font().pointSize())
 
         self.setupUi()
 
@@ -74,19 +69,21 @@ class Page(AbstractPage):
 
     @property
     def next_page(self):
-        return 'pages.second'
+        return 'pages.territory'
 
     @property
     def prev_page(self):
         return None
 
     def get_values(self):
-        selected_language = self.language_view.selectedIndexes()[0]
-
-        return {
-            'language': selected_language.data(QtCore.Qt.UserRole + 1),
-            'row': selected_language.row()
-        }
+        try:
+            selected_language = self.language_view.selectedIndexes()[0]
+            return {
+                'language': selected_language.data(QtCore.Qt.UserRole + 1),
+                'row': selected_language.row()
+            }
+        except IndexError:
+            raise Exception('Please select a language')
 
     def load(self, values, wizard):
         if 'row' in values:

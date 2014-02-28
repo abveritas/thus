@@ -1,6 +1,7 @@
 import sys
 from importlib import import_module
 from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 
 class Wizard(QtWidgets.QMainWindow):
@@ -35,8 +36,11 @@ class Wizard(QtWidgets.QMainWindow):
             self.loadPage(self.page.prev_page)
 
     def nextpage(self):
-        self.settings[self.pagename] = self.page.get_values()
-        self.loadPage(self.page.next_page)
+        try:
+            self.settings[self.pagename] = self.page.get_values()
+            self.loadPage(self.page.next_page)
+        except Exception as e:
+            QMessageBox.critical(self, 'Error', str(e))
 
     def initUI(self):
         centralWidget = QtWidgets.QWidget(self)
@@ -52,6 +56,9 @@ class Wizard(QtWidgets.QMainWindow):
 
         stepswidget = QtWidgets.QLabel('Steps')
 
+        self.exitButton = QtWidgets.QPushButton("Exit")
+        self.exitButton.clicked.connect(self.quit)
+
         self.prevStepButton = QtWidgets.QPushButton("Prev")
         self.prevStepButton.clicked.connect(
             self.prevpage
@@ -64,6 +71,7 @@ class Wizard(QtWidgets.QMainWindow):
         bottomLine = QtWidgets.QHBoxLayout(bottomWidget)
         bottomLine.addWidget(stepswidget)
         bottomLine.addStretch(1)
+        bottomLine.addWidget(self.exitButton)
         bottomLine.addWidget(self.prevStepButton)
         bottomLine.addWidget(self.nextStepButton)
 
@@ -88,3 +96,6 @@ class Wizard(QtWidgets.QMainWindow):
             self.settings.get(self.pagename, {}),
             self
         )
+
+    def quit(self):
+        self.close()
