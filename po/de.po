@@ -3,21 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# anue <anue.mokita@gmail.com>, 2014
 # Veraendert <kleine@kanzlei-endingen.de>, 2013
-# Maphardam <L.Polde@gmx.de>, 2014
+# Maphardam <t.sabsch@arcor.de>, 2014
 # manjarolinux <philm@manjaro.org>, 2013
 # manjarolinux <philm@manjaro.org>, 2013-2014
 # Poscaenium <harald.hager@harrys-net.at>, 2013
 # t_bb_ <tabbo.hankel@bremen.piratenpartei.de>, 2013
 # theradialactive <account@d2ns.org>, 2013
+# Maphardam <t.sabsch@arcor.de>, 2014
 # Veraendert <kleine@kanzlei-endingen.de>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-01 23:23+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2014-03-14 18:15+0000\n"
+"Last-Translator: Maphardam <t.sabsch@arcor.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/manjaro-thus/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -200,7 +202,7 @@ msgstr "freier Speicher"
 
 #: src/installation/advanced.py:266
 msgid "It's not recommended to install grub in a partition"
-msgstr "Es ist nicht empfohlen Grub auf eine Partition zu installieren"
+msgstr "Es wird nicht empfohlen, Grub auf einer Partition zu installieren"
 
 #: src/installation/advanced.py:294 src/installation/alongside.py:172
 msgid "Device"
@@ -841,19 +843,19 @@ msgstr "Installiere GRUB2-Lokale"
 #: src/installation/process.py:972
 #, python-format
 msgid "No OEM loader found in %s. Copying Grub(2) into dir."
-msgstr "Kein OEM Bootloader im Verzeichnis %s gefunden. Kopiere Grub(2) in das Verzeichnis."
+msgstr "Kein OEM-Bootloader im Verzeichnis %s gefunden. Kopiere Grub(2) in das Verzeichnis."
 
 #: src/installation/process.py:977
 msgid "Copying Grub(2) into OEM dir failed. File Not Found."
-msgstr "Kopieren von Grub(2) in das OEM Verzeichnis fehlgeschlagen. Datei wurde nicht gefunden."
+msgstr "Kopieren von Grub(2) in das OEM-Verzeichnis fehlgeschlagen. Datei wurde nicht gefunden."
 
 #: src/installation/process.py:979
 msgid "Copying Grub(2) into OEM dir failed. File Exists."
-msgstr "Kopieren von Grub(2) in das OEM Verzeichnis fehlgeschlagen. Datei existiert bereits."
+msgstr "Kopieren von Grub(2) in das OEM-Verzeichnis fehlgeschlagen. Datei existiert bereits."
 
 #: src/installation/process.py:981
 msgid "Copying Grub(2) into OEM dir failed. Unknown Error."
-msgstr "Kopieren von Grub(2) in das OEM Verzeichnis fehlgeschlagen. Unbekannter Fehler."
+msgstr "Kopieren von Grub(2) in das OEM-Verzeichnis fehlgeschlagen. Unbekannter Fehler."
 
 #: src/installation/process.py:999
 msgid "Generating grub.cfg"
@@ -1181,7 +1183,7 @@ msgid ""
 "\thttps://wiki.archlinux.org/index.php/GRUB\n"
 "\n"
 "Would you like to view the wiki page now?"
-msgstr "WICHTIG: Es ist nicht sicher ob der Bootloader GRUB(2) erfolgreich installiert\nwurde. Dies könnte Ihr System verhindern ordnungsgemäß zu starten. Bevor\nSie Neustarten, überprüfen Sie bitte ob GRUB(2) installiert und konfiguriert\nwurde. Das Arch Linux Wiki enthält Informationen das Problem zu lösen:\n\thttps://wiki.archlinux.org/index.php/GRUB\n\nMöchten Sie sich nun die Wiki-Seite ansehen?"
+msgstr "WICHTIG: Es könnte ein Problem bei der Installation des GRUB(2)-Bootloaders \naufgetreten sein. Daher könnte Ihr System nicht ordnungsgemäß starten. Bevor\nSie Neustarten, überprüfen Sie bitte, ob GRUB(2) installiert und konfiguriert\nwurde. Das Arch Linux Wiki enthält Informationen, um das Problem zu lösen:\n\thttps://wiki.archlinux.org/index.php/GRUB\n\nMöchten Sie sich nun die Wiki-Seite ansehen?"
 
 #: src/slides.py:234
 msgid "Do you want to retry?"

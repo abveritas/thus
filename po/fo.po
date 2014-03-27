@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# klaemint, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-02 21:32+0000\n"
-"Last-Translator: kirek <rbuldo@gmail.com>\n"
+"PO-Revision-Date: 2014-02-27 19:15+0000\n"
+"Last-Translator: klaemint\n"
 "Language-Team: Faroese (http://www.transifex.com/projects/p/manjaro-thus/language/fo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,11 +41,11 @@ msgstr ""
 
 #: thus.py:234
 msgid "Manjaro Installer"
-msgstr ""
+msgstr "Manjaro Innleggjari"
 
 #: thus.py:290
 msgid "Quiting installer..."
-msgstr ""
+msgstr "Fer úr inleggjara..."
 
 #: thus.py:411
 msgid "Sets Thus log level to 'debug'"
@@ -115,7 +116,7 @@ msgstr ""
 #: src/bootinfo.py:53 src/bootinfo.py:65 src/bootinfo.py:71 src/bootinfo.py:85
 #: src/installation/alongside.py:220
 msgid "unknown"
-msgstr ""
+msgstr "ókent"
 
 #: src/canonical/misc.py:929
 #, python-format
@@ -163,23 +164,23 @@ msgstr ""
 
 #: src/check.py:94
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "er set til eina streym keldu"
 
 #: src/check.py:98
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "er forbundi við alnótina"
 
 #: src/check.py:102
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "Fyri bestu úrslit, vinarliga tryggja tær at hendan teldan:"
 
 #: src/check.py:173
 msgid "We have Internet connection."
-msgstr ""
+msgstr "Vit hava net samband."
 
 #: src/check.py:174
 msgid "We're connected to a power source."
-msgstr ""
+msgstr "Vit eru sett til eina streym keldu"
 
 #: src/check.py:175
 msgid "We have enough disk space."
@@ -188,7 +189,7 @@ msgstr ""
 #: src/installation/advanced.py:218 src/installation/advanced.py:512
 #: src/installation/advanced.py:526
 msgid "free space"
-msgstr ""
+msgstr "Frítt pláss"
 
 #: src/installation/advanced.py:266
 msgid "It's not recommended to install grub in a partition"
@@ -196,49 +197,49 @@ msgstr ""
 
 #: src/installation/advanced.py:294 src/installation/alongside.py:172
 msgid "Device"
-msgstr ""
+msgstr "Tól"
 
 #: src/installation/advanced.py:297
 msgid "Type"
-msgstr ""
+msgstr "Slag"
 
 #: src/installation/advanced.py:300
 msgid "Mount point"
-msgstr ""
+msgstr "Ísetingar stað"
 
 #: src/installation/advanced.py:303
 msgid "Label"
-msgstr ""
+msgstr "Spjaldur"
 
 #: src/installation/advanced.py:309 src/installation/advanced.py:1641
 msgid "Format"
-msgstr ""
+msgstr "Snið"
 
 #: src/installation/advanced.py:312
 msgid "Size"
-msgstr ""
+msgstr "Stødd"
 
 #: src/installation/advanced.py:315
 msgid "Used"
-msgstr ""
+msgstr "Brúkt"
 
 #: src/installation/advanced.py:318
 msgid "Flags"
-msgstr ""
+msgstr "Fløgg"
 
 #: src/installation/advanced.py:324
 msgid "SSD"
-msgstr ""
+msgstr "SSD"
 
 #: src/installation/advanced.py:493
 msgid "none"
-msgstr ""
+msgstr "einki"
 
 #: src/installation/advanced.py:548 src/installation/advanced.py:962
 #: src/installation/advanced.py:1501 src/installation/advanced.py:1594
 #: src/installation/advanced.py:1738 src/installation/advanced.py:1832
 msgid "extended"
-msgstr ""
+msgstr "longd"
 
 #: src/installation/advanced.py:679 src/installation/advanced.py:932
 msgid "Can't use same mount point twice..."
@@ -246,19 +247,19 @@ msgstr ""
 
 #: src/installation/advanced.py:953
 msgid "Creating primary partition"
-msgstr ""
+msgstr "Skapar fyrstu deiling"
 
 #: src/installation/advanced.py:964
 msgid "Creating extended partition"
-msgstr ""
+msgstr "Skapar longda deiling"
 
 #: src/installation/advanced.py:970
 msgid "Creating logical partition"
-msgstr ""
+msgstr "Skapar logiska deiling"
 
 #: src/installation/advanced.py:1104
 msgid "Advanced installation mode"
-msgstr ""
+msgstr "Avanseraður inleggjingar standur"
 
 #: src/installation/advanced.py:1108 ui/installation_advanced.ui:1160
 msgid "Use this device for boot loader installation:"
@@ -286,54 +287,54 @@ msgstr ""
 
 #: src/installation/advanced.py:1139
 msgid "New partition table"
-msgstr ""
+msgstr "Nýgg deilingar talva"
 
 #: src/installation/advanced.py:1147
 msgid "Change..."
-msgstr ""
+msgstr "Broyt..."
 
 #: src/installation/advanced.py:1152 ui/installation_advanced.ui:407
 msgid "Size:"
-msgstr ""
+msgstr "Stødd:"
 
 #: src/installation/advanced.py:1156 ui/installation_advanced.ui:630
 msgid "Type:"
-msgstr ""
+msgstr "Slag:"
 
 #: src/installation/advanced.py:1160 ui/installation_advanced.ui:647
 msgid "Primary"
-msgstr ""
+msgstr "Fyrsta"
 
 #: src/installation/advanced.py:1164 ui/installation_advanced.ui:671
 msgid "Logical"
-msgstr ""
+msgstr "Logiska"
 
 #: src/installation/advanced.py:1168 ui/installation_advanced.ui:695
 msgid "Extended"
-msgstr ""
+msgstr "longda"
 
 #: src/installation/advanced.py:1172 ui/installation_advanced.ui:516
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Byrjan á hesum plássi"
 
 #: src/installation/advanced.py:1176 ui/installation_advanced.ui:540
 msgid "End of this space"
-msgstr ""
+msgstr "Endi á hesum plássi"
 
 #: src/installation/advanced.py:1180 src/installation/advanced.py:1197
 #: ui/installation_advanced.ui:179 ui/installation_advanced.ui:438
 msgid "Use as:"
-msgstr ""
+msgstr "Brúka sum:"
 
 #: src/installation/advanced.py:1184 src/installation/advanced.py:1201
 #: ui/installation_advanced.ui:212 ui/installation_advanced.ui:476
 msgid "Mount point:"
-msgstr ""
+msgstr "ísetingar stað:"
 
 #: src/installation/advanced.py:1188 src/installation/advanced.py:1205
 #: ui/installation_advanced.ui:249 ui/installation_advanced.ui:730
 msgid "Label (optional):"
-msgstr ""
+msgstr "Spjaldur (valfrítt):"
 
 #: src/installation/advanced.py:1192
 msgid "Encryption Options..."
@@ -341,7 +342,7 @@ msgstr ""
 
 #: src/installation/advanced.py:1209 ui/installation_advanced.ui:276
 msgid "Format:"
-msgstr ""
+msgstr "Snið:"
 
 #: src/installation/advanced.py:1214
 msgid "Partition Table Type:"
@@ -354,12 +355,12 @@ msgstr ""
 #: src/installation/advanced.py:1222 src/installation/alongside.py:150
 #: src/installation/automatic.py:103
 msgid "Install now!"
-msgstr ""
+msgstr "Legg inn nú!"
 
 #: src/installation/advanced.py:1308
 #, python-format
 msgid "Creating a new partition table of type %s for disk %s"
-msgstr ""
+msgstr "Skapar eina nýggja deilingar talvu av slagnum %s til disk %s"
 
 #: src/installation/advanced.py:1318
 msgid ""
@@ -382,7 +383,7 @@ msgid ""
 "%s is mounted as swap.\n"
 "To continue it has to be unmounted.\n"
 "Click Yes to unmount, or No to return\n"
-msgstr ""
+msgstr "%s er sett sum swap\nFyri at halda áfram so má tað setast av\nTrýst Ja fyri at seta av, ella Nei fyri at venda aftur\n"
 
 #: src/installation/advanced.py:1544
 #, python-format
@@ -390,7 +391,7 @@ msgid ""
 "%s is mounted in '%s'.\n"
 "To continue it has to be unmounted.\n"
 "Click Yes to unmount, or No to return\n"
-msgstr ""
+msgstr "%s er sett í '%S'.\nFyri at halda áfram má tað setast av\nTrýst á Ja fyri at seta av, ella Nei fyri at venda aftur\n"
 
 #: src/installation/advanced.py:1567
 #, python-format
@@ -406,32 +407,32 @@ msgstr ""
 #: src/installation/advanced.py:1634
 #, python-format
 msgid "Partition %s will be deleted"
-msgstr ""
+msgstr "Deiling %s verur strika"
 
 #: src/installation/advanced.py:1641
 msgid "Partition"
-msgstr ""
+msgstr "Deiling"
 
 #: src/installation/advanced.py:1641
 msgid "New"
-msgstr ""
+msgstr "Nýggj"
 
 #: src/installation/advanced.py:1641
 msgid "Relabel"
-msgstr ""
+msgstr "Umspjaldra"
 
 #: src/installation/advanced.py:1641
 msgid "Mount"
-msgstr ""
+msgstr "íset"
 
 #: src/installation/advanced.py:1662
 msgid "These disks will have partition actions:"
-msgstr ""
+msgstr "Hesir diskar fara at hava deilingar gerðir:"
 
 #: src/installation/advanced.py:1717
 #, python-format
 msgid "Saving changes done in %s"
-msgstr ""
+msgstr "Goymur broytingar gjørdar í %s"
 
 #: src/installation/advanced.py:1741
 #, python-format
@@ -455,7 +456,7 @@ msgstr ""
 #: src/installation/advanced.py:1853
 #, python-format
 msgid "Manjaro will install the bootloader of type %s in %s"
-msgstr ""
+msgstr "Manjaro fer at leggja inn bootloadarin av slagnum %s í %s"
 
 #: src/installation/advanced.py:1869 src/installation/automatic.py:247
 msgid "Testing mode. Thus won't apply any changes to your system!"
@@ -464,7 +465,7 @@ msgstr ""
 #: src/installation/alongside.py:115
 #, python-format
 msgid "Can't load %s css"
-msgstr ""
+msgstr "Kann ikki løða %s css"
 
 #: src/installation/alongside.py:142
 msgid "Choose which OS you want to install Manjaro next to"
@@ -472,15 +473,15 @@ msgstr ""
 
 #: src/installation/alongside.py:146
 msgid "Manjaro alongside another OS"
-msgstr ""
+msgstr "Manjaro viðsíðuna av einari aðrari stýriskipan"
 
 #: src/installation/alongside.py:175
 msgid "Detected OS"
-msgstr ""
+msgstr "Fann stýrisystem"
 
 #: src/installation/alongside.py:178
 msgid "Filesystem"
-msgstr ""
+msgstr "Fílusystem"
 
 #: src/installation/alongside.py:196
 msgid "pyparted3 not found!"
@@ -505,15 +506,15 @@ msgstr ""
 
 #: src/installation/ask.py:99
 msgid "Installation type"
-msgstr ""
+msgstr "Innleggjingar slag"
 
 #: src/installation/ask.py:113 ui/installation_ask.ui:34
 msgid "Erase disk and install Manjaro (automatic)"
-msgstr ""
+msgstr "Strika disk og legg inn Manjaro (automatic)"
 
 #: src/installation/ask.py:116
 msgid "Warning: This will delete all data on your disk"
-msgstr ""
+msgstr "Ávaring: Hettar fer at sletta alla dátuna á tínum diski"
 
 #: src/installation/ask.py:122
 msgid "Encrypt this installation for increased security."
@@ -545,7 +546,7 @@ msgstr ""
 #: src/installation/ask.py:152 src/installation/ask.py:154
 #, python-format
 msgid "Install Manjaro alongside %s"
-msgstr ""
+msgstr "Legg Manjaro inn viðsíuna av %s"
 
 #: src/installation/ask.py:161
 msgid "Manage your partitions and where to install Manjaro (advanced)"
@@ -575,11 +576,11 @@ msgstr ""
 
 #: src/installation/automatic.py:75
 msgid "Automatic installation mode"
-msgstr ""
+msgstr "Sjálvirkandi Innleggjingar standur"
 
 #: src/installation/automatic.py:79 ui/installation_automatic.ui:96
 msgid "Select drive:"
-msgstr ""
+msgstr "Vel driv:"
 
 #: src/installation/automatic.py:83
 msgid ""
@@ -590,7 +591,7 @@ msgstr ""
 msgid ""
 "Please choose the drive where you want to install Manjaro\n"
 "and click the button below to start the process."
-msgstr ""
+msgstr "Vinarliga vel drivi har tú vilt leggja Manjaro inn\nog trýst á knøttin niðriundur fyri at byrja tilgongd."
 
 #: src/installation/automatic.py:93 ui/installation_automatic.ui:176
 msgid "Encryption Password:"
@@ -636,12 +637,12 @@ msgstr ""
 #: src/installation/process.py:84
 #, python-format
 msgid "Copying '/%s'"
-msgstr ""
+msgstr "Avritar '/%s'"
 
 #: src/installation/process.py:165
 #, python-format
 msgid "Installing using the '%s' method"
-msgstr ""
+msgstr "Leggur inn við at nýta '%s'  háttalagi"
 
 #: src/installation/process.py:242
 #, python-format
@@ -1346,7 +1347,7 @@ msgstr ""
 
 #: ui/bootloader.ui:69
 msgid "What is your boot system type?"
-msgstr ""
+msgstr "Hvat er títt uppstarts'boot' system slag?"
 
 #: ui/bootloader.ui:98
 msgid "BIOS (common)"
@@ -1354,11 +1355,11 @@ msgstr ""
 
 #: ui/bootloader.ui:120
 msgid "x86_64 UEFI"
-msgstr ""
+msgstr "X86_64 UEFI"
 
 #: ui/bootloader.ui:142
 msgid "i386 UEFI"
-msgstr ""
+msgstr "i386 UEFI"
 
 #: ui/bootloader.ui:169
 msgid "Choose 'Cancel' if you don't want to install a boot loader"
@@ -1378,7 +1379,7 @@ msgstr ""
 
 #: ui/installation_advanced.ui:84
 msgid "Partition table type:"
-msgstr ""
+msgstr "Deilingar talvu slag:"
 
 #: ui/installation_advanced.ui:155
 msgid "Edit partition"
@@ -1386,7 +1387,7 @@ msgstr ""
 
 #: ui/installation_advanced.ui:317 ui/installation_advanced.ui:774
 msgid "Encryption options..."
-msgstr ""
+msgstr "Bronglingar møguleikar..."
 
 #: ui/installation_advanced.ui:383
 msgid "Create partition"

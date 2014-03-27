@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-05 21:46+0000\n"
+"PO-Revision-Date: 2014-03-07 12:56+0000\n"
 "Last-Translator: rago1975\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/manjaro-thus/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -524,7 +524,7 @@ msgstr "警告: ディスク内の全てのデータが消去されます"
 
 #: src/installation/ask.py:122
 msgid "Encrypt this installation for increased security."
-msgstr "セキュリティを強化するためにこのインストールは暗号化されます。"
+msgstr "セキュリティを強化するために、このインストールを暗号化します。"
 
 #: src/installation/ask.py:126
 msgid "You will be asked for the encryption key in the next step."
@@ -542,7 +542,7 @@ msgstr "スナップショットを作成し、容易な方法でパーティシ
 
 #: src/installation/ask.py:140 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
-msgstr "異なるパーティション/ボリュームにHomeを設定してください"
+msgstr "異なるパーティション/ボリュームにHomeを設定します。"
 
 #: src/installation/ask.py:144
 msgid ""
@@ -597,7 +597,7 @@ msgstr "警告！このインストールモードではドライブの全てを
 msgid ""
 "Please choose the drive where you want to install Manjaro\n"
 "and click the button below to start the process."
-msgstr "Manjaroをインストールしたいドライブを選択し、\n下のstart the processをクリックしてください。"
+msgstr "Manjaroをインストールしたいドライブを選択し、\n下のインストールをクリックしてください。"
 
 #: src/installation/automatic.py:93 ui/installation_automatic.ui:176
 msgid "Encryption Password:"

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-10 20:31+0000\n"
+"PO-Revision-Date: 2014-02-25 17:11+0000\n"
 "Last-Translator: tulliana <mdemiray@msn.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/manjaro-thus/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -278,7 +278,7 @@ msgstr "Kontrol listesini bağla:"
 
 #: src/installation/advanced.py:1119
 msgid "Root"
-msgstr "Root"
+msgstr "Root-Kök"
 
 #: src/installation/advanced.py:1123 ui/bootloader.ui:7
 msgid "Boot"
@@ -521,7 +521,7 @@ msgstr "Diski sil ve Manjaro yükle (otomatik)"
 
 #: src/installation/ask.py:116
 msgid "Warning: This will delete all data on your disk"
-msgstr "Uyarı: Bu işlem, diğer işletim sisteminin kullandığı ​​disk üzerindeki tüm programları, resimleri, belgeleri, müzikleri, diğer verileri siler"
+msgstr "Uyarı: Bu işlem, ​​disk üzerindeki tüm programları, resimleri, belgeleri, müzikleri, diğer verileri siler"
 
 #: src/installation/ask.py:122
 msgid "Encrypt this installation for increased security."
