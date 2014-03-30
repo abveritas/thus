@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-01 23:55+0100\n"
-"PO-Revision-Date: 2014-02-20 23:23+0000\n"
+"PO-Revision-Date: 2014-03-28 11:12+0000\n"
 "Last-Translator: arcorreia <arcorreia@gmx.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/manjaro-thus/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -1365,7 +1365,7 @@ msgstr "Demasiados caracteres"
 
 #: ui/bootloader.ui:69
 msgid "What is your boot system type?"
-msgstr "Qual é o tipo de arranque do seu sistema?"
+msgstr "Qual é o tipo do seu sistema de arranque?"
 
 #: ui/bootloader.ui:98
 msgid "BIOS (common)"
