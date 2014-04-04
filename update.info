@@ -1,11 +1,11 @@
-{"version":"0.8.10-pre0","files":[
+{"version":"0.8.9.900","files":[
 {"name":"./thus.py","md5":"5ba524218adcf5a1450004a0f76104b4"},
 {"name":"./d902a9e63f4a2e5ba81fdfa6ee9c46a856eb8705.patch","md5":"47a467795baeea23648f18b63a5cf73d"},
 {"name":"./README.md","md5":"d94c947a598722a1b82332d0f98cd4b5"},
 {"name":"./4d0a0071310d867a01a7084cf7c85e7ebd141369.patch","md5":"9059b3c101946babc47b421d4072860d"},
 {"name":"./026103b37f81eb930fa5b3efbedf61c01a600a9b.patch","md5":"67b719c75d0103bb63aa670e153667ea"},
 {"name":"./generate_update_info.py","md5":"d53335e46c847a0e1cfbfc7b45f63f77"},
-{"name":"./update.info","md5":"b4871cc9bdaf2dbc03adef89c027387d"},
+{"name":"./update.info","md5":"42bb7009134f47927ab31eed2458bdd0"},
 {"name":"./5ceb46503466a3cb455c00653961e4cc71e6f578.patch","md5":"5f0547ed8209087b0ca1270e25db437a"},
 {"name":"./9cbdf4c487dd4cb82aa683df132330597afb9048.patch","md5":"0fd283e305da759947a25509e25828b1"},
 {"name":"./d309a3c2bc3dbd11e87879b9ad0dae796add53e8.patch","md5":"27c883e03c7abb2de1690119ef4e96d3"},
@@ -25,7 +25,7 @@
 {"name":"src/check.py","md5":"a9dbf13cd8be25ee4884984629b22c4c"},
 {"name":"src/bootinfo.py","md5":"27d529c38b63682da8a8dd2542e49371"},
 {"name":"src/location.py","md5":"1987b053e9a298756eb955329f9e8ac8"},
-{"name":"src/info.py","md5":"daa25b743cf28842ddc9ae2187c26399"},
+{"name":"src/info.py","md5":"1c731ea20736c35551cb3009cc2dc947"},
 {"name":"src/slides.py","md5":"947dc3a0b89988b2f9c4ade173a8d65f"},
 {"name":"src/keyboard_widget.py","md5":"4d118e2f85c17f8c4d5cc1c50df9318d"},
 {"name":"src/config.py","md5":"9f724130ddf859836e592c1879c025e9"},
