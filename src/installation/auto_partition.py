@@ -234,23 +234,26 @@ class AutoPartition(object):
         if self.efi:
             efi = self.auto_device + "2"
             boot = self.auto_device + "3"
-            swap = self.auto_device + "4"
-            root = self.auto_device + "5"
+            root = self.auto_device + "4"
+            swap = self.auto_device + "5"
             if self.home:
-                home = self.auto_device + "6"
+                home = self.auto_device + "5"
+                swap = self.auto_device + "6"
         elif self.luks or self.lvm:
             boot = self.auto_device + "1"
-            swap = self.auto_device + "2"
-            root = self.auto_device + "3"
+            root = self.auto_device + "2"
+            swap = self.auto_device + "3"
             if self.home:
-                home = self.auto_device + "4"
+                home = self.auto_device + "3"
+                swap = self.auto_device + "4"
         else:
             # self.separate_boot must be false
             boot = ""
-            swap = self.auto_device + "1"
-            root = self.auto_device + "2"
+            root = self.auto_device + "1"
+            swap = self.auto_device + "2"
             if self.home:
-                home = self.auto_device + "3"
+                home = self.auto_device + "2"
+                swap = self.auto_device + "3"
 
         if self.luks:
             if self.lvm:
@@ -268,7 +271,7 @@ class AutoPartition(object):
                     home = "/dev/mapper/cryptManjaroHome"
         elif self.lvm:
             # No LUKS but using LVM
-            lvm = swap
+            lvm = root
 
         if self.lvm:
             swap = "/dev/ManjaroVG/ManjaroSwap"
@@ -485,8 +488,6 @@ class AutoPartition(object):
                 subprocess.check_call(['sgdisk --set-alignment="2048" --new=4:0:+%dM --typecode=4:8E00 --change-name=4:MANJARO_LVM %s'
                     % (lvm_pv_part_size, device)], shell=True)
             else:
-                subprocess.check_call(['sgdisk --set-alignment="2048" --new=4:0:+%dM --typecode=4:8200 --change-name=4:MANJARO_SWAP %s'
-                    % (swap_part_size, device)], shell=True)
                 subprocess.check_call(['sgdisk --set-alignment="2048" --new=5:0:+%dM --typecode=5:8300 --change-name=5:MANJARO_ROOT %s'
                     % (root_part_size, device)], shell=True)
 
@@ -494,8 +495,12 @@ class AutoPartition(object):
                     subprocess.check_call(['sgdisk --set-alignment="2048" --new=6:0:+%dM --typecode=6:8300 --change-name=5:MANJARO_HOME %s'
                         % (home_part_size, device)], shell=True)
 
+                subprocess.check_call(['sgdisk --set-alignment="2048" --new=4:0:+%dM --typecode=4:8200 --change-name=4:MANJARO_SWAP %s'
+                    % (swap_part_size, device)], shell=True)
+
             logging.debug(check_output("sgdisk --print %s" % device))
         else:
+            # DOS MBR partition table
             # Start at sector 1 for 4k drive compatibility and correct alignment
             # Clean partitiontable to avoid issues!
             subprocess.check_call(["dd", "if=/dev/zero", "of=%s" % device, "bs=512", "count=2048", "status=noxfer"])
@@ -521,16 +526,11 @@ class AutoPartition(object):
                 # Set lvm flag
                 subprocess.check_call(["parted", "-a", "optimal", "-s", device, "set", "2", "lvm", "on"])
             else:
-                # Create swap partition
                 start = boot_part_size
                 if boot_part_size is 0:
                     start = 1
-                end = start + swap_part_size
-                subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary", "linux-swap",
-                    str(start), str(end)])
 
                 # Create root partition
-                start = end
                 end = start + root_part_size
                 subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary",
                     str(start), str(end)])
@@ -538,8 +538,14 @@ class AutoPartition(object):
                 if self.home:
                     # Create home partition
                     start = end
+                    end = start + home_part_size
                     subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary",
-                        str(start), "100%"])
+                        str(start), str(end)])
+
+                # Create swap partition
+                start = end
+                subprocess.check_call(["parted", "-a", "optimal", "-s", device, "mkpart", "primary", "linux-swap",
+                    str(start), "100%"])
 
         printk(True)
 
@@ -571,12 +577,13 @@ class AutoPartition(object):
             subprocess.check_call(["lvcreate", "--name", "ManjaroRoot", "--size", str(int(root_part_size)), "ManjaroVG"])
 
             if not self.home:
-                # Use the remainig space for our swap volume
+                # Use the remaining space for our swap volume
                 subprocess.check_call(["lvcreate", "--name", "ManjaroSwap", "--extents", "100%FREE", "ManjaroVG"])
             else:
-                subprocess.check_call(["lvcreate", "--name", "ManjaroSwap", "--size", str(int(swap_part_size)), "ManjaroVG"])
-                # Use the remainig space for our home volume
-                subprocess.check_call(["lvcreate", "--name", "ManjaroHome", "--extents", "100%FREE", "ManjaroVG"])
+                subprocess.check_call(["lvcreate", "--name", "ManjaroHome", "--size", str(int(home_part_size)), "ManjaroVG"])
+                # Use the remaining space for our swap volume
+                subprocess.check_call(["lvcreate", "--name", "ManjaroSwap", "--extents", "100%FREE", "ManjaroVG"])
+
 
         # Make sure the "root" partition is defined first!
         self.mkfs(root_device, "ext4", "/", "ManjaroRoot")
