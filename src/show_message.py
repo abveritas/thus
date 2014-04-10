@@ -3,7 +3,7 @@
 #
 #  show_message.py
 #
-#  Copyright 2013 Antergos (http://antergos.com/)
+#  Copyright 2013 Manjaro (http://Manjaro.com/)
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -62,7 +62,7 @@ def warning(message):
                                    destroy_with_parent=True,
                                    message_type=Gtk.MessageType.WARNING,
                                    buttons=Gtk.ButtonsType.CLOSE,
-                                   text=_("Antergos Installer - Warning"))
+                                   text=_("Manjaro Installer - Warning"))
     msg_dialog.format_secondary_text(message)
     msg_dialog.run()
     msg_dialog.destroy()
@@ -74,7 +74,7 @@ def message(message):
                                    destroy_with_parent=True,
                                    message_type=Gtk.MessageType.INFO,
                                    buttons=Gtk.ButtonsType.CLOSE,
-                                   text=_("Antergos Installer - Information"))
+                                   text=_("Manjaro Installer - Information"))
     msg_dialog.format_secondary_text(message)
     msg_dialog.run()
 
@@ -85,7 +85,7 @@ def question(message):
                                    destroy_with_parent=True,
                                    message_type=Gtk.MessageType.QUESTION,
                                    buttons=Gtk.ButtonsType.YES_NO,
-                                   text=_("Antergos Installer - Confirmation"))
+                                   text=_("Manjaro Installer - Confirmation"))
     msg_dialog.format_secondary_text(message)
     response = msg_dialog.run()
     msg_dialog.destroy()
