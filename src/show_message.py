@@ -3,7 +3,7 @@
 #
 #  show_message.py
 #
-#  Copyright 2013 Manjaro (http://Manjaro.com/)
+#  Copyright 2013 Antergos (http://antergos.com/)
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
