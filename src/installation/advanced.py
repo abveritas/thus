@@ -1629,6 +1629,8 @@ class InstallationAdvanced(Gtk.Box):
         bold = "<b>%s</b>"
         y = 0
 
+        self.to_be_deleted.sort()
+
         # First, show partitions that will be deleted
         for ea in self.to_be_deleted:
             lbl = Gtk.Label(_("Partition %s will be deleted") % ea, margin=margin)
@@ -1674,6 +1676,8 @@ class InstallationAdvanced(Gtk.Box):
         if changelist == []:
             # Something wrong has happened or nothing to change
             return False
+
+        changelist.sort()
 
         response = self.show_changes(changelist)
         if response == Gtk.ResponseType.CANCEL:

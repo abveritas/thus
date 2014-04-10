@@ -311,7 +311,7 @@ class InstallationProcess(multiprocessing.Process):
                 logging.error(txt)
                 cmd = _("Command %s has failed") % err.cmd
                 logging.error(cmd)
-                out = _("Output : %s") % err.output 
+                out = _("Output : %s") % err.output
                 logging.error(out)
                 self.queue_fatal_event(txt)
                 return False
