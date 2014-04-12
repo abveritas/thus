@@ -76,27 +76,6 @@ class StylizedFrame(Gtk.Alignment):
         else:
             Gtk.Alignment.do_set_property(self, prop, value)
 
-    def paint_background(self, c):
-        c.set_source_rgb(*gtk_to_cairo_color('#fbfbfb'))
-        alloc = self.get_allocation()
-        draw_round_rect(c, self.radius,
-                        self.width / 2, self.width / 2,
-                        alloc.width - self.width,
-                        alloc.height - self.width)
-        c.fill_preserve()
-
-    def do_draw(self, c):
-        # Background
-        self.paint_background(c)
-        # Edge
-        c.set_source_rgb(*gtk_to_cairo_color('#c7c7c6'))
-        c.set_line_width(self.width)
-        c.stroke()
-        if self.get_child():
-            top, bottom, left, right = self.get_padding()
-            c.translate(left, top)
-            self.get_child().draw(c)
-
 GObject.type_register(StylizedFrame)
 
 
