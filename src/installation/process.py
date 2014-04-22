@@ -35,7 +35,6 @@ import shutil
 import subprocess
 import sys
 import time
-import locale
 
 import encfs
 from installation import auto_partition
@@ -543,10 +542,6 @@ class InstallationProcess(multiprocessing.Process):
                 subprocess.check_call(["mount", self.media_desktop, mount_point, "-t", self.media_type, "-o", "loop"])
             else:
                 logging.warning(_("%s is already mounted at %s as %s") % (self.media_desktop, mount_point, device))
-
-            # Resets locale to "C" to execute rsync cmd properly
-            # (non thread-safe code)
-            locale.setlocale(locale.LC_ALL, '')
 
             # walk root filesystem
             SOURCE = "/source/"
