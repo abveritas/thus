@@ -259,19 +259,14 @@ class AutoPartition(object):
                 swap = self.auto_device + "3"
 
         if self.luks:
-            if self.lvm:
-                # LUKS and LVM
-                luks = [swap]
-                lvm = "/dev/mapper/cryptManjaro"
-            else:
-                # LUKS and no LVM
-                luks = [root]
-                root = "/dev/mapper/cryptManjaro"
-                if self.home:
-                    # In this case we'll have two LUKS devices, one for root
-                    # and the other one for /home
-                    luks.append(home)
-                    home = "/dev/mapper/cryptManjaroHome"
+            # Set luks and root
+            luks = [root]
+            root = "/dev/mapper/cryptManjaro"
+            if self.home and not self.lvm:
+                # We'll have two LUKS devices, when we
+                # use a separate /home volume but no LVM.
+                luks.append(home)
+                home = "/dev/mapper/cryptManjaroHome"
         elif self.lvm:
             # No LUKS but using LVM
             lvm = root
@@ -608,7 +603,7 @@ class AutoPartition(object):
                 # Get column number 12: Size of volume group in kilobytes
                 vg_size = int(vg_info.split(":")[11]) / 1024
                 if part_sizes['lvm_pv'] > vg_size:
-                    logging.debug("Real ManjaroVG volume group size: %d MB", vg_size)
+                    logging.debug("Real ManjaroVG volume group size: %d MiB", vg_size)
                     logging.debug("Reajusting logical volume sizes")
                     diff_size = part_sizes['lvm_pv'] - vg_size
                     start_part_sizes = empty_space_size + gpt_bios_grub_part_size + uefisys_part_size
