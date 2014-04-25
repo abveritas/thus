@@ -381,7 +381,10 @@ class AutoPartition(object):
         
         part_sizes['disk'] = disk_size
         
-        part_sizes['boot'] = 256
+        
+        part_sizes['boot'] = 0
+        if self.separate_boot:
+            part_sizes['boot'] = 256
 
         mem_total = check_output("grep MemTotal /proc/meminfo")
         mem_total = int(mem_total.split()[1])
@@ -446,10 +449,6 @@ class AutoPartition(object):
             uefisys_part_size = 0
             # we start with a 1MiB offset before the first partition
             empty_space_size = 1
-
-        part_sizes['boot'] = 0
-        if self.separate_boot:
-            part_sizes['boot'] = 200
 
         # Get just the disk size in MiB
         device = self.auto_device
