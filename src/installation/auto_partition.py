@@ -424,17 +424,17 @@ class AutoPartition(object):
         return part_sizes
 
     def show_part_sizes(self, part_sizes):
-        logging.debug(_("Total disk size: %dMB"), part_sizes['disk'])
-        logging.debug(_("Boot partition size: %dMB"), part_sizes['boot'])
+        logging.debug(_("Total disk size: %dMiB"), part_sizes['disk'])
+        logging.debug(_("Boot partition size: %dMiB"), part_sizes['boot'])
 
         if self.lvm:
-            logging.debug(_("LVM physical volume size: %dMB"), part_sizes['lvm_pv'])
+            logging.debug(_("LVM physical volume size: %dMiB"), part_sizes['lvm_pv'])
 
-        logging.debug(_("Swap partition size: %dMB"), part_sizes['swap'])
-        logging.debug(_("Root partition size: %dMB"), part_sizes['root'])
+        logging.debug(_("Swap partition size: %dMiB"), part_sizes['swap'])
+        logging.debug(_("Root partition size: %dMiB"), part_sizes['root'])
 
         if self.home:
-            logging.debug(_("Home partition size: %dMB"), part_sizes['home'])
+            logging.debug(_("Home partition size: %dMiB"), part_sizes['home'])
 
     def run(self):
         key_files = ["/tmp/.keyfile-root", "/tmp/.keyfile-home"]
