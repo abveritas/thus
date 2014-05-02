@@ -1102,8 +1102,11 @@ class InstallationProcess(multiprocessing.Process):
         # It is important that the encrypt hook comes before the filesystems hook
         # (in case you are using LVM on LUKS, the order should be: encrypt lvm2 filesystems)
 
+        plymouth_bin = os.path.join(self.dest_dir, "usr/bin/plymouth")
+        if os.path.exists(plymouth_bin):
+            hooks.append("plymouth")
+
         if self.settings.get("use_luks"):
-            plymouth_bin = os.path.join(self.dest_dir, "usr/bin/plymouth")
             if os.path.exists(plymouth_bin):
                 hooks.append("plymouth-encrypt")
             else:
