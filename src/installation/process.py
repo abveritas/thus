@@ -830,12 +830,15 @@ class InstallationProcess(multiprocessing.Process):
 
         default_dir = os.path.join(self.dest_dir, "etc/default")
         default_grub = os.path.join(default_dir, "grub")
+        plymouth_bin = os.path.join(self.dest_dir, "usr/bin/plymouth")
+        if os.path.exists(plymouth_bin):
+            use_splash = 'splash'
         if "swap" in self.mount_devices:
             swap_partition = self.mount_devices["swap"]
             swap_uuid = fs.get_info(swap_partition)['UUID']
-            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=%s quiet splash"' % swap_uuid
+            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=%s quiet %s"' % (swap_uuid, use_plash)
         else:
-            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
+            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="quiet %s"' % use_plash
 
         if not os.path.exists(default_dir):
             os.mkdir(default_dir)
@@ -1100,7 +1103,11 @@ class InstallationProcess(multiprocessing.Process):
         # (in case you are using LVM on LUKS, the order should be: encrypt lvm2 filesystems)
 
         if self.settings.get("use_luks"):
-            hooks.append("encrypt")
+            plymouth_bin = os.path.join(self.dest_dir, "usr/bin/plymouth")
+            if os.path.exists(plymouth_bin):
+                hooks.append("plymouth-encrypt")
+            else:
+                hooks.append("encrypt")
             if self.arch == 'x86_64':
                 modules.extend(["dm_mod", "dm_crypt", "ext4", "aes_x86_64", "sha256", "sha512"])
             else:
