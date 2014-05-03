@@ -1099,12 +1099,14 @@ class InstallationProcess(multiprocessing.Process):
         hooks = ["base", "udev", "autodetect", "modconf", "block", "keyboard", "keymap"]
         modules = []
 
-        # It is important that the encrypt hook comes before the filesystems hook
-        # (in case you are using LVM on LUKS, the order should be: encrypt lvm2 filesystems)
+        # It is important that the plymouth hook comes before any encrypt hook
 
         plymouth_bin = os.path.join(self.dest_dir, "usr/bin/plymouth")
         if os.path.exists(plymouth_bin):
             hooks.append("plymouth")
+
+        # It is important that the encrypt hook comes before the filesystems hook
+        # (in case you are using LVM on LUKS, the order should be: encrypt lvm2 filesystems)
 
         if self.settings.get("use_luks"):
             if os.path.exists(plymouth_bin):
