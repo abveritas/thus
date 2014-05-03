@@ -267,11 +267,9 @@ class AutoPartition(object):
                 # use a separate /home volume but no LVM.
                 luks.append(home)
                 home = "/dev/mapper/cryptManjaroHome"
-        elif self.lvm:
-            # No LUKS but using LVM
-            lvm = root
 
         if self.lvm:
+            lvm = root
             swap = "/dev/ManjaroVG/ManjaroSwap"
             root = "/dev/ManjaroVG/ManjaroRoot"
             if self.home:
