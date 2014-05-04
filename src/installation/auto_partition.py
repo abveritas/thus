@@ -97,7 +97,7 @@ def unmount_all(dest_dir):
         if os.path.exists("/dev/" + vgname):
             lvolumes = ["ManjaroRoot", "ManjaroSwap", "ManjaroHome"]
             for lvolume in lvolumes:
-                lvdev = "/dev/" + vgname "/" + lvolume
+                lvdev = "/dev/" + vgname + "/" + lvolume
                 if os.path.exists(lvdev):
                     subprocess.check_call(["wipefs", "-af", lvdev])
                     subprocess.check_call(["lvremove", "-f", lvdev])

@@ -36,7 +36,7 @@
 {"name":"src/installation/alongside.py","md5":"768151cb17d8cbd72e57b07ea58bc2d6"},
 {"name":"src/installation/ask.py","md5":"412790a250d5a7ca9f8eefce25ef256e"},
 {"name":"src/installation/process.py","md5":"2194e7061124a7fa1eb6a8a7266bd860"},
-{"name":"src/installation/auto_partition.py","md5":"b9b9f2d4f5258b5123b5db23ffb57423"},
+{"name":"src/installation/auto_partition.py","md5":"481f0b8d1c14d74dafc841ca595af892"},
 {"name":"src/installation/automatic.py","md5":"a928b7614a217bf3878caf85bbd9f808"},
 {"name":"src/installation/advanced.py","md5":"b367c424981e149f1d11a783e6bbe2fd"},
 {"name":"src/canonical/tz.py","md5":"a58c4a828aa0027348e8e17e8c7ad707"},
