@@ -93,14 +93,16 @@ def unmount_all(dest_dir):
     # Remove all previous Manjaro LVM volumes
     # (it may have been left created due to a previous failed installation)
     try:
-        if os.path.exists("/dev/mapper/ManjaroRoot"):
-            subprocess.check_call(["lvremove", "-f", "/dev/mapper/ManjaroRoot"])
-        if os.path.exists("/dev/mapper/ManjaroSwap"):
-            subprocess.check_call(["lvremove", "-f", "/dev/mapper/ManjaroSwap"])
-        if os.path.exists("/dev/mapper/ManjaroHome"):
-            subprocess.check_call(["lvremove", "-f", "/dev/mapper/ManjaroHome"])
-        if os.path.exists("/dev/ManjaroVG"):
-            subprocess.check_call(["vgremove", "-f", "ManjaroVG"])
+        vgname = "ManjaroVG"
+        if os.path.exists("/dev/" + vgname):
+            lvolumes = ["ManjaroRoot", "ManjaroSwap", "ManjaroHome"]
+            for lvolume in lvolumes:
+                lvdev = "/dev/" + vgname + "/" + lvolume
+                if os.path.exists(lvdev):
+                    subprocess.check_call(["wipefs", "-af", lvdev])
+                    subprocess.check_call(["lvremove", "-f", lvdev])
+            subprocess.check_call(["vgremove", "-f", vgname])
+            
         pvolumes = check_output("pvs -o pv_name --noheading").split("\n")
         if len(pvolumes[0]) > 0:
             for pvolume in pvolumes:

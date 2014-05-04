@@ -1,8 +1,8 @@
-{"version":"0.8.9.907","files":[
+{"version":"0.8.9.908","files":[
 {"name":"./thus.py","md5":"5ba524218adcf5a1450004a0f76104b4"},
 {"name":"./README.md","md5":"d94c947a598722a1b82332d0f98cd4b5"},
 {"name":"./generate_update_info.py","md5":"d53335e46c847a0e1cfbfc7b45f63f77"},
-{"name":"./update.info","md5":"ef7e0a507f00e1c2c62939c9c863026f"},
+{"name":"./update.info","md5":"98debb97102e0233e54e093256735834"},
 {"name":"./COPYING","md5":"4fe869ee987a340198fb0d54c55c47f1"},
 {"name":"./whitespaces.sh","md5":"7632ea63c297eb619d9649e484f1735a"},
 {"name":"./files_to_translate","md5":"537c76203ae7a5f7322e64358d5b0dc5"},
@@ -16,7 +16,7 @@
 {"name":"src/check.py","md5":"a9dbf13cd8be25ee4884984629b22c4c"},
 {"name":"src/bootinfo.py","md5":"27d529c38b63682da8a8dd2542e49371"},
 {"name":"src/location.py","md5":"1987b053e9a298756eb955329f9e8ac8"},
-{"name":"src/info.py","md5":"ac0d83e6cc7f8d0fed76da43a34ec928"},
+{"name":"src/info.py","md5":"37dccfff1b2883a366f90a223e002397"},
 {"name":"src/slides.py","md5":"947dc3a0b89988b2f9c4ade173a8d65f"},
 {"name":"src/keyboard_widget.py","md5":"2d7932d040b2048134d24a8af9740b00"},
 {"name":"src/config.py","md5":"9f724130ddf859836e592c1879c025e9"},
@@ -36,7 +36,7 @@
 {"name":"src/installation/alongside.py","md5":"768151cb17d8cbd72e57b07ea58bc2d6"},
 {"name":"src/installation/ask.py","md5":"412790a250d5a7ca9f8eefce25ef256e"},
 {"name":"src/installation/process.py","md5":"2194e7061124a7fa1eb6a8a7266bd860"},
-{"name":"src/installation/auto_partition.py","md5":"944ee8b499e321b29c157818f7d6078e"},
+{"name":"src/installation/auto_partition.py","md5":"481f0b8d1c14d74dafc841ca595af892"},
 {"name":"src/installation/automatic.py","md5":"a928b7614a217bf3878caf85bbd9f808"},
 {"name":"src/installation/advanced.py","md5":"b367c424981e149f1d11a783e6bbe2fd"},
 {"name":"src/canonical/tz.py","md5":"a58c4a828aa0027348e8e17e8c7ad707"},
