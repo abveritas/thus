@@ -90,18 +90,23 @@ def unmount_all(dest_dir):
             logging.warning(_("Unmounting %s failed. Trying lazy arg."), dest_dir)
             subprocess.call(["umount", "-l", dest_dir])
 
-    # Remove all previous Manjaro LVM volumes
+    # Remove all previous LVM volumes
     # (it may have been left created due to a previous failed installation)
     try:
-        vgname = "ManjaroVG"
-        if os.path.exists("/dev/" + vgname):
-            lvolumes = ["ManjaroRoot", "ManjaroSwap", "ManjaroHome"]
-            for lvolume in lvolumes:
-                lvdev = "/dev/" + vgname + "/" + lvolume
-                if os.path.exists(lvdev):
-                    subprocess.check_call(["wipefs", "-af", lvdev])
-                    subprocess.check_call(["lvremove", "-f", lvdev])
-            subprocess.check_call(["vgremove", "-f", vgname])
+        vgnames = check_output("vgs -o vg_name --noheading").split("\n")
+        if len(vgnames[0]) > 0:
+            for vgname in vgnames:
+                vgname = vgname.strip(" ")
+                if len(vgname) > 0:
+                    lvolumes = check_output("lvs -o lv_name --noheading").split("\n")
+                    if len(lvolumes[0]) > 0:
+                        for lvolume in lvolumes:
+                            lvolume = lvolume.strip(" ")
+                            if len(lvolume) > 0:
+                                lvdev = "/dev/" + vgname + "/" + lvolume
+                                subprocess.check_call(["wipefs", "-af", lvdev])
+                                subprocess.check_call(["lvremove", "-f", lvdev])
+                    subprocess.check_call(["vgremove", "-f", vgname])
             
         pvolumes = check_output("pvs -o pv_name --noheading").split("\n")
         if len(pvolumes[0]) > 0:
