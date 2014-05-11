@@ -1250,6 +1250,17 @@ class InstallationProcess(multiprocessing.Process):
                     if 'default_user' in line:
                         line = 'default_user %s\n' % username
                     slim_conf.write(line)
+        elif self.desktop_manager == 'sddm':
+            # Systems with Sddm as Desktop Manager
+            sddm_conf_path = os.path.join(self.dest_dir, "etc/sddm.conf")
+            text = []
+            with open(sddm_conf_path, "r") as sddm_conf:
+                text = sddm_conf.readlines()
+            with open(sddm_conf_path, "w") as sddm_conf:
+                for line in text:
+                    if 'AutoUser=' in line:
+                        line = 'AutoUser=%s\n' % username
+                    sddm_conf.write(line)
 
     def configure_system(self):
         """ Final install steps
@@ -1475,6 +1486,10 @@ class InstallationProcess(multiprocessing.Process):
         # Setup slim
         if os.path.exists("/usr/bin/slim"):
             self.desktop_manager = 'slim'
+
+        # Setup sddm
+        if os.path.exists("/usr/bin/sddm"):
+            self.desktop_manager = 'sddm'
 
         # setup lightdm
         if os.path.exists("%s/usr/bin/lightdm" % self.dest_dir):
