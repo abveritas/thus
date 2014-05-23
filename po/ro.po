@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: manjaro-thus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-05 23:04+0200\n"
-"PO-Revision-Date: 2014-05-05 21:05+0000\n"
-"Last-Translator: manjarolinux <philm@manjaro.org>\n"
+"PO-Revision-Date: 2014-05-13 01:18+0000\n"
+"Last-Translator: Ayceman <alexandru.ianu@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/manjaro-thus/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,32 +113,32 @@ msgstr "Thus va configura LUKS pe dispozitivul %s"
 #: src/installation/auto_partition.py:422
 #, python-format
 msgid "Total disk size: %dMiB"
-msgstr ""
+msgstr "Mărimea totală a discului: %dMiB"
 
 #: src/installation/auto_partition.py:423
 #, python-format
 msgid "Boot partition size: %dMiB"
-msgstr ""
+msgstr "Mărimea partiției /boot: %dMiB"
 
 #: src/installation/auto_partition.py:426
 #, python-format
 msgid "LVM physical volume size: %dMiB"
-msgstr ""
+msgstr "Mărimea volumului fizic LVM: %dMiB"
 
 #: src/installation/auto_partition.py:428
 #, python-format
 msgid "Swap partition size: %dMiB"
-msgstr ""
+msgstr "Mărimea partiției swap: %dMiB"
 
 #: src/installation/auto_partition.py:429
 #, python-format
 msgid "Root partition size: %dMiB"
-msgstr ""
+msgstr "Mărimea partiției rădăcină: %dMiB"
 
 #: src/installation/auto_partition.py:432
 #, python-format
 msgid "Home partition size: %dMiB"
-msgstr ""
+msgstr "Mărimea partiției /home: %dMiB"
 
 #: src/installation/auto_partition.py:461
 msgid ""
@@ -746,12 +746,12 @@ msgstr "Nu se poate monta %s în %s"
 #: src/installation/process.py:349
 #, python-format
 msgid "Mounting swap %s"
-msgstr ""
+msgstr "Se montează swap %s"
 
 #: src/installation/process.py:353
 #, python-format
 msgid "Can't mount %s"
-msgstr ""
+msgstr "Nu se poate monta %s"
 
 #: src/installation/process.py:368
 #, python-format
@@ -1217,7 +1217,7 @@ msgstr "Instalator Manjaro - Informații"
 
 #: src/show_message.py:88
 msgid "Manjaro Installer - Confirmation"
-msgstr ""
+msgstr "Instalator Manjaro - Confirmare"
 
 #: src/slides.py:94 src/slides.py:109
 msgid ""
