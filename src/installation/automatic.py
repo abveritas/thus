@@ -85,7 +85,7 @@ class InstallationAutomatic(Gtk.Box):
         label.set_markup(txt)
 
         label = self.ui.get_object('text_automatic2')
-        txt = _("Please choose the drive where you want to install Manjaro\nand click the button below to start the process.")
+        txt = _("Please choose the drive where you want to install KaOS\nand click the button below to start the process.")
         txt = "%s" % txt
         label.set_markup(txt)
 

@@ -56,7 +56,7 @@
       <object class="GtkLabel" id="text_automatic2">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Please choose the drive where you want to install Manjaro
+        <property name="label" translatable="yes">Please choose the drive where you want to install KaOS
 and click the button below to start the process.</property>
         <property name="use_markup">True</property>
         <property name="wrap">True</property>

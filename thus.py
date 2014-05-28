@@ -231,7 +231,7 @@ class Main(Gtk.Window):
         self.connect("delete-event", Gtk.main_quit)
         self.ui.connect_signals(self)
 
-        self.set_title(_('Manjaro Installer'))
+        self.set_title(_('KaOS Installer'))
         self.set_position(Gtk.WindowPosition.CENTER)
         self.set_resizable(False)
         self.set_size_request(MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT)
