@@ -70,7 +70,6 @@ class Check(Gtk.Box):
         self.prepare_power_source = None
         self.prepare_network_connection = None
         self.prepare_enough_space = None
-        self.prepare_enough_ram = None
         self.timeout_id = None
         self.prepare_best_results = None
 
@@ -90,17 +89,13 @@ class Check(Gtk.Box):
         txt = _("This is the absolute minimal to install, at least 25Gb is recommended.")
         txt = "(*) <i>%s</i>" % txt
         self.label_space.set_markup(txt)
-        
-        self.prepare_enough_ram = self.ui.get_object("prepare_enough_ram")
-        txt = _("has a minimum of %dGb RAM") % int(MIN_RAM_SIZE / 1000000000)
-        self.prepare_enough_ram.props.label = txt
 
         self.prepare_power_source = self.ui.get_object("prepare_power_source")
         txt = _("is plugged in to a power source")
         self.prepare_power_source.props.label = txt
 
         self.prepare_network_connection = self.ui.get_object("prepare_network_connection")
-        txt = _("is connected to the Internet")
+        txt = _("has a minimum of 1.5Gb RAM available")
         self.prepare_network_connection.props.label = txt
 
         self.prepare_best_results = self.ui.get_object("prepare_best_results")
@@ -162,18 +157,6 @@ class Check(Gtk.Box):
         # we need 5GB
         # 5000000000
         if max_size >= MIN_ROOT_SIZE:
-            return True
-
-        return False
-      
-    def has_enough_ram(self):
-
-        max_size = 0
-
-        
-        # we need 1.5GB
-        # 1500000000
-        if max_size >= MIN_RAM_SIZE:
             return True
 
         return False
