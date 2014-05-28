@@ -84,11 +84,11 @@ class Language(Gtk.Box):
         txt = _("Thus is pre-release beta software that is under active development. \n" \
         "It does not yet properly handle RAID, btrfs subvolumes, or other  \n" \
         "advanced setups. Please proceed with caution as data loss is possible! \n\n" \
-        "If you find any bugs, please report them at <a href='http://bugs.manjaro.org'>http://bugs.manjaro.org</a>")
+        "If you find any bugs, please report them at <a href='http://kaosx.us'>http://kaosx.us</a>")
         txt = "<span weight='bold'>%s</span>\n\n" % txt_bold + txt
         label.set_markup(txt)
 
-        txt = _("Welcome to Manjaro!")
+        txt = _("Welcome to KaOS!")
         txt = "<span weight='bold' size='large'>%s</span>" % txt
         self.title.set_markup(txt)
 

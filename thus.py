@@ -407,7 +407,7 @@ def parse_options():
     """ argparse http://docs.python.org/3/howto/argparse.html """
 
     import argparse
-    parser = argparse.ArgumentParser(description="Thus v%s - Manjaro Installer" % info.THUS_VERSION)
+    parser = argparse.ArgumentParser(description="Thus v%s - KaOS Installer" % info.THUS_VERSION)
     parser.add_argument("-d", "--debug", help=_("Sets Thus log level to 'debug'"), action="store_true")
     parser.add_argument("-u", "--update", help=_("Update Thus to the latest version (-uu will force the update)"), action="count")
     parser.add_argument("-t", "--testing", help=_("Do not perform any changes (useful for developers)"), action="store_true")
