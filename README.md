@@ -1,6 +1,6 @@
 # Thus
 
-Graphical Installer for Manjaro Linux
+Graphical Installer for KaOS, forked from Manjaro Linux
 
 ## Dependencies
 
