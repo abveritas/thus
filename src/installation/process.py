@@ -1502,7 +1502,7 @@ class InstallationProcess(multiprocessing.Process):
         # Exit chroot system
         self.chroot_umount_special_dirs()
 
-        # Install xf86-video driver
+        # Install and clean-up drivers, l10n
         if os.path.exists("/opt/livecd/pacman-gfx.conf"):
             self.queue_event('info', _("Set up graphics card ..."))
             self.queue_event('pulse')
@@ -1660,7 +1660,7 @@ class InstallationProcess(multiprocessing.Process):
         # Remove thus
         if os.path.exists("%s/usr/bin/thus" % self.dest_dir):
             self.queue_event('info', _("Removing live configuration (packages)"))
-            self.chroot(['pacman', '-R', '--noconfirm', 'thus'])
+            self.chroot(['pacman', '-Rns', '--noconfirm', 'thus'])
 
         # Remove virtualbox driver on real hardware
         p1 = subprocess.Popen(["mhwd"], stdout=subprocess.PIPE)
