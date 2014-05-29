@@ -221,8 +221,8 @@ class Timezone(Gtk.Box):
                 #self.autodetected_coords.put_nowait(self.autodetected_coords)
             except queue.Empty:
                 logging.warning(_("Can't autodetect timezone coordinates"))
-                # set to New York as default
-                self.set_timezone("USA/New_York")
+                # set to Berlin by error
+                self.set_timezone("America/New_York")
 
         if self.autodetected_coords is not None:
             coords = self.autodetected_coords
@@ -330,7 +330,7 @@ class AutoTimezoneThread(threading.Thread):
         # ok, now get our timezone
 
         try:
-            url = "http://geo.antergos.com/"
+            url = "http://geo.antergos.com"
             conn = urllib.request.urlopen(url)
             coords = conn.read().decode('utf-8').strip()
         except:
