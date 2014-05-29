@@ -1857,7 +1857,7 @@ class InstallationAdvanced(Gtk.Box):
                 bootloader_type = "GRUB2"
                 self.settings.set('bootloader_location', self.grub_device)
             self.settings.set('bootloader_type', bootloader_type)
-            logging.info(_("Manjaro will install the bootloader of type %s in %s"),
+            logging.info(_("KaOS will install the bootloader of type %s in %s"),
                          self.settings.get('bootloader_type'),
                          self.settings.get('bootloader_location'))
 

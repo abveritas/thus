@@ -60,7 +60,7 @@ class Settings(object):
             'feature_third_party': False,
             'force_grub_type': False,
             'fullname': '',
-            'hostname': 'manjaro',
+            'hostname': 'kaos',
             'install_bootloader': True,
             'installer_thread_call': {},
             'keyboard_layout': '',

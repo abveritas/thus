@@ -56,7 +56,7 @@ from installation import process as installation_process
 _next_page = "user_info"
 _prev_page = "installation_ask"
 
-# leave at least 6.5GB for Manjaro when shrinking, same as MIN_ROOT_SIZE in auto_partition
+# leave at least 6.5GB for KaOS when shrinking, same as MIN_ROOT_SIZE in auto_partition
 MIN_ROOT_SIZE = 6500
 
 
@@ -139,11 +139,11 @@ class InstallationAlongside(Gtk.Box):
             return False
 
     def translate_ui(self):
-        txt = _("Choose which OS you want to install Manjaro next to")
+        txt = _("Choose which OS you want to install KaOS next to")
         txt = '<span size="large">%s</span>' % txt
         self.label.set_markup(txt)
 
-        txt = _("Manjaro alongside another OS")
+        txt = _("KaOS alongside another OS")
         txt = "<span weight='bold' size='large'>%s</span>" % txt
         self.title.set_markup(txt)
 
@@ -279,15 +279,15 @@ class InstallationAlongside(Gtk.Box):
         label_other_os_size = self.ui.get_object("label_other_os_size")
         label_other_os_size.set_markup(str(int(new_value)) + " MB")
 
-        label_manjaro_size = self.ui.get_object("label_manjaro_size")
-        label_manjaro_size.set_markup(str(int(self.max_size - new_value)) + " MB")
+        label_kaos_size = self.ui.get_object("label_kaos_size")
+        label_kaos_size.set_markup(str(int(self.max_size - new_value)) + " MB")
 
     def ask_shrink_size(self, other_os_name):
         dialog = self.ui.get_object("shrink-dialog")
 
         slider = self.ui.get_object("scale")
 
-        # leave space for Manjaro
+        # leave space for KaOS
         self.available_slider_range = [self.min_size, self.max_size - MIN_ROOT_SIZE]
 
         slider.set_fill_level(self.min_size)
@@ -301,9 +301,9 @@ class InstallationAlongside(Gtk.Box):
         txt = "<span weight='bold' size='large'>%s</span>" % other_os_name
         label_other_os.set_markup(txt)
 
-        label_manjaro = self.ui.get_object("label_manjaro")
-        txt = "<span weight='bold' size='large'>Manjaro</span>"
-        label_manjaro.set_markup(txt)
+        label_kaos = self.ui.get_object("label_kaos")
+        txt = "<span weight='bold' size='large'>KaOS</span>"
+        label_kaos.set_markup(txt)
 
         self.update_ask_shrink_size_labels(self.min_size)
 

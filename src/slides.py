@@ -99,7 +99,7 @@ class Slides(Gtk.Box):
         self.fatal_error = False
 
     def translate_ui(self):
-        txt = _("Installing Manjaro...")
+        txt = _("Installing KaOS...")
         txt = "<span weight='bold' size='large'>%s</span>" % txt
         self.title.set_markup(txt)
 
@@ -197,12 +197,12 @@ class Slides(Gtk.Box):
                     self.boot_warn = _("IMPORTANT: There may have been a problem with the Grub(2) bootloader\n"
                                        "installation which could prevent your system from booting properly. Before\n"
                                        "rebooting, you may want to verify whether or not GRUB(2) is installed and\n"
-                                       "configured. The Arch Linux Wiki contains troubleshooting information:\n"
-                                       "\thttps://wiki.archlinux.org/index.php/GRUB\n"
+                                       "configured. The KaOS Tutorials contain some info to re-configure:\n"
+                                       "\thttp://kaosx.us/phpBB3/viewtopic.php?f=7&t=260\n"
                                        "\nWould you like to view the wiki page now?")
                     response = show.question(self.boot_warn)
                     if response == Gtk.ResponseType.YES:
-                        webbrowser.open('https://wiki.archlinux.org/index.php/GRUB')
+                        webbrowser.open('http://kaosx.us/phpBB3/viewtopic.php?f=7&t=260')
 
                 self.set_message(self.install_ok)
                 response = show.question(self.install_ok)

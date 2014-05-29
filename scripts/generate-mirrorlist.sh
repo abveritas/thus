@@ -12,7 +12,7 @@ MIRRORLIST='/tmp/mirrorlist'
 
 function generate_new_mirrorlist(){
     TOTAL_LINES=`wc -l ${COUNTRY_MIRRORLIST}|cut -f 1 -d ' '`
-    HEADER_LINES=4
+    HEADER_LINES=3
 
     let MIRRORS_LINES=$TOTAL_LINES-$HEADER_LINES
 
