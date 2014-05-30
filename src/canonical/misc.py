@@ -898,7 +898,7 @@ def get_network():
     intip = False
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
-        s.connect(("manjaro.org",1234))
+        s.connect(("kaosx.us",1234))
     except:
         return ""
     myip = s.getsockname()[0]

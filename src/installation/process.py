@@ -370,7 +370,7 @@ class InstallationProcess(multiprocessing.Process):
         # Create some needed folders
         try:
             subprocess.check_call(['mkdir', '-p', '%s/var/lib/pacman' % self.dest_dir])
-            subprocess.check_call(['mkdir', '-p', '%s/etc/pacman.d/gnupg/' % self.dest_dir])
+            #subprocess.check_call(['mkdir', '-p', '%s/etc/pacman.d/gnupg/' % self.dest_dir])
             subprocess.check_call(['mkdir', '-p', '%s/var/log/' % self.dest_dir])
         except subprocess.CalledProcessError as err:
             txt = _("Can't create necessary directories on destination system")
@@ -1503,23 +1503,23 @@ class InstallationProcess(multiprocessing.Process):
         self.chroot_umount_special_dirs()
 
         # Install and clean-up drivers, l10n
-        if os.path.exists("/opt/livecd/pacman-gfx.conf"):
-            self.queue_event('info', _("Set up graphics card ..."))
-            self.queue_event('pulse')
-            mhwd_script_path = os.path.join(self.settings.get("thus"), "scripts", MHWS_SCRIPT)
-            try:
-                subprocess.check_call(["/usr/bin/bash", mhwd_script_path])
-                self.queue_event('debug', "Setup graphic card done.")
-            except subprocess.FileNotFoundError as e:
-                txt = _("Can't execute the MHWD script")
-                logging.error(txt)
-                self.queue_fatal_event(txt)
-                return False
-            except subprocess.CalledProcessError as e:
-                txt = "CalledProcessError.output = %s" % e.output
-                logging.error(txt)
-                self.queue_fatal_event(txt)
-                return False
+        #if os.path.exists("/opt/livecd/pacman-gfx.conf"):
+        #    self.queue_event('info', _("Set up graphics card ..."))
+        #    self.queue_event('pulse')
+        #    mhwd_script_path = os.path.join(self.settings.get("thus"), "scripts", MHWS_SCRIPT)
+        #    try:
+        #        subprocess.check_call(["/usr/bin/bash", mhwd_script_path])
+        #        self.queue_event('debug', "Setup graphic card done.")
+        #    except subprocess.FileNotFoundError as e:
+        #        txt = _("Can't execute the MHWD script")
+        #        logging.error(txt)
+        #        self.queue_fatal_event(txt)
+        #        return False
+        #    except subprocess.CalledProcessError as e:
+        #        txt = "CalledProcessError.output = %s" % e.output
+        #        logging.error(txt)
+        #        self.queue_fatal_event(txt)
+        #        return False
 
         # Re-enter chroot system
         self.chroot_mount_special_dirs()
@@ -1663,11 +1663,11 @@ class InstallationProcess(multiprocessing.Process):
             self.chroot(['pacman', '-Rns', '--noconfirm', 'thus'])
 
         # Remove virtualbox driver on real hardware
-        p1 = subprocess.Popen(["mhwd"], stdout=subprocess.PIPE)
-        p2 = subprocess.Popen(["grep", "0300:80ee:beef"], stdin=p1.stdout, stdout=subprocess.PIPE)
-        num_res = p2.communicate()[0]
-        if num_res == "0":
-            self.chroot(['sh', '-c', 'pacman -Rsc --noconfirm $(pacman -Qq | grep virtualbox-guest-modules)'])
+        #p1 = subprocess.Popen(["mhwd"], stdout=subprocess.PIPE)
+        #p2 = subprocess.Popen(["grep", "0300:80ee:beef"], stdin=p1.stdout, stdout=subprocess.PIPE)
+        #num_res = p2.communicate()[0]
+        #if num_res == "0":
+        #    self.chroot(['sh', '-c', 'pacman -Rsc --noconfirm $(pacman -Qq | grep virtualbox-guest-modules)'])
 
         # Set unique machine-id
         self.chroot(['dbus-uuidgen', '--ensure=/etc/machine-id'])
@@ -1683,11 +1683,11 @@ class InstallationProcess(multiprocessing.Process):
                      os.path.join(self.dest_dir, 'etc/pacman.d/mirrorlist'))
 
         # Copy random generated keys by pacman-init to target
-        if os.path.exists("%s/etc/pacman.d/gnupg" % self.dest_dir):
-            os.system("rm -rf %s/etc/pacman.d/gnupg" % self.dest_dir)
-        os.system("cp -a /etc/pacman.d/gnupg %s/etc/pacman.d/" % self.dest_dir)
-        self.chroot(['pacman-key', '--populate', 'archlinux', 'manjaro'])
-        self.queue_event('info', _("Finished configuring package manager."))
+        #if os.path.exists("%s/etc/pacman.d/gnupg" % self.dest_dir):
+        #    os.system("rm -rf %s/etc/pacman.d/gnupg" % self.dest_dir)
+        #os.system("cp -a /etc/pacman.d/gnupg %s/etc/pacman.d/" % self.dest_dir)
+        #self.chroot(['pacman-key', '--populate', 'archlinux', 'manjaro'])
+        #self.queue_event('info', _("Finished configuring package manager."))
 
         consolefh = open("%s/etc/keyboard.conf" % self.dest_dir, "r")
         newconsolefh = open("%s/etc/keyboard.new" % self.dest_dir, "w")
