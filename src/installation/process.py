@@ -842,9 +842,9 @@ class InstallationProcess(multiprocessing.Process):
         if "swap" in self.mount_devices:
             swap_partition = self.mount_devices["swap"]
             swap_uuid = fs.get_info(swap_partition)['UUID']
-            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=%s quiet %s"' % swap_uuid
+            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=%s quiet"' % swap_uuid
         else:
-            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="quiet %s"' 
+            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="quiet"' 
 
         if not os.path.exists(default_dir):
             os.mkdir(default_dir)
