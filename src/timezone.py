@@ -221,7 +221,7 @@ class Timezone(Gtk.Box):
                 #self.autodetected_coords.put_nowait(self.autodetected_coords)
             except queue.Empty:
                 logging.warning(_("Can't autodetect timezone coordinates"))
-                # set to Berlin by error
+                # set to New York as default/fall-back
                 self.set_timezone("America/New_York")
 
         if self.autodetected_coords is not None:

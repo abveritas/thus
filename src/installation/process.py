@@ -230,7 +230,7 @@ class InstallationProcess(multiprocessing.Process):
         self.distribution_version = configuration['distribution']['DISTRIBUTION_VERSION']
         self.live_user = configuration['install']['LIVE_USER_NAME']
         self.media = configuration['install']['LIVE_MEDIA_SOURCE']
-        ##self.media_desktop = configuration['install']['LIVE_MEDIA_DESKTOP']
+        self.media_desktop = configuration['install']['LIVE_MEDIA_DESKTOP']
         self.media_type = configuration['install']['LIVE_MEDIA_TYPE']
         self.kernel = configuration['install']['KERNEL']
 
@@ -552,10 +552,10 @@ class InstallationProcess(multiprocessing.Process):
             p1 = subprocess.Popen(["unsquashfs", "-l", self.media], stdout=subprocess.PIPE)
             p2 = subprocess.Popen(["wc", "-l"], stdin=p1.stdout, stdout=subprocess.PIPE)
             output1 = p2.communicate()[0]
-            ##self.queue_event('info', _("Indexing files to be copied ..."))
+            self.queue_event('info', _("Indexing files to be copied ..."))
             ##p1 = subprocess.Popen(["unsquashfs", "-l", self.media_desktop], stdout=subprocess.PIPE)
-            ##p2 = subprocess.Popen(["wc", "-l"], stdin=p1.stdout, stdout=subprocess.PIPE)
-            ##output2 = p2.communicate()[0]
+            p2 = subprocess.Popen(["wc", "-l"], stdin=p1.stdout, stdout=subprocess.PIPE)
+            output2 = p2.communicate()[0]
             our_total = int(float(output1) + float(output2))
             self.queue_event('info', _("Extracting root-image ..."))
             our_current = 0
@@ -570,9 +570,9 @@ class InstallationProcess(multiprocessing.Process):
             ##self.queue_event('info', _("Extracting desktop-image ..."))
             ##our_current = int(output1)
             #t = FileCopyThread(self, our_total, self.media_desktop, DEST)
-            t = FileCopyThread(self, our_current, our_total, SOURCE, DEST, t.offset)
-            t.start()
-            t.join()
+            ##t = FileCopyThread(self, our_current, our_total, SOURCE, DEST, t.offset)
+            ##t.start()
+            ##t.join()
             # this is purely out of aesthetic reasons. Because we're reading of the queue
             # once 3 seconds, good chances are we're going to miss the 100% file copy.
             # therefore it would be nice to show 100% to the user so he doesn't panick that
