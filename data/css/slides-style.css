@@ -25,73 +25,39 @@
     opacity: 0;
     z-index: 0;
     -webkit-backface-visibility: hidden;
-    -webkit-animation: imageAnimation 108s linear infinite 0s;
-    -moz-animation: imageAnimation 108s linear infinite 0s;
-    -o-animation: imageAnimation 108s linear infinite 0s;
-    -ms-animation: imageAnimation 108s linear infinite 0s;
-    animation: imageAnimation 108s linear infinite 0s; 
+    -webkit-animation: imageAnimation 90s infinite;
+    -webkit-animation-timing-function: ease-in-out;
 }
 
 
 .cb-slideshow li:nth-child(1) span { 
-    background-image: url(../images/1.png) 
+    background-image: url(../images/1.png);
 }
 .cb-slideshow li:nth-child(2) span { 
     background-image: url(../images/2.png);
-    -webkit-animation-delay: 24s;
-    -moz-animation-delay: 24s;
-    -o-animation-delay: 24s;
-    -ms-animation-delay: 24s;
-    animation-delay: 24s; 
+    -webkit-animation-delay: 18s;
 }
 .cb-slideshow li:nth-child(3) span { 
     background-image: url(../images/3.png);
-    -webkit-animation-delay: 48s;
-    -moz-animation-delay: 48s;
-    -o-animation-delay: 48s;
-    -ms-animation-delay: 48s;
-    animation-delay: 48s; 
+    -webkit-animation-delay: 36s;
 }
 .cb-slideshow li:nth-child(4) span { 
     background-image: url(../images/4.png);
-    -webkit-animation-delay: 60s;
-    -moz-animation-delay: 60s;
-    -o-animation-delay: 60s;
-    -ms-animation-delay: 60s;
-    animation-delay: 60s; 
+    -webkit-animation-delay: 54s;
 }
 .cb-slideshow li:nth-child(5) span { 
     background-image: url(../images/5.png);
-    -webkit-animation-delay: 84s;
-    -moz-animation-delay: 84s;
-    -o-animation-delay: 84s;
-    -ms-animation-delay: 84s;
-    animation-delay: 84s; 
+    -webkit-animation-delay: 72s;
 }
 
 /* Animation for the slideshow images */
 @-webkit-keyframes imageAnimation { 
-    0% { opacity: 0;
-    -webkit-animation-timing-function: ease-in; }
-    2% { opacity: 1;
-         -webkit-animation-timing-function: ease-out; }
-    30% { opacity: 1 }
-    34% { opacity: 0 }
-    100% { opacity: 0 }
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    30% { opacity: 1; }
+    30% { opacity: 0; }
+    100% { opacity: 0; }
 }
-
-@keyframes imageAnimation { 
-    0% { opacity: 0;
-    animation-timing-function: ease-in; }
-    2% { opacity: 1;
-         animation-timing-function: ease-out; }
-    30% { opacity: 1 }
-    34% { opacity: 0 }
-    100% { opacity: 0 }
-}
-
-
-
 
 /* CSS reset */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
@@ -125,6 +91,7 @@ abbr,acronym { border:0;
 /* General Demo Style */
 body{
     background-image: url(../images/background.png);
+    background-color: #f2f2f2;
     font-weight: 400;
     font-size: 15px;
     color: #3498db;

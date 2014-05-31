@@ -230,7 +230,7 @@ class InstallationProcess(multiprocessing.Process):
         self.distribution_version = configuration['distribution']['DISTRIBUTION_VERSION']
         self.live_user = configuration['install']['LIVE_USER_NAME']
         self.media = configuration['install']['LIVE_MEDIA_SOURCE']
-        self.media_desktop = configuration['install']['LIVE_MEDIA_DESKTOP']
+        ##self.media_desktop = configuration['install']['LIVE_MEDIA_DESKTOP']
         self.media_type = configuration['install']['LIVE_MEDIA_TYPE']
         self.kernel = configuration['install']['KERNEL']
 
@@ -517,17 +517,17 @@ class InstallationProcess(multiprocessing.Process):
                 os.mkdir(self.dest_dir)
             if(not os.path.exists("/source")):
                 os.mkdir("/source")
-            if(not os.path.exists("/source_desktop")):
-                os.mkdir("/source_desktop")
+            ##if(not os.path.exists("/source_desktop")):
+            ##    os.mkdir("/source_desktop")
             # find the squashfs..
             if(not os.path.exists(self.media)):
                 txt = _("Base filesystem does not exist! Critical error (exiting).")
                 logging.error(txt)
                 self.queue_fatal_event(txt)
-            if(not os.path.exists(self.media_desktop)):
-                txt = _("Desktop filesystem does not exist! Critical error (exiting).")
-                logging.error(txt)
-                self.queue_fatal_event(txt)
+            ##if(not os.path.exists(self.media_desktop)):
+            ##    txt = _("Desktop filesystem does not exist! Critical error (exiting).")
+            ##    logging.error(txt)
+            ##    self.queue_fatal_event(txt)
 
             # Mount the installation media
             mount_point = "/source"
@@ -536,12 +536,12 @@ class InstallationProcess(multiprocessing.Process):
                 subprocess.check_call(["mount", self.media, mount_point, "-t", self.media_type, "-o", "loop"])
             else:
                 logging.warning(_("%s is already mounted at %s as %s") % (self.media, mount_point, device))
-            mount_point = "/source_desktop"
-            device = self.check_source_folder(mount_point)
-            if device is None:
-                subprocess.check_call(["mount", self.media_desktop, mount_point, "-t", self.media_type, "-o", "loop"])
-            else:
-                logging.warning(_("%s is already mounted at %s as %s") % (self.media_desktop, mount_point, device))
+            ##mount_point = "/source_desktop"
+            ##device = self.check_source_folder(mount_point)
+            ##if device is None:
+            ##    subprocess.check_call(["mount", self.media_desktop, mount_point, "-t", self.media_type, "-o", "loop"])
+            ##else:
+            ##    logging.warning(_("%s is already mounted at %s as %s") % (self.media_desktop, mount_point, device))
 
             # walk root filesystem
             SOURCE = "/source/"
@@ -552,10 +552,10 @@ class InstallationProcess(multiprocessing.Process):
             p1 = subprocess.Popen(["unsquashfs", "-l", self.media], stdout=subprocess.PIPE)
             p2 = subprocess.Popen(["wc", "-l"], stdin=p1.stdout, stdout=subprocess.PIPE)
             output1 = p2.communicate()[0]
-            self.queue_event('info', _("Indexing files to be copied ..."))
-            p1 = subprocess.Popen(["unsquashfs", "-l", self.media_desktop], stdout=subprocess.PIPE)
-            p2 = subprocess.Popen(["wc", "-l"], stdin=p1.stdout, stdout=subprocess.PIPE)
-            output2 = p2.communicate()[0]
+            ##self.queue_event('info', _("Indexing files to be copied ..."))
+            ##p1 = subprocess.Popen(["unsquashfs", "-l", self.media_desktop], stdout=subprocess.PIPE)
+            ##p2 = subprocess.Popen(["wc", "-l"], stdin=p1.stdout, stdout=subprocess.PIPE)
+            ##output2 = p2.communicate()[0]
             our_total = int(float(output1) + float(output2))
             self.queue_event('info', _("Extracting root-image ..."))
             our_current = 0
@@ -564,11 +564,11 @@ class InstallationProcess(multiprocessing.Process):
             t.start()
             t.join()
             # walk desktop filesystem
-            SOURCE = "/source_desktop/"
-            DEST = self.dest_dir
-            directory_times = []
-            self.queue_event('info', _("Extracting desktop-image ..."))
-            our_current = int(output1)
+            ##SOURCE = "/source_desktop/"
+            ##DEST = self.dest_dir
+            ##directory_times = []
+            ##self.queue_event('info', _("Extracting desktop-image ..."))
+            ##our_current = int(output1)
             #t = FileCopyThread(self, our_total, self.media_desktop, DEST)
             t = FileCopyThread(self, our_current, our_total, SOURCE, DEST, t.offset)
             t.start()
@@ -716,6 +716,7 @@ class InstallationProcess(multiprocessing.Process):
 
     def auto_fstab(self):
         """ Create /etc/fstab file """
+        self.queue_event('info', _("Creating /etc/fstab ..."))
 
         all_lines = ["# /etc/fstab: static file system information.", "#",
                      "# Use 'blkid' to print the universally unique identifier for a",
@@ -815,6 +816,7 @@ class InstallationProcess(multiprocessing.Process):
 
     def install_bootloader(self):
         """ Installs boot loader """
+        self.queue_event('info', _("Installing bootloader ..."))
 
         self.modify_grub_default()
         self.prepare_grub_d()
@@ -985,7 +987,7 @@ class InstallationProcess(multiprocessing.Process):
                      'BOOT' + spec_uefi_arch_caps + '.efi'),
                     (os.path.join(self.dest_dir, "%s/EFI/Microsoft/Boot/" % (efi_path[1:])),
                      'bootmgfw.efi')]
-        grub_dir_src = os.path.join(self.dest_dir, "%s/EFI/manjaro/" % (efi_path[1:]))
+        grub_dir_src = os.path.join(self.dest_dir, "%s/EFI/kaos/" % (efi_path[1:]))
         grub_efi_old = ('grub' + spec_uefi_arch + '.efi')
         for default in defaults:
             path, grub_efi_new = default
@@ -1405,11 +1407,15 @@ class InstallationProcess(multiprocessing.Process):
         keyboard_variant = self.settings.get("keyboard_variant")
         locale = self.settings.get("locale")
         self.queue_event('info', _("Generating locales ..."))
-
+        # cleanup and regenerate locales
+        self.chroot(['rm', '/etc/skel/locale.gen.'])
+        self.chroot(['cp', '-av', '/etc/locale.gen.bak.', '/etc/locale.gen'])
+        
         self.uncomment_locale_gen(locale)
 
         self.chroot(['locale-gen'])
         locale_conf_path = os.path.join(self.dest_dir, "etc/locale.conf")
+        
         with open(locale_conf_path, "w") as locale_conf:
             locale_conf.write('LANG=%s\n' % locale)
 
@@ -1689,20 +1695,20 @@ class InstallationProcess(multiprocessing.Process):
         #self.chroot(['pacman-key', '--populate', 'archlinux', 'manjaro'])
         #self.queue_event('info', _("Finished configuring package manager."))
 
-        consolefh = open("%s/etc/keyboard.conf" % self.dest_dir, "r")
-        newconsolefh = open("%s/etc/keyboard.new" % self.dest_dir, "w")
-        for line in consolefh:
-            line = line.rstrip("\r\n")
-            if(line.startswith("XKBLAYOUT=")):
-                newconsolefh.write("XKBLAYOUT=\"%s\"\n" % keyboard_layout)
-            elif(line.startswith("XKBVARIANT=") and keyboard_variant != ''):
-                newconsolefh.write("XKBVARIANT=\"%s\"\n" % keyboard_variant)
-            else:
-                newconsolefh.write("%s\n" % line)
-        consolefh.close()
-        newconsolefh.close()
-        self.chroot(['mv', '/etc/keyboard.conf', '/etc/keyboard.conf.old'])
-        self.chroot(['mv', '/etc/keyboard.new', '/etc/keyboard.conf'])
+        ##consolefh = open("%s/etc/keyboard.conf" % self.dest_dir, "r")
+        ##newconsolefh = open("%s/etc/keyboard.new" % self.dest_dir, "w")
+        ##for line in consolefh:
+        ##    line = line.rstrip("\r\n")
+        ##    if(line.startswith("XKBLAYOUT=")):
+        ##        newconsolefh.write("XKBLAYOUT=\"%s\"\n" % keyboard_layout)
+        ##    elif(line.startswith("XKBVARIANT=") and keyboard_variant != ''):
+        ##        newconsolefh.write("XKBVARIANT=\"%s\"\n" % keyboard_variant)
+        ##    else:
+        ##        newconsolefh.write("%s\n" % line)
+        ##consolefh.close()
+        ##newconsolefh.close()
+        ##self.chroot(['mv', '/etc/keyboard.conf', '/etc/keyboard.conf.old'])
+        ##self.chroot(['mv', '/etc/keyboard.new', '/etc/keyboard.conf'])
 
         # Exit chroot system
         self.chroot_umount_special_dirs()
