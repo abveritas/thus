@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=Install Manjaro Linux
+Name=Install KaOS
 GenericName=Live Installer
 Comment=Install the operating system to disk
 Exec=/usr/bin/thus
 Icon=/usr/share/thus/data/manjaro-icon.png
 Terminal=False
 Type=Application
-Categories=System;
+Categories=GTK;System;

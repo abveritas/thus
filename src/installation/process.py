@@ -836,15 +836,15 @@ class InstallationProcess(multiprocessing.Process):
 
         default_dir = os.path.join(self.dest_dir, "etc/default")
         default_grub = os.path.join(default_dir, "grub")
-        plymouth_bin = os.path.join(self.dest_dir, "usr/bin/plymouth")
-        if os.path.exists(plymouth_bin):
-            use_splash = 'splash'
+        ##plymouth_bin = os.path.join(self.dest_dir, "usr/bin/plymouth")
+        ##if os.path.exists(plymouth_bin):
+        ##    use_splash = 'splash'
         if "swap" in self.mount_devices:
             swap_partition = self.mount_devices["swap"]
             swap_uuid = fs.get_info(swap_partition)['UUID']
-            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=%s quiet %s"' % (swap_uuid, use_splash)
+            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=%s quiet %s"' % swap_uuid
         else:
-            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="quiet %s"' % use_splash
+            kernel_cmd = 'GRUB_CMDLINE_LINUX_DEFAULT="quiet %s"' 
 
         if not os.path.exists(default_dir):
             os.mkdir(default_dir)
@@ -1408,8 +1408,8 @@ class InstallationProcess(multiprocessing.Process):
         locale = self.settings.get("locale")
         self.queue_event('info', _("Generating locales ..."))
         # cleanup and regenerate locales
-        self.chroot(['rm', '/etc/skel/locale.gen.'])
-        self.chroot(['cp', '-av', '/etc/locale.gen.bak.', '/etc/locale.gen'])
+        self.chroot(['rm', '/etc/skel/locale.gen'])
+        self.chroot(['cp', '-av', '/etc/locale.gen.bak', '/etc/locale.gen'])
         
         self.uncomment_locale_gen(locale)
 
