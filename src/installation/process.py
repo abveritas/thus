@@ -934,17 +934,20 @@ class InstallationProcess(multiprocessing.Process):
         self.install_bootloader_grub2_locales()
 
         locale = self.settings.get("locale")
-        try:
-            self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o /boot/grub/grub.cfg' % locale], 45)
-        except subprocess.TimeoutExpired:
-            logging.error(_("grub-mkconfig appears to be hung. Killing grub-mount and os-prober so we can continue."))
-            os.system("killall grub-mount")
-            os.system("killall os-prober")
+        self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o /boot/grub/grub.cfg' % locale])
+        ##try:
+        ##    self.chroot(['sh', '-c', 'LANG=%s grub-mkconfig -o /boot/grub/grub.cfg' % locale], 45)
+        ##except subprocess.TimeoutExpired:
+        ##    logging.error(_("grub-mkconfig appears to be hung. Killing grub-mount and os-prober so we can continue."))
+        ##    os.system("killall grub-mount")
+        ##    os.system("killall os-prober")
 
         self.chroot_umount_special_dirs()
-
-        cfg = os.path.join(self.dest_dir, "boot/grub/grub.cfg")
-        if "KaOS" in open(cfg).read():
+        
+        core_path = os.path.join(self.dest_dir, "boot/grub/i386-pc/core.img")
+        if os.path.exists(core_path):
+        ##cfg = os.path.join(self.dest_dir, "boot/grub/grub.cfg")
+        ##if "KaOS" in open(cfg).read():
             self.queue_event('info', _("GRUB(2) BIOS has been successfully installed."))
             self.settings.set('bootloader_ok', True)
         else:
@@ -1408,7 +1411,7 @@ class InstallationProcess(multiprocessing.Process):
         locale = self.settings.get("locale")
         self.queue_event('info', _("Generating locales ..."))
         # cleanup and regenerate locales
-        self.chroot(['rm', '/etc/skel/locale.gen'])
+        self.chroot(['rm', '/etc/locale.gen'])
         self.chroot(['cp', '-av', '/etc/locale.gen.bak', '/etc/locale.gen'])
         
         self.uncomment_locale_gen(locale)
