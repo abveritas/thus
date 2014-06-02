@@ -143,7 +143,7 @@ class Slides(Gtk.Box):
 
     def set_message(self, txt):
         """ Show information message """
-        txt = "<span color='darkgrey'>%s</span>" % txt
+        txt = "<span color='black'>%s</span>" % txt
         self.info_label.set_markup(txt)
 
     def stop_pulse(self):
