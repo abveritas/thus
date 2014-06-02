@@ -1670,6 +1670,21 @@ class InstallationProcess(multiprocessing.Process):
         if os.path.exists("%s/usr/bin/thus" % self.dest_dir):
             self.queue_event('info', _("Removing live configuration (packages)"))
             self.chroot(['pacman', '-Rns', '--noconfirm', 'thus'])
+            
+        # Remove welcome
+        if os.path.exists("%s/usr/bin/welcome" % self.dest_dir):
+            self.queue_event('info', _("Removing live ISO (packages)"))
+            self.chroot(['pacman', '-R', '--noconfirm', 'welcome'])
+            
+        # Remove hardware detection
+        if os.path.exists("%s/etc/kdeos-hwdetect.conf" % self.dest_dir):
+            self.queue_event('info', _("Removing live start-up (packages)"))
+            self.chroot(['pacman', '-R', '--noconfirm', 'kdeos-hardware-detection'])
+            
+        # Remove init-live
+        if os.path.exists("%s/etc/live" % self.dest_dir):
+            self.queue_event('info', _("Removing live configuration (packages)"))
+            self.chroot(['pacman', '-R', '--noconfirm', 'init-live'])
 
         # Remove virtualbox driver on real hardware
         #p1 = subprocess.Popen(["mhwd"], stdout=subprocess.PIPE)
@@ -1698,20 +1713,20 @@ class InstallationProcess(multiprocessing.Process):
         #self.chroot(['pacman-key', '--populate', 'archlinux', 'manjaro'])
         #self.queue_event('info', _("Finished configuring package manager."))
 
-        ##consolefh = open("%s/etc/keyboard.conf" % self.dest_dir, "r")
-        ##newconsolefh = open("%s/etc/keyboard.new" % self.dest_dir, "w")
-        ##for line in consolefh:
-        ##    line = line.rstrip("\r\n")
-        ##    if(line.startswith("XKBLAYOUT=")):
-        ##        newconsolefh.write("XKBLAYOUT=\"%s\"\n" % keyboard_layout)
-        ##    elif(line.startswith("XKBVARIANT=") and keyboard_variant != ''):
-        ##        newconsolefh.write("XKBVARIANT=\"%s\"\n" % keyboard_variant)
-        ##    else:
-        ##        newconsolefh.write("%s\n" % line)
-        ##consolefh.close()
-        ##newconsolefh.close()
-        ##self.chroot(['mv', '/etc/keyboard.conf', '/etc/keyboard.conf.old'])
-        ##self.chroot(['mv', '/etc/keyboard.new', '/etc/keyboard.conf'])
+        consolefh = open("%s/etc/keyboard.conf" % self.dest_dir, "r")
+        newconsolefh = open("%s/etc/keyboard.new" % self.dest_dir, "w")
+        for line in consolefh:
+            line = line.rstrip("\r\n")
+            if(line.startswith("XKBLAYOUT=")):
+                newconsolefh.write("XKBLAYOUT=\"%s\"\n" % keyboard_layout)
+            elif(line.startswith("XKBVARIANT=") and keyboard_variant != ''):
+                newconsolefh.write("XKBVARIANT=\"%s\"\n" % keyboard_variant)
+            else:
+                newconsolefh.write("%s\n" % line)
+        consolefh.close()
+        newconsolefh.close()
+        self.chroot(['mv', '/etc/keyboard.conf', '/etc/keyboard.conf.old'])
+        self.chroot(['mv', '/etc/keyboard.new', '/etc/keyboard.conf'])
 
         # Exit chroot system
         self.chroot_umount_special_dirs()
