@@ -1541,6 +1541,7 @@ class InstallationProcess(multiprocessing.Process):
         # Setup sddm
         if os.path.exists("/usr/bin/sddm"):
             self.desktop_manager = 'sddm'
+            self.enable_services(['sddm'])
 
         # setup lightdm
         if os.path.exists("%s/usr/bin/lightdm" % self.dest_dir):
