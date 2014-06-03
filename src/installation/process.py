@@ -1669,8 +1669,8 @@ class InstallationProcess(multiprocessing.Process):
 
         # Remove thus and depends
         if os.path.exists("%s/usr/bin/thus" % self.dest_dir):
-            self.queue_event('info', _("Removing live configuration (packages)"))
-            self.chroot(['pacman', '-R', '--noconfirm', 'thus', 'libtimezonemap', 'webkitgtk3', 'gtk3' 'atk', 'atk-spi2-atk', 'atk-spi2-core', 'pam_encfs', 'py3parted', 'python3-configobj', 'python3-gobject3'])
+            self.queue_event('info', _("Removing installer (packages)"))
+            self.chroot(['pacman', '-Rns', '--noconfirm', 'thus'])
             
         # Remove welcome
         if os.path.exists("%s/usr/bin/welcome" % self.dest_dir):
