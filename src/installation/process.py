@@ -1243,17 +1243,6 @@ class InstallationProcess(multiprocessing.Process):
                     if 'AutoLoginUser=' in line:
                         line = 'AutoLoginUser=%s\n' % username
                     kdm_conf.write(line)
-        elif self.desktop_manager == 'lxdm':
-            # Systems with LXDM as Desktop Manager
-            lxdm_conf_path = os.path.join(self.dest_dir, "etc/lxdm/lxdm.conf")
-            text = []
-            with open(lxdm_conf_path, "r") as lxdm_conf:
-                text = lxdm_conf.readlines()
-            with open(lxdm_conf_path, "w") as lxdm_conf:
-                for line in text:
-                    if '# autologin=dgod' in line:
-                        line = 'autologin=%s\n' % username
-                    lxdm_conf.write(line)
         elif self.desktop_manager == 'sddm':
             # Systems with Sddm as Desktop Manager
             sddm_conf_path = os.path.join(self.dest_dir, "etc/sddm.conf")
