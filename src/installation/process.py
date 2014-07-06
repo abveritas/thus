@@ -1230,23 +1230,6 @@ class InstallationProcess(multiprocessing.Process):
                     mdm_conf.write('[daemon]\n')
                     mdm_conf.write('AutomaticLogin=%s\n' % username)
                     mdm_conf.write('AutomaticLoginEnable=True\n')
-        elif self.desktop_manager == 'gdm':
-            # Systems with GDM as Desktop Manager
-            gdm_conf_path = os.path.join(self.dest_dir, "etc/gdm/custom.conf")
-            if os.path.exists(gdm_conf_path):
-                with open(gdm_conf_path, "r") as gdm_conf:
-                    text = gdm_conf.readlines()
-                with open(gdm_conf_path, "w") as gdm_conf:
-                    for line in text:
-                        if '[daemon]' in line:
-                            line = '[daemon]\nAutomaticLogin=%s\nAutomaticLoginEnable=True\n' % username
-                        gdm_conf.write(line)
-            else:
-                with open(gdm_conf_path, "w") as gdm_conf:
-                    gdm_conf.write('# Thus - Enable automatic login for user\n')
-                    gdm_conf.write('[daemon]\n')
-                    gdm_conf.write('AutomaticLogin=%s\n' % username)
-                    gdm_conf.write('AutomaticLoginEnable=True\n')
         elif self.desktop_manager == 'kdm':
             # Systems with KDM as Desktop Manager
             kdm_conf_path = os.path.join(self.dest_dir, "usr/share/config/kdm/kdmrc")
@@ -1271,32 +1254,6 @@ class InstallationProcess(multiprocessing.Process):
                     if '# autologin=dgod' in line:
                         line = 'autologin=%s\n' % username
                     lxdm_conf.write(line)
-        elif self.desktop_manager == 'lightdm':
-            # Systems with LightDM as Desktop Manager
-            # Ideally, we should use configparser for the ini conf file,
-            # but we just do a simple text replacement for now, as it worksforme(tm)
-            lightdm_conf_path = os.path.join(self.dest_dir, "etc/lightdm/lightdm.conf")
-            text = []
-            with open(lightdm_conf_path, "r") as lightdm_conf:
-                text = lightdm_conf.readlines()
-            with open(lightdm_conf_path, "w") as lightdm_conf:
-                for line in text:
-                    if '#autologin-user=' in line:
-                        line = 'autologin-user=%s\n' % username
-                    lightdm_conf.write(line)
-        elif self.desktop_manager == 'slim':
-            # Systems with Slim as Desktop Manager
-            slim_conf_path = os.path.join(self.dest_dir, "etc/slim.conf")
-            text = []
-            with open(slim_conf_path, "r") as slim_conf:
-                text = slim_conf.readlines()
-            with open(slim_conf_path, "w") as slim_conf:
-                for line in text:
-                    if 'auto_login' in line:
-                        line = 'auto_login yes\n'
-                    if 'default_user' in line:
-                        line = 'default_user %s\n' % username
-                    slim_conf.write(line)
         elif self.desktop_manager == 'sddm':
             # Systems with Sddm as Desktop Manager
             sddm_conf_path = os.path.join(self.dest_dir, "etc/sddm.conf")
@@ -1534,103 +1491,11 @@ class InstallationProcess(multiprocessing.Process):
         self.chroot_mount_special_dirs()
 
         self.queue_event('info', _("Configure display manager ..."))
-        # Setup slim
-        if os.path.exists("/usr/bin/slim"):
-            self.desktop_manager = 'slim'
 
         # Setup sddm
         if os.path.exists("/usr/bin/sddm"):
             self.desktop_manager = 'sddm'
             self.enable_services(['sddm'])
-
-        # setup lightdm
-        if os.path.exists("%s/usr/bin/lightdm" % self.dest_dir):
-            self.chroot(['mkdir', '-p', '/run/lightdm'])
-            self.chroot(['getent', 'group', 'lightdm'])
-            self.chroot(['groupadd', '-g', '620', 'lightdm'])
-            self.chroot(['getent', 'passwd', 'lightdm'])
-            self.chroot(['useradd', '-c', '"LightDM Display Manager"',
-                         '-u', '620', '-g', 'lightdm', '-d', '/var/run/lightdm',
-                         '-s', '/usr/bin/nologin', 'lightdm'])
-            self.chroot(['passwd', '-l', 'lightdm'])
-            self.chroot(['chown', '-R', 'lightdm:lightdm', '/run/lightdm'])
-            if os.path.exists("%s/usr/bin/startxfce4" % self.dest_dir):
-                os.system("sed -i -e 's/^.*user-session=.*/user-session=xfce/' %s/etc/lightdm/lightdm.conf" % self.dest_dir)
-                os.system("ln -s /usr/lib/lightdm/lightdm/gdmflexiserver %s/usr/bin/gdmflexiserver" % self.dest_dir)
-            os.system("chmod +r %s/etc/lightdm/lightdm.conf" % self.dest_dir)
-            self.desktop_manager = 'lightdm'
-
-        # Setup gdm
-        if os.path.exists("%s/usr/bin/gdm" % self.dest_dir):
-            self.chroot(['getent', 'group', 'gdm'])
-            self.chroot(['groupadd', '-g', '120', 'gdm'])
-            self.chroot(['getent', 'passwd', 'gdm'])
-            self.chroot(['useradd', '-c', '"Gnome Display Manager"',
-                         '-u', '120', '-g', 'gdm', '-d', '/var/lib/gdm',
-                         '-s', '/usr/bin/nologin', 'gdm'])
-            self.chroot(['passwd', '-l', 'gdm'])
-            self.chroot(['chown', '-R', 'gdm:gdm', '/var/lib/gdm'])
-            if os.path.exists("%s/var/lib/AccountsService/users" % self.dest_dir):
-                os.system("echo \"[User]\" > %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                if os.path.exists("%s/usr/bin/startxfce4" % self.dest_dir):
-                    os.system("echo \"XSession=xfce\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                if os.path.exists("%s/usr/bin/cinnamon-session" % self.dest_dir):
-                    os.system("echo \"XSession=cinnamon-session\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                if os.path.exists("%s/usr/bin/mate-session" % self.dest_dir):
-                    os.system("echo \"XSession=mate\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                if os.path.exists("%s/usr/bin/enlightenment_start" % self.dest_dir):
-                    os.system("echo \"XSession=enlightenment\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                if os.path.exists("%s/usr/bin/openbox-session" % self.dest_dir):
-                    os.system("echo \"XSession=openbox\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                if os.path.exists("%s/usr/bin/lxsession" % self.dest_dir):
-                    os.system("echo \"XSession=LXDE\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-                os.system("echo \"Icon=\" >> %s/var/lib/AccountsService/users/gdm" % self.dest_dir)
-            self.desktop_manager = 'gdm'
-
-        # Setup mdm
-        if os.path.exists("%s/usr/bin/mdm" % self.dest_dir):
-            self.chroot(['getent', 'group', 'mdm'])
-            self.chroot(['groupadd', '-g', '128', 'mdm'])
-            self.chroot(['getent', 'passwd', 'mdm'])
-            self.chroot(['useradd', '-c', '"Linux Mint Display Manager"',
-                         '-u', '128', '-g', 'mdm', '-d', '/var/lib/mdm',
-                         '-s', '/usr/bin/nologin', 'mdm'])
-            self.chroot(['passwd', '-l', 'mdm'])
-            self.chroot(['chown', 'root:mdm', '/var/lib/mdm'])
-            self.chroot(['chmod', '1770', '/var/lib/mdm'])
-            if os.path.exists("%s/usr/bin/startxfce4" % self.dest_dir):
-                os.system("sed -i 's|default.desktop|xfce.desktop|g' %s/etc/mdm/custom.conf" % self.dest_dir)
-            if os.path.exists("%s/usr/bin/cinnamon-session" % self.dest_dir):
-                os.system("sed -i 's|default.desktop|cinnamon.desktop|g' %s/etc/mdm/custom.conf" % self.dest_dir)
-            if os.path.exists("%s/usr/bin/openbox-session" % self.dest_dir):
-                os.system("sed -i 's|default.desktop|openbox.desktop|g' %s/etc/mdm/custom.conf" % self.dest_dir)
-            if os.path.exists("%s/usr/bin/mate-session" % self.dest_dir):
-                os.system("sed -i 's|default.desktop|mate.desktop|g' %s/etc/mdm/custom.conf" % self.dest_dir)
-            if os.path.exists("%s/usr/bin/lxsession" % self.dest_dir):
-                os.system("sed -i 's|default.desktop|LXDE.desktop|g' %s/etc/mdm/custom.conf" % self.dest_dir)
-            if os.path.exists("%s/usr/bin/enlightenment_start" % self.dest_dir):
-                os.system("sed -i 's|default.desktop|enlightenment.desktop|g' %s/etc/mdm/custom.conf" % self.dest_dir)
-            self.desktop_manager = 'mdm'
-
-        # Setup lxdm
-        if os.path.exists("%s/usr/bin/lxdm" % self.dest_dir):
-            self.chroot(['groupadd', '--system', 'lxdm'])
-            if os.path.exists("%s/usr/bin/startxfce4" % self.dest_dir):
-                os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/startxfce4|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            if os.path.exists("%s/usr/bin/cinnamon-session" % self.dest_dir):
-                os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/cinnamon-session|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            if os.path.exists("%s/usr/bin/mate-session" % self.dest_dir):
-                os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/mate-session|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            if os.path.exists("%s/usr/bin/enlightenment_start" % self.dest_dir):
-                os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/enlightenment_start|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            if os.path.exists("%s/usr/bin/openbox-session" % self.dest_dir):
-                os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/openbox-session|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            if os.path.exists("%s/usr/bin/lxsession" % self.dest_dir):
-                os.system("sed -i -e 's|^.*session=.*|session=/usr/bin/lxsession|' %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            os.system("chgrp -R lxdm %s/var/lib/lxdm" % self.dest_dir)
-            os.system("chgrp lxdm %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            os.system("chmod +r %s/etc/lxdm/lxdm.conf" % self.dest_dir)
-            self.desktop_manager = 'lxdm'
 
         # Setup kdm
         if os.path.exists("%s/usr/bin/kdm" % self.dest_dir):
@@ -1706,6 +1571,9 @@ class InstallationProcess(multiprocessing.Process):
         # Copy mirror list
         shutil.copy2('/etc/pacman.d/mirrorlist',
                      os.path.join(self.dest_dir, 'etc/pacman.d/mirrorlist'))
+	
+	# start porting bash jobs
+        ## self.job_setup_hardware(the needed parameters)
 
         # Copy random generated keys by pacman-init to target
         #if os.path.exists("%s/etc/pacman.d/gnupg" % self.dest_dir):
