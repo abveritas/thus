@@ -46,6 +46,10 @@ from configobj import ConfigObj
 conf_file = '/etc/thus.conf'
 configuration = ConfigObj(conf_file)
 MHWS_SCRIPT = 'mhwd.sh'
+pkg_overlay = '/opt/kdeos/pkgs/'
+KDE_L10N_PREFIX='kde-l10n'
+CALLIGRA_L10N_PREFIX='calligra-l10n'
+THEME='midna'
 
 ## BEGIN: RSYNC-based file copy support
 #CMD = 'unsquashfs -f -i -da 32 -fr 32 -d %(dest)s %(source)s'
@@ -1452,7 +1456,7 @@ class InstallationProcess(multiprocessing.Process):
             self.chroot(['pulseaudio-ctl', 'normal'])
 
         # Save settings
-        self.chroot(['alsactl', '-f', '/etc/asound.state', 'store'])
+        ##self.chroot(['alsactl', '-f', '/etc/asound.state', 'store'])
 
         # Exit chroot system
         self.chroot_umount_special_dirs()
