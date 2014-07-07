@@ -68,6 +68,14 @@ def job_configure-users(self, user):
                  os.path.join(self.dest_dir, 'home/%s/..config/autostart/xdg-user-dirs-update.desktop') % user)
   shutil.copy2('/etc/skel/katerc',
                  os.path.join(self.dest_dir, 'home/%s/.kde4/share/config/katerc') % user)
-
+  
+  msg('configure kdmrc')
+  kdmrcPath = os.path.join(self.dest_dir, "usr/share/config/kdm/kdmrc")
+  if os.path.exists(kdmrcPath):
+  os.system("sed -i -e 's~^.*Theme=/.*~Theme=/usr/share/apps/kdm/themes/midna~' %s" % kdmrcPath)
+  os.system("sed -i -e 's~^.*#AntiAliasing=.*~AntiAliasing=true~' %s" % kdmrcPath)
+  os.system("sed -i -e 's~^.*#TerminateServer=.*~TerminateServer=true~' %s" % kdmrcPath)
+  os.system("sed -i -e 's~^.*#HaltCmd=.*~HaltCmd=/sbin/poweroff~' %s" % kdmrcPath)
+  os.system("sed -i -e 's~^.*#RebootCmd=.*~RebootCmd=/sbin/reboot~' %s" % kdmrcPath)
   
   self.msg_job_done('job_configure-users')
