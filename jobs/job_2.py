@@ -8,6 +8,12 @@ def msg_job_start(self, mesg):
   print('>> STARTING JOB {}'.format(mesg))
   return
 
+def msg_job_done(self, mesg):
+  print('>> JOB {} DONE'.format(mesg))
+  print(' ')
+  print(' ')
+  return
+
 def job_configure_users(self, user):
   self.msg_job_start('job_configure-users')
 
@@ -62,3 +68,4 @@ def job_configure_users(self, user):
     os.system("sed -i -e 's~^.*#RebootCmd=.*~RebootCmd=/sbin/reboot~' %s" % kdmrcPath)
   
   self.msg_job_done('job_configure-users')
+  
