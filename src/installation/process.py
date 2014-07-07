@@ -46,10 +46,6 @@ from configobj import ConfigObj
 conf_file = '/etc/thus.conf'
 configuration = ConfigObj(conf_file)
 MHWS_SCRIPT = 'mhwd.sh'
-pkg_overlay = '/opt/kdeos/pkgs/'
-KDE_L10N_PREFIX='kde-l10n'
-CALLIGRA_L10N_PREFIX='calligra-l10n'
-THEME='midna'
 
 ## BEGIN: RSYNC-based file copy support
 #CMD = 'unsquashfs -f -i -da 32 -fr 32 -d %(dest)s %(source)s'
