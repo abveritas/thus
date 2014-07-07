@@ -30,8 +30,8 @@ def job_setup_hardware(self, mountpoint, netinst, pkg_overlay):
   files_to_copy = ['/etc/asound.state', '/etc/modprobe.d/alsa_blacklist.conf', '/etc/modprobe.d/realtek_blacklist.conf']
   for f in files_to_copy:
     if os.path.exists(f):
-    #subprocess.check_call(['cp', '-v', '-a', '-f', f, ''.join(mountpoint, f)])
-    shutil.copy2(f, os.path.join(self.dest_dir, f))
+      #subprocess.check_call(['cp', '-v', '-a', '-f', f, ''.join(mountpoint, f)])
+      shutil.copy2(f, os.path.join(self.dest_dir, f))
 
   # setup proprietary drivers, if detected
   msg('setup proprietary drivers')
