@@ -68,4 +68,3 @@ def job_configure_users(self, user):
     os.system("sed -i -e 's~^.*#RebootCmd=.*~RebootCmd=/sbin/reboot~' %s" % kdmrcPath)
   
   self.msg_job_done('job_configure-users')
-  
