@@ -22,31 +22,9 @@
 
 """ Create KaOS specific settings for users """
 
-import logging
-import multiprocessing
+from helpers import *
 import os
-import queue
 import shutil
-import subprocess
-import sys
-import time
-from configobj import ConfigObj
-
-def msg(self, mesg):
-  print(':: BACKEND {}'.format(mesg))
-  return
-
-def msg_job_start(self, mesg):
-  print(' ')
-  print(' ')
-  print('>> STARTING JOB {}'.format(mesg))
-  return
-
-def msg_job_done(self, mesg):
-  print('>> JOB {} DONE'.format(mesg))
-  print(' ')
-  print(' ')
-  return
 
 def job_configure_users(self, user):
   self.msg_job_start('job_configure-users')

@@ -22,31 +22,10 @@
 
 """ Package removal module. Live only packages, surplus language packs removal """
 
+from helpers import *
 import logging
-import multiprocessing
 import os
-import queue
 import shutil
-import subprocess
-import sys
-import time
-from configobj import ConfigObj
-
-def msg(self, mesg):
-  print(':: BACKEND {}'.format(mesg))
-  return
-
-def msg_job_start(self, mesg):
-  print(' ')
-  print(' ')
-  print('>> STARTING JOB {}'.format(mesg))
-  return
-
-def msg_job_done(self, mesg):
-  print('>> JOB {} DONE'.format(mesg))
-  print(' ')
-  print(' ')
-  return
 
 def job_remove_packages(self, kdelang, packages):
   self.msg_job_start('job_remove_packages')
