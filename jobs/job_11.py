@@ -61,24 +61,4 @@ def job_setup_hardware(self, mountpoint, netinst, pkg_overlay):
   # fixing alsa
   self.chroot(['alsactl', '-f', '/var/lib/alsa/asound.state', 'store'])
   
-  # Remove thus and depends
-  if os.path.exists("%s/usr/bin/thus" % self.dest_dir):
-      self.queue_event('info', _("Removing installer (packages)"))
-      self.chroot(['pacman', '-Rns', '--noconfirm', 'thus'])
-            
-  # Remove welcome
-  if os.path.exists("%s/usr/bin/welcome" % self.dest_dir):
-      self.queue_event('info', _("Removing live ISO (packages)"))
-      self.chroot(['pacman', '-R', '--noconfirm', 'welcome'])
-            
-  # Remove hardware detection
-  if os.path.exists("%s/etc/kdeos-hwdetect.conf" % self.dest_dir):
-      self.queue_event('info', _("Removing live start-up (packages)"))
-      self.chroot(['pacman', '-R', '--noconfirm', 'kdeos-hardware-detection'])
-            
-  # Remove init-live
-  if os.path.exists("%s/etc/live" % self.dest_dir):
-      self.queue_event('info', _("Removing live configuration (packages)"))
-      self.chroot(['pacman', '-R', '--noconfirm', 'init-live'])
-
   self.msg_job_done('job_setup_hardware')
