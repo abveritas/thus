@@ -1488,15 +1488,8 @@ class InstallationProcess(multiprocessing.Process):
 
         # Setup kdm
         if os.path.exists("%s/usr/bin/kdm" % self.dest_dir):
-            self.chroot(['getent', 'group', 'kdm'])
-            self.chroot(['groupadd', '-g', '135', 'kdm'])
-            self.chroot(['getent', 'passwd', 'kdm'])
-            self.chroot(['useradd', '-u', '135', '-g', 'kdm', '-d',
-                         '/var/lib/kdm', '-s', '/bin/false', '-r', '-M', 'kdm'])
-            self.chroot(['chown', '-R', '135:135', 'var/lib/kdm'])
-            self.chroot(['xdg-icon-resource', 'forceupdate', '--theme', 'hicolor'])
-            self.chroot(['update-desktop-database', '-q'])
             self.desktop_manager = 'kdm'
+            self.enable_services(['kdm'])
 
         self.queue_event('info', _("Configure System ..."))
 
