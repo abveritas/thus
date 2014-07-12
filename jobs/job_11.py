@@ -28,7 +28,7 @@ import os
 import shutil
 
 def job_setup_hardware(self, mountpoint, netinst, pkg_overlay):
-  self.msg_job_start('job_setup_hardware')
+  msg_job_start('job_setup_hardware')
 
   # remove any db.lck
   db_lock = os.path.join(self.dest_dir, "var/lib/pacman/db.lck")
@@ -57,8 +57,8 @@ def job_setup_hardware(self, mountpoint, netinst, pkg_overlay):
     if netinst:
       self.chroot(['pacman', '-Rdd', '--noconfirm', 'nvidia-utils', 'nvidia'])
     else:
-      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-utils-33*'.format(pkg_overlay)])
-      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-33*'.format(pkg_overlay)])
+      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-utils-34*'.format(pkg_overlay)])
+      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-34*'.format(pkg_overlay)])
   elif os.path.exists('/tmp/nvidia-304xx'):
     msg('nvidia-304xx detected')
     msg('removing unneeded packages')
@@ -74,4 +74,4 @@ def job_setup_hardware(self, mountpoint, netinst, pkg_overlay):
   # fixing alsa
   self.chroot(['alsactl', '-f', '/var/lib/alsa/asound.state', 'store'])
   
-  self.msg_job_done('job_setup_hardware')
+  msg_job_done('job_setup_hardware')

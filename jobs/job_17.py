@@ -28,7 +28,7 @@ import os
 import shutil
 
 def job_remove_packages(self, kdelang, packages):
-  self.msg_job_start('job_remove_packages')
+  msg_job_start('job_remove_packages')
   
   # Packages to be removed
   self.conflicts = []
@@ -65,4 +65,4 @@ def job_remove_packages(self, kdelang, packages):
       self.queue_event('info', _("Removing live configuration (packages)"))
       self.chroot(['pacman', '-R', '--noconfirm', 'init-live'])
 
-  self.msg_job_done('job_remove_packages')
+  msg_job_done('job_remove_packages')

@@ -27,7 +27,7 @@ import os
 import shutil
 
 def job_configure_users(self, user):
-  self.msg_job_start('job_configure-users')
+  msg_job_start('job_configure-users')
 
   msg('create common dirs')
   common_dirs = [
@@ -79,4 +79,4 @@ def job_configure_users(self, user):
     os.system("sed -i -e 's~^.*#HaltCmd=.*~HaltCmd=/sbin/poweroff~' %s" % kdmrcPath)
     os.system("sed -i -e 's~^.*#RebootCmd=.*~RebootCmd=/sbin/reboot~' %s" % kdmrcPath)
   
-  self.msg_job_done('job_configure-users')
+  msg_job_done('job_configure-users')
