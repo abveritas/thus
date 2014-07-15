@@ -43,6 +43,11 @@ import canonical.misc as misc
 
 from configobj import ConfigObj
 
+from job.job_1 import job_configure-users
+from job.job_2 import job_setup_hardware
+from job.job_3 import job_remove_packages
+from job.job_3 import job_cleanup_drivers
+
 conf_file = '/etc/thus.conf'
 configuration = ConfigObj(conf_file)
 MHWS_SCRIPT = 'mhwd.sh'
@@ -1515,24 +1520,24 @@ class InstallationProcess(multiprocessing.Process):
         self.chroot(['setcap', 'cap_net_raw=ep', '/usr/bin/ping6'])
 
         # Remove thus and depends
-        if os.path.exists("%s/usr/bin/thus" % self.dest_dir):
-            self.queue_event('info', _("Removing installer (packages)"))
-            self.chroot(['pacman', '-Rns', '--noconfirm', 'thus'])
+        #if os.path.exists("%s/usr/bin/thus" % self.dest_dir):
+        #    self.queue_event('info', _("Removing installer (packages)"))
+        #    self.chroot(['pacman', '-Rns', '--noconfirm', 'thus'])
             
         # Remove welcome
-        if os.path.exists("%s/usr/bin/welcome" % self.dest_dir):
-            self.queue_event('info', _("Removing live ISO (packages)"))
-            self.chroot(['pacman', '-R', '--noconfirm', 'welcome'])
+        #if os.path.exists("%s/usr/bin/welcome" % self.dest_dir):
+        #    self.queue_event('info', _("Removing live ISO (packages)"))
+        #    self.chroot(['pacman', '-R', '--noconfirm', 'welcome'])
             
         # Remove hardware detection
-        if os.path.exists("%s/etc/kdeos-hwdetect.conf" % self.dest_dir):
-            self.queue_event('info', _("Removing live start-up (packages)"))
-            self.chroot(['pacman', '-R', '--noconfirm', 'kdeos-hardware-detection'])
+        #if os.path.exists("%s/etc/kdeos-hwdetect.conf" % self.dest_dir):
+        #    self.queue_event('info', _("Removing live start-up (packages)"))
+        #    self.chroot(['pacman', '-R', '--noconfirm', 'kdeos-hardware-detection'])
             
         # Remove init-live
-        if os.path.exists("%s/etc/live" % self.dest_dir):
-            self.queue_event('info', _("Removing live configuration (packages)"))
-            self.chroot(['pacman', '-R', '--noconfirm', 'init-live'])
+        #if os.path.exists("%s/etc/live" % self.dest_dir):
+        #    self.queue_event('info', _("Removing live configuration (packages)"))
+        #    self.chroot(['pacman', '-R', '--noconfirm', 'init-live'])
 
         # Remove virtualbox driver on real hardware
         #p1 = subprocess.Popen(["mhwd"], stdout=subprocess.PIPE)
@@ -1554,8 +1559,11 @@ class InstallationProcess(multiprocessing.Process):
         shutil.copy2('/etc/pacman.d/mirrorlist',
                      os.path.join(self.dest_dir, 'etc/pacman.d/mirrorlist'))
 	
-	# start porting bash jobs
-        ## self.job_setup_hardware(the needed parameters)
+	# Execute the needed post-install jobs
+	job_configure_users(self, user)
+	job_setup_hardware(self, netinst, pkg_overlay)
+        job_remove_packages(self)
+        job_cleanup_drivers(self)
 
         # Copy random generated keys by pacman-init to target
         #if os.path.exists("%s/etc/pacman.d/gnupg" % self.dest_dir):
