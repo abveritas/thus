@@ -26,6 +26,8 @@ from helpers import *
 import logging
 import os
 import shutil
+import subprocess 
+import locale
 
 def job_remove_packages(self, kdelang, packages):
   msg_job_start('job_remove_packages')
@@ -64,5 +66,45 @@ def job_remove_packages(self, kdelang, packages):
   if os.path.exists("%s/etc/live" % self.dest_dir):
       self.queue_event('info', _("Removing live configuration (packages)"))
       self.chroot(['pacman', '-R', '--noconfirm', 'init-live'])
+  
+  # Remove KDE l10n 
+  thisLocale = locale.getlocale()[0]
+  listOfPkgs = []
+ 
+  p = subprocess.Popen("pacman -Q | grep -i kde-l10n | awk '{print $1}'", 
+      shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+ 
+  # Iterates over every found pkg and put each one in a list
+  for line in p.stdout.readlines():
+      s = line.decode('ascii')
+      s = s.rstrip('\n')
+      listOfPkgs.append(s)
+    
+  print (listOfPkgs)
+ 
+  # Print the pkgs that do not have the locale 'thisLocale' for future removal!
+  for pkg in listOfPkgs:
+      if pkg.find(thisLocale) == -1:
+        print (pkg)
+
+  # Remove Calligra l10n 
+  thisLocale = locale.getlocale()[0]
+  listOfPkgs = []
+ 
+  p = subprocess.Popen("pacman -Q | grep -i calligra-l10n | awk '{print $1}'", 
+      shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+ 
+  # Iterates over every found pkg and put each one in a list
+  for line in p.stdout.readlines():
+      s = line.decode('ascii')
+      s = s.rstrip('\n')
+      listOfPkgs.append(s)
+    
+  print (listOfPkgs)
+ 
+  # Print the pkgs that do not have the locale 'thisLocale' for future removal!
+  for pkg in listOfPkgs:
+      if pkg.find(thisLocale) == -1:
+        print (pkg)
 
   msg_job_done('job_remove_packages')
