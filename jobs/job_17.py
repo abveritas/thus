@@ -86,6 +86,12 @@ def job_remove_packages(self, kdelang, packages):
   for pkg in listOfPkgs:
       if pkg.find(thisLocale) == -1:
         print (pkg)
+        
+  # Remove the pkgs that do not have the locale 'thisLocale'
+  for pkg in listOfPkgs:
+      if pkg.find(thisLocale) == -1:
+	self.queue_event('info', _("Removing KDE l10n (packages)"))
+        self.chroot(['pacman', '-Rddn', '--noconfirm', 'kde-l10n-%s' % (pkg)])
 
   # Remove Calligra l10n 
   thisLocale = locale.getlocale()[0]
@@ -106,5 +112,11 @@ def job_remove_packages(self, kdelang, packages):
   for pkg in listOfPkgs:
       if pkg.find(thisLocale) == -1:
         print (pkg)
+
+  # Remove the pkgs that do not have the locale 'thisLocale'
+  for pkg in listOfPkgs:
+      if pkg.find(thisLocale) == -1:
+	self.queue_event('info', _("Removing Calligra l10n (packages)"))
+        self.chroot(['pacman', '-Rddn', '--noconfirm', 'calligra-l10n-%s' % (pkg)])
 
   msg_job_done('job_remove_packages')
