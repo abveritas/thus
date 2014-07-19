@@ -43,7 +43,7 @@ import canonical.misc as misc
 
 from configobj import ConfigObj
 
-from job.job_1 import job_configure-users
+from job.job_1 import job_configure_users
 from job.job_2 import job_setup_hardware
 from job.job_3 import job_remove_packages
 from job.job_3 import job_cleanup_drivers
