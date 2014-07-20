@@ -70,6 +70,8 @@ def job_configure_users(self):
   
   for f,  d in kaos_settings:
       shutil.copy2('/etc/skel/%s' % f,  '%s/home/%s/%s%s' % (self.dest_dir,  user,  d,  f))
+      
+  self.chroot(['chown', '-R', '%s:users' % username, "/home/%s" % username])
   
   msg('configure kdmrc')
   kdmrcPath = os.path.join(self.dest_dir, "usr/share/config/kdm/kdmrc")
