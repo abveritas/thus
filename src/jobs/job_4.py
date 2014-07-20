@@ -36,7 +36,6 @@ def job_remove_packages(self):
   self.conflicts = []
   self.running = True
   self.error = False
-  self.special_dirs_mounted = False
   self.packages = []
 
   # remove any db.lck
