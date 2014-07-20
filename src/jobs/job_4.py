@@ -90,7 +90,7 @@ def job_remove_packages(self):
   for pkg in listOfPkgs:
       if pkg.find(thisLocale) == -1:
         self.queue_event('info', _("Removing KDE l10n (packages)"))
-        self.chroot(['pacman', '-Rddn', '--noconfirm', 'kde-l10n-%s' % (pkg)])
+        self.chroot(['pacman', '-Rddn', '--noconfirm', '%s' % (pkg)])
 
   # Remove Calligra l10n 
   listOfPkgs = []
@@ -115,6 +115,6 @@ def job_remove_packages(self):
   for pkg in listOfPkgs:
       if pkg.find(thisLocale) == -1:
         self.queue_event('info', _("Removing Calligra l10n (packages)"))
-        self.chroot(['pacman', '-Rddn', '--noconfirm', 'calligra-l10n-%s' % (pkg)])
+        self.chroot(['pacman', '-Rddn', '--noconfirm', '%s' % (pkg)])
 
   msg_job_done('job_remove_packages')

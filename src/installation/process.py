@@ -1457,7 +1457,7 @@ class InstallationProcess(multiprocessing.Process):
             self.chroot(['pulseaudio-ctl', 'normal'])
 
         # Save settings
-        ##self.chroot(['alsactl', '-f', '/etc/asound.state', 'store'])
+        self.chroot(['alsactl', '-f', '/etc/asound.state', 'store'])
 
         # Exit chroot system
         self.chroot_umount_special_dirs()

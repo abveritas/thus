@@ -71,6 +71,6 @@ def job_setup_hardware(self):
     self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-304xx**'.format(self.pkg_overlay)])
 
   # fixing alsa
-  self.chroot(['alsactl', '-f', '/var/lib/alsa/asound.state', 'store'])
+  #self.chroot(['alsactl', '-f', '/var/lib/alsa/asound.state', 'store'])
   
   msg_job_done('job_setup_hardware')
