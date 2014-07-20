@@ -43,10 +43,10 @@ import canonical.misc as misc
 
 from configobj import ConfigObj
 
-from job.job_1 import job_configure_users
-from job.job_2 import job_setup_hardware
-from job.job_3 import job_remove_packages
-from job.job_3 import job_cleanup_drivers
+from jobs.job_2 import job_configure_users
+from jobs.job_3 import job_setup_hardware
+from jobs.job_4 import job_remove_packages
+from jobs.job_5 import job_cleanup_drivers
 
 conf_file = '/etc/thus.conf'
 configuration = ConfigObj(conf_file)
@@ -1558,10 +1558,10 @@ class InstallationProcess(multiprocessing.Process):
         # Copy mirror list
         shutil.copy2('/etc/pacman.d/mirrorlist',
                      os.path.join(self.dest_dir, 'etc/pacman.d/mirrorlist'))
-	
-	# Execute the needed post-install jobs
-	job_configure_users(self, user)
-	job_setup_hardware(self, netinst, pkg_overlay)
+
+        # Execute the needed post-install jobs
+        job_configure_users(self)
+        job_setup_hardware(self)
         job_remove_packages(self)
         job_cleanup_drivers(self)
 

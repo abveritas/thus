@@ -22,7 +22,7 @@
 
 """ Package removal module. Live only packages, surplus language packs removal """
 
-from helpers import *
+from jobs.helpers import *
 import logging
 import os
 import shutil
@@ -34,7 +34,6 @@ def job_remove_packages(self):
   
   # Packages to be removed
   self.conflicts = []
-  self.fs_devices = fs_devices
   self.running = True
   self.error = False
   self.special_dirs_mounted = False
@@ -90,7 +89,7 @@ def job_remove_packages(self):
   # Remove the pkgs that do not have the locale 'thisLocale'
   for pkg in listOfPkgs:
       if pkg.find(thisLocale) == -1:
-	self.queue_event('info', _("Removing KDE l10n (packages)"))
+        self.queue_event('info', _("Removing KDE l10n (packages)"))
         self.chroot(['pacman', '-Rddn', '--noconfirm', 'kde-l10n-%s' % (pkg)])
 
   # Remove Calligra l10n 
@@ -115,7 +114,7 @@ def job_remove_packages(self):
   # Remove the pkgs that do not have the locale 'thisLocale'
   for pkg in listOfPkgs:
       if pkg.find(thisLocale) == -1:
-	self.queue_event('info', _("Removing Calligra l10n (packages)"))
+        self.queue_event('info', _("Removing Calligra l10n (packages)"))
         self.chroot(['pacman', '-Rddn', '--noconfirm', 'calligra-l10n-%s' % (pkg)])
 
   msg_job_done('job_remove_packages')

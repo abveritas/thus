@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-#  job_configure-users
+#  job_configure_users
 #
 #  Copyright 2014 KaOS (http://kaosx.us)
 #
@@ -22,12 +22,13 @@
 
 """ Create KaOS specific settings for users """
 
-from helpers import *
+from jobs.helpers import *
 import os
 import shutil
 
-def job_configure_users(self, user):
-  msg_job_start('job_configure-users')
+def job_configure_users(self):
+  msg_job_start('job_configure_users')
+  user = self.settings.get('username')
 
   msg('create common dirs')
   common_dirs = [
@@ -38,14 +39,15 @@ def job_configure_users(self, user):
                      '.kde4/share/apps/konqueror', 
                      '.kde4/share/apps/homerun', 
                      '.local/share/applications', 
-                     '.kde4/share/kde4/services/searchproviders'
+                     '.kde4/share/kde4/services/searchproviders',
+                     '.config/autostart'
   ]
   for d in common_dirs:
     self.chroot(['/usr/bin/mkdir', '-p', '/home/%s/%s' % (user,  d)])
 
   msg('setup KaOS settings')
   kaos_settings = [
-                    ('kdesplashrc'                 , '.kde4/share/config/'), 
+                    ('ksplashrc'                   , '.kde4/share/config/'), 
                     ('kcminputrc'                  , '.kde4/share/config/'), 
                     ('kwinrc'                      , '.kde4/share/config/'), 
                     ('plasma-desktop-appletsrc'    , '.kde4/share/config/'), 
@@ -61,8 +63,7 @@ def job_configure_users(self, user):
                     ('kickoffrc'                   , '.kde4/share/config/'), 
                     ('.bashrc'                     , ''), 
                     ('mimeapps.list'               , '.local/share/applications/'), 
-                    ('networkmanagementrc'         , '.kde4/share/config/'), 
-                    ('duckduckgo.desktop'          , '.kde4/share/kde4/services/searchproviders/'), 
+                    ('networkmanagementrc'         , '.kde4/share/config/'),  
                     ('xdg-user-dirs-update.desktop', '.config/autostart/'), 
                     ('katerc'                      , '.kde4/share/config/')
   ]
@@ -79,4 +80,4 @@ def job_configure_users(self, user):
     os.system("sed -i -e 's~^.*#HaltCmd=.*~HaltCmd=/sbin/poweroff~' %s" % kdmrcPath)
     os.system("sed -i -e 's~^.*#RebootCmd=.*~RebootCmd=/sbin/reboot~' %s" % kdmrcPath)
   
-  msg_job_done('job_configure-users')
+  msg_job_done('job_configure_users')

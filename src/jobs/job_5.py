@@ -22,7 +22,7 @@
 
 """ Clean up unused drivers """
 
-from helpers import *
+from jobs.helpers import *
 import logging
 import os
 import shutil
@@ -33,7 +33,6 @@ def job_cleanup_drivers(self):
   
   # Drivers to be removed
   self.conflicts = []
-  self.fs_devices = fs_devices
   self.running = True
   self.error = False
   self.special_dirs_mounted = False

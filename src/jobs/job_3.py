@@ -22,13 +22,18 @@
 
 """ Setup graphics drivers and sound """
 
-from helpers import *
+from jobs.helpers import *
 import logging
 import os
 import shutil
 
-def job_setup_hardware(self, mountpoint, netinst, pkg_overlay):
+from configobj import ConfigObj
+conf_file = '/etc/thus.conf'
+configuration = ConfigObj(conf_file)
+
+def job_setup_hardware(self):
   msg_job_start('job_setup_hardware')
+  self.pkg_overlay= configuration['install']['PKG_OVERLAY']
 
   # remove any db.lck
   db_lock = os.path.join(self.dest_dir, "var/lib/pacman/db.lck")
@@ -44,7 +49,7 @@ def job_setup_hardware(self, mountpoint, netinst, pkg_overlay):
   for f in files_to_copy:
     if os.path.exists(f):
       #subprocess.check_call(['cp', '-v', '-a', '-f', f, ''.join(mountpoint, f)])
-      shutil.copy2(f, os.path.join(self.dest_dir, f))
+      shutil.copy2(f, os.path.join(self.dest_dir))
 
   # setup proprietary drivers, if detected
   msg('setup proprietary drivers')
@@ -54,22 +59,16 @@ def job_setup_hardware(self, mountpoint, netinst, pkg_overlay):
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'libgl'])
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'xf86-video-nouveau'])
     msg('installing driver')
-    if netinst:
-      self.chroot(['pacman', '-Rdd', '--noconfirm', 'nvidia-utils', 'nvidia'])
-    else:
-      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-utils-34*'.format(pkg_overlay)])
-      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-34*'.format(pkg_overlay)])
+    self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-utils-34*'.format(self.pkg_overlay)])
+    self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-34*'.format(self.pkg_overlay)])
   elif os.path.exists('/tmp/nvidia-304xx'):
     msg('nvidia-304xx detected')
     msg('removing unneeded packages')
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'libgl'])
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'xf86-video-nouveau'])
     msg('installing driver')
-    if netinst:
-      self.chroot(['pacman', '-Rdd', '--noconfirm', 'nvidia-304xx-utils', 'nvidia-304xx'])
-    else:
-      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-304xx-utils**'.format(pkg_overlay)])
-      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-304xx**'.format(pkg_overlay)])
+    self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-304xx-utils**'.format(self.pkg_overlay)])
+    self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-304xx**'.format(self.pkg_overlay)])
 
   # fixing alsa
   self.chroot(['alsactl', '-f', '/var/lib/alsa/asound.state', 'store'])
