@@ -80,8 +80,8 @@ class Language(Gtk.Box):
         self.label_choose_language.set_markup(txt)
 
         label = self.ui.get_object("welcome_label")
-        txt_bold = _("Notice: The Thus Installer is beta software.")
-        txt = _("Thus is pre-release beta software that is under active development. \n" \
+        txt_bold = _("Notice: This Installer is beta software.")
+        txt = _("It is beta software that is under active development. \n" \
         "It does not yet properly handle RAID, btrfs subvolumes, or other  \n" \
         "advanced setups. Please proceed with caution as data loss is possible! \n\n" \
         "If you find any bugs, please report them at <a href='http://kaosx.us'>http://kaosx.us</a>")

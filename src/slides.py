@@ -199,7 +199,7 @@ class Slides(Gtk.Box):
                                        "rebooting, you may want to verify whether or not GRUB(2) is installed and\n"
                                        "configured. The KaOS Tutorials contain some info to re-configure:\n"
                                        "\thttp://kaosx.us/phpBB3/viewtopic.php?f=7&t=260\n"
-                                       "\nWould you like to view the wiki page now?")
+                                       "\nWould you like to view the forum page now?")
                     response = show.question(self.boot_warn)
                     if response == Gtk.ResponseType.YES:
                         webbrowser.open('http://kaosx.us/phpBB3/viewtopic.php?f=7&t=260')

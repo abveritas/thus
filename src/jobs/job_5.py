@@ -35,7 +35,6 @@ def job_cleanup_drivers(self):
   self.conflicts = []
   self.running = True
   self.error = False
-  self.special_dirs_mounted = False
   self.packages = []
 
   # remove any db.lck
