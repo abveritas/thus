@@ -631,7 +631,7 @@ class AutoPartition(object):
 
 
         # Make sure the "root" partition is defined first!
-        self.mkfs(root_device, "ext4", "/", "KaOSRoot")
+        self.mkfs(root_device, "xfs", "/", "KaOSRoot")
         self.mkfs(swap_device, "swap", "", "KaOSSwap")
         if self.separate_boot:
             logging.debug("Boot device is " + boot_device + ", about to mkfs")
@@ -642,7 +642,7 @@ class AutoPartition(object):
             self.mkfs(efi_device, "vfat", "/boot/efi", "UEFI_SYSTEM", "-F 32")
 
         if self.home:
-            self.mkfs(home_device, "ext4", "/home", "KaOSHome")
+            self.mkfs(home_device, "xfs", "/home", "KaOSHome")
 
         # NOTE: encrypted and/or lvm2 hooks will be added to mkinitcpio.conf in installation_process.py if necessary
         # NOTE: /etc/default/grub, /etc/stab and /etc/crypttab will be modified in installation_process.py, too.

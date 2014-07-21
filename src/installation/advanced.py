@@ -916,7 +916,7 @@ class InstallationAdvanced(Gtk.Box):
 
         # use
         use_combo = self.ui.get_object('partition_use_combo')
-        use_combo.set_active(3)
+        use_combo.set_active(10)
 
         # mount combo entry
         mount_combo_entry = self.ui.get_object('combobox-entry')
