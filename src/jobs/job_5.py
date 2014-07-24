@@ -43,31 +43,39 @@ def job_cleanup_drivers(self):
       with misc.raised_privileges():
           os.remove(db_lock)
       logging.debug(_("%s deleted"), db_lock)
-
-  # Clenup input drivers 
-  thisInput = 
-  listOfPkgs = []
+      
+  # Cleanup video drivers
+  thisVideo= "pacman -Q xf86-video-intel"
+  listOfPkgsv= []
   
-  p = subprocess.Popen(" ", 
+  p = subprocess.Popen("pacman -Q | grep -i xf86-video | grep -v vesa | awk '{print $1}'", 
       shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
- 
+  
   # Iterates over every found pkg and put each one in a list
   for line in p.stdout.readlines():
       s = line.decode('ascii')
       s = s.rstrip('\n')
-      listOfPkgs.append(s)
+      listOfPkgsv.append(s)
     
-  print (listOfPkgs)
- 
-  # Print the pkgs that do not have 'thisInput' for future removal!
-  for pkg in listOfPkgs:
-      if pkg.find(thisInput) == -1:
-        print (pkg)
-        
-  # Remove the pkgs that do not have 'thisInput'
-  for pkg in listOfPkgs:
-      if pkg.find(thisInput) == -1:
-	self.queue_event('info', _("Removing input drivers (packages)"))
-        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-%s' % (pkg)])
+  print (listOfPkgsv)
+  
+  # Remove the pkgs that do not have 'thisVideo'
+  for pkg in listOfPkgsv:
+      if pkg.find(thisVideo) == -1:
+        self.queue_event('info', _("Removing video drivers (packages)"))
+        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-video-%s' % (pkg)])
+
+  # Cleanup input drivers 
+  searchfile = open("/var/log/Xorg.0.log", "r")
+  for line in searchfile:
+      if "synaptics" in line is not None: 
+        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-synaptics'])
+  searchfile.close()
+  
+  searchfile = open("/var/log/Xorg.0.log", "r")
+  for line in searchfile:
+      if "wacom" in line is not None: 
+        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-wacom'])
+  searchfile.close()
 
   msg_job_done('job_cleanup_drivers')
