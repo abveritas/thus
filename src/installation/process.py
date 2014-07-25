@@ -46,7 +46,7 @@ from configobj import ConfigObj
 from jobs.job_2 import job_configure_users
 from jobs.job_3 import job_setup_hardware
 from jobs.job_4 import job_remove_packages
-#from jobs.job_5 import job_cleanup_drivers
+from jobs.job_5 import job_cleanup_drivers
 
 conf_file = '/etc/thus.conf'
 configuration = ConfigObj(conf_file)
@@ -1563,7 +1563,7 @@ class InstallationProcess(multiprocessing.Process):
         job_configure_users(self)
         job_setup_hardware(self)
         job_remove_packages(self)
-        #job_cleanup_drivers(self)
+        job_cleanup_drivers(self)
 
         # Copy random generated keys by pacman-init to target
         #if os.path.exists("%s/etc/pacman.d/gnupg" % self.dest_dir):
