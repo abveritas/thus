@@ -75,12 +75,6 @@ def job_cleanup_drivers(self):
   if used_drivers:
     for rdriver in remove_drivers:
       self.chroot(['/usr/bin/pacman', '-Rncs', '--noconfirm', 'xf86-video-%s' % (rdriver)])
-    msg("remove any unneeded dri pkgs")
-    # tmp fix, use pacman -Rnscu $(pacman -Qdtq) somewhere at the end later
-    # grep errors out if it can't find anything > using sed instead of grep,
-    p = subprocess.Popen(['pacman', '-r', self.dest_dir, '-Qdtq', '|', 'sed', '-n', '"/dri/ p"'], stdout=subprocess.PIPE)
-    for rdri in p.stdout.read().decode().split():
-      os.chroot('/usr/bin/pacman', '-Rn', rdri, '--noconfirm')
   else:
     msg('module not found > not removing any free drivers')
     msg('output of lsmod:')
@@ -98,10 +92,6 @@ def job_cleanup_drivers(self):
   used_idrivers = p.stdout.read().decode().split()
   p = subprocess.Popen('pacman -r {} -Q | grep xf86-input | cut -d "-" -f 3 | cut -d " " -f 1 | grep -v keyboard | grep -v evdev | grep -vw mouse'.format(self.dest_dir), stdout=subprocess.PIPE)
   all_idrivers = p.stdout.read().decode().split()
-  filt = [ 'acecad', 'aiptek', 'calcomp', 'citron', 'digitaledge', 'dmc', 'dynapro', 'elo2300', 'elographics',
-            'fpit', 'hyperpen', 'jamstudio', 'joystick', 'magellan', 'magictouch', 'microtouch', 'mutouch', 'palmax',
-            'penmount', 'spaceorb', 'summa', 'evdev', 'tek4957', 'ur98', 'vmmouse', 'void']
-  all_idrivers = [ d for d in all_idrivers if d not in filter(used_idrivers, filt)]
 
   #check for synaptics/wacom driver
   p = subprocess.Popen('cat /var/log/Xorg.0.log', stdout=subprocess.PIPE)
