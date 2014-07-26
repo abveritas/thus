@@ -45,7 +45,7 @@ def job_cleanup_drivers(self):
 
   used_modules = ['lsmod', '|', 'cut', '-d', "' '", '-f1', '|', 'grep']
   drivers = [('^radeon$', 'ati'), ('^i915$', 'intel'), ('^nvidia$', 'nvidia')]
-  p = subprocess.Popen('pacman -r {} -Q | grep xf86-video | cut -d "-" -f 3 | cut -d " " -f 1' % self.dest_dir, shell=True, stdout=subprocess.PIPE)
+  p = subprocess.Popen('pacman -r {} -Q | grep xf86-video | cut -d "-" -f 3 | cut -d " " -f 1'.format(self.dest_dir), shell=True, stdout=subprocess.PIPE)
   all_drivers = p.stdout.read().decode().split()
   with open('/tmp/used_drivers', mode='w') as f:
     for e1, e2 in drivers:
@@ -91,7 +91,7 @@ def job_cleanup_drivers(self):
     remove_dri = p.stdout.read().decode().split()
     for rdri in remove_dri:
       os.chroot('/usr/bin/pacman', '-Rn', rdri, '--noconfirm')
-  else
+  else:
     msg('module not found > not removing any free drivers')
     msg('output of lsmod:')
     os.system(['lsmod', '|', 'sort'])
