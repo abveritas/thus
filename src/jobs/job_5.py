@@ -28,6 +28,25 @@ import os
 import shutil
 import subprocess 
 
+def get_used_drivers():
+  p1 = subprocess.Popen(['inxi', '-G'], stdout=subprocess.PIPE)
+  p2 = subprocess.Popen(['grep', 'drivers'], stdin=p1.stdout, stdout=subprocess.PIPE)
+  p1.stdout.close()
+  out, err = p2.communicate()
+  used_drivers = out.decode().split()
+  i = used_drivers.index('\x1b[1;34mdrivers:\x1b[0;37m')
+  used_drivers = used_drivers[i].split(',')
+  used_drivers.append('vesa')
+  return used_drivers
+
+def get_all_drivers(dest_dir):
+  p1 = subprocess.Popen(['pacman', '-r', 'dest_dir', '-Q'], stdout=subprocess.PIPE)
+  p2 = subprocess.Popen(['grep', 'xf86-video'], stdin=p1.stdout, stdout=subprocess.PIPE)
+  p1.stdout.close()
+  out, err = p2.communicate()
+  all_drivers = []
+  return [d[11:].split()[0] for d in out.decode().split() if d.find('xf86-video') == 0]
+
 def job_cleanup_drivers(self):
   msg_job_start('job_cleanup_drivers')
 
@@ -43,43 +62,15 @@ def job_cleanup_drivers(self):
       os.remove(db_lock)
     logging.debug(_("%s deleted"), db_lock)
 
-  used_modules = ['lsmod', '|', 'cut', '-d', "' '", '-f1', '|', 'grep']
-  drivers = [('^radeon$', 'ati'), ('^i915$', 'intel'), ('^nvidia$', 'nvidia')]
-  p = subprocess.Popen('pacman -r {} -Q | grep xf86-video | cut -d "-" -f 3 | cut -d " " -f 1'.format(self.dest_dir), shell=True, stdout=subprocess.PIPE)
-  all_drivers = p.stdout.read().decode().split()
-  with open('/tmp/used_drivers', mode='w') as f:
-    for e1, e2 in drivers:
-      p = subprocess.Popen(list(used_modules).append(e1), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-      if p.stdout.read():
-        f.write(e2)
-    p = subprocess.Popen(all_drivers, shell=True, stdout=subprocess.PIPE)
-    for driver in all_drivers:
-      p = subprocess.Popen(list(used_modules).append("^" + driver + "$"), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-      if p.stdout.read():
-        f.write(driver)
-  f.close()
-
-  used_drivers = []
-  with open('/tmp/used_drivers', mode='r') as f:
-    used_drivers = [line for line in f]
-  f.close()
+  used_drivers = get_used_drivers()
+  all_drivers = get_all_drivers(self.dest_dir)
 
   # display found drivers
   msg('configured driver: {}'.format(used_drivers))
   msg('installed drivers: {}'.format(all_drivers))
 
-  msg('remove used drivers and vesa from remove_drivers list')
-  with open('/tmp/remove_drivers', mode='w') as f:
-    for driver in all_drivers:
-      if driver not in used_drivers and driver != 'vesa':
-        f.write(driver)
-  f.close()
-
-  msg('cleanup drivers')
-  remove_drivers = []
-  with open('/tmp/remove_drivers', mode='r') as f:
-    remove_drivers = [line for line in f]
-  f.close()
+  msg('cleanup not used drivers')
+  remove_drivers = [d for d in all_drivers if d not in used_drivers]
 
   if used_drivers:
     for rdriver in remove_drivers:
@@ -88,8 +79,7 @@ def job_cleanup_drivers(self):
     # tmp fix, use pacman -Rnscu $(pacman -Qdtq) somewhere at the end later
     # grep errors out if it can't find anything > using sed instead of grep,
     p = subprocess.Popen(['pacman', '-r', self.dest_dir, '-Qdtq', '|', 'sed', '-n', '"/dri/ p"'], stdout=subprocess.PIPE)
-    remove_dri = p.stdout.read().decode().split()
-    for rdri in remove_dri:
+    for rdri in p.stdout.read().decode().split():
       os.chroot('/usr/bin/pacman', '-Rn', rdri, '--noconfirm')
   else:
     msg('module not found > not removing any free drivers')
