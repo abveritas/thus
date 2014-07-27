@@ -59,16 +59,16 @@ def job_setup_hardware(self):
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'libgl'])
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'xf86-video-nouveau'])
     msg('installing driver')
-    self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-utils-34*'.format(self.pkg_overlay)])
-    self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-34*'.format(self.pkg_overlay)])
+    os.system(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-utils-34*'.format(self.pkg_overlay),'-root',self.dest_dir])
+    os.system(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-34*'.format(self.pkg_overlay),'-root',self.dest_dir])
   elif os.path.exists('/tmp/nvidia-304xx'):
     msg('nvidia-304xx detected')
     msg('removing unneeded packages')
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'libgl'])
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'xf86-video-nouveau'])
     msg('installing driver')
-    self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-304xx-utils**'.format(self.pkg_overlay)])
-    self.chroot(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-304xx**'.format(self.pkg_overlay)])
+    os.system(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-304xx-utils**'.format(self.pkg_overlay),'-root',self.dest_dir])
+    os.system(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-304xx**'.format(self.pkg_overlay),'-root',self.dest_dir])
 
   # fixing alsa
   #self.chroot(['alsactl', '-f', '/var/lib/alsa/asound.state', 'store'])

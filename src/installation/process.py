@@ -1560,10 +1560,22 @@ class InstallationProcess(multiprocessing.Process):
                      os.path.join(self.dest_dir, 'etc/pacman.d/mirrorlist'))
 
         # Execute the needed post-install jobs
-        job_configure_users(self)
-        job_setup_hardware(self)
-        job_remove_packages(self)
-        job_cleanup_drivers(self)
+        try:
+            job_configure_users(self)
+        except:
+            print('job_configure_users failed!')
+        try:
+            job_setup_hardware(self)
+        except:
+            print('job_setup_hardware failed!')
+        try:
+            job_remove_packages(self)
+        except:
+            print('job_remove_packages failed!')
+        try:
+            job_cleanup_drivers(self)
+        except:
+            print('job_cleanup_drivers failed!')
 
         # Copy random generated keys by pacman-init to target
         #if os.path.exists("%s/etc/pacman.d/gnupg" % self.dest_dir):
