@@ -65,6 +65,7 @@ def job_configure_users(self):
                     ('mimeapps.list'               , '.local/share/applications/'), 
                     ('networkmanagementrc'         , '.kde4/share/config/'),  
                     ('xdg-user-dirs-update.desktop', '.config/autostart/'), 
+                    ('octopi-notifier.desktop'     , '.config/autostart/'),
                     ('katerc'                      , '.kde4/share/config/')
   ]
   
