@@ -86,7 +86,7 @@ def job_configure_users(self):
                     if '#AntiAliasing=true' in line:
                         line = 'AntiAliasing=true\n' 
                     if '#TerminateServer=false' in line:
-                        line = '#TerminateServer=true\n' 
+                        line = 'TerminateServer=true\n' 
                     if '#HaltCmd=' in line:
                         line = 'HaltCmd=/sbin/poweroff\n' 
                     if '#RebootCmd=' in line:
