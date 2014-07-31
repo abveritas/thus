@@ -35,12 +35,12 @@ def get_used_drivers():
   out, err = p2.communicate()
   used_drivers = out.decode().split()
   i = used_drivers.index('\x1b[1;34mdrivers:\x1b[0;37m')
-  used_drivers = used_drivers[i].split(',')
+   used_drivers = used_drivers[i+1].split(',')
   used_drivers.append('vesa')
   return used_drivers
 
 def get_all_drivers(dest_dir):
-  p1 = subprocess.Popen(['pacman', '-r', 'dest_dir', '-Q'], stdout=subprocess.PIPE)
+  p1 = subprocess.Popen(['pacman', '-r', dest_dir, '-Q'], stdout=subprocess.PIPE)
   p2 = subprocess.Popen(['grep', 'xf86-video'], stdin=p1.stdout, stdout=subprocess.PIPE)
   p1.stdout.close()
   out, err = p2.communicate()
@@ -88,18 +88,14 @@ def job_cleanup_drivers(self):
   ###########################################################################
   msg('cleaning up input drivers')
 
-  p = subprocess.Popen("cat /etc/X11/xorg.conf | sed -n '/Section.*.\"InputDevice\"/,/EndSection/p' | grep -v '#' | grep Driver | cut -d '\"' -f 2", stdout=subprocess.PIPE)
-  used_idrivers = p.stdout.read().decode().split()
-  p = subprocess.Popen('pacman -r {} -Q | grep xf86-input | cut -d "-" -f 3 | cut -d " " -f 1 | grep -v keyboard | grep -v evdev | grep -vw mouse'.format(self.dest_dir), stdout=subprocess.PIPE)
-  all_idrivers = p.stdout.read().decode().split()
-
-  #check for synaptics/wacom driver
-  p = subprocess.Popen('cat /var/log/Xorg.0.log', stdout=subprocess.PIPE)
-  for e in filter(p.stdout.read().decode().split(), ['synaptics', 'wacom']):
-    all_idrivers.remove(e)
-
-  for driver in all_idrivers:
-    self.chroot(['/usr/bin/pacman', '-Rncs', 'xf86-input-%s' % driver, '--noconfirm'])
+  with open("/var/log/Xorg.0.log", "r") as searchfile:
+    for line in searchfile:
+      if "synaptics" in line: 
+        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-synaptics'])
+      if "wacom" in line:
+        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-wacom'])
+  searchfile.close()  
+  msg_job_done('job_cleanup_drivers')
 
   msg('input driver removal complete')
 

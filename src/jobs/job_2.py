@@ -76,33 +76,35 @@ def job_configure_users(self):
   
   msg('configure kdmrc')
   kdm_conf_path = os.path.join(self.dest_dir, "usr/share/config/kdm/kdmrc")
-            text = []
-            with open(kdm_conf_path, "r") as kdm_conf:
-                text = kdm_conf.readlines()
-            with open(kdm_conf_path, "w") as kdm_conf:
-                for line in text:
-                    if 'Theme=/usr/share/apps/kdm/themes/elarun' in line:
-                        line = 'Theme=/usr/share/apps/kdm/themes/midna\n'
-                    if '#AntiAliasing=true' in line:
-                        line = 'AntiAliasing=true\n' 
-                    if '#TerminateServer=false' in line:
-                        line = 'TerminateServer=true\n' 
-                    if '#HaltCmd=' in line:
-                        line = 'HaltCmd=/sbin/poweroff\n' 
-                    if '#RebootCmd=' in line:
-                        line = 'RebootCmd=/sbin/reboot\n' 
-                    kdm_conf.write(line)
+  text = []
+  with open(kdm_conf_path, "r") as kdm_conf:
+    text = kdm_conf.readlines()
+  with open(kdm_conf_path, "w") as kdm_conf:
+    for line in text:
+      if 'Theme=/usr/share/apps/kdm/themes/elarun' in line:
+        line = 'Theme=/usr/share/apps/kdm/themes/midna\n'
+      if '#AntiAliasing=true' in line:
+        line = 'AntiAliasing=true\n' 
+      if '#TerminateServer=false' in line:
+        line = 'TerminateServer=true\n' 
+      if '#HaltCmd=' in line:
+        line = 'HaltCmd=/sbin/poweroff\n' 
+      if '#RebootCmd=' in line:
+        line = 'RebootCmd=/sbin/reboot\n' 
+      kdm_conf.write(line)
+  kdm_conf.close()
                     
   #sddm_conf_path = os.path.join(self.dest_dir, "etc/sddm.conf")
-  #          text = []
-  #          with open(sddm_conf_path, "r") as sddm_conf:
-  #              text = sddm_conf.readlines()
-  #          with open(sddm_conf_path, "w") as sddm_conf:
-  #              for line in text:
-  #                  if 'Current=maui' in line:
-  #                      line = 'Current=midna\n' 
-  #                  if 'CursorTheme=' in line:
-  #                      line = 'CursorTheme=breeze\n'
-  #                  sddm_conf.write(line)
+  #text = []
+  #with open(sddm_conf_path, "r") as sddm_conf:
+  #   text = sddm_conf.readlines()
+  #     with open(sddm_conf_path, "w") as sddm_conf:
+  #   for line in text:
+  #     if 'Current=maui' in line:
+  #       line = 'Current=midna\n' 
+  #     if 'CursorTheme=' in line:
+  #       line = 'CursorTheme=breeze\n'
+  #   sddm_conf.write(line)
+  #sddm_conf.close()
   
   msg_job_done('job_configure_users')
