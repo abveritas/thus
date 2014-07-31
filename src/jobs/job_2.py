@@ -92,5 +92,17 @@ def job_configure_users(self):
                     if '#RebootCmd=' in line:
                         line = 'RebootCmd=/sbin/reboot\n' 
                     kdm_conf.write(line)
+                    
+  #sddm_conf_path = os.path.join(self.dest_dir, "etc/sddm.conf")
+  #          text = []
+  #          with open(sddm_conf_path, "r") as sddm_conf:
+  #              text = sddm_conf.readlines()
+  #          with open(sddm_conf_path, "w") as sddm_conf:
+  #              for line in text:
+  #                  if 'Current=maui' in line:
+  #                      line = 'Current=midna\n' 
+  #                  if 'CursorTheme=' in line:
+  #                      line = 'CursorTheme=breeze\n'
+  #                  sddm_conf.write(line)
   
   msg_job_done('job_configure_users')
