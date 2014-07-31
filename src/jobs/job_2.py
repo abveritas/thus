@@ -72,15 +72,25 @@ def job_configure_users(self):
   for f,  d in kaos_settings:
       shutil.copy2('/etc/skel/%s' % f,  '%s/home/%s/%s%s' % (self.dest_dir,  user,  d,  f))
       
-  self.chroot(['chown', '-R', '%s:users' % username, "/home/%s" % username])
+  self.chroot(['chown', '-R', '%s:users' % user, "/home/%s" % user])
   
   msg('configure kdmrc')
-  kdmrcPath = os.path.join(self.dest_dir, "usr/share/config/kdm/kdmrc")
-  if os.path.exists(kdmrcPath):
-    os.system("sed -i -e 's~^.*Theme=/.*~Theme=/usr/share/apps/kdm/themes/midna~' %s" % kdmrcPath)
-    os.system("sed -i -e 's~^.*#AntiAliasing=.*~AntiAliasing=true~' %s" % kdmrcPath)
-    os.system("sed -i -e 's~^.*#TerminateServer=.*~TerminateServer=true~' %s" % kdmrcPath)
-    os.system("sed -i -e 's~^.*#HaltCmd=.*~HaltCmd=/sbin/poweroff~' %s" % kdmrcPath)
-    os.system("sed -i -e 's~^.*#RebootCmd=.*~RebootCmd=/sbin/reboot~' %s" % kdmrcPath)
+  kdm_conf_path = os.path.join(self.dest_dir, "usr/share/config/kdm/kdmrc")
+            text = []
+            with open(kdm_conf_path, "r") as kdm_conf:
+                text = kdm_conf.readlines()
+            with open(kdm_conf_path, "w") as kdm_conf:
+                for line in text:
+                    if 'Theme=/usr/share/apps/kdm/themes/elarun' in line:
+                        line = 'Theme=/usr/share/apps/kdm/themes/midna\n'
+                    if '#AntiAliasing=true' in line:
+                        line = 'AntiAliasing=true\n' 
+                    if '#TerminateServer=false' in line:
+                        line = '#TerminateServer=true\n' 
+                    if '#HaltCmd=' in line:
+                        line = 'HaltCmd=/sbin/poweroff\n' 
+                    if '#RebootCmd=' in line:
+                        line = 'RebootCmd=/sbin/reboot\n' 
+                    kdm_conf.write(line)
   
   msg_job_done('job_configure_users')
