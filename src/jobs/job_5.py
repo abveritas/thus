@@ -28,25 +28,6 @@ import os
 import shutil
 import subprocess 
 
-def get_used_drivers():
-  p1 = subprocess.Popen(['inxi', '-G'], stdout=subprocess.PIPE)
-  p2 = subprocess.Popen(['grep', 'drivers'], stdin=p1.stdout, stdout=subprocess.PIPE)
-  p1.stdout.close()
-  out, err = p2.communicate()
-  used_drivers = out.decode().split()
-  i = used_drivers.index('\x1b[1;34mdrivers:\x1b[0;37m')
-   used_drivers = used_drivers[i+1].split(',')
-  used_drivers.append('vesa')
-  return used_drivers
-
-def get_all_drivers(dest_dir):
-  p1 = subprocess.Popen(['pacman', '-r', dest_dir, '-Q'], stdout=subprocess.PIPE)
-  p2 = subprocess.Popen(['grep', 'xf86-video'], stdin=p1.stdout, stdout=subprocess.PIPE)
-  p1.stdout.close()
-  out, err = p2.communicate()
-  all_drivers = []
-  return [d[11:].split()[0] for d in out.decode().split() if d.find('xf86-video') == 0]
-
 def job_cleanup_drivers(self):
   msg_job_start('job_cleanup_drivers')
 
@@ -61,25 +42,22 @@ def job_cleanup_drivers(self):
     with misc.raised_privileges():
       os.remove(db_lock)
     logging.debug(_("%s deleted"), db_lock)
-
-  used_drivers = get_used_drivers()
-  all_drivers = get_all_drivers(self.dest_dir)
-
-  # display found drivers
-  msg('configured driver: {}'.format(used_drivers))
-  msg('installed drivers: {}'.format(all_drivers))
-
-  msg('cleanup not used drivers')
-  remove_drivers = [d for d in all_drivers if d not in used_drivers]
-
-  if used_drivers:
-    for rdriver in remove_drivers:
-      self.chroot(['/usr/bin/pacman', '-Rncs', '--noconfirm', 'xf86-video-%s' % (rdriver)])
-  else:
-    msg('module not found > not removing any free drivers')
-    msg('output of lsmod:')
-    os.system(['lsmod', '|', 'sort'])
-    msg('output of lsmod done')
+  
+  with open("/tmp/used_driver", "r") as searchfile:
+    for line in searchfile:
+      if "intel" in line:
+        print(line)
+      else:
+        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-video-intel'])
+      if "nouveau" in line:
+        print(line)
+      else:  
+        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-video-nouveau'])
+      if "ati" in line or "radeon" in line:
+        print(line)
+      else:  
+        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-video-ati'])
+  searchfile.close()  
 
   msg('video driver removal complete')
 
@@ -88,13 +66,19 @@ def job_cleanup_drivers(self):
   ###########################################################################
   msg('cleaning up input drivers')
 
-  with open("/var/log/Xorg.0.log", "r") as searchfile:
-    for line in searchfile:
-      if "synaptics" in line: 
-        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-synaptics'])
-      if "wacom" in line:
-        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-wacom'])
-  searchfile.close()  
+  with open("/var/log/Xorg.0.log", "r") as f:
+  has_synaptics, has_wacom = False, False
+  for line in f:
+    if not has_synaptics and "synaptics" in line:
+      has_synaptics = True
+    if not has_wacom and "wacom" in line:
+      has_wacom = True
+  if not has_synaptics:
+    self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-synaptics'])
+  if not has_wacom:
+    self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-wacom'])
+  f.close()
+  
   msg_job_done('job_cleanup_drivers')
 
   msg('input driver removal complete')
