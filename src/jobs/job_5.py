@@ -43,20 +43,29 @@ def job_cleanup_drivers(self):
       os.remove(db_lock)
     logging.debug(_("%s deleted"), db_lock)
   
-  with open("/tmp/used_driver", "r") as searchfile:
+  with open("/tmp/used_drivers", "r") as searchfile:
     for line in searchfile:
       if "intel" in line:
         print(line)
       else:
-        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-video-intel'])
+        try:
+          self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-intel'])
+        except Exception as e:
+          pass
       if "nouveau" in line:
         print(line)
-      else:  
-        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-video-nouveau'])
+      else:
+        try:
+          self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-nouveau'])
+        except Exception as e:
+          pass
       if "ati" in line or "radeon" in line:
         print(line)
-      else:  
-        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-video-ati'])
+      else:
+        try:
+          self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-ati'])
+        except Exception as e:
+          pass
   searchfile.close()  
 
   msg('video driver removal complete')
@@ -67,16 +76,22 @@ def job_cleanup_drivers(self):
   msg('cleaning up input drivers')
 
   with open("/var/log/Xorg.0.log", "r") as f:
-  has_synaptics, has_wacom = False, False
-  for line in f:
-    if not has_synaptics and "synaptics" in line:
-      has_synaptics = True
-    if not has_wacom and "wacom" in line:
-      has_wacom = True
-  if not has_synaptics:
-    self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-synaptics'])
-  if not has_wacom:
-    self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-wacom'])
+    has_synaptics, has_wacom = False, False
+    for line in f:
+      if not has_synaptics and "synaptics" in line:
+        has_synaptics = True
+      if not has_wacom and "wacom" in line:
+        has_wacom = True
+    if not has_synaptics:
+      try:
+        self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-input-synaptics'])
+      except Exception as e:
+        pass
+    if not has_wacom:
+      try:
+        self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-input-wacom'])
+      except Exception as e:
+        pass
   f.close()
   
   msg_job_done('job_cleanup_drivers')
