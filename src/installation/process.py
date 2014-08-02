@@ -440,7 +440,7 @@ class InstallationProcess(multiprocessing.Process):
                 logging.warning(_("Can't copy Thus log to %s") % dst)
             except FileExistsError:
                 pass
-	    try:
+            try:
                 shutil.copy("/tmp/installation.log", dsti)
             except FileNotFoundError:
                 logging.warning(_("Can't copy installation log to %s") % dsti)
