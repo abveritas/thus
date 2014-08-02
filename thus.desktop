@@ -2,7 +2,7 @@
 Name=Install KaOS
 GenericName=Live Installer
 Comment=Install the operating system to disk
-Exec=sudo /usr/bin/thus -dv
+Exec=sudo /usr/bin/thus -dv > /tmp/installation.log 2>&1
 Icon=/usr/share/thus/data/manjaro-icon.png
 Terminal=False
 Type=Application

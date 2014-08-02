@@ -430,15 +430,22 @@ class InstallationProcess(multiprocessing.Process):
         if all_ok is False:
             return False
         else:
-            # Last but not least, copy Thus log to new installation
+            # Last but not least, copy Thus and installation log to new installation
             datetime = time.strftime("%Y%m%d") + "-" + time.strftime("%H%M%S")
             dst = os.path.join(self.dest_dir, "var/log/thus-%s.log" % datetime)
+            dsti = os.path.join(self.dest_dir, "var/log/installation.log")
             try:
                 shutil.copy("/tmp/thus.log", dst)
             except FileNotFoundError:
                 logging.warning(_("Can't copy Thus log to %s") % dst)
             except FileExistsError:
                 pass
+	    try:
+                shutil.copy("/tmp/installation.log", dsti)
+            except FileNotFoundError:
+                logging.warning(_("Can't copy installation log to %s") % dsti)
+            except FileExistsError:
+                pass  
             # Unmount everything
             self.chroot_umount_special_dirs()
             source_dirs = {"source", "source_desktop"}
@@ -1462,25 +1469,6 @@ class InstallationProcess(multiprocessing.Process):
         # Exit chroot system
         self.chroot_umount_special_dirs()
 
-        # Install and clean-up drivers, l10n
-        #if os.path.exists("/opt/livecd/pacman-gfx.conf"):
-        #    self.queue_event('info', _("Set up graphics card ..."))
-        #    self.queue_event('pulse')
-        #    mhwd_script_path = os.path.join(self.settings.get("thus"), "scripts", MHWS_SCRIPT)
-        #    try:
-        #        subprocess.check_call(["/usr/bin/bash", mhwd_script_path])
-        #        self.queue_event('debug', "Setup graphic card done.")
-        #    except subprocess.FileNotFoundError as e:
-        #        txt = _("Can't execute the MHWD script")
-        #        logging.error(txt)
-        #        self.queue_fatal_event(txt)
-        #        return False
-        #    except subprocess.CalledProcessError as e:
-        #        txt = "CalledProcessError.output = %s" % e.output
-        #        logging.error(txt)
-        #        self.queue_fatal_event(txt)
-        #        return False
-
         # Re-enter chroot system
         self.chroot_mount_special_dirs()
 
@@ -1518,33 +1506,6 @@ class InstallationProcess(multiprocessing.Process):
         # Fix_ping_installation
         self.chroot(['setcap', 'cap_net_raw=ep', '/usr/bin/ping'])
         self.chroot(['setcap', 'cap_net_raw=ep', '/usr/bin/ping6'])
-
-        # Remove thus and depends
-        #if os.path.exists("%s/usr/bin/thus" % self.dest_dir):
-        #    self.queue_event('info', _("Removing installer (packages)"))
-        #    self.chroot(['pacman', '-Rns', '--noconfirm', 'thus'])
-            
-        # Remove welcome
-        #if os.path.exists("%s/usr/bin/welcome" % self.dest_dir):
-        #    self.queue_event('info', _("Removing live ISO (packages)"))
-        #    self.chroot(['pacman', '-R', '--noconfirm', 'welcome'])
-            
-        # Remove hardware detection
-        #if os.path.exists("%s/etc/kdeos-hwdetect.conf" % self.dest_dir):
-        #    self.queue_event('info', _("Removing live start-up (packages)"))
-        #    self.chroot(['pacman', '-R', '--noconfirm', 'kdeos-hardware-detection'])
-            
-        # Remove init-live
-        #if os.path.exists("%s/etc/live" % self.dest_dir):
-        #    self.queue_event('info', _("Removing live configuration (packages)"))
-        #    self.chroot(['pacman', '-R', '--noconfirm', 'init-live'])
-
-        # Remove virtualbox driver on real hardware
-        #p1 = subprocess.Popen(["mhwd"], stdout=subprocess.PIPE)
-        #p2 = subprocess.Popen(["grep", "0300:80ee:beef"], stdin=p1.stdout, stdout=subprocess.PIPE)
-        #num_res = p2.communicate()[0]
-        #if num_res == "0":
-        #    self.chroot(['sh', '-c', 'pacman -Rsc --noconfirm $(pacman -Qq | grep virtualbox-guest-modules)'])
 
         # Set unique machine-id
         self.chroot(['dbus-uuidgen', '--ensure=/etc/machine-id'])
@@ -1610,12 +1571,6 @@ class InstallationProcess(multiprocessing.Process):
         self.queue_event("pulse")
         self.run_mkinitcpio()
         self.queue_event('info', _("Running mkinitcpio - done"))
-
-        '''# Call post-install script to execute gsettings commands
-        script_path_postinstall = os.path.join(self.settings.get("thus"), \
-            "scripts", _postinstall_script)
-        subprocess.check_call(["/usr/bin/bash", script_path_postinstall, \
-            username, self.dest_dir, self.desktop, keyboard_layout, keyboard_variant])'''
 
         # Set autologin if selected
         # Warning: In openbox "desktop", the post-install script writes /etc/slim.conf

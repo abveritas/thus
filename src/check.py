@@ -95,7 +95,7 @@ class Check(Gtk.Box):
         self.prepare_power_source.props.label = txt
 
         self.prepare_network_connection = self.ui.get_object("prepare_network_connection")
-        txt = _("has a minimum of 1.5Gb RAM available")
+        txt = _("has a minimum of 1Gb RAM available")
         self.prepare_network_connection.props.label = txt
 
         self.prepare_best_results = self.ui.get_object("prepare_best_results")

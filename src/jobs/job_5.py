@@ -84,12 +84,12 @@ def job_cleanup_drivers(self):
         has_wacom = True
     if not has_synaptics:
       try:
-        self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-input-synaptics'])
+        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-synaptics'])
       except Exception as e:
         pass
     if not has_wacom:
       try:
-        self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-input-wacom'])
+        self.chroot(['pacman', '-Rncs', '--noconfirm', 'xf86-input-wacom'])
       except Exception as e:
         pass
   f.close()
