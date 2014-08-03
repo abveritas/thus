@@ -27,6 +27,7 @@ import logging
 import os
 import shutil
 import glob
+import subprocess
 
 def job_setup_hardware(self):
   msg_job_start('job_setup_hardware')
@@ -56,9 +57,9 @@ def job_setup_hardware(self):
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'xf86-video-nouveau'])
     msg('installing driver')
     for nvidia_utils in glob.glob('/opt/kdeos/pkgs/nvidia-utils-34*'):
-      os.system(['pacman', '-Ud', '--force', '--noconfirm', (nvidia_utils),'--root',self.dest_dir])
+      subprocess.call(['pacman', '-Ud', '--force', '--noconfirm', nvidia_utils, self.dest_dir])
     for nvidia in glob.glob('/opt/kdeos/pkgs/nvidia-34*'):
-      os.system(['pacman', '-Ud', '--force', '--noconfirm', (nvidia),'--root',self.dest_dir])
+      subprocess.call(['pacman', '-Ud', '--force', '--noconfirm', nvidia, self.dest_dir])
   elif os.path.exists('/tmp/nvidia-304xx'):
     msg('nvidia-304xx detected')
     msg('removing unneeded packages')
@@ -66,9 +67,9 @@ def job_setup_hardware(self):
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'xf86-video-nouveau'])
     msg('installing driver')
     for nvidia_304_utils in glob.glob('/opt/kdeos/pkgs/nvidia-304xx-utils*'):
-      os.system(['pacman', '-Ud', '--force', '--noconfirm', (nvidia_304_utils),'--root',self.dest_dir])
+      subprocess.call(['pacman', '-Ud', '--force', '--noconfirm', nvidia_304_utils, self.dest_dir])
     for nvidia_304 in glob.glob('/opt/kdeos/pkgs/nvidia-304xx-3*'):
-      os.system(['pacman', '-Ud', '--force', '--noconfirm', (nvidia_304),'--root',self.dest_dir])
+      subprocess.call(['pacman', '-Ud', '--force', '--noconfirm', nvidia_304, self.dest_dir])
 
   # fixing alsa
   #self.chroot(['alsactl', '-f', '/var/lib/alsa/asound.state', 'store'])
