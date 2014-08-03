@@ -26,14 +26,10 @@ from jobs.helpers import *
 import logging
 import os
 import shutil
-
-from configobj import ConfigObj
-conf_file = '/etc/thus.conf'
-configuration = ConfigObj(conf_file)
+import glob
 
 def job_setup_hardware(self):
   msg_job_start('job_setup_hardware')
-  self.pkg_overlay= configuration['install']['PKG_OVERLAY']
 
   # remove any db.lck
   db_lock = os.path.join(self.dest_dir, "var/lib/pacman/db.lck")
@@ -59,16 +55,20 @@ def job_setup_hardware(self):
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'libgl'])
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'xf86-video-nouveau'])
     msg('installing driver')
-    os.system(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-utils-34*'.format(self.pkg_overlay),'--root',self.dest_dir])
-    os.system(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-34*'.format(self.pkg_overlay),'--root',self.dest_dir])
+    for nvidia_utils in glob.glob('/opt/kdeos/pkgs/nvidia-utils-34*'):
+      os.system(['pacman', '-Ud', '--force', '--noconfirm', (nvidia_utils),'--root',self.dest_dir])
+    for nvidia in glob.glob('/opt/kdeos/pkgs/nvidia-34*'):
+      os.system(['pacman', '-Ud', '--force', '--noconfirm', (nvidia),'--root',self.dest_dir])
   elif os.path.exists('/tmp/nvidia-304xx'):
     msg('nvidia-304xx detected')
     msg('removing unneeded packages')
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'libgl'])
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'xf86-video-nouveau'])
     msg('installing driver')
-    os.system(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-304xx-utils**'.format(self.pkg_overlay),'--root',self.dest_dir])
-    os.system(['pacman', '-Ud', '--force', '--noconfirm', '{}/nvidia-304xx**'.format(self.pkg_overlay),'--root',self.dest_dir])
+    for nvidia_304_utils in glob.glob('/opt/kdeos/pkgs/nvidia-304xx-utils*'):
+      os.system(['pacman', '-Ud', '--force', '--noconfirm', (nvidia_304_utils),'--root',self.dest_dir])
+    for nvidia_304 in glob.glob('/opt/kdeos/pkgs/nvidia-304xx-3*'):
+      os.system(['pacman', '-Ud', '--force', '--noconfirm', (nvidia_304),'--root',self.dest_dir])
 
   # fixing alsa
   #self.chroot(['alsactl', '-f', '/var/lib/alsa/asound.state', 'store'])
