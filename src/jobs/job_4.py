@@ -58,7 +58,7 @@ def job_remove_packages(self):
   # Remove hardware detection
   if os.path.exists("%s/etc/kdeos-hwdetect.conf" % self.dest_dir):
       self.queue_event('info', _("Removing live start-up (packages)"))
-      self.chroot(['pacman', '-R', '--noconfirm', 'kdeos-hardware-detection'])
+      self.chroot(['pacman', '-Rns', '--noconfirm', 'kdeos-hardware-detection'])
             
   # Remove init-live
   if os.path.exists("%s/etc/live" % self.dest_dir):

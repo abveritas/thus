@@ -43,30 +43,36 @@ def job_cleanup_drivers(self):
       os.remove(db_lock)
     logging.debug(_("%s deleted"), db_lock)
   
-  with open("/tmp/used_drivers", "r") as searchfile:
-    for line in searchfile:
-      if "intel" in line:
-        print(line)
-      else:
-        try:
-          self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-intel'])
-        except Exception as e:
-          pass
-      if "nouveau" in line:
-        print(line)
-      else:
-        try:
-          self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-nouveau'])
-        except Exception as e:
-          pass
-      if "ati" in line or "radeon" in line:
-        print(line)
-      else:
-        try:
-          self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-ati'])
-        except Exception as e:
-          pass
-  searchfile.close()  
+  if os.path.exists("/tmp/used_drivers"):
+    with open("/tmp/used_drivers", "r") as searchfile:
+      for line in searchfile:
+        if "intel" in line:
+          print(line)
+        else:
+          try:
+            self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-intel', 'xf86-video-vmware'])
+          except Exception as e:
+            pass
+        if "nouveau" in line:
+          print(line)
+        else:
+          try:
+            self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-nouveau', 'xf86-video-vmware'])
+          except Exception as e:
+            pass
+        if "ati" in line or "radeon" in line:
+          print(line)
+        else:
+          try:
+            self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-ati', 'xf86-video-vmware'])
+          except Exception as e:
+            pass
+    searchfile.close()
+  else:
+    try:
+      self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-intel', 'xf86-video-ati', 'xf86-video-vmware'])
+    except Exception as e:
+      pass
 
   msg('video driver removal complete')
 

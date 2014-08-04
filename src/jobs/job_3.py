@@ -45,7 +45,6 @@ def job_setup_hardware(self):
   files_to_copy = ['/etc/asound.state', '/etc/modprobe.d/alsa_blacklist.conf', '/etc/modprobe.d/realtek_blacklist.conf']
   for f in files_to_copy:
     if os.path.exists(f):
-      #subprocess.check_call(['cp', '-v', '-a', '-f', f, ''.join(mountpoint, f)])
       shutil.copy2(f, os.path.join(self.dest_dir))
 
   # setup proprietary drivers, if detected
@@ -56,20 +55,24 @@ def job_setup_hardware(self):
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'libgl'])
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'xf86-video-nouveau'])
     msg('installing driver')
+    shutil.copytree('/opt/kdeos/pkgs', '%s/opt/kdeos/pkgs' % (self.dest_dir))
     for nvidia_utils in glob.glob('/opt/kdeos/pkgs/nvidia-utils-34*'):
-      subprocess.call(['pacman', '-Ud', '--force', '--noconfirm', nvidia_utils, self.dest_dir])
+      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', nvidia_utils])
     for nvidia in glob.glob('/opt/kdeos/pkgs/nvidia-34*'):
-      subprocess.call(['pacman', '-Ud', '--force', '--noconfirm', nvidia, self.dest_dir])
+      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', nvidia])
+    shutil.rmtree('%s/opt/kdeos' % (self.dest_dir))
   elif os.path.exists('/tmp/nvidia-304xx'):
     msg('nvidia-304xx detected')
     msg('removing unneeded packages')
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'libgl'])
     self.chroot(['pacman', '-Rdd', '--noconfirm', 'xf86-video-nouveau'])
     msg('installing driver')
+    shutil.copytree('/opt/kdeos/pkgs', '%s/opt/kdeos/pkgs' % (self.dest_dir))
     for nvidia_304_utils in glob.glob('/opt/kdeos/pkgs/nvidia-304xx-utils*'):
-      subprocess.call(['pacman', '-Ud', '--force', '--noconfirm', nvidia_304_utils, self.dest_dir])
+      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', nvidia_304_utils])
     for nvidia_304 in glob.glob('/opt/kdeos/pkgs/nvidia-304xx-3*'):
-      subprocess.call(['pacman', '-Ud', '--force', '--noconfirm', nvidia_304, self.dest_dir])
+      self.chroot(['pacman', '-Ud', '--force', '--noconfirm', nvidia_304])
+    shutil.rmtree('%s/opt/kdeos' % (self.dest_dir))
 
   # fixing alsa
   #self.chroot(['alsactl', '-f', '/var/lib/alsa/asound.state', 'store'])
