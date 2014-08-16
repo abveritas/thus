@@ -50,7 +50,7 @@ def job_cleanup_drivers(self):
           print(line)
         else:
           try:
-            self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-intel', 'xf86-video-vmware'])
+            self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-vmware'])
           except Exception as e:
             pass
         if "nouveau" in line:
@@ -70,7 +70,7 @@ def job_cleanup_drivers(self):
     searchfile.close()
   else:
     try:
-      self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-intel', 'xf86-video-ati', 'xf86-video-vmware'])
+      self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-nouveau', 'xf86-video-ati', 'xf86-video-vmware'])
     except Exception as e:
       pass
 
