@@ -70,7 +70,7 @@ def job_cleanup_drivers(self):
     searchfile.close()
   else:
     try:
-      self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-nouveau', 'xf86-video-ati', 'xf86-video-vmware'])
+      self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-ati', 'xf86-video-vmware'])
     except Exception as e:
       pass
 
