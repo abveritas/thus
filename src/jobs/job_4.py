@@ -66,8 +66,10 @@ def job_remove_packages(self):
       self.chroot(['pacman', '-R', '--noconfirm', 'init-live'])
   
   # Remove KDE l10n 
-  thisLocale = locale.getlocale()[0]
+  thisLocale = self.settings.get("language_code")[:2]
   listOfPkgs = []
+  
+  print (thisLocale)
  
   p = subprocess.Popen("pacman -Q | grep -i kde-l10n | awk '{print $1}'", 
       shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -80,14 +82,14 @@ def job_remove_packages(self):
     
   print (listOfPkgs)
  
-  # Print the pkgs that do not have the locale 'thisLocale' for future removal!
+  # Print the pkgs that do not have the locale 'thisLocal' for future removal!
   for pkg in listOfPkgs:
-      if pkg.find(thisLocale) == -1:
+      if pkg.find(thisLocal) == -1:
         print (pkg)
         
-  # Remove the pkgs that do not have the locale 'thisLocale'
+  # Remove the pkgs that do not have the locale 'thisLocal'
   for pkg in listOfPkgs:
-      if pkg.find(thisLocale) == -1:
+      if pkg.find(thisLocal) == -1:
         self.queue_event('info', _("Removing KDE l10n (packages)"))
         self.chroot(['pacman', '-Rddn', '--noconfirm', '%s' % (pkg)])
 
