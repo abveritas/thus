@@ -84,12 +84,12 @@ def job_remove_packages(self):
  
   # Print the pkgs that do not have the locale 'thisLocal' for future removal!
   for pkg in listOfPkgs:
-      if pkg.find(thisLocal) == -1:
+      if pkg.find(thisLocale) == -1:
         print (pkg)
         
   # Remove the pkgs that do not have the locale 'thisLocal'
   for pkg in listOfPkgs:
-      if pkg.find(thisLocal) == -1:
+      if pkg.find(thisLocale) == -1:
         self.queue_event('info', _("Removing KDE l10n (packages)"))
         self.chroot(['pacman', '-Rddn', '--noconfirm', '%s' % (pkg)])
 
