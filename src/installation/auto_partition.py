@@ -336,9 +336,9 @@ class AutoPartition(object):
                     # luks, home
                     fs_devices[luks_devices[1]] = "ext4"
         else:
-            fs_devices[root_device] = "ext4"
+            fs_devices[root_device] = "xfs"
             if self.home:
-                fs_devices[home_device] = "ext4"
+                fs_devices[home_device] = "xfs"
 
         for f in fs_devices:
             logging.debug("fs_devices[%s] = %s", f, fs_devices[f])

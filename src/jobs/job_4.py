@@ -82,12 +82,12 @@ def job_remove_packages(self):
     
   print (listOfPkgs)
  
-  # Print the pkgs that do not have the locale 'thisLocal' for future removal!
+  # Print the pkgs that do not have the locale 'thisLocale' for future removal!
   for pkg in listOfPkgs:
       if pkg.find(thisLocale) == -1:
         print (pkg)
         
-  # Remove the pkgs that do not have the locale 'thisLocal'
+  # Remove the pkgs that do not have the locale 'thisLocale'
   for pkg in listOfPkgs:
       if pkg.find(thisLocale) == -1:
         self.queue_event('info', _("Removing KDE l10n (packages)"))
