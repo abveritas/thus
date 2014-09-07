@@ -43,7 +43,7 @@ import canonical.misc as misc
 
 from configobj import ConfigObj
 
-from jobs.job_2 import job_configure_users
+#from jobs.job_2 import job_configure_users
 from jobs.job_3 import job_setup_hardware
 from jobs.job_4 import job_remove_packages
 from jobs.job_5 import job_cleanup_drivers
@@ -1521,10 +1521,10 @@ class InstallationProcess(multiprocessing.Process):
                      os.path.join(self.dest_dir, 'etc/pacman.d/mirrorlist'))
 
         # Execute the needed post-install jobs
-        try:
-            job_configure_users(self)
-        except:
-            print('job_configure_users failed!')
+        #try:
+        #    job_configure_users(self)
+        #except:
+        #    print('job_configure_users failed!')
         try:
             job_setup_hardware(self)
         except:
