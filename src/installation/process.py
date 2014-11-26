@@ -983,9 +983,9 @@ class InstallationProcess(multiprocessing.Process):
         self.queue_event('info', _("Installing GRUB(2) UEFI %s boot loader") % uefi_arch)
         efi_path = self.settings.get('bootloader_location')
         try:
-	    # Do not replace bootloader-id as we are using manjaro directory for UEFI TODO
+	    # Do not replace bootloader-id as we are using kaos directory for UEFI TODO
             subprocess.check_call(['grub-install --target=%s-efi --efi-directory=/install%s '
-                                   '--bootloader-id=manjaro --boot-directory=/install/boot '
+                                   '--bootloader-id=kaos --boot-directory=/install/boot '
                                    '--recheck --debug' % (uefi_arch, efi_path)], shell=True, timeout=45)
         except subprocess.CalledProcessError as err:
             logging.error('Command grub-install failed. Error output: %s' % err.output)
