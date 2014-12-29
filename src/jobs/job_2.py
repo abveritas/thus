@@ -3,7 +3,8 @@
 #
 #  job_configure_users
 #
-#  Copyright 2014 KaOS (http://kaosx.us)
+#  Copyright 2014, Anke Boersma <demm@kaosx.us>
+#  Copyright 2014, Benjamin Vaudour <benjamin.vaudour@yahoo.fr>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by

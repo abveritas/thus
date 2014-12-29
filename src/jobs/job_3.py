@@ -3,7 +3,8 @@
 #
 #  job_setup_hardware
 #
-#  Copyright 2014 KaOS (http://kaosx.us)
+#  Copyright 2014, Anke Boersma <demm@kaosx.us>
+#  Copyright 2014, Benjamin Vaudour <benjamin.vaudour@yahoo.fr>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -60,7 +61,7 @@ def job_setup_hardware(self):
       self.chroot(['pacman', '-Ud', '--force', '--noconfirm', nvidia_utils])
     for nvidia in glob.glob('/opt/kdeos/pkgs/nvidia-34*'):
       self.chroot(['pacman', '-Ud', '--force', '--noconfirm', nvidia])
-    shutil.rmtree('%s/opt/kdeos' % (self.dest_dir))
+    shutil.rmtree('%s/opt/kdeos/pkgs' % (self.dest_dir))
   elif os.path.exists('/tmp/nvidia-304xx'):
     msg('nvidia-304xx detected')
     msg('removing unneeded packages')
@@ -72,7 +73,7 @@ def job_setup_hardware(self):
       self.chroot(['pacman', '-Ud', '--force', '--noconfirm', nvidia_304_utils])
     for nvidia_304 in glob.glob('/opt/kdeos/pkgs/nvidia-304xx-3*'):
       self.chroot(['pacman', '-Ud', '--force', '--noconfirm', nvidia_304])
-    shutil.rmtree('%s/opt/kdeos' % (self.dest_dir))
+    shutil.rmtree('%s/opt/kdeos/pkgs' % (self.dest_dir))
 
   # fixing alsa
   #self.chroot(['alsactl', '-f', '/var/lib/alsa/asound.state', 'store'])

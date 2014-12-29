@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KaOS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-02 17:57-0400\n"
-"PO-Revision-Date: 2014-08-03 06:08+0000\n"
+"POT-Creation-Date: 2014-08-17 10:41-0400\n"
+"PO-Revision-Date: 2014-08-17 17:18+0000\n"
 "Last-Translator: Diego L. Velazquez <dlvelazquez@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/kaos/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -81,7 +81,7 @@ msgstr "Desmontaje de %s falló. Tratando con lazy arg."
 
 #: src/installation/auto_partition.py:119
 msgid "Can't delete existent LVM volumes (see below)"
-msgstr "No se puede eliminar volúmenes LVM existente (vea a continuación)"
+msgstr "No se pueden eliminar volúmenes LVM existentes (vea más abajo)"
 
 #: src/installation/auto_partition.py:129
 msgid "Can't close LUKS devices (see below)"
@@ -188,11 +188,11 @@ msgstr "tiene al menos %dGB de espacio disponible en disco"
 
 #: src/check.py:89
 msgid "This is the absolute minimal to install, at least 25Gb is recommended."
-msgstr "Esto es lo mínimo absoluto para instalar, al menos 25Gb es lo recomendado."
+msgstr "Esto es lo mínimo absoluto para instalar, se recomienda al menos 25Gb."
 
 #: src/check.py:94
 msgid "is plugged in to a power source"
-msgstr "Esta conectado a una fuente de energía"
+msgstr "Esta conectado a la corriente eléctrica"
 
 #: src/check.py:98
 msgid "has a minimum of 1Gb RAM available"
@@ -212,12 +212,12 @@ msgstr "Estamos conectados a la corriente eléctrica"
 
 #: src/check.py:175
 msgid "We have enough disk space."
-msgstr "Tenemos espacio en disco suficiente."
+msgstr "Tenemos espacio en disco suficiente ."
 
 #: src/installation/advanced.py:218 src/installation/advanced.py:512
 #: src/installation/advanced.py:526
 msgid "free space"
-msgstr "espacio desponible"
+msgstr "espacio disponible"
 
 #: src/installation/advanced.py:266
 msgid "It's not recommended to install grub in a partition"
@@ -411,7 +411,7 @@ msgid ""
 "%s is mounted as swap.\n"
 "To continue it has to be unmounted.\n"
 "Click Yes to unmount, or No to return\n"
-msgstr "%s está montado como swap.\nPara continuar debe ser desmontada.\nClic Si para desmontar, o No para volver\n"
+msgstr "%s está montada como swap.\nPara continuar debe ser desmontada.\nClic Si para desmontar, o No para volver\n"
 
 #: src/installation/advanced.py:1544
 #, python-format
@@ -419,18 +419,18 @@ msgid ""
 "%s is mounted in '%s'.\n"
 "To continue it has to be unmounted.\n"
 "Click Yes to unmount, or No to return\n"
-msgstr "%s está montada in '%s'.\nPara continuar debe desmontarla.\nClic Si para desmontar, o No para volver\n"
+msgstr "%s está montada en '%s'.\nPara continuar debe desmontarla.\nClic Si para desmontar, o No para volver\n"
 
 #: src/installation/advanced.py:1567
 #, python-format
 msgid "%s shows as mounted (busy) but it has no mount point"
-msgstr "%s se muestra como montada (ocupada) pero no tiene punto de montaje"
+msgstr "%s aparece como montada (ocupada) pero no tiene punto de montaje"
 
 #: src/installation/advanced.py:1573
 msgid ""
 "The root partition is not marked to be formatted.\n"
 "This might create problems. Should it be marked to be formatted now?"
-msgstr "La partición root no está marcada para ser formateada.\nEsto puede acarrear problemas. ¿Se debería marcar para ser formateada ahora?"
+msgstr "La partición root no está marcada para ser formateada.\nEsto puede acarrear problemas. ¿Se la debería marcar ahora para ser formateada?"
 
 #: src/installation/advanced.py:1636
 #, python-format
@@ -455,7 +455,7 @@ msgstr "Montar"
 
 #: src/installation/advanced.py:1664
 msgid "These disks will have partition actions:"
-msgstr "Estos discos recibirán trabajo de particiones:"
+msgstr "Se llevarán a cabo acciones en las particiones de estos discos:"
 
 #: src/installation/advanced.py:1724
 #, python-format
@@ -523,11 +523,11 @@ msgstr "No se puede crear la lista de particiones para la instalación junto a o
 
 #: src/installation/alongside.py:268
 msgid "Can't shrink the partition (maybe it's nearly full?)"
-msgstr "No se puede reducir la partición (¿puede ser que esté casi llena?)"
+msgstr "No se puede reducir la partición (¿es posible que esté casi llena?)"
 
 #: src/installation/alongside.py:356
 msgid "There are too many primary partitions, can't create a new one"
-msgstr "Hay demasiadas particiones primarias, no se puede crear una nueva"
+msgstr "Hay demasiadas particiones primarias, no se puede crear otra"
 
 #: src/installation/alongside.py:390
 #, python-format
@@ -570,7 +570,7 @@ msgstr "Encriptar esta instalación para incrementar la seguridad."
 
 #: src/installation/ask.py:126
 msgid "You will be asked for the encryption key in the next step."
-msgstr "Se le preguntará por la llave de encriptación en el próximo paso."
+msgstr "En el siguiente paso se le preguntará por la clave de encriptación."
 
 #: src/installation/ask.py:131
 msgid "Use LVM with this installation."
@@ -580,7 +580,7 @@ msgstr "Usar LVM con esta instalación."
 msgid ""
 "This will set up LVM allowing you to make snapshots and change partition "
 "sizes in a straightforward way."
-msgstr "Esto configurará LVM, que le permitirá hacer snapshots y cambios en el tamaño de la partición en forma directa."
+msgstr "Esto configurará LVM, que le permitirá hacer instantáneas y cambios en el tamaño de la partición en forma directa."
 
 #: src/installation/ask.py:140 ui/installation_ask.ui:134
 msgid "Set your Home in a different partition/volume"
@@ -685,7 +685,7 @@ msgstr "Copiando '/%s'"
 #: src/installation/process.py:175
 #, python-format
 msgid "Installing using the '%s' method"
-msgstr "Instalando usando el método '%s'"
+msgstr "Instalar usando el método '%s'"
 
 #: src/installation/process.py:252
 #, python-format
@@ -741,7 +741,7 @@ msgstr "Montando swap %s"
 #: src/installation/process.py:358
 #, python-format
 msgid "Can't mount %s"
-msgstr "No se pudo montar %s"
+msgstr "No se puede montar %s"
 
 #: src/installation/process.py:373
 #, python-format
@@ -762,7 +762,7 @@ msgstr "Sistema instalado."
 
 #: src/installation/process.py:400
 msgid "Configuring system ..."
-msgstr "Configurando sistema ..."
+msgstr "Configurando el sistema ..."
 
 #: src/installation/process.py:402
 msgid "System configured."
@@ -770,27 +770,27 @@ msgstr "Sistema configurado."
 
 #: src/installation/process.py:406
 msgid "Installing boot loader ..."
-msgstr "Instalando cargador de arranque ..."
+msgstr "Instalando el cargador de arranque ..."
 
 #: src/installation/process.py:440
 #, python-format
 msgid "Can't copy Thus log to %s"
-msgstr "No se pudo copiar el log de Thus a %s"
+msgstr "No se pudo copiar el registro de Thus a %s"
 
 #: src/installation/process.py:446
 #, python-format
 msgid "Can't copy installation log to %s"
-msgstr "No se pudo copiar el log de la instalación a %s"
+msgstr "No se pudo copiar el registro de la instalación a %s"
 
 #: src/installation/process.py:465 src/installation/process.py:484
 #: src/installation/process.py:498
 #, python-format
 msgid "Can't unmount %s"
-msgstr "No se puede montar %s"
+msgstr "No se puede desmontar %s"
 
 #: src/installation/process.py:500
 msgid "Installation finished successfully."
-msgstr "La instalación finalizó satisfactoriamente."
+msgstr "La instalación finalizó correctamente."
 
 #: src/installation/process.py:536
 msgid "Base filesystem does not exist! Critical error (exiting)."
@@ -820,7 +820,7 @@ msgstr "Directorios especiales aún montados."
 
 #: src/installation/process.py:647
 msgid "Special dirs are not mounted. Skipping."
-msgstr "Directorios especiales no montados. Pasando."
+msgstr "Los directorios especiales no están montados. Pasando."
 
 #: src/installation/process.py:664 src/installation/process.py:670
 #, python-format
@@ -887,7 +887,7 @@ msgstr "Instalando el cargador de arranque GRUB(2) UEFI %s"
 
 #: src/installation/process.py:997
 msgid "Installing Grub2 locales."
-msgstr "Instalando los Grub2 locales."
+msgstr "Instalando los locales de GRUB2."
 
 #: src/installation/process.py:1010
 #, python-format
@@ -914,7 +914,7 @@ msgstr "Generando grub.cfg"
 msgid ""
 "grub-mkconfig appears to be hung. Killing grub-mount and os-prober so we can"
 " continue."
-msgstr "grub-mkconfig parece estar bloqueado. Matando grub-mount y os-prober para que podamos continuar."
+msgstr "grub-mkconfig parece estar bloqueado. Matando grub-mount y os-prober para que poder continuar."
 
 #: src/installation/process.py:1052
 msgid "GRUB(2) UEFI has been successfully installed."
@@ -926,7 +926,7 @@ msgstr "ERROR al instalar GRUB(2) UEFI."
 
 #: src/installation/process.py:1070
 msgid "ERROR installing GRUB(2) locale."
-msgstr "ERROR al instalar GRUB(2) locale"
+msgstr "ERROR al instalar locale de GRUB(2)"
 
 #: src/installation/process.py:1104
 msgid "Can't freeze/unfreeze xfs system"
@@ -962,7 +962,7 @@ msgstr "Configurando su nuevo sistema"
 
 #: src/installation/process.py:1281
 msgid "fstab file generated."
-msgstr "El archivo fstab se ha generado."
+msgstr "Se generó el archivo fstab."
 
 #: src/installation/process.py:1287
 msgid "Network configuration copied."
@@ -975,12 +975,12 @@ msgstr "Ajuste de la zona horaria."
 #: src/installation/process.py:1334
 #, python-format
 msgid "Sudo configuration for user %s done."
-msgstr "Sudo para el usuario %s configurado."
+msgstr "Se configuró Sudo para el usuario %s."
 
 #: src/installation/process.py:1344
 #, python-format
 msgid "User %s added."
-msgstr "Añadido usuario %s."
+msgstr "Se añadió el usuario %s."
 
 #: src/installation/process.py:1356
 #, python-format
@@ -1070,8 +1070,8 @@ msgid ""
 "It does not yet properly handle RAID, btrfs subvolumes, or other  \n"
 "advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
-"If you find any bugs, please report them at <a href='http://kaosx.us'>http://kaosx.us</a>"
-msgstr "Es software en fase beta que está en bajo un desarrollo activo.\nTodavía no maneja apropiadamente RAID, subvolúmenes btrfs, u otros\najustes avanzados. ¡Por favor proceda con precaución ya que es posible perder datos!\nSi encuentra cualquier error, por favor repórtelo en <a href='http://kaosx.us'>http://kaosx.us</a>"
+"If you find any bugs, please report them at <a href='https://github.com/KaOSx/thus/issues'>installer issues</a>"
+msgstr "Es software en fase beta que está bajo constante desarrollo.\nTodavía no maneja en forma apropiada RAID, subvolúmenes btrfs, u otros \najustes avanzados. ¡Por favor proceda con precaución ya que es posible perder datos!\n\nSi encuentra algún error, por favor repórtelo en <a href='https://github.com/KaOSx/thus/issues'>problemas del instalador</a>"
 
 #: src/language.py:91
 msgid "Welcome to KaOS!"
@@ -1099,7 +1099,7 @@ msgstr "La ubicación seleccionada se usará para ayudarle a elegir sistema de l
 
 #: src/location.py:73
 msgid "Country, territory or area:"
-msgstr "País, territorio o área."
+msgstr "País, territorio o área:"
 
 #: src/parted3/fs_module.py:148
 #, python-format
@@ -1114,17 +1114,17 @@ msgstr "Lo sentimos pero el sistema de archivos %s no se puede redimensionar."
 #: src/parted3/lvm.py:75
 #, python-format
 msgid "Can't remove logical volume %s"
-msgstr "No se puede remover el volumen lógico %s"
+msgstr "No se puede quitar el volumen lógico %s"
 
 #: src/parted3/lvm.py:93
 #, python-format
 msgid "Can't remove volume group %s"
-msgstr "No se puede remover el grupo de volumen %s"
+msgstr "No se puede quitar el grupo de volumen %s"
 
 #: src/parted3/lvm.py:105
 #, python-format
 msgid "Can't remove physical volume %s"
-msgstr "No se puede remover el volumen físico %s"
+msgstr "No se puede quitar el volumen físico %s"
 
 #: src/parted3/partition_module.py:106
 #, python-format
@@ -1141,7 +1141,7 @@ msgstr "Etiqueta de disco no reconocida en dispositivo %s"
 msgid ""
 "Exception: %s.\n"
 "For more information take a look at /tmp/thus.log"
-msgstr "Excepción: %s.\nPara mas información dele una mirada a /tmp/thus.log"
+msgstr "Excepción: %s.\nPara mas información dele un vistazo a /tmp/thus.log"
 
 #: src/parted3/partition_module.py:179
 #, python-format
@@ -1380,7 +1380,7 @@ msgstr "No se preocupe, para la mayoría de los propósitos esta deficiencia no 
 msgid ""
 "Anyway, one popular and inadvisable application of eCryptfs is to encrypt a BitTorrent download location as this often requires eCryptfs to handle sparse files of 10 GB or more and may lead to intense disk starvation.\n"
 "\n"
-msgstr "De todos modos, una popular e inconveniente aplicación de eCryptfs es encriptar una descarga de BitTorrent, ya que a menudo requiere a eCryptfs para manejar archivos dispersos de 10 GB o más y puede dar lugar a una intensa voracidad de disco.\n\n"
+msgstr "De todos modos, una popular y desaconsejable aplicación de eCryptfs es encriptar una descarga de BitTorrent, ya que a menudo requiere a eCryptfs para manejar archivos dispersos de 10 GB o más y puede dar lugar a una intensa voracidad de espacio en disco.\n\n"
 
 #: src/user_info.py:255
 msgid ""
@@ -1539,7 +1539,7 @@ msgstr "Usar LVM con la nueva instalación de KaOS"
 msgid ""
 "<span weight=\"light\" size=\"small\">This will set up LVM allowing you to "
 "make snapshots and change partition sizes in a straightforward way</span>"
-msgstr "<span weight=\"light\" size=\"small\">Esto configurará LVM permitiéndole tomar snapshots y cambiar el tamaño de las particiones en una forma mas directa</span>"
+msgstr "<span weight=\"light\" size=\"small\">Esto configurará LVM permitiéndole tomar instantáneas y cambiar el tamaño de las particiones en una forma mas directa</span>"
 
 #: ui/installation_ask.ui:155
 msgid ""
@@ -1585,8 +1585,8 @@ msgid ""
 "\n"
 "It is beta software that is under active development. It does not yet properly handle RAID, btrfs subvolumes, or other advanced setups. Please proceed with caution as data loss is possible! \n"
 "\n"
-"If you find any bug, please, visit <a href='http://kaosx.us'>http://kaosx.us</a>"
-msgstr "<span weight='bold'>Nota: Este instalador es software en fase beta.</span>\n\nEs software en fase beta que está bajo un activo desarrollo. Todavía no maneja en forma adecuada RAID, subvolúimenes btrfs u otros ajustes avanzados. Por favor proceda con precaución ya que puede perder datos\n\nSi encuentra algún error, por favor visite  <a href='http://kaosx.us'>http://kaosx.us</a>"
+"If you find any bug, please, visit <a href='https://github.com/KaOSx/thus/issues'>installer issues</a>"
+msgstr "<span weight='bold'>Nota: Este instalador es software beta.</span>\n\nEs software en fase beta que está bajo constante desarrollo. Todavía no maneja en forma apropiada RAID, subvolúmenes btrfs, u otros ajustes avanzados. ¡Por favor proceda con precaución ya que es posible perder datos! \n\nSi encuentra algún error, por favor repórtelo en <a href='https://github.com/KaOSx/thus/issues'>problemas del instalador</a>"
 
 #: ui/thus.ui:37
 msgid "<span weight=\"bold\" size=\"large\">Welcome to KaOS</span>"

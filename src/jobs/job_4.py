@@ -3,7 +3,8 @@
 #
 #  job_remove_packages
 #
-#  Copyright 2014 KaOS (http://kaosx.us)
+#  Copyright 2014, Anke Boersma <demm@kaosx.us>
+#  Copyright 2014, Benjamin Vaudour <benjamin.vaudour@yahoo.fr>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -66,8 +67,10 @@ def job_remove_packages(self):
       self.chroot(['pacman', '-R', '--noconfirm', 'init-live'])
   
   # Remove KDE l10n 
-  thisLocale = locale.getlocale()[0]
+  thisLocale = self.settings.get("language_code")[:2]
   listOfPkgs = []
+  
+  print (thisLocale)
  
   p = subprocess.Popen("pacman -Q | grep -i kde-l10n | awk '{print $1}'", 
       shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -82,12 +85,12 @@ def job_remove_packages(self):
  
   # Print the pkgs that do not have the locale 'thisLocale' for future removal!
   for pkg in listOfPkgs:
-      if pkg.find(thisLocale) == -1:
+      if pkg[9:] != thisLocale:
         print (pkg)
         
   # Remove the pkgs that do not have the locale 'thisLocale'
   for pkg in listOfPkgs:
-      if pkg.find(thisLocale) == -1:
+      if pkg[9:] != thisLocale:
         self.queue_event('info', _("Removing KDE l10n (packages)"))
         self.chroot(['pacman', '-Rddn', '--noconfirm', '%s' % (pkg)])
 
@@ -107,12 +110,12 @@ def job_remove_packages(self):
  
   # Print the pkgs that do not have the locale 'thisLocale' for future removal!
   for pkg in listOfPkgs:
-      if pkg.find(thisLocale) == -1:
+      if pkg[14:] != thisLocale:
         print (pkg)
 
   # Remove the pkgs that do not have the locale 'thisLocale'
   for pkg in listOfPkgs:
-      if pkg.find(thisLocale) == -1:
+      if pkg[14:] != thisLocale:
         self.queue_event('info', _("Removing Calligra l10n (packages)"))
         self.chroot(['pacman', '-Rddn', '--noconfirm', '%s' % (pkg)])
 

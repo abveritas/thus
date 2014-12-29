@@ -43,7 +43,7 @@ import canonical.misc as misc
 
 from configobj import ConfigObj
 
-from jobs.job_2 import job_configure_users
+#from jobs.job_2 import job_configure_users
 from jobs.job_3 import job_setup_hardware
 from jobs.job_4 import job_remove_packages
 from jobs.job_5 import job_cleanup_drivers
@@ -983,9 +983,9 @@ class InstallationProcess(multiprocessing.Process):
         self.queue_event('info', _("Installing GRUB(2) UEFI %s boot loader") % uefi_arch)
         efi_path = self.settings.get('bootloader_location')
         try:
-	    # Do not replace bootloader-id as we are using manjaro directory for UEFI TODO
+	    # Do not replace bootloader-id as we are using kaos directory for UEFI TODO
             subprocess.check_call(['grub-install --target=%s-efi --efi-directory=/install%s '
-                                   '--bootloader-id=manjaro --boot-directory=/install/boot '
+                                   '--bootloader-id=kaos --boot-directory=/install/boot '
                                    '--recheck --debug' % (uefi_arch, efi_path)], shell=True, timeout=45)
         except subprocess.CalledProcessError as err:
             logging.error('Command grub-install failed. Error output: %s' % err.output)
@@ -1521,10 +1521,10 @@ class InstallationProcess(multiprocessing.Process):
                      os.path.join(self.dest_dir, 'etc/pacman.d/mirrorlist'))
 
         # Execute the needed post-install jobs
-        try:
-            job_configure_users(self)
-        except:
-            print('job_configure_users failed!')
+        #try:
+        #    job_configure_users(self)
+        #except:
+        #    print('job_configure_users failed!')
         try:
             job_setup_hardware(self)
         except:

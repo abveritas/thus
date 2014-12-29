@@ -3,7 +3,8 @@
 #
 #  job_cleanup_drivers
 #
-#  Copyright 2014 KaOS (http://kaosx.us)
+#  Copyright 2014, Anke Boersma <demm@kaosx.us>
+#  Copyright 2014, Benjamin Vaudour <benjamin.vaudour@yahoo.fr>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -50,7 +51,7 @@ def job_cleanup_drivers(self):
           print(line)
         else:
           try:
-            self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-intel', 'xf86-video-vmware'])
+            self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-vmware'])
           except Exception as e:
             pass
         if "nouveau" in line:
@@ -70,7 +71,7 @@ def job_cleanup_drivers(self):
     searchfile.close()
   else:
     try:
-      self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-intel', 'xf86-video-ati', 'xf86-video-vmware'])
+      self.chroot(['pacman', '-Rns', '--noconfirm', 'xf86-video-ati', 'xf86-video-vmware'])
     except Exception as e:
       pass
 
